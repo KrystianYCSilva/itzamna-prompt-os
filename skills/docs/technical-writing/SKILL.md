@@ -129,155 +129,116 @@ Start with conclusion/answer
 - Start the server
 ```
 
-### 4. Documentation Types
+### 4. Documentation Types and Templates
 
-**API Documentation:**
-````markdown
-## POST /api/users
+**API Documentation Pattern:**
+```markdown
+## Endpoint Name
 
-Creates a new user account.
+Brief description of what this endpoint does.
 
 ### Request
+- Method: GET/POST/PUT/DELETE
+- URL: /api/v1/resource
+- Auth required: Yes/No
 
-**Endpoint:** `POST https://api.example.com/v1/users`
+### Parameters
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
 
-**Headers:**
-- `Content-Type: application/json`
-- `Authorization: Bearer {token}`
+### Example Request
+[Code block]
 
-**Body Parameters:**
+### Response
+[Success and error examples]
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `username` | string | Yes | Unique username (3-20 chars) |
-| `email` | string | Yes | Valid email address |
-| `password` | string | Yes | Minimum 8 characters |
-
-**Example Request:**
-```json
-{
-  "username": "johndoe",
-  "email": "john@example.com",
-  "password": "SecurePass123"
-}
+### Error Codes
+[List of possible errors]
 ```
 
-**Response:**
-
-**Success (201 Created):**
-```json
-{
-  "id": 12345,
-  "username": "johndoe",
-  "email": "john@example.com",
-  "createdAt": "2026-02-02T10:00:00Z"
-}
-```
-
-**Errors:**
-- `400 Bad Request`: Invalid input data
-- `409 Conflict`: Username or email already exists
-- `401 Unauthorized`: Invalid or missing token
-```
-
-**Tutorial/How-To:**
+**Tutorial Pattern:**
 ```markdown
-# How to Deploy a Docker Container to AWS
+# Title: Action-Oriented (How to X, Building Y, Creating Z)
 
-Learn how to deploy a containerized application to AWS ECS in 10 minutes.
+## What You'll Build
+[Brief description with screenshot/diagram]
 
 ## Prerequisites
+- Requirement 1
+- Requirement 2
 
-Before starting, ensure you have:
-- Docker installed locally
-- AWS CLI configured with credentials
-- An AWS account with ECS permissions
+## Step 1: [Action Verb]
+[Explanation]
+[Code/Screenshot]
+[Verification step]
 
-## Step 1: Build Your Docker Image
-
-First, create a Dockerfile in your project root:
-
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3000
-CMD ["npm", "start"]
-```
-
-Build the image:
-```bash
-docker build -t my-app:latest .
-```
-
-## Step 2: Push to Amazon ECR
-
-[Continue with clear, sequential steps...]
+## Step 2: [Action Verb]
+...
 
 ## Troubleshooting
+[Common issues]
 
-**Problem:** "Permission denied" error when pushing to ECR
-
-**Solution:** Ensure your AWS credentials have `ecr:PutImage` permission...
-````
+## Next Steps
+[Where to go from here]
+```
 
 ### 5. Visual Communication
 
-**When to Use Visuals:**
+**When to Use Diagrams:**
 ```
-Diagrams:
-- System architecture
-- Data flow
-- Process workflows
-- Relationships
-
-Screenshots:
-- UI walkthroughs
-- Configuration steps
-- Result verification
-
-Code Examples:
-- API usage
-- Configuration files
-- Common patterns
-
-Tables:
-- Parameter references
-- Comparison matrices
-- Status codes
+Architecture Diagrams → System components and relationships
+Flowcharts → Decision trees and processes
+Sequence Diagrams → Interaction between systems
+Entity Relationships → Database schemas
+Mind Maps → Concept relationships
 ```
 
-**Diagram Example (Mermaid):**
-````markdown
-```mermaid
-sequenceDiagram
-    participant User
-    participant Frontend
-    participant API
-    participant Database
-    
-    User->>Frontend: Fill login form
-    Frontend->>API: POST /auth/login
-    API->>Database: Verify credentials
-    Database-->>API: User data
-    API-->>Frontend: JWT token
-    Frontend-->>User: Redirect to dashboard
+**Screenshot Guidelines:**
 ```
-````
+DO:
+✅ Annotate with arrows/highlights
+✅ Crop to relevant area
+✅ Use consistent resolution
+✅ Include alt text
+
+DON'T:
+❌ Show entire screen with tiny relevant area
+❌ Use different themes/styles
+❌ Include sensitive data
+❌ Forget to update when UI changes
+```
 
 ## Best Practices
 
-1. **Front-load important information:** Lead with the answer, then provide details
-2. **Use consistent terminology:** Pick one term and stick with it (avoid "user" then "customer" then "client")
-3. **Write scannable content:** Use headings, bullets, bold text, and short paragraphs
+1. **Front-load important information:** Lead with the answer, then provide supporting details
+2. **Use consistent terminology:** Pick one term per concept and use it throughout (avoid synonyms)
+3. **Write scannable content:** Use headings, bullets, bold text, short paragraphs, and white space
 4. **Provide context early:** Explain what, why, and who-for in the introduction
-5. **Include examples for everything:** Show concrete usage, not just abstract concepts
+5. **Include examples for everything:** Show concrete usage alongside abstract explanations
 6. **Test your documentation:** Have someone follow your instructions before publishing
-7. **Keep it up to date:** Mark deprecated features, update for new versions
-8. **Use templates:** Standardize structure across similar documents
+7. **Keep it up to date:** Version docs, mark deprecated features, update screenshots
+8. **Use templates:** Standardize structure across similar document types
+9. **Write in second person:** "You can configure..." feels more direct than "Users can configure..."
+10. **Link generously:** Cross-reference related docs, external resources, and definitions
 
 ## Common Pitfalls
 
-- ❌ **Assuming knowledge:** "Simply configure the API" → Explain HO
+- ❌ **Assuming knowledge:** "Simply configure the API" → Explain HOW to configure, what settings exist
+- ❌ **Vague instructions:** "Set up the server" → Provide specific commands and expected output
+- ❌ **Jargon overload:** Using undefined acronyms → Define on first use or link to glossary
+- ❌ **Missing examples:** Only abstract descriptions → Always include concrete code/configuration examples
+- ❌ **No verification steps:** Can't tell if it worked → Add "You should see..." or "Verify by..."
+- ❌ **Outdated screenshots:** Shows old UI → Include version number, review regularly
+- ❌ **Wall of text:** Dense paragraphs → Break into sections, use bullets, add visuals
+- ❌ **Burying the lede:** Important info at bottom → Put key information first
+
+## Related Skills
+
+- [markdown](../../markup/markdown) - Format for writing documentation
+- rest-api - Documenting API endpoints
+- uml - Creating technical diagrams
+- accessibility - Making docs accessible to all users
+
+## Examples
+
+📚 **Detailed implementations:** → View [technical-writing-examples](examples/technical-writing-examples.md)
