@@ -1,25 +1,27 @@
 ---
 name: "css-grid-layout-avancado"
-description: "[DESCRICAO: Resumo de 1-2 linhas sobre o que esta skill ensina]"
+description: "Skill para criar layouts complexos e responsivos usando CSS Grid, incluindo grid areas, auto-fit/auto-fill, e tecnicas avancadas de alinhamento."
 version: "1.0.0"
 domain: "frontend"
 level: "L2"
 tags:
   - "frontend"
-  - "[TAG_ADICIONAL_1]"
-  - "[TAG_ADICIONAL_2]"
+  - "css"
+  - "layout"
+  - "responsive"
 triggers:
   - "css grid layout avancado"
-  - "[TRIGGER_2: Quando ativar esta skill]"
-  - "[TRIGGER_3: Outro contexto de ativacao]"
+  - "criar layout com grid"
+  - "grid areas css"
+  - "layout responsivo sem media queries"
 dependencies: []
 author: "promptos-brain"
 created: "2026-02-02"
-status: "draft"
+status: "approved"
 sources:
-  - url: "[URL_DOCUMENTACAO_OFICIAL]"
+  - url: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
     type: "official_docs"
-  - url: "[URL_TUTORIAL_OU_ARTIGO]"
+  - url: "https://css-tricks.com/snippets/css/complete-guide-grid/"
     type: "tutorial"
 ---
 
@@ -27,12 +29,16 @@ sources:
 
 ## Visao Geral
 
-[VISAO_GERAL: Descreva em 2-3 paragrafos o proposito desta skill, quando ela deve ser usada, e qual problema ela resolve. Seja especifico sobre CSS Grid Layout avancado.]
+Esta skill fornece diretrizes para implementar layouts complexos usando CSS Grid, o sistema de layout bidimensional mais poderoso do CSS. Diferente do Flexbox (unidimensional), o Grid permite controlar linhas e colunas simultaneamente.
+
+Use esta skill quando precisar criar layouts de pagina completos, dashboards, galerias de imagens, ou qualquer interface que requeira alinhamento preciso em duas dimensoes. O Grid e especialmente util para layouts que precisam ser responsivos sem depender excessivamente de media queries.
+
+O problema que esta skill resolve e a complexidade de criar layouts modernos que se adaptam a diferentes tamanhos de tela mantendo a semantica do HTML limpa e evitando hacks de posicionamento.
 
 **Contexto de Uso:**
-- [CONTEXTO_1: Quando usar esta skill]
-- [CONTEXTO_2: Cenario tipico de aplicacao]
-- [CONTEXTO_3: Tipo de projeto ou tarefa]
+- Criar layouts de pagina com header, sidebar, main e footer
+- Implementar galerias de cards com tamanhos variaveis
+- Construir dashboards com widgets de diferentes dimensoes
 
 ---
 
@@ -41,63 +47,123 @@ sources:
 ### Ao receber uma tarefa relacionada a CSS Grid Layout avancado:
 
 1. **Analise** o contexto e requisitos especificos
-2. **Verifique** [O_QUE_VERIFICAR_ANTES_DE_COMECAR]
+2. **Verifique** se o layout realmente precisa de Grid (layouts simples podem usar Flexbox)
 3. **Aplique** os padroes documentados nas Guidelines abaixo
-4. **Valide** [COMO_VALIDAR_O_RESULTADO]
-5. **Documente** [O_QUE_DOCUMENTAR_APOS_CONCLUSAO]
+4. **Valide** testando em diferentes viewports (mobile, tablet, desktop)
+5. **Documente** as grid areas definidas e a logica de responsividade
 
 ---
 
 ## Guidelines (SEMPRE)
 
-1. [GUIDELINE_1: Descreva a primeira boa pratica para CSS Grid Layout avancado]
-2. [GUIDELINE_2: Descreva a segunda boa pratica para CSS Grid Layout avancado]
-3. [GUIDELINE_3: Descreva a terceira boa pratica para CSS Grid Layout avancado]
+1. **Use `grid-template-areas` para layouts semanticos** - Defina areas nomeadas que representam as secoes do layout (header, sidebar, main, footer). Isso torna o CSS mais legivel e facil de manter.
+
+2. **Prefira `auto-fit` e `minmax()` para responsividade intrinseca** - Em vez de media queries, use `grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))` para criar grids que se adaptam automaticamente.
+
+3. **Utilize unidades `fr` para distribuicao proporcional** - A unidade `fr` (fraction) distribui o espaco disponivel proporcionalmente, evitando calculos manuais de porcentagem.
+
+4. **Combine `gap` em vez de margins nos items** - Use `gap` (ou `row-gap`/`column-gap`) no container para espacamento consistente entre items.
+
+5. **Defina `min-height: 0` em items com overflow** - Por padrao, grid items nao encolhem abaixo do seu conteudo minimo. Use `min-height: 0` ou `min-width: 0` quando precisar de scroll interno.
 
 ---
 
 ## Constraints (NUNCA)
 
-1. **NUNCA** [CONSTRAINT_1: Descreva o que NUNCA fazer com CSS Grid Layout avancado]
-2. **NUNCA** [CONSTRAINT_2: Descreva outro antipattern para CSS Grid Layout avancado]
+1. **NUNCA** use Grid para layouts unidimensionais simples - Para uma linha de botoes ou uma lista horizontal, Flexbox e mais apropriado e mais simples.
+
+2. **NUNCA** defina tamanhos fixos em pixels para colunas principais - Isso quebra a responsividade. Use `fr`, `minmax()`, ou porcentagens.
+
+3. **NUNCA** aninhe grids desnecessariamente - Cada nivel de grid adiciona complexidade. Considere se um unico grid com `grid-column: span 2` resolve o problema.
+
+4. **NUNCA** ignore o suporte a navegadores antigos sem fallback - Verifique o caniuse.com e forneca fallback com `@supports` se necessario.
 
 ---
 
 ## Exemplos
 
-### Exemplo 1: [TITULO_EXEMPLO_1]
+### Exemplo 1: Layout de Pagina com Grid Areas
 
-**Cenario:** [DESCREVA_O_CENARIO_DE_USO]
+**Cenario:** Criar layout classico com header, sidebar, conteudo principal e footer.
 
 **Input:**
-```[LINGUAGEM]
-[CODIGO_OU_REQUISICAO_DE_ENTRADA]
+```html
+<div class="page-layout">
+  <header>Header</header>
+  <nav>Sidebar</nav>
+  <main>Conteudo Principal</main>
+  <footer>Footer</footer>
+</div>
 ```
 
 **Output esperado:**
-```[LINGUAGEM]
-[CODIGO_OU_RESULTADO_ESPERADO]
+```css
+.page-layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+header { grid-area: header; }
+nav    { grid-area: sidebar; }
+main   { grid-area: main; }
+footer { grid-area: footer; }
+
+/* Responsivo: empilha em mobile */
+@media (max-width: 768px) {
+  .page-layout {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+}
 ```
 
-**Explicacao:** [EXPLIQUE_POR_QUE_ESTE_OUTPUT_SEGUE_AS_GUIDELINES]
+**Explicacao:** Usamos `grid-template-areas` para definir o layout semanticamente. A sidebar tem largura fixa (250px) enquanto o main usa `1fr` para ocupar o espaco restante. Em mobile, reorganizamos as areas para empilhar verticalmente.
 
 ---
 
-### Exemplo 2: [TITULO_EXEMPLO_2]
+### Exemplo 2: Galeria Responsiva com Auto-fit
 
-**Cenario:** [DESCREVA_OUTRO_CENARIO_DE_USO]
+**Cenario:** Criar galeria de cards que se adapta automaticamente ao tamanho da tela sem media queries.
 
 **Input:**
-```[LINGUAGEM]
-[CODIGO_OU_REQUISICAO_DE_ENTRADA_2]
+```html
+<div class="card-gallery">
+  <div class="card">Card 1</div>
+  <div class="card">Card 2</div>
+  <div class="card">Card 3</div>
+  <!-- ... mais cards -->
+</div>
 ```
 
 **Output esperado:**
-```[LINGUAGEM]
-[CODIGO_OU_RESULTADO_ESPERADO_2]
+```css
+.card-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 ```
 
-**Explicacao:** [EXPLIQUE_POR_QUE_ESTE_OUTPUT_SEGUE_AS_GUIDELINES]
+**Explicacao:** `auto-fit` cria quantas colunas couberem, enquanto `minmax(280px, 1fr)` garante que cada card tenha no minimo 280px e no maximo 1fr. O grid automaticamente ajusta o numero de colunas baseado no espaco disponivel.
 
 ---
 
@@ -105,21 +171,24 @@ sources:
 
 | Situacao | Como Tratar |
 |----------|-------------|
-| [EDGE_CASE_1] | [COMO_RESOLVER_1] |
-| [EDGE_CASE_2] | [COMO_RESOLVER_2] |
-| [EDGE_CASE_3] | [COMO_RESOLVER_3] |
+| Item precisa ocupar multiplas colunas | Use `grid-column: span 2` ou `grid-column: 1 / -1` para ocupar toda a linha |
+| Conteudo maior que a celula | Adicione `min-width: 0` ao item e use `overflow: auto` se necessario |
+| Alinhar item no centro da celula | Use `place-self: center` no item ou `place-items: center` no container |
+| Grid com numero desconhecido de items | Use `auto-fit`/`auto-fill` com `minmax()` para responsividade automatica |
+| Suporte a IE11 | Use `@supports (display: grid)` e forneca fallback com Flexbox |
 
 ---
 
 ## Referencias
 
-1. [URL_DOCUMENTACAO_OFICIAL] (official_docs)
-2. [URL_TUTORIAL_OU_ARTIGO] (tutorial)
+1. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout (official_docs)
+2. https://css-tricks.com/snippets/css/complete-guide-grid/ (tutorial)
+3. https://gridbyexample.com/ (examples)
+4. https://cssgrid.io/ (free_course)
 
 ---
 
 ## Notas de Implementacao
 
-> **IMPORTANTE:** Este arquivo foi gerado como template pelo PromptOS Brain.
-> Todos os campos marcados com [PLACEHOLDER] devem ser preenchidos manualmente.
-> Apos preencher, altere o status de "draft" para "approved" no frontmatter.
+> Esta skill foi preenchida manualmente apos geracao do template pelo PromptOS Brain.
+> Status alterado de "draft" para "approved" apos revisao.

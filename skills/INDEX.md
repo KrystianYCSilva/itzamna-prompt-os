@@ -15,7 +15,5 @@
 | technical-writing | documentation | approved | 2026-02-02 | promptos-brain |
 | xml | programming | approved | 2026-02-02 | promptos-brain |
 | hello-world-test | testing | approved | 2026-02-02 | promptos-brain |
-| css-moderno-com-flexbox-e-grid | frontend | approved | 2026-02-02 | promptos-brain |
-| yaml-configuration-files-best-practices | general | approved | 2026-02-02 | promptos-brain |
-| css-grid-layout-avancado | frontend | draft | 2026-02-02 | promptos-brain |
+| css-grid-layout-avancado | frontend | approved | 2026-02-02 | promptos-brain |
 | yaml-configuration-best-practices | general | draft | 2026-02-02 | promptos-brain |
