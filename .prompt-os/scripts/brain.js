@@ -1,12 +1,18 @@
 #!/usr/bin/env node
 /**
- * ITZAMNA PROMPTOS BRAIN - CLI Principal v1.1.0
+ * ITZAMNA PROMPTOS BRAIN - CLI Principal v1.5.0
  * 
  * Uso:
- *   node brain.js generate skill "descricao da skill" [--category frontend]
+ *   node brain.js generate skill "descricao da skill" [--category frontend] [--mode fast|brain]
  *   node brain.js generate persona "descricao da persona"
  *   node brain.js list skills
  *   node brain.js search "termo"
+ *   node brain.js validate <arquivo>        Valida skill contra T0/T1/T2
+ *   node brain.js classify "mensagem"       Classifica input (workflow, persona, domain)
+ *   node brain.js context [--skills s1,s2]  Mostra contexto JIT
+ * 
+ * Shortcuts:
+ *   #new, #impl, #test, #review, #bug, #refactor, #deploy, #db, #security, #docs
  * 
  * Categorias disponiveis:
  *   frontend, backend, config, markup, devops, docs, testing
@@ -16,23 +22,45 @@ const fs = require('fs').promises;
 const path = require('path');
 const readline = require('readline');
 
-// CONFIGURACAO
+// Import new modules
+const tierSystem = require('./tier-system');
+const inputClassifier = require('./input-classifier');
+const jitLoader = require('./jit-loader');
+
+// ============================================================================
+// CONFIGURATION
+// ============================================================================
+
 const CONFIG = {
+  VERSION: '1.5.0',
   BASE_DIR: process.cwd(),
   get SKILLS_DIR() { return path.join(this.BASE_DIR, 'skills'); },
   get PERSONAS_DIR() { return path.join(this.BASE_DIR, 'personas'); },
   get MEMORY_FILE() { return path.join(this.BASE_DIR, 'MEMORY.md'); },
   CATEGORIES: ['frontend', 'backend', 'config', 'markup', 'devops', 'docs', 'testing'],
+  MODES: ['fast', 'brain'],
+  DEFAULT_MODE: 'fast',
 };
 
-// UTILITARIOS
+// ============================================================================
+// LOGGING
+// ============================================================================
+
 const log = {
   info: (msg) => console.log(`[INFO] ${msg}`),
   success: (msg) => console.log(`[OK] ${msg}`),
   warn: (msg) => console.log(`[WARN] ${msg}`),
   error: (msg) => console.log(`[ERROR] ${msg}`),
   step: (n, msg) => console.log(`\n[${n}] ${msg}`),
+  tier: (tier, msg) => {
+    const icon = tier === 'T0' ? '[CRITICAL]' : tier === 'T1' ? '[WARN]' : '[INFO]';
+    console.log(`${icon} ${msg}`);
+  }
 };
+
+// ============================================================================
+// UTILITIES
+// ============================================================================
 
 function toKebabCase(str) {
   return str
@@ -47,80 +75,44 @@ function today() {
   return new Date().toISOString().split('T')[0];
 }
 
-// CLASSIFICADOR
+// ============================================================================
+// ENHANCED CLASSIFIER (using input-classifier.js)
+// ============================================================================
+
 function classifyInput(input, explicitCategory = null) {
-  const domainKeywords = {
-    frontend: ['css', 'html', 'tailwind', 'sass', 'webpack', 'vite', 'react', 'vue', 'angular', 'jsx', 'tsx'],
-    backend: ['graphql', 'apollo', 'resolver', 'nodejs', 'express', 'fastify', 'api', 'rest', 'grpc', 'server'],
-    config: ['yaml', 'json', 'properties', 'env', 'configuration', 'settings', 'dotenv'],
-    markup: ['xml', 'xslt', 'markdown', 'md', 'sgml', 'xhtml'],
-    devops: ['docker', 'kubernetes', 'k8s', 'ci/cd', 'terraform', 'ansible', 'git', 'github', 'gitlab'],
-    docs: ['documentation', 'technical writing', 'readme', 'docs', 'manual'],
-    testing: ['test', 'jest', 'pytest', 'cypress', 'coverage', 'tdd', 'unit test'],
-    database: ['sql', 'postgres', 'mysql', 'mongodb', 'redis', 'orm', 'prisma'],
-    security: ['auth', 'jwt', 'oauth', 'security', 'encryption', 'owasp'],
-    python: ['python', 'django', 'flask', 'fastapi', 'pandas', 'numpy'],
-  };
-
-  const lowerInput = input.toLowerCase();
-  let detectedDomain = 'general';
-  let maxMatches = 0;
-
-  for (const [domain, keywords] of Object.entries(domainKeywords)) {
-    const matches = keywords.filter(kw => lowerInput.includes(kw)).length;
-    if (matches > maxMatches) {
-      maxMatches = matches;
-      detectedDomain = domain;
-    }
-  }
-
-  // Map non-category domains to appropriate categories
-  const domainToCategoryMap = {
-    database: 'backend',
-    security: 'backend',
-    python: 'backend',
-    react: 'frontend',
-    nodejs: 'backend',
-    api: 'backend',
-    general: 'docs',
-  };
-
-  // Use explicit category if provided, otherwise derive from domain
-  let category = explicitCategory;
-  if (!category) {
-    if (CONFIG.CATEGORIES.includes(detectedDomain)) {
-      category = detectedDomain;
-    } else {
-      category = domainToCategoryMap[detectedDomain] || 'docs';
-    }
-  }
-
-  // Detectar complexidade
-  const complexIndicators = ['arquitetura', 'sistema completo', 'enterprise', 'avancado', 'advanced'];
-  const simpleIndicators = ['basico', 'simples', 'introducao', 'hello', 'starter', 'basic'];
+  // Use the new input-classifier module for workflow/domain detection
+  const classification = inputClassifier.classify(input);
   
-  let complexity = 'medium';
-  if (complexIndicators.some(i => lowerInput.includes(i))) complexity = 'complex';
-  if (simpleIndicators.some(i => lowerInput.includes(i))) complexity = 'simple';
-
+  // Map to brain.js format
+  const category = explicitCategory || classification.domain.category || 'docs';
+  
   return {
     description: input,
-    domain: detectedDomain,
-    category,
-    complexity,
-    triggers: [
-      `trabalhar com ${detectedDomain}`,
-      `criar ${detectedDomain}`,
-      input.toLowerCase().substring(0, 60),
-    ],
+    domain: classification.domain.id,
+    category: CONFIG.CATEGORIES.includes(category) ? category : 'docs',
+    complexity: classification.complexity.level,
+    workflow: classification.workflow,
+    persona: classification.persona,
+    suggestedSkills: classification.suggestedSkills,
+    triggers: classification.triggers,
   };
 }
 
-// PESQUISA - Retorna placeholders para preenchimento manual
-async function conductResearch(classification) {
-  log.step(2, 'RESEARCH - Preparando template com placeholders...');
+// ============================================================================
+// RESEARCH (Mode-dependent)
+// ============================================================================
+
+async function conductResearch(classification, mode = 'fast') {
+  log.step(2, `RESEARCH - Modo: ${mode.toUpperCase()}`);
   
-  // Template com placeholders - usuario deve preencher manualmente
+  if (mode === 'brain') {
+    // Brain mode: Would use real web research (SPEC-003)
+    // For now, still returns placeholders but with better structure
+    log.info('Modo Brain: Preparando para pesquisa real (requer SPEC-003)');
+    log.warn('Fallback para modo Fast - pesquisa real nao disponivel');
+  }
+  
+  // Fast mode: Template with placeholders
   const research = {
     patterns: [
       `[GUIDELINE_1: Descreva a primeira boa pratica para ${classification.description}]`,
@@ -142,11 +134,15 @@ async function conductResearch(classification) {
 
   return {
     summary: `Template preparado para ${classification.description}.`,
+    mode,
     ...research,
   };
 }
 
-// GERACAO - Template com [PLACEHOLDERS] para preenchimento manual
+// ============================================================================
+// GENERATION
+// ============================================================================
+
 function generateSkillContent(classification, research) {
   const name = toKebabCase(classification.description);
   const title = classification.description
@@ -281,40 +277,84 @@ ${research.sources.map((s, i) => `${i + 1}. ${s.url} (${s.type})`).join('\n')}
   };
 }
 
-// VALIDACAO
+// ============================================================================
+// VALIDATION (using tier-system.js)
+// ============================================================================
+
 function validateDraft(draft) {
-  log.step(4, 'VALIDATE - Validando draft...');
+  log.step(4, 'VALIDATE - Validando draft com Tier System...');
+  
+  // Use the new tier-system module
+  const tierResults = tierSystem.validateAllTiers(draft.content);
   
   const errors = [];
   const warnings = [];
 
-  if (!draft.content.includes('## Exemplos')) errors.push('Secao de exemplos ausente');
-  if (!draft.content.includes('## Constraints')) errors.push('Secao de constraints ausente');
-  
-  const exampleCount = (draft.content.match(/### Exemplo \d+/g) || []).length;
-  if (exampleCount < 2) warnings.push(`Apenas ${exampleCount} exemplo(s) - recomendado: 2+`);
+  // T0 violations are errors
+  for (const rule of tierResults.tiers.T0.rules) {
+    if (!rule.passed) {
+      errors.push(`[T0] ${rule.id}: ${rule.message}`);
+    }
+  }
 
-  // Contar placeholders nao preenchidos
+  // T1 violations are warnings
+  for (const rule of tierResults.tiers.T1.rules) {
+    if (!rule.passed) {
+      warnings.push(`[T1] ${rule.id}: ${rule.message}`);
+    }
+  }
+
+  // T2 violations are info
+  for (const rule of tierResults.tiers.T2.rules) {
+    if (!rule.passed) {
+      log.info(`[T2] ${rule.id}: ${rule.message}`);
+    }
+  }
+
+  // Legacy checks for placeholders
   const placeholderCount = (draft.content.match(/\[[A-Z_]+[^\]]*\]/g) || []).length;
   if (placeholderCount > 0) {
     warnings.push(`${placeholderCount} placeholder(s) para preencher manualmente`);
   }
 
+  // Display results
+  console.log('');
+  console.log(`Score: ${tierResults.summary.score}/100`);
+  console.log(`Can Approve: ${tierResults.summary.canApprove ? 'YES' : 'NO (T0 violations)'}`);
+  console.log('');
+
   if (errors.length === 0) {
-    log.success('Draft valido!');
+    log.success('Nenhuma violacao T0!');
   } else {
     errors.forEach(e => log.error(e));
   }
   warnings.forEach(w => log.warn(w));
 
-  return { valid: errors.length === 0, errors, warnings, placeholderCount };
+  return { 
+    valid: errors.length === 0, 
+    errors, 
+    warnings, 
+    placeholderCount,
+    tierResults 
+  };
 }
 
+// ============================================================================
 // HUMAN GATE
-async function requestApproval(draft) {
+// ============================================================================
+
+async function requestApproval(draft, tierResults = null) {
   console.log('\n' + '='.repeat(70));
   console.log('HUMAN GATE - APROVACAO NECESSARIA');
   console.log('='.repeat(70));
+  
+  // Show tier score if available
+  if (tierResults) {
+    console.log(`\nTier Score: ${tierResults.summary.score}/100`);
+    console.log(`T0: ${tierResults.summary.t0Passed}/${tierResults.summary.t0Passed + tierResults.summary.t0Failed} passed`);
+    console.log(`T1: ${tierResults.summary.t1Passed}/${tierResults.summary.t1Passed + tierResults.summary.t1Failed} passed`);
+    console.log(`T2: ${tierResults.summary.t2Passed}/${tierResults.summary.t2Passed + tierResults.summary.t2Failed} passed`);
+  }
   
   console.log('\nPREVIEW:\n');
   console.log('-'.repeat(50));
@@ -349,33 +389,36 @@ async function requestApproval(draft) {
   });
 }
 
+// ============================================================================
 // COMMIT
+// ============================================================================
+
 async function commitSkill(draft) {
   log.step(6, 'COMMIT - Salvando skill...');
   
-  // Skills are now organized by category
   const categoryDir = path.join(CONFIG.SKILLS_DIR, draft.metadata.category);
   const skillDir = path.join(categoryDir, draft.metadata.name);
   
   await fs.mkdir(skillDir, { recursive: true });
   
-  // Manter status como "draft" - usuario deve mudar para "approved" apos preencher placeholders
   const filePath = path.join(skillDir, 'SKILL.md');
   await fs.writeFile(filePath, draft.fullText, 'utf8');
   log.info(`Arquivo: ${filePath}`);
   log.info(`Categoria: ${draft.metadata.category}`);
   log.warn('Status: draft - preencha os [PLACEHOLDERS] e altere para "approved"');
   
-  // Nao atualizar INDEX.md automaticamente - esta organizado por categoria
-  log.info('Lembre-se de atualizar skills/INDEX.md manualmente ou executar brain.js index');
-  
   return filePath;
 }
 
-// COMANDOS
+// ============================================================================
+// COMMANDS
+// ============================================================================
+
 async function generateCommand(type, description, options = {}) {
+  const mode = options.mode || CONFIG.DEFAULT_MODE;
+  
   console.log('\n' + '='.repeat(70));
-  console.log(`PROMPTOS BRAIN - Gerando ${type.toUpperCase()}`);
+  console.log(`PROMPTOS BRAIN - Gerando ${type.toUpperCase()} [Modo: ${mode.toUpperCase()}]`);
   console.log('='.repeat(70));
   console.log(`\nInput: "${description}"`);
   if (options.category) {
@@ -388,16 +431,22 @@ async function generateCommand(type, description, options = {}) {
     log.info(`Dominio: ${classification.domain}`);
     log.info(`Categoria: ${classification.category}`);
     log.info(`Complexidade: ${classification.complexity}`);
+    log.info(`Workflow: ${classification.workflow?.id || 'N/A'}`);
+    log.info(`Persona: ${classification.persona || 'N/A'}`);
     
-    const research = await conductResearch(classification);
+    if (classification.suggestedSkills?.length > 0) {
+      log.info(`Skills sugeridas: ${classification.suggestedSkills.join(', ')}`);
+    }
+    
+    const research = await conductResearch(classification, mode);
     
     log.step(3, 'GENERATE - Gerando draft...');
     const draft = generateSkillContent(classification, research);
     log.info(`Nome: ${draft.metadata.name}`);
     
-    validateDraft(draft);
+    const validation = validateDraft(draft);
     
-    const approval = await requestApproval(draft);
+    const approval = await requestApproval(draft, validation.tierResults);
     
     switch (approval.action) {
       case 'approve':
@@ -428,6 +477,43 @@ async function generateCommand(type, description, options = {}) {
   }
 }
 
+async function validateCommand(filePath) {
+  console.log('\n' + '='.repeat(70));
+  console.log('TIER SYSTEM VALIDATION');
+  console.log('='.repeat(70));
+  
+  try {
+    const results = await tierSystem.validateFile(filePath);
+    console.log(tierSystem.formatResults(results));
+    
+    if (!results.summary.canApprove) {
+      process.exit(1);
+    }
+  } catch (error) {
+    log.error(`Erro: ${error.message}`);
+    process.exit(1);
+  }
+}
+
+async function classifyCommand(input) {
+  const result = inputClassifier.classify(input);
+  console.log(inputClassifier.formatClassification(result));
+}
+
+async function contextCommand(options = {}) {
+  const context = await jitLoader.loadContext({
+    baseDir: CONFIG.BASE_DIR,
+    skills: options.skills || [],
+    includeCore: true
+  });
+  
+  console.log(jitLoader.formatContextReport(context));
+}
+
+async function shortcutsCommand() {
+  console.log(inputClassifier.listShortcuts());
+}
+
 async function listCommand(type) {
   const dir = type === 'skills' ? CONFIG.SKILLS_DIR : CONFIG.PERSONAS_DIR;
   
@@ -445,7 +531,6 @@ async function listCommand(type) {
     let totalCount = 0;
     
     for (const category of categories) {
-      // Check if this is a category directory (contains subdirectories with SKILL.md)
       const categoryPath = path.join(dir, category.name);
       const categoryEntries = await fs.readdir(categoryPath, { withFileTypes: true }).catch(() => []);
       const skills = categoryEntries.filter(e => e.isDirectory());
@@ -457,7 +542,6 @@ async function listCommand(type) {
           totalCount++;
         }
       } else {
-        // It's a skill in old flat structure or empty category
         const hasSkillFile = await fs.access(path.join(categoryPath, 'SKILL.md')).then(() => true).catch(() => false);
         if (hasSkillFile) {
           console.log(`   - ${category.name}`);
@@ -498,36 +582,78 @@ async function searchCommand(term) {
   }
 }
 
+// ============================================================================
+// SHORTCUT EXPANSION
+// ============================================================================
+
+function expandShortcuts(args) {
+  if (args.length === 0) return args;
+  
+  const shortcut = inputClassifier.expandShortcut(args[0]);
+  
+  if (shortcut.expanded) {
+    log.info(`Shortcut: ${shortcut.shortcut} -> ${shortcut.description}`);
+    // Map shortcut to appropriate command
+    if (shortcut.workflow === 'skill_generation') {
+      return ['generate', 'skill', shortcut.args || ''].filter(Boolean);
+    }
+    // Other shortcuts could trigger different workflows
+    console.log(`Workflow detectado: ${shortcut.workflow}`);
+    console.log(`Para executar: Use o comando apropriado ou continue manualmente.`);
+    return args;
+  }
+  
+  return args;
+}
+
+// ============================================================================
 // MAIN
+// ============================================================================
+
 async function main() {
-  const args = process.argv.slice(2);
+  let args = process.argv.slice(2);
+  
+  // Expand shortcuts
+  args = expandShortcuts(args);
   
   if (args.length === 0) {
     console.log(`
-Itzamna PromptOS Brain CLI v1.1.0
+Itzamna PromptOS Brain CLI v${CONFIG.VERSION}
 
 Uso:
-  node brain.js generate skill "descricao" [--category CAT]   Gera nova skill
-  node brain.js generate persona "descricao"                  Gera nova persona
-  node brain.js list skills                                   Lista skills
-  node brain.js list personas                                 Lista personas
-  node brain.js search "termo"                                Busca por termo
+  node brain.js generate skill "descricao" [--category CAT] [--mode MODE]
+  node brain.js generate persona "descricao"
+  node brain.js list skills
+  node brain.js list personas
+  node brain.js search "termo"
+  node brain.js validate <arquivo>          Valida skill contra T0/T1/T2
+  node brain.js classify "mensagem"         Classifica input
+  node brain.js context [--skills s1,s2]    Mostra contexto JIT
+  node brain.js shortcuts                   Lista shortcuts
 
-Categorias disponiveis:
+Modos (--mode):
+  fast   - Template com placeholders (padrao)
+  brain  - Pesquisa real + geracao completa (requer SPEC-003)
+
+Categorias:
   frontend, backend, config, markup, devops, docs, testing
+
+Shortcuts:
+  #new, #impl, #test, #review, #bug, #refactor, #deploy, #db, #security, #docs
 
 Exemplos:
   node brain.js generate skill "API GraphQL com Apollo Server" --category backend
-  node brain.js generate skill "CSS Flexbox layouts" --category frontend
-  node brain.js list skills
-  node brain.js search "react"
+  node brain.js generate skill "CSS Flexbox" --mode brain
+  node brain.js validate skills/backend/graphql-api/SKILL.md
+  node brain.js classify "Quero criar um CRUD de produtos"
+  node brain.js context --skills graphql-api,clean-code
 `);
     return;
   }
   
   const [command, subcommand, ...rest] = args;
   
-  // Parse options like --category
+  // Parse options
   const options = {};
   const descriptionParts = [];
   
@@ -539,7 +665,18 @@ Exemplos:
       } else {
         log.warn(`Categoria "${cat}" invalida. Disponiveis: ${CONFIG.CATEGORIES.join(', ')}`);
       }
-      i++; // Skip next arg
+      i++;
+    } else if (rest[i] === '--mode' && rest[i + 1]) {
+      const mode = rest[i + 1].toLowerCase();
+      if (CONFIG.MODES.includes(mode)) {
+        options.mode = mode;
+      } else {
+        log.warn(`Modo "${mode}" invalido. Disponiveis: ${CONFIG.MODES.join(', ')}`);
+      }
+      i++;
+    } else if (rest[i] === '--skills' && rest[i + 1]) {
+      options.skills = rest[i + 1].split(',').map(s => s.trim());
+      i++;
     } else if (!rest[i].startsWith('--')) {
       descriptionParts.push(rest[i]);
     }
@@ -550,7 +687,7 @@ Exemplos:
   switch (command) {
     case 'generate':
       if (!subcommand || !description) {
-        log.error('Uso: node brain.js generate <skill|persona> "descricao" [--category CAT]');
+        log.error('Uso: node brain.js generate <skill|persona> "descricao" [--category CAT] [--mode MODE]');
         return;
       }
       await generateCommand(subcommand, description, options);
@@ -564,8 +701,34 @@ Exemplos:
       await searchCommand(subcommand || '');
       break;
       
+    case 'validate':
+      if (!subcommand) {
+        log.error('Uso: node brain.js validate <arquivo>');
+        return;
+      }
+      await validateCommand(subcommand);
+      break;
+      
+    case 'classify':
+      const inputToClassify = [subcommand, ...descriptionParts].filter(Boolean).join(' ');
+      if (!inputToClassify) {
+        log.error('Uso: node brain.js classify "mensagem"');
+        return;
+      }
+      await classifyCommand(inputToClassify);
+      break;
+      
+    case 'context':
+      await contextCommand(options);
+      break;
+      
+    case 'shortcuts':
+      await shortcutsCommand();
+      break;
+      
     default:
       log.error(`Comando desconhecido: ${command}`);
+      console.log('Use: node brain.js --help para ver comandos disponiveis');
   }
 }
 

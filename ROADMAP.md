@@ -7,15 +7,15 @@
 ## Visao Geral
 
 ```
-v1.0.0 (Atual)        v1.1.0              v1.2.0              v1.3.0              v2.0.0
-    |                    |                   |                   |                   |
-    v                    v                   v                   v                   v
-+----------+      +-------------+     +---------------+    +--------------+    +------------+
-| Piloto   |  ->  | Self-       |  -> | Auto-         | -> | Web Research | -> | Vector DB  |
-| Funcional|      | Critique    |     | Increment     |    | Real         |    | + RAG      |
-+----------+      +-------------+     +---------------+    +--------------+    +------------+
-    |                    |                   |                   |                   |
- 5 fases           3-5 dias            5-7 dias            5-7 dias           7-10 dias
+v1.0.0 (Atual)    v1.0.5          v1.1.0              v1.2.0              v1.3.0              v2.0.0
+    |               |                |                   |                   |                   |
+    v               v                v                   v                   v                   v
++----------+   +-----------+   +-------------+     +---------------+    +--------------+    +------------+
+| Piloto   |-> | Foundation|-> | Self-       |  -> | Auto-         | -> | Web Research | -> | Vector DB  |
+| Funcional|   | Tier+Class|   | Critique    |     | Increment     |    | Real         |    | + RAG      |
++----------+   +-----------+   +-------------+     +---------------+    +--------------+    +------------+
+    |               |                |                   |                   |                   |
+ 5 fases        3-4 dias         3-5 dias            5-7 dias            5-7 dias           7-10 dias
  completas
 ```
 
@@ -45,11 +45,51 @@ v1.0.0 (Atual)        v1.1.0              v1.2.0              v1.3.0            
 
 ---
 
-## v1.1.0 - Self-Critique (PROXIMO)
+## v1.0.5 - Foundation (PROXIMO)
+
+**Status:** Planejado  
+**Estimativa:** 5-7 dias  
+**Analise:** [INTEGRATION-ANALYSIS](docs/INTEGRATION-ANALYSIS.md)
+
+### Objetivo
+Integrar padroes de `add-bootstraps/` e `add-core/` como fundacao para specs futuras.
+
+### Deliverables
+- [ ] Modulo `tier-system.js` (T0/T1/T2 validation)
+- [ ] Modulo `input-classifier.js` (workflow + persona detection)
+- [ ] Modulo `jit-loader.js` (3-level loading architecture)
+- [ ] Flag `--mode fast|brain` (preparacao para SPEC-003)
+- [ ] Shortcut commands (#impl, #test, #review, etc.)
+- [ ] Integracao de tiers em validateDraft()
+- [ ] Documentacao docs/TIER-SYSTEM.md
+
+### Padroes Integrados
+
+| Padrao | Fonte | Impacto |
+|--------|-------|---------|
+| Tier System (T0/T1/T2) | tier-system.md | Validacao de regras |
+| Workflow Detection | input-classifier.md | Classificacao inteligente |
+| 3-Level JIT Loading | loading-protocol.md | -68% tokens |
+| Shortcut Commands | input-classifier.md | UX melhorada |
+| CARD-FIRST Rule | tier-system.md | T0 compliance |
+
+### Metricas Target
+| Metrica | Target |
+|---------|--------|
+| Workflow detection accuracy | > 80% |
+| T0 violations caught | 100% |
+| Token reduction (JIT) | > 60% |
+| Shortcut commands | 6+ |
+| Classification dimensions | 4 (domain, complexity, workflow, persona) |
+
+---
+
+## v1.1.0 - Self-Critique
 
 **Status:** Especificado  
 **Estimativa:** 3-5 dias  
-**Spec:** [SPEC-001](specs/001-self-critique/spec.md)
+**Spec:** [SPEC-001](specs/001-self-critique/spec.md)  
+**Depende de:** v1.0.5 (Foundation)
 
 ### Objetivo
 Sistema avalia qualidade propria antes do Human Gate.
@@ -164,13 +204,13 @@ Busca semantica de skills com RAG.
 ## Timeline Visual
 
 ```
-Fev 2026                              Mar 2026                              Abr 2026
-|---------------------------------------|---------------------------------------|
- v1.0.0     v1.1.0         v1.2.0              v1.3.0              v2.0.0
-   |          |              |                   |                   |
-   +---5d-----+----5d--------+--------7d---------+--------7d---------+
-   Piloto    Self-        Auto-              Web               Vector
-             Critique     Increment          Research          DB+RAG
+Fev 2026                                          Mar 2026                              Abr 2026
+|-------------------------------------------------------------------|---------------------------------------|
+ v1.0.0   v1.0.5       v1.1.0         v1.2.0              v1.3.0              v2.0.0
+   |        |            |              |                   |                   |
+   +--7d----+----5d------+----5d--------+--------7d---------+--------7d---------+
+   Piloto  Foundation  Self-        Auto-              Web               Vector
+           Tier+JIT    Critique     Increment          Research          DB+RAG
 ```
 
 ---
