@@ -14,3 +14,4 @@
 | python-async-programming | python | approved | 2026-02-02 | promptos-brain |
 | technical-writing | documentation | approved | 2026-02-02 | promptos-brain |
 | xml | programming | approved | 2026-02-02 | promptos-brain |
+| hello-world-test | testing | approved | 2026-02-02 | promptos-brain |
