@@ -3,7 +3,7 @@
 
 **Versão:** 3.5.0  
 **Status:** Production Ready  
-**Compatível:** PromptOS v3.5+, Spec-Kit, Scripts PowerShell existentes
+**Compatível:** Spec-Kit, Scripts PowerShell existentes
 
 ---
 

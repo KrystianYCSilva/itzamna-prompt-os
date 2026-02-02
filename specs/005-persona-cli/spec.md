@@ -1,12 +1,32 @@
 # SPEC-005: Persona CLI
 
-> **Status:** Draft
+> **Status:** Implemented (as Prompt Protocol)
 > **Priority:** P2 (Medium)
 > **Estimated Effort:** 3-5 days
 > **Author:** Itzamna PromptOS
 > **Created:** 2026-02-02
 > **Depends On:** SPEC-001 (Self-Critique)
-> **Target Version:** Backlog
+> **Target Version:** v2.0.0
+
+---
+
+## Implementation Note (v2.0.0)
+
+**This spec has been implemented as a PROMPT PROTOCOL, not code.**
+
+| Original Plan | Actual Implementation |
+|---------------|----------------------|
+| `skill-matcher.js` | `.prompt-os/core/PERSONA-GENERATOR.md` |
+| `persona-generator.js` | `.prompt-os/core/PERSONA-GENERATOR.md` |
+| CLI commands | Protocol instructions for AI agents |
+
+**Why?** PromptOS v2.0.0 uses a prompt-based architecture where AI agents READ Markdown instructions and FOLLOW them. No code execution is required for the core system.
+
+**The protocol file:** `.prompt-os/core/PERSONA-GENERATOR.md`
+
+See `specs/IMPLEMENTATION-STATUS.md` for the complete mapping of specs to prompts.
+
+---
 
 ---
 

@@ -1,12 +1,41 @@
 # SPEC-004: Vector DB + RAG
 
-> **Status:** Draft
+> **Status:** ✅ IMPLEMENTED (Prompt-Based) | OPTIONAL TOOLING
 > **Priority:** P1 (High)
 > **Estimated Effort:** 7-10 days
 > **Author:** Itzamna PromptOS
 > **Created:** 2026-02-02
 > **Depends On:** SPEC-003 (Web Research Real)
 > **Target Version:** v2.0.0
+
+---
+
+## ⚠️ IMPLEMENTATION NOTE (v2.0.0)
+
+**This spec has been PARTIALLY implemented:**
+
+| Original Design | Actual Implementation |
+|-----------------|----------------------|
+| `embedding-engine.js` | OPTIONAL (see tools/) |
+| `vector-store.js` | OPTIONAL (see tools/) |
+| `rag-engine.js` | `.prompt-os/core/KNOWLEDGE-BASE.md` |
+| `semantic-search.js` | `.prompt-os/core/KNOWLEDGE-BASE.md` |
+
+**How it works now:** 
+- KNOWLEDGE-BASE.md provides RAG-LIKE behavior through instructions
+- AI agents learn to search, relate, and augment knowledge
+- Works with file-based search (no vector DB required)
+
+**When you need actual Vector DB:**
+- Large skill library (100+ skills)
+- Semantic search at scale
+- The JavaScript implementations in this spec become relevant
+
+**See:** `.prompt-os/core/KNOWLEDGE-BASE.md` for the prompt-based implementation.
+
+---
+
+## Original Spec (Historical Reference)
 
 ---
 

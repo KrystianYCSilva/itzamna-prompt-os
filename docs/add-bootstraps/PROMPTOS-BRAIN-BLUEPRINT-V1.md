@@ -2,7 +2,7 @@
 ## Sistema Auto-Evolutivo para Programação Paralela Humano-Agente
 
 **Status:** Especificação Completa para Implementação  
-**Compatível:** Prompt OS v3.5+, GitHub Spec-Kit, Claude Code, Cursor, Copilot  
+**Compatível:** GitHub Spec-Kit, Claude Code, Cursor, Copilot  
 **Objetivo:** Criar um "cérebro" simplificado que auto-gera skills/personas/prompts  
 **Fluxo:** Pesquisa → Geração → Aprovação Humana → Commit  
 **Escopo Inicial:** Skills de Programação/Tecnologia

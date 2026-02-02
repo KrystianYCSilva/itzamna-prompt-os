@@ -1,29 +1,29 @@
 # Itzamna PromptOS - Roadmap
 
-> Plano de evolucao do sistema de v1.0.0 ate v2.0.0
+> Plano de evolucao do sistema: Prompt-Based Architecture
 
 ---
 
 ## Visao Geral
 
 ```
-v1.0.0 (Atual)    v1.0.5          v1.1.0              v1.2.0              v1.3.0              v2.0.0
-    |               |                |                   |                   |                   |
-    v               v                v                   v                   v                   v
-+----------+   +-----------+   +-------------+     +---------------+    +--------------+    +------------+
-| Piloto   |-> | Foundation|-> | Self-       |  -> | Auto-         | -> | Web Research | -> | Vector DB  |
-| Funcional|   | Tier+Class|   | Critique    |     | Increment     |    | Real         |    | + RAG      |
-+----------+   +-----------+   +-------------+     +---------------+    +--------------+    +------------+
-    |               |                |                   |                   |                   |
- 5 fases        3-4 dias         3-5 dias            5-7 dias            5-7 dias           7-10 dias
- completas
+v1.0.0 (Piloto)    v2.0.0 (ATUAL)      v2.1.0              v3.0.0
+     |                   |                 |                   |
+     v                   v                 v                   v
++----------+      +--------------+   +-------------+     +------------+
+| Code-    |  ->  | Prompt-Based |-> | Enhanced    |  -> | Advanced   |
+| Centric  |      | Architecture |   | Protocols   |     | RAG        |
++----------+      +--------------+   +-------------+     +------------+
+     |                   |                 |                   |
+  5 phases           CURRENT           3-5 days            7-10 days
+  complete
 ```
 
 ---
 
 ## v1.0.0 - Piloto Funcional (COMPLETO)
 
-**Status:** Production Ready  
+**Status:** Complete  
 **Release:** 2026-02-02
 
 ### Deliverables
@@ -35,202 +35,195 @@ v1.0.0 (Atual)    v1.0.5          v1.1.0              v1.2.0              v1.3.0
 - [x] Constitution v1.0.0 sincronizada para 5 agentes
 - [x] Spec-Kit integration
 
-### Metricas
-| Metrica | Valor |
-|---------|-------|
-| Skills | 17 |
-| Personas | 1 |
-| Agentes sincronizados | 5 |
-| Taxa de aprovacao | 100% |
+### Note
+v1.0.0 was code-centric, requiring Node.js/Python runtime. This was identified as architecturally incorrect for a cross-model system.
 
 ---
 
-## v1.0.5 - Foundation (PROXIMO)
+## v2.0.0 - Prompt-Based Architecture (ATUAL)
 
-**Status:** Planejado  
-**Estimativa:** 5-7 dias  
-**Analise:** [INTEGRATION-ANALYSIS](docs/INTEGRATION-ANALYSIS.md)
+**Status:** Complete  
+**Release:** 2026-02-02
 
-### Objetivo
-Integrar padroes de `add-bootstraps/` e `add-core/` como fundacao para specs futuras.
+### Key Insight
+
+> "PromptOS should be PROMPTS, not CODE. AI agents READ Markdown and FOLLOW instructions. No code execution required for core functionality."
+
+### Architecture Change
+
+| v1.0 (Code-Centric) | v2.0 (Prompt-Based) |
+|---------------------|---------------------|
+| Scripts execute code | Prompts provide instructions |
+| Requires runtime | Works with ANY AI agent |
+| Platform-specific | Universal |
+| `cli.py`, `orchestrator.py` | `PROMPTOS.md`, `core/*.md` |
 
 ### Deliverables
-- [ ] Modulo `tier-system.js` (T0/T1/T2 validation)
-- [ ] Modulo `input-classifier.js` (workflow + persona detection)
-- [ ] Modulo `jit-loader.js` (3-level loading architecture)
-- [ ] Flag `--mode fast|brain` (preparacao para SPEC-003)
-- [ ] Shortcut commands (#impl, #test, #review, etc.)
-- [ ] Integracao de tiers em validateDraft()
-- [ ] Documentacao docs/TIER-SYSTEM.md
+- [x] Entry point: `.prompt-os/PROMPTOS.md`
+- [x] Constitution as prompt: `.prompt-os/CONSTITUTION.md`
+- [x] 7 Core protocols created:
+  - [x] `SELF-CRITIQUE.md` (from SPEC-001)
+  - [x] `AUTO-INCREMENT.md` (from SPEC-002)
+  - [x] `WEB-RESEARCH.md` (from SPEC-003)
+  - [x] `KNOWLEDGE-BASE.md` (from SPEC-004)
+  - [x] `PERSONA-GENERATOR.md` (from SPEC-005)
+  - [x] `INPUT-CLASSIFIER.md` (Foundation)
+  - [x] `JIT-PROTOCOL.md` (Foundation)
+- [x] Specs updated with implementation references
+- [x] `specs/IMPLEMENTATION-STATUS.md` mapping document
+- [x] Root files updated (AGENTS.md, README.md, MEMORY.md, ROADMAP.md)
+- [x] Cross-model compatibility (Claude, GPT, Gemini, Cursor, Copilot, Qwen)
 
-### Padroes Integrados
-
-| Padrao | Fonte | Impacto |
-|--------|-------|---------|
-| Tier System (T0/T1/T2) | tier-system.md | Validacao de regras |
-| Workflow Detection | input-classifier.md | Classificacao inteligente |
-| 3-Level JIT Loading | loading-protocol.md | -68% tokens |
-| Shortcut Commands | input-classifier.md | UX melhorada |
-| CARD-FIRST Rule | tier-system.md | T0 compliance |
-
-### Metricas Target
-| Metrica | Target |
-|---------|--------|
-| Workflow detection accuracy | > 80% |
-| T0 violations caught | 100% |
-| Token reduction (JIT) | > 60% |
-| Shortcut commands | 6+ |
-| Classification dimensions | 4 (domain, complexity, workflow, persona) |
-
----
-
-## v1.1.0 - Self-Critique
-
-**Status:** Especificado  
-**Estimativa:** 3-5 dias  
-**Spec:** [SPEC-001](specs/001-self-critique/spec.md)  
-**Depende de:** v1.0.5 (Foundation)
-
-### Objetivo
-Sistema avalia qualidade propria antes do Human Gate.
-
-### Deliverables
-- [ ] Modulo `self-critique.js`
-- [ ] Score de confianca (0-100)
-- [ ] 3 sugestoes de melhoria por skill
-- [ ] Deteccao de redundancia com skills existentes
-- [ ] UI atualizada no Human Gate
-
-### Metricas Target
-| Metrica | Target |
-|---------|--------|
-| Skills rejeitadas com score < 50 | > 80% |
-| Tempo de revisao humana | -20% |
-| Sugestoes aceitas | > 50% |
-
----
-
-## v1.2.0 - Auto-Increment
-
-**Status:** Especificado  
-**Estimativa:** 5-7 dias  
-**Spec:** [SPEC-002](specs/002-auto-increment/spec.md)  
-**Depende de:** v1.1.0
-
-### Objetivo
-Sistema detecta lacunas e propoe evolucoes.
-
-### Deliverables
-- [ ] Modulo `gap-detector.js`
-- [ ] Modulo `rejection-learner.js`
-- [ ] Modulo `evolution-engine.js`
-- [ ] Novos comandos CLI: `brain evolution`, `brain gaps`
-- [ ] Relatorio mensal de evolucao
-
-### Metricas Target
-| Metrica | Target |
-|---------|--------|
-| Gaps detectados automaticamente | > 5/mes |
-| Skills criadas de sugestoes | > 3/mes |
-| Reducao em rejeicoes | > 20% |
-
----
-
-## v1.3.0 - Web Research Real
-
-**Status:** Especificado  
-**Estimativa:** 5-7 dias  
-**Spec:** [SPEC-003](specs/003-web-research/spec.md)  
-**Depende de:** v1.2.0
-
-### Objetivo
-Substituir mock de pesquisa por busca real.
-
-### Deliverables
-- [ ] Integracao com search API (Tavily/Perplexity)
-- [ ] Parser de documentacao oficial
-- [ ] Extrator de patterns de GitHub
-- [ ] Sistema de cache para pesquisas
-- [ ] Validacao de fontes (data, autoridade)
-
-### Metricas Target
-| Metrica | Target |
-|---------|--------|
-| Fontes reais por skill | > 3 |
-| Precisao de patterns | > 80% |
-| Tempo de pesquisa | < 30s |
-
----
-
-## v2.0.0 - Vector DB + RAG
-
-**Status:** Especificado  
-**Estimativa:** 7-10 dias  
-**Spec:** [SPEC-004](specs/004-vector-db-rag/spec.md)  
-**Depende de:** v1.3.0
-
-### Objetivo
-Busca semantica de skills com RAG.
-
-### Deliverables
-- [ ] Integracao com ChromaDB ou Pinecone
-- [ ] Embeddings para todas as skills
-- [ ] Busca por similaridade semantica
-- [ ] Retrieval Augmented Generation
-- [ ] LLM-based self-critique
-
-### Metricas Target
-| Metrica | Target |
-|---------|--------|
-| Precisao de busca | > 90% |
-| Skills encontradas por query | Top 3 relevantes |
-| Tempo de retrieval | < 500ms |
-
----
-
-## Backlog (Post v2.0.0)
-
-| Feature | Complexidade | Prioridade | Spec |
-|---------|--------------|------------|------|
-| Slack Integration | Media | P3 | - |
-| CLI para Personas | Baixa | P2 | [SPEC-005](specs/005-persona-cli/spec.md) |
-| Multi-language Skills | Media | P3 | - |
-| A/B Testing de Templates | Alta | P3 | - |
-| Multi-agent Coordination | Alta | P4 | - |
-| MCP Full Compatibility | Alta | P4 | - |
-
----
-
-## Timeline Visual
+### How It Works Now
 
 ```
-Fev 2026                                          Mar 2026                              Abr 2026
-|-------------------------------------------------------------------|---------------------------------------|
- v1.0.0   v1.0.5       v1.1.0         v1.2.0              v1.3.0              v2.0.0
-   |        |            |              |                   |                   |
-   +--7d----+----5d------+----5d--------+--------7d---------+--------7d---------+
-   Piloto  Foundation  Self-        Auto-              Web               Vector
-           Tier+JIT    Critique     Increment          Research          DB+RAG
+ANY AI AGENT (Claude, Gemini, Cursor, etc.)
+         |
+         v
+    Reads .prompt-os/PROMPTOS.md
+         |
+         v
+    Follows structured instructions
+    (no code execution needed)
 ```
 
 ---
 
-## Como Contribuir
+## v2.1.0 - Enhanced Protocols (PROXIMO)
 
-### Para Desenvolvedores
+**Status:** Planned  
+**Estimate:** 3-5 days
 
-1. Escolha uma SPEC do roadmap
-2. Crie branch: `feature/spec-XXX-nome`
-3. Implemente seguindo a spec
-4. Teste com 5+ skills novas
-5. PR para review
+### Objectives
+1. Validate protocols work consistently across different AI models
+2. Add structured testing for protocols
+3. Improve documentation for protocol creation
+4. Enhance JIT loading efficiency
 
-### Para Usuarios
+### Deliverables
+- [ ] Cross-model testing documentation
+- [ ] Protocol validation checklist
+- [ ] `HOW-TO-CREATE-PROTOCOLS.md` guide
+- [ ] Enhanced JIT-PROTOCOL.md with caching hints
+- [ ] Metrics collection for protocol usage
+- [ ] Improved error handling in protocols
 
-1. Reporte gaps detectados
-2. De feedback detalhado em rejeicoes
-3. Sugira novas skills via issues
+### Metrics Target
+| Metric | Target |
+|--------|--------|
+| Cross-model consistency | > 90% |
+| Protocol load time | < 100ms |
+| Documentation coverage | 100% |
 
 ---
 
-*Roadmap v1.0.0 | Itzamna PromptOS | 2026-02-02*
+## v3.0.0 - Advanced RAG Integration (FUTURO)
+
+**Status:** Planned  
+**Estimate:** 7-10 days
+
+### Objectives
+1. Semantic search for skills using embeddings
+2. Retrieval-Augmented Generation for skill creation
+3. Advanced knowledge graph for skill relationships
+
+### Deliverables
+- [ ] Embedding generation for skills
+- [ ] Semantic search protocol (update KNOWLEDGE-BASE.md)
+- [ ] RAG-enhanced skill generation
+- [ ] Knowledge graph visualization
+- [ ] Advanced skill relationship detection
+
+### Note
+This can be implemented as additional prompts that guide AI agents on how to use external embedding services, OR as optional tooling.
+
+---
+
+## Specs Implementation Status
+
+All original specs have been implemented as **prompt protocols**:
+
+| Spec | Prompt File | Status |
+|------|-------------|--------|
+| SPEC-001 (Self-Critique) | `.prompt-os/core/SELF-CRITIQUE.md` | Implemented |
+| SPEC-002 (Auto-Increment) | `.prompt-os/core/AUTO-INCREMENT.md` | Implemented |
+| SPEC-003 (Web Research) | `.prompt-os/core/WEB-RESEARCH.md` | Implemented |
+| SPEC-004 (Vector DB/RAG) | `.prompt-os/core/KNOWLEDGE-BASE.md` | Implemented |
+| SPEC-005 (Persona CLI) | `.prompt-os/core/PERSONA-GENERATOR.md` | Implemented |
+
+See `specs/IMPLEMENTATION-STATUS.md` for detailed mapping.
+
+---
+
+## Backlog (Post v3.0.0)
+
+| Feature | Complexity | Priority | Notes |
+|---------|------------|----------|-------|
+| Slack Integration | Medium | P3 | Optional notification channel |
+| Multi-language Skills | Medium | P3 | Skills in multiple languages |
+| A/B Testing of Templates | High | P3 | Compare template effectiveness |
+| Multi-agent Coordination | High | P4 | Coordinated agent workflows |
+| MCP Full Compatibility | High | P4 | Model Context Protocol |
+| Visual Protocol Editor | Medium | P3 | GUI for creating protocols |
+
+---
+
+## Timeline
+
+```
+2026 Feb                          2026 Mar               2026 Apr
+|----------------------------------|---------------------------|
+v1.0.0    v2.0.0           v2.1.0                    v3.0.0
+  |         |                 |                         |
+  +---------+-------5d--------+----------10d------------+
+  Piloto   Prompt-Based    Enhanced               Advanced
+           (CURRENT)       Protocols              RAG
+```
+
+---
+
+## Optional Tools (Legacy from v1.0)
+
+These tools remain as **optional helpers** for human operators:
+
+| Tool | Purpose | Status |
+|------|---------|--------|
+| `brain.js` | Interactive skill generation | Functional |
+| `sync-constitution.ps1` | Sync constitution across agents | Functional |
+| `tier-system.js` | Validate tier constraints | Available |
+
+**Important:** These tools are NOT required for PromptOS to function. The core system works through prompts alone.
+
+---
+
+## How to Contribute
+
+### For Protocol Development
+
+1. Read existing protocols in `.prompt-os/core/`
+2. Create a SPEC in `specs/` if it's a major feature
+3. Create the protocol as a Markdown file
+4. Update `PROMPTOS.md` to reference the new protocol
+5. Update `IMPLEMENTATION-STATUS.md`
+6. Test with multiple AI agents
+
+### For Users
+
+1. Report gaps detected in protocols
+2. Give feedback on cross-model compatibility
+3. Suggest new skills via issues
+4. Document edge cases
+
+---
+
+## Key Principles for Evolution
+
+1. **Prompts over Code:** Core functionality through Markdown, not scripts
+2. **Cross-Model:** Must work with any AI that can read Markdown
+3. **Human-in-the-Loop:** T0 rules are inviolable
+4. **Self-Documenting:** Protocols explain themselves
+5. **Minimal Dependencies:** Avoid external dependencies in core system
+
+---
+
+*Roadmap v2.0.0 | Itzamna PromptOS | 2026-02-02*

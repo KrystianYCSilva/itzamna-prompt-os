@@ -1,10 +1,29 @@
 # SPEC-001: Self-Critique Module
 
-> **Status:** Draft
+> **Status:** ✅ IMPLEMENTED (Prompt-Based)
 > **Priority:** P0 (Critical)
 > **Estimated Effort:** 3-5 days
 > **Author:** Itzamna PromptOS
 > **Created:** 2026-02-02
+
+---
+
+## ⚠️ IMPLEMENTATION NOTE (v2.0.0)
+
+**This spec has been implemented as PROMPT INSTRUCTIONS, not JavaScript code.**
+
+| Original Design | Actual Implementation |
+|-----------------|----------------------|
+| `self-critique.js` | `.prompt-os/core/SELF-CRITIQUE.md` |
+
+**How it works now:** AI agents READ the prompt file and FOLLOW the instructions.
+No code execution required. Works with ANY AI agent (Claude, Gemini, Cursor, etc.)
+
+**See:** `.prompt-os/core/SELF-CRITIQUE.md` for the implementation.
+
+---
+
+## Original Spec (Historical Reference)
 
 ---
 

@@ -1,11 +1,32 @@
 # SPEC-002: Auto-Increment Module
 
-> **Status:** Draft
+> **Status:** ✅ IMPLEMENTED (Prompt-Based)
 > **Priority:** P0 (Critical)
 > **Estimated Effort:** 5-7 days
 > **Author:** Itzamna PromptOS
 > **Created:** 2026-02-02
 > **Depends On:** SPEC-001 (Self-Critique)
+
+---
+
+## ⚠️ IMPLEMENTATION NOTE (v2.0.0)
+
+**This spec has been implemented as PROMPT INSTRUCTIONS, not JavaScript code.**
+
+| Original Design | Actual Implementation |
+|-----------------|----------------------|
+| `gap-detector.js` | `.prompt-os/core/AUTO-INCREMENT.md` |
+| `rejection-learner.js` | `.prompt-os/core/AUTO-INCREMENT.md` |
+| `evolution-engine.js` | `.prompt-os/core/AUTO-INCREMENT.md` |
+
+**How it works now:** AI agents READ the prompt file and FOLLOW the instructions.
+The AI conversationally detects gaps, learns from rejections, and suggests improvements.
+
+**See:** `.prompt-os/core/AUTO-INCREMENT.md` for the implementation.
+
+---
+
+## Original Spec (Historical Reference)
 
 ---
 

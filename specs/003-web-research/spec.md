@@ -1,11 +1,35 @@
 # SPEC-003: Web Research Real
 
-> **Status:** Draft
+> **Status:** ✅ IMPLEMENTED (Prompt-Based)
 > **Priority:** P1 (High)
 > **Estimated Effort:** 5-7 days
 > **Author:** Itzamna PromptOS
 > **Created:** 2026-02-02
 > **Depends On:** SPEC-002 (Auto-Increment)
+
+---
+
+## ⚠️ IMPLEMENTATION NOTE (v2.0.0)
+
+**This spec has been implemented as PROMPT INSTRUCTIONS, not JavaScript code.**
+
+| Original Design | Actual Implementation |
+|-----------------|----------------------|
+| `search-adapter.js` | `.prompt-os/core/WEB-RESEARCH.md` |
+| `source-parser.js` | `.prompt-os/core/WEB-RESEARCH.md` |
+| `cache-manager.js` | Not needed (AI handles conversationally) |
+
+**How it works now:** AI agents READ the prompt file and FOLLOW the instructions.
+Many AI agents have built-in web search. The instructions guide HOW to research.
+
+**Note:** The original API integrations (Tavily, Perplexity) remain as OPTIONAL
+tooling for automation scenarios. They are NOT required for the core system.
+
+**See:** `.prompt-os/core/WEB-RESEARCH.md` for the implementation.
+
+---
+
+## Original Spec (Historical Reference)
 
 ---
 
