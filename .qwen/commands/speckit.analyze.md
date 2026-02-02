@@ -1,5 +1,5 @@
 ---
-description: Perform a non-destructive cross-artifact consistency and quality analysis across spec.md, plan.md, and tasks.md after task generation.
+description: Perform a non-destructive cross-artifact consistency and quality analysis across pre-pre-pre-pre-pre-spec.md, plan.md, and tasks.md after task generation.
 ---
 
 ---

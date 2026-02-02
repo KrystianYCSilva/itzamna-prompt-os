@@ -1,380 +1,141 @@
-# SPEC-001: Self-Critique Module
+# Feature Specification: Self-Critique Protocol Enhancement
 
-> **Status:** ✅ IMPLEMENTED (Prompt-Based)
-> **Priority:** P0 (Critical)
-> **Estimated Effort:** 3-5 days
-> **Author:** Itzamna PromptOS
-> **Created:** 2026-02-02
+**Feature Branch**: `001-self-critique`  
+**Created**: 2026-02-02  
+**Status**: Draft  
+**Input**: User description: "Enhanced Self-Critique Module based on pre-spec.md with prompt-based architecture context"
 
----
+## User Scenarios & Testing *(mandatory)*
 
-## ⚠️ IMPLEMENTATION NOTE (v2.0.0)
+### User Story 1 - Quality Assessment Before Human Gate (Priority: P1)
 
-**This spec has been implemented as PROMPT INSTRUCTIONS, not JavaScript code.**
+As an AI agent generating artifacts (skills, personas, code), I need to evaluate the quality of my output before presenting it to the human, so that low-quality work is identified and improved before wasting human review time.
 
-| Original Design | Actual Implementation |
-|-----------------|----------------------|
-| `self-critique.js` | `.prompt-os/core/SELF-CRITIQUE.md` |
+**Why this priority**: This is the core value proposition - reducing human effort by filtering out low-quality outputs automatically. Without this, humans must review everything regardless of quality.
 
-**How it works now:** AI agents READ the prompt file and FOLLOW the instructions.
-No code execution required. Works with ANY AI agent (Claude, Gemini, Cursor, etc.)
+**Independent Test**: Can be fully tested by generating any artifact and verifying that a quality score (0-100) is produced before the Human Gate prompt appears.
 
-**See:** `.prompt-os/core/SELF-CRITIQUE.md` for the implementation.
+**Acceptance Scenarios**:
 
----
+1. **Given** an AI agent generates a new skill, **When** the generation is complete, **Then** the system produces a quality score between 0-100 with breakdown by dimension (Completeness, Clarity, Correctness, Best Practices)
 
-## Original Spec (Historical Reference)
+2. **Given** a generated artifact scores below 70, **When** presenting to Human Gate, **Then** the system displays a warning indicator and lists specific improvement suggestions
+
+3. **Given** a generated artifact scores 90 or above, **When** presenting to Human Gate, **Then** the system displays a confidence indicator showing high quality
 
 ---
 
-## 1. Problem Statement
+### User Story 2 - Improvement Suggestions (Priority: P2)
 
-### 1.1 Current State
+As a human reviewer, I want to see actionable improvement suggestions for any artifact scoring below 90, so that I can either request improvements or make informed decisions about acceptance.
 
-O brain.js atualmente gera skills com validacao apenas **sintatica**:
-- Verifica se YAML frontmatter existe
-- Verifica se secoes obrigatorias existem
-- Conta numero de exemplos
+**Why this priority**: Suggestions turn passive quality assessment into actionable guidance, directly improving output quality over iterations.
 
-**Limitacao:** Nao avalia **qualidade semantica** do conteudo.
+**Independent Test**: Can be fully tested by generating an artifact with intentional gaps (e.g., missing examples) and verifying that specific, actionable suggestions are provided.
 
-### 1.2 Desired State
+**Acceptance Scenarios**:
 
-O sistema deve **auto-avaliar** a qualidade de suas geracoes antes de apresentar ao humano, incluindo:
-- Score de confianca (0-100)
-- Identificacao de pontos fracos
-- Sugestoes de melhoria
-- Comparacao com skills existentes
+1. **Given** an artifact with missing required sections, **When** self-critique runs, **Then** the system suggests adding the specific missing sections by name
 
-### 1.3 Impact
+2. **Given** an artifact with only 1 example when 2+ are required, **When** self-critique runs, **Then** the system suggests adding more examples with specific guidance
 
-| Sem Self-Critique | Com Self-Critique |
-|-------------------|-------------------|
-| Humano revisa tudo | Sistema filtra low-quality |
-| Feedback so apos rejeicao | Melhoria antes do gate |
-| Nao aprende com erros | Acumula conhecimento |
+3. **Given** any artifact with score below 90, **When** self-critique runs, **Then** at least 1 improvement suggestion is provided (maximum 5)
 
 ---
 
-## 2. Goals and Non-Goals
+### User Story 3 - Redundancy Detection (Priority: P3)
 
-### 2.1 Goals
+As a human reviewer, I want to know if a newly generated skill overlaps significantly with existing skills, so that I can avoid redundant content in the knowledge base.
 
-1. **G1:** Implementar modulo `self-critique.js` que avalia qualidade de geracoes
-2. **G2:** Gerar score de confianca (0-100) para cada skill
-3. **G3:** Produzir 3 sugestoes de melhoria por skill
-4. **G4:** Comparar nova skill com existentes para detectar redundancia
-5. **G5:** Integrar ao fluxo do brain.js antes do Human Gate
+**Why this priority**: Prevents knowledge base bloat and confusion from having multiple similar skills. Less critical than core quality assessment but important for maintainability.
 
-### 2.2 Non-Goals
+**Independent Test**: Can be fully tested by generating a skill with high similarity to an existing one and verifying that a similarity warning is displayed.
 
-- **NG1:** Nao rejeitar automaticamente (humano sempre decide)
-- **NG2:** Nao usar LLM externo nesta fase (regras locais)
-- **NG3:** Nao implementar vector DB ainda
-- **NG4:** Nao modificar formato de skills existentes
+**Acceptance Scenarios**:
+
+1. **Given** a new skill being generated that covers similar topics as an existing skill, **When** self-critique runs, **Then** the system identifies the similar skill and estimates overlap percentage
+
+2. **Given** multiple skills with >60% similarity to the new skill, **When** self-critique runs, **Then** all similar skills are listed with their similarity scores
 
 ---
 
-## 3. Solution Design
+### User Story 4 - Type-Specific Checklists (Priority: P4)
 
-### 3.1 Architecture
+As an AI agent, I need type-specific quality checklists (for code, skills, personas, documentation), so that quality assessment is relevant to what I'm generating.
 
-```
-brain.js Pipeline (Updated)
-========================================
+**Why this priority**: Different artifact types have different quality criteria. Generic assessment would miss type-specific issues.
 
-[CLASSIFY] -> [RESEARCH] -> [GENERATE] -> [SELF-CRITIQUE] -> [HUMAN GATE] -> [COMMIT]
-                                               |
-                                               v
-                                    +-----------------------+
-                                    | self-critique.js      |
-                                    +-----------------------+
-                                    | - evaluateQuality()   |
-                                    | - generateScore()     |
-                                    | - suggestImprovements |
-                                    | - detectRedundancy()  |
-                                    +-----------------------+
-```
+**Independent Test**: Can be fully tested by generating different artifact types and verifying that each receives a relevant checklist.
 
-### 3.2 Quality Dimensions
+**Acceptance Scenarios**:
 
-| Dimensao | Peso | Criterios |
-|----------|------|-----------|
-| **Completude** | 25% | Todas secoes preenchidas, exemplos suficientes |
-| **Clareza** | 25% | Instrucoes claras, sem ambiguidade |
-| **Praticidade** | 25% | Exemplos executaveis, casos reais |
-| **Consistencia** | 25% | Alinhamento descricao-conteudo |
+1. **Given** the agent is generating code, **When** self-critique runs, **Then** the checklist includes code-specific items (compilation, security, testing)
 
-### 3.3 Self-Critique Output
+2. **Given** the agent is generating a skill, **When** self-critique runs, **Then** the checklist includes skill-specific items (YAML frontmatter, examples, triggers)
 
-```yaml
-# Exemplo de output do self-critique
-critique:
-  score: 78
-  confidence: "medium"
-  
-  strengths:
-    - "Exemplos praticos e executaveis"
-    - "Constraints bem definidos"
-  
-  weaknesses:
-    - "Apenas 2 exemplos (recomendado: 3+)"
-    - "Secao de troubleshooting ausente"
-  
-  suggestions:
-    - "Adicionar exemplo de caso de erro"
-    - "Expandir secao de Guidelines com mais padroes"
-    - "Incluir links para documentacao oficial"
-  
-  similar_skills:
-    - name: "graphql"
-      similarity: 0.65
-      note: "Possivel sobreposicao em resolvers"
-```
-
-### 3.4 Score Bands
-
-| Score | Band | Comportamento |
-|-------|------|---------------|
-| 90-100 | Excellent | Highlight verde no Human Gate |
-| 70-89 | Good | Apresentacao normal |
-| 50-69 | Fair | Warning amarelo + sugestoes enfatizadas |
-| 0-49 | Poor | Warning vermelho + sugestao de regenerar |
+3. **Given** the agent is generating documentation, **When** self-critique runs, **Then** the checklist includes documentation-specific items (structure, references, clarity)
 
 ---
 
-## 4. Implementation Plan
+### Edge Cases
 
-### 4.1 Tasks
+- What happens when self-critique cannot complete (e.g., artifact is malformed)?
+  - System should report partial score with explanation of what could not be evaluated
 
-#### Task 1: Criar self-critique.js (Day 1-2)
+- What happens when no similar skills exist for comparison?
+  - Redundancy check should return empty list with note "No similar skills found"
 
-```javascript
-// .prompt-os/scripts/self-critique.js
+- What happens when artifact is in a language/format the checklist doesn't cover?
+  - System should fall back to generic quality dimensions only
 
-/**
- * Avalia qualidade de uma skill gerada
- * @param {string} skillContent - Conteudo completo da skill
- * @param {string[]} existingSkills - Lista de skills existentes
- * @returns {CritiqueResult} - Score, strengths, weaknesses, suggestions
- */
-function evaluateSkill(skillContent, existingSkills) {
-  const dimensions = {
-    completeness: evaluateCompleteness(skillContent),
-    clarity: evaluateClarity(skillContent),
-    practicality: evaluatePracticality(skillContent),
-    consistency: evaluateConsistency(skillContent),
-  };
-  
-  const score = calculateScore(dimensions);
-  const suggestions = generateSuggestions(dimensions);
-  const similar = findSimilarSkills(skillContent, existingSkills);
-  
-  return { score, dimensions, suggestions, similar };
-}
-```
+## Requirements *(mandatory)*
 
-**Criterios de avaliacao:**
+### Functional Requirements
 
-```javascript
-// Completeness (25%)
-const completenessRules = [
-  { check: 'hasYamlFrontmatter', weight: 5 },
-  { check: 'hasAllRequiredSections', weight: 5 },
-  { check: 'hasMinExamples(2)', weight: 5 },
-  { check: 'hasConstraints', weight: 5 },
-  { check: 'hasSources', weight: 5 },
-];
+- **FR-001**: System MUST produce a quality score between 0-100 for every generated artifact before Human Gate
+- **FR-002**: System MUST break down the score into 4 dimensions: Completeness (0-25), Clarity (0-25), Correctness (0-25), Best Practices (0-25)
+- **FR-003**: System MUST provide between 1-5 improvement suggestions for any artifact scoring below 90
+- **FR-004**: System MUST identify similar existing skills when generating new skills (similarity threshold: 60%)
+- **FR-005**: System MUST use type-specific checklists based on artifact type (code, skill, persona, documentation)
+- **FR-006**: System MUST integrate with Human Gate protocol - score and suggestions displayed in approval interface
+- **FR-007**: System MUST follow score-based behavior thresholds:
+  - 90-100 (Excellent): Proceed with confidence indicator
+  - 70-89 (Good): Proceed with attention points noted
+  - 50-69 (Fair): Display warning, emphasize suggestions
+  - 0-49 (Poor): Display strong warning, suggest regeneration
+- **FR-008**: System MUST NOT auto-reject any artifact (human always decides)
+- **FR-009**: System MUST provide transparency - score calculation should be explainable when requested
 
-// Clarity (25%)
-const clarityRules = [
-  { check: 'instructionsWordCount > 50', weight: 5 },
-  { check: 'noAmbiguousTerms', weight: 5 },
-  { check: 'hasStepByStep', weight: 5 },
-  { check: 'examplesHaveContext', weight: 5 },
-  { check: 'constraintsAreSpecific', weight: 5 },
-];
+### Key Entities
 
-// Practicality (25%)
-const practicalityRules = [
-  { check: 'examplesAreExecutable', weight: 10 },
-  { check: 'hasRealWorldScenarios', weight: 10 },
-  { check: 'noPlaceholdersLeft', weight: 5 },
-];
+- **CritiqueResult**: The output of self-critique containing score, dimensions breakdown, strengths, weaknesses, suggestions, and similar items
+- **QualityDimension**: One of four evaluation dimensions (Completeness, Clarity, Correctness, Best Practices) with individual score 0-25
+- **ArtifactType**: Classification of what is being evaluated (code, skill, persona, documentation, architectural decision)
+- **SimilarityMatch**: A reference to an existing skill with calculated similarity score (0-100%)
 
-// Consistency (25%)
-const consistencyRules = [
-  { check: 'descriptionMatchesContent', weight: 10 },
-  { check: 'tagsMatchDomain', weight: 5 },
-  { check: 'triggersAreRelevant', weight: 5 },
-  { check: 'levelMatchesComplexity', weight: 5 },
-];
-```
+## Success Criteria *(mandatory)*
 
-#### Task 2: Integrar ao brain.js (Day 2)
+### Measurable Outcomes
 
-```javascript
-// Em brain.js, apos validateDraft()
+- **SC-001**: Human review time decreases by 20% or more after self-critique implementation (measured by time from artifact presentation to decision)
+- **SC-002**: 80% or more of artifacts rejected by humans have self-critique scores below 70 (correlation validation)
+- **SC-003**: 50% or more of self-critique suggestions are addressed or acknowledged by humans (utility validation)
+- **SC-004**: 100% of generated artifacts receive a self-critique score before Human Gate (coverage)
+- **SC-005**: Self-critique adds less than 5 seconds to artifact generation workflow (performance)
+- **SC-006**: Redundancy detection catches 90% of skill overlap situations (measured against manual review)
 
-async function critiqueSkill(draft) {
-  log.step(4.5, 'SELF-CRITIQUE - Avaliando qualidade...');
-  
-  const existingSkills = await loadExistingSkills();
-  const critique = evaluateSkill(draft.content, existingSkills);
-  
-  // Exibir resultado
-  console.log(`\nScore: ${critique.score}/100 (${getScoreBand(critique.score)})`);
-  
-  if (critique.suggestions.length > 0) {
-    console.log('\nSugestoes de melhoria:');
-    critique.suggestions.forEach((s, i) => console.log(`  ${i+1}. ${s}`));
-  }
-  
-  if (critique.similar.length > 0) {
-    console.log('\nSkills similares encontradas:');
-    critique.similar.forEach(s => console.log(`  - ${s.name} (${Math.round(s.similarity * 100)}%)`));
-  }
-  
-  return critique;
-}
-```
+## Assumptions
 
-#### Task 3: Atualizar Human Gate UI (Day 3)
+- The self-critique protocol operates as Markdown instructions that AI agents read and follow (prompt-based architecture)
+- Self-critique does not require external LLM calls - it uses rule-based evaluation that the AI agent executes by following the protocol
+- The existing SELF-CRITIQUE.md protocol provides the foundation; this spec enhances it with specific implementation details
+- Skills are stored in `skills/` directory with INDEX.md for lookup
+- Human Gate protocol is already implemented and accepts structured critique results
 
-```
-============================================
- HUMAN GATE - APROVACAO NECESSARIA
-============================================
- Skill: kubernetes-basics
- Dominio: devops
- 
- SELF-CRITIQUE:
- Score: 78/100 (Good)
- 
- + Exemplos praticos e executaveis
- + Constraints bem definidos
- 
- - Apenas 2 exemplos (recomendado: 3+)
- - Secao de troubleshooting ausente
- 
- Sugestoes:
- 1. Adicionar exemplo de caso de erro
- 2. Expandir Guidelines com mais padroes
- 3. Incluir links para docs oficiais
- 
- Similar: graphql (65%)
-============================================
+## Out of Scope
 
-[1] approve   [2] view   [3] edit   [4] reject   [5] cancel
-
-```
-
-#### Task 4: Testes e Ajustes (Day 4-5)
-
-- [ ] Testar com 5 skills novas
-- [ ] Calibrar pesos das dimensoes
-- [ ] Ajustar thresholds de score bands
-- [ ] Documentar criterios de avaliacao
-
----
-
-## 5. Success Criteria
-
-### 5.1 Functional Requirements
-
-| ID | Requirement | Validation |
-|----|-------------|------------|
-| FR1 | Score de 0-100 para cada skill | Executar 10 geracoes, verificar scores |
-| FR2 | Minimo 1 sugestao por skill | Nenhuma geracao sem sugestoes |
-| FR3 | Deteccao de redundancia | Gerar skill similar, verificar alerta |
-| FR4 | Integracao com Human Gate | Score visivel no gate |
-
-### 5.2 Quality Metrics
-
-| Metrica | Target | Como Medir |
-|---------|--------|------------|
-| Skills rejeitadas com score < 50 | > 80% | Correlacao score vs rejeicao |
-| Sugestoes aceitas pelo humano | > 50% | Feedback pos-edicao |
-| Tempo de revisao humana | -20% | Timer no Human Gate |
-
----
-
-## 6. Risks and Mitigations
-
-| Risco | Probabilidade | Impacto | Mitigacao |
-|-------|---------------|---------|-----------|
-| Score nao reflete qualidade real | Media | Alto | Calibrar com feedback humano |
-| Sugestoes genericas demais | Alta | Medio | Regras especificas por dominio |
-| Performance degradada | Baixa | Medio | Cache de skills existentes |
-
----
-
-## 7. Dependencies
-
-| Dependencia | Tipo | Status |
-|-------------|------|--------|
-| brain.js v1.1.0 | Interna | OK |
-| skills/INDEX.md | Interna | OK |
-| Node.js 20+ | Externa | OK |
-
----
-
-## 8. Timeline
-
-| Fase | Duracao | Deliverable |
-|------|---------|-------------|
-| Day 1-2 | 2 dias | self-critique.js com regras |
-| Day 2 | 0.5 dia | Integracao com brain.js |
-| Day 3 | 1 dia | Atualizacao Human Gate UI |
-| Day 4-5 | 2 dias | Testes e calibracao |
-
-**Total:** 5 dias
-
----
-
-## 9. Future Considerations
-
-### 9.1 Evolucao para LLM-based Critique
-
-Na v2.0, considerar usar LLM para avaliacao semantica:
-
-```javascript
-async function llmCritique(skillContent) {
-  const prompt = `
-    Avalie esta skill de 0-100 considerando:
-    - Completude
-    - Clareza
-    - Praticidade
-    - Consistencia
-    
-    Skill:
-    ${skillContent}
-    
-    Responda em JSON com score, strengths, weaknesses, suggestions.
-  `;
-  
-  return await llm.generate(prompt);
-}
-```
-
-### 9.2 Aprendizado com Feedback
-
-Armazenar correlacao entre scores e aprovacoes para ajustar pesos:
-
-```yaml
-# MEMORY.md
-critique_feedback:
-  - skill: "kubernetes-basics"
-    predicted_score: 78
-    human_action: "approved"
-    human_feedback: "Bom, mas faltou exemplo de erro"
-    
-  - skill: "redis-caching"
-    predicted_score: 45
-    human_action: "rejected"
-    human_feedback: "Exemplos nao funcionam"
-```
-
----
-
-*SPEC-001 | Self-Critique Module | v1.0.0 | 2026-02-02*
+- Automatic rejection of artifacts (humans always decide)
+- Machine learning-based quality scoring (rule-based only in this version)
+- Vector database for semantic similarity (keyword/structural matching only)
+- Integration with external quality tools or linters
+- Modification of existing skill format or storage structure

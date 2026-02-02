@@ -255,7 +255,7 @@ TIERS.T1_JAVA = {
 ## Referencias
 
 - [tier-system.md](add-core/tier-system.md) - Documento original
-- [SPEC-001: Self-Critique](../specs/001-self-critique/spec.md) - Integracao futura
+- [SPEC-001: Self-Critique](../specs/001-self-critique/pre-spec.md) - Integracao futura
 - [INTEGRATION-ANALYSIS.md](INTEGRATION-ANALYSIS.md) - Analise de integracao
 
 ---
