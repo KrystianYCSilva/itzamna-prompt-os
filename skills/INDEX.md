@@ -22,11 +22,12 @@ skills/
 
 ### Frontend (3 skills)
 
-| Nome | Descricao | Status | Level |
-|------|-----------|--------|-------|
-| [css-basico](frontend/css-basico/SKILL.md) | Fundamentos de CSS: seletores, box model, posicionamento | approved | L1 |
-| [css-grid-layout-avancado](frontend/css-grid-layout-avancado/SKILL.md) | Layouts complexos com CSS Grid | approved | L2 |
-| [html](frontend/html/SKILL.md) | Estrutura e semantica HTML | approved | L1 |
+| Nome | Descricao                                                | Status | Level |
+|------|----------------------------------------------------------|--------|-------|
+| [css-basico](frontend/css-basico/SKILL.md) | Fundamentos de CSS: seletores, box model, posicionamento | approved | L2    |
+| [css-grid-layout-avancado](frontend/css-grid-layout-avancado/SKILL.md) | Layouts complexos com CSS Grid                           | approved | L2    |
+| [css](frontend/css) | Pasta para organizar skills do css                       | approved | L1    |
+| [html](frontend/html/SKILL.md) | Estrutura e semantica HTML                               | approved | L1    |
 
 ### Backend (2 skills)
 

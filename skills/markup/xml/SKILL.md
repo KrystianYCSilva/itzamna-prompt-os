@@ -236,7 +236,7 @@ type: skill
 
 ## Related Skills
 
-- [json](../json) - Modern alternative for APIs and configs
+- [json](../../config/json) - Modern alternative for APIs and configs
 - yaml - Human-friendly config format
 - xslt - Transforming XML documents
 - soap - XML-based web service protocol

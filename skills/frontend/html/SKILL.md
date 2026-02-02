@@ -240,11 +240,11 @@ HTML5 provides semantic elements that describe content meaning.
 
 ## Related Skills
 
-- css - Styling HTML content
+- [css](../css) - Styling HTML content
 - javascript - Adding interactivity to HTML
 - accessibility - Building inclusive web experiences
 - seo - Optimizing HTML for search engines
-- [markdown](../markdown) - Lightweight alternative for simple content
+- [markdown](../../markup/markdown) - Lightweight alternative for simple content
 
 ## Examples
 
