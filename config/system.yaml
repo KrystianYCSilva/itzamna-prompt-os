@@ -1,0 +1,69 @@
+# Itzamna PromptOS - Auto-Evolutionary System Configuration
+# Sistema Auto-Evolutivo para Programação Paralela Humano-Agente
+
+system:
+  name: "Itzamna PromptOS"
+  version: "1.0.0"
+  description: "Cérebro simplificado para programação paralela humano-agente"
+
+# Workflow Configuration
+workflow:
+  stages:
+    - research       # Pesquisa de tópicos/tecnologias
+    - generation     # Geração automática de conteúdo
+    - approval       # Aprovação humana
+    - commit         # Commit no repositório
+
+# Research Configuration
+research:
+  domains:
+    - programming
+    - technology
+    - development
+  sources:
+    - documentation
+    - best_practices
+    - community_standards
+
+# Generation Configuration
+generation:
+  types:
+    - skills        # Habilidades de programação
+    - personas      # Personas de agentes
+    - prompts       # Templates de prompts
+  
+  format:
+    skills: "markdown"
+    personas: "yaml"
+    prompts: "markdown"
+
+# Approval Configuration
+approval:
+  mode: "human"      # Requer aprovação humana
+  auto_approve: false
+  review_required: true
+
+# Integration Configuration
+integrations:
+  compatible_with:
+    - "GitHub Spec-Kit"
+    - "Claude Code"
+    - "Cursor"
+    - "Copilot"
+  
+  git:
+    auto_commit: false
+    branch_prefix: "auto-gen"
+    commit_prefix: "[AUTO-GEN]"
+
+# Output Configuration
+output:
+  paths:
+    skills: "./skills"
+    personas: "./personas"
+    prompts: "./prompts"
+  
+  naming_convention:
+    skills: "{category}_{topic}.md"
+    personas: "{name}_persona.yaml"
+    prompts: "{purpose}_prompt.md"

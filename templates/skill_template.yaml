@@ -1,0 +1,36 @@
+# Template: Skill de Programação
+# Este template é usado para gerar novas skills automaticamente
+
+name: "{topic}_skill"
+domain: "{domain}"
+category: "programming"
+
+structure:
+  sections:
+    - title: "Descrição"
+      content: "Descrição detalhada do tópico"
+    
+    - title: "Conceitos Principais"
+      content: "Lista dos conceitos-chave"
+      format: "bullet_list"
+    
+    - title: "Melhores Práticas"
+      content: "Práticas recomendadas"
+      format: "numbered_list"
+    
+    - title: "Casos de Uso"
+      content: "Aplicações práticas"
+      format: "bullet_list"
+    
+    - title: "Exemplos"
+      content: "Exemplos de código"
+      format: "code_block"
+    
+    - title: "Referências"
+      content: "Links e recursos"
+      format: "bullet_list"
+
+metadata:
+  auto_generated: true
+  requires_approval: true
+  version: "1.0.0"
