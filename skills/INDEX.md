@@ -29,12 +29,14 @@ skills/
 | [css](frontend/css) | Pasta para organizar skills do css                       | approved | L1    |
 | [html](frontend/html/SKILL.md) | Estrutura e semantica HTML                               | approved | L1    |
 
-### Backend (2 skills)
+### Backend (4 skills)
 
 | Nome | Descricao | Status | Level |
 |------|-----------|--------|-------|
+| [api-rest](backend/api-rest/SKILL.md) | Design de APIs RESTful, HTTP methods, status codes | approved | L2 |
 | [graphql](backend/graphql/SKILL.md) | Schemas, queries, mutations e resolvers | approved | L2 |
 | [python-async-programming](backend/python-async-programming/SKILL.md) | Programacao assincrona com asyncio | approved | L2 |
+| [typescript](backend/typescript/SKILL.md) | Types, interfaces, generics, tsconfig | approved | L2 |
 
 ### Config (3 skills)
 
@@ -52,10 +54,11 @@ skills/
 | [xml](markup/xml/SKILL.md) | Estrutura e validacao XML | approved | L1 |
 | [xslt](markup/xslt/SKILL.md) | Transformacoes XML com XSLT | approved | L2 |
 
-### DevOps (1 skill)
+### DevOps (2 skills)
 
 | Nome | Descricao | Status | Level |
 |------|-----------|--------|-------|
+| [docker](devops/docker/SKILL.md) | Containerizacao, multi-stage builds, docker-compose | approved | L2 |
 | [git](devops/git/SKILL.md) | Controle de versao com Git | approved | L1 |
 
 ### Docs (1 skill)
@@ -74,8 +77,8 @@ skills/
 
 ## Estatisticas
 
-- **Total de Skills:** 14
-- **Aprovadas:** 14
+- **Total de Skills:** 17
+- **Aprovadas:** 17
 - **Rascunho:** 0
 - **Categorias:** 7
 
@@ -97,4 +100,4 @@ node .prompt-os/scripts/brain.js generate skill "descricao da skill" --category 
 
 ---
 
-*Atualizado: 2025-01-06*
+*Atualizado: 2026-02-02*

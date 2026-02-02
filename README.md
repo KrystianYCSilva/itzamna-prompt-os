@@ -1,9 +1,11 @@
-# Itzamna PromptOS v1.0.0 (Piloto)
+# Itzamna PromptOS v1.0.0
 
 > **Sistema Operacional Cognitivo para Programacao Paralela Humano-Agente**
 
-[![Version](https://img.shields.io/badge/version-1.0.0--piloto-blue)]()
-[![Status](https://img.shields.io/badge/status-Piloto-orange)]()
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)]()
+[![Status](https://img.shields.io/badge/status-Production-green)]()
+[![Skills](https://img.shields.io/badge/skills-17-purple)]()
+[![Personas](https://img.shields.io/badge/personas-1-orange)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
 
 ---
@@ -12,10 +14,11 @@
 
 O **Itzamna PromptOS** e um sistema de orquestracao de prompts, skills e personas para agentes de IA. Inspirado em arquiteturas cognitivas (CoALA), ele permite:
 
-- **Auto-geracao de Skills**: Pesquisa, gera e valida skills automaticamente
+- **Auto-geracao de Skills**: Gera e valida skills automaticamente via CLI
 - **Human-in-the-Loop**: Nenhuma modificacao persistente sem aprovacao humana
-- **Cross-Model**: Funciona com Claude, GPT, Gemini, DeepSeek e outros
+- **Cross-Model**: Funciona com Claude, GPT, Gemini, Qwen, Cursor e outros
 - **Modularidade**: Skills composiveis carregadas sob demanda (JIT)
+- **Personas**: Composicoes de skills que definem papeis especializados
 
 ### Metafora Operacional
 
@@ -37,149 +40,198 @@ git clone https://github.com/seu-usuario/itzamna-prompt-os.git
 cd itzamna-prompt-os
 ```
 
-### 2. Estrutura do Projeto
+### 2. Gerar uma Skill
+
+```bash
+# Gerar skill com categoria especifica
+node .prompt-os/scripts/brain.js generate skill "Docker containerization" --category devops
+
+# Categorias disponiveis: frontend, backend, config, markup, devops, docs, testing
+```
+
+### 3. Aprovar/Rejeitar a Skill
+
+O sistema apresentara um Human Gate:
+
+```
+============================================
+ HUMAN GATE - APROVACAO NECESSARIA
+============================================
+ Skill: docker
+ Dominio: devops
+ Status: AGUARDANDO APROVACAO
+============================================
+
+[1] approve  - Aprovar e salvar skill
+[2] view     - Ver skill completa
+[3] edit     - Editar antes de salvar
+[4] reject   - Rejeitar com motivo
+[5] cancel   - Cancelar operacao
+
+Escolha [1-5]:
+```
+
+### 4. Sincronizar Constitution
+
+```powershell
+# Ver status de sincronizacao
+.\.prompt-os\scripts\sync-constitution.ps1 status
+
+# Sincronizar para todos os agentes
+.\.prompt-os\scripts\sync-constitution.ps1 push
+```
+
+---
+
+## Estrutura do Projeto
 
 ```
 itzamna-prompt-os/
 ├── README.md                    # Este arquivo
-├── ARCHITECTURE.md              # Arquitetura detalhada
-├── IMPLEMENTATION-GUIDE.md      # Guia de implementacao
-├── GLOSSARIO-TECNICO-PROMPTOS.md # Referencia de termos
+├── MEMORY.md                    # Estado persistente do sistema
+├── AGENTS.md                    # Configuracao de agentes
 │
-├── protocolo/                   # Protocolos do sistema
-│   └── human-gate-protocol.md   # Protocolo de aprovacao humana
+├── skills/                      # Biblioteca de skills (17 total)
+│   ├── INDEX.md                 # Indice de todas as skills
+│   ├── frontend/                # HTML, CSS (3 skills)
+│   ├── backend/                 # APIs, GraphQL, TypeScript (4 skills)
+│   ├── config/                  # YAML, JSON, properties (3 skills)
+│   ├── markup/                  # XML, XSLT, Markdown (3 skills)
+│   ├── devops/                  # Git, Docker (2 skills)
+│   ├── docs/                    # Technical writing (1 skill)
+│   └── testing/                 # Test skills (1 skill)
 │
-├── prompts/                     # Meta-prompts para geracao
-│   ├── skill-generator-prompt.md
-│   ├── persona-generator-prompt.md
-│   └── research-pipeline-prompt.md
+├── personas/                    # Biblioteca de personas (1 total)
+│   ├── INDEX.md                 # Indice de personas
+│   └── senior-fullstack-developer/
+│       └── PERSONA.md           # Desenvolvedor fullstack senior
 │
-├── templates/                   # Templates canonicos
-│   ├── SKILL.template.md
-│   ├── MEMORY.template.md
-│   ├── AGENTS.template.md
-│   ├── INDEX.template.md
-│   └── context/                 # Templates de contexto
-│       ├── project-overview.template.md
-│       ├── tech-stack.template.md
-│       ├── architectural-rules.template.md
-│       └── code-quality.template.md
+├── .prompt-os/                  # Core do sistema
+│   ├── scripts/
+│   │   ├── brain.js             # CLI v1.1.0 para geracao de skills
+│   │   └── sync-constitution.ps1 # Sincronizacao de constitution
+│   ├── core/
+│   │   ├── cli.py               # CLI Python alternativa
+│   │   └── orchestrator.py      # Orquestrador principal
+│   └── templates/
+│       └── SKILL.template.md    # Template canonico de skill
 │
-├── guias/                       # RFCs e guias de migracao
-│   ├── RFC-UNIFIED-CONTEXT-STRUCTURE.md
-│   ├── RFC-UNIFIED-DOCS-STRUCTURE.md
-│   └── BROWNFIELD-MIGRATION-GUIDE.md
+├── .specify/                    # Spec-Kit integration
+│   └── memory/
+│       └── constitution.md      # Constitution v1.0.0
 │
-├── scripts/                     # Scripts de validacao
-│   └── validate-skill.ps1
-│
-└── .specify/                    # Integracao Spec-Kit
-    ├── memory/
-    │   └── constitution.md      # Constituicao do projeto
-    └── templates/
-        └── plan-template.md
+├── .claude/                     # Claude Code config
+│   └── CONSTITUTION.md          # Synced from .specify
+├── .qwen/                       # Qwen config
+├── .gemini/                     # Gemini CLI config
+├── .cursor/                     # Cursor IDE config
+└── .opencode/                   # OpenCode config
 ```
 
 ---
 
-## Conceitos Fundamentais
+## Skills Disponiveis (17 total)
 
-### 1. Skills
+### Backend (4 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [api-rest](skills/backend/api-rest/SKILL.md) | L2 | Design de APIs RESTful, HTTP methods, status codes |
+| [graphql](skills/backend/graphql/SKILL.md) | L2 | Schemas, queries, mutations e resolvers |
+| [python-async-programming](skills/backend/python-async-programming/SKILL.md) | L2 | Programacao assincrona com asyncio |
+| [typescript](skills/backend/typescript/SKILL.md) | L2 | Types, interfaces, generics, tsconfig |
 
-Skills sao unidades modulares de conhecimento procedural. Cada skill:
+### DevOps (2 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [docker](skills/devops/docker/SKILL.md) | L2 | Containerizacao, multi-stage builds, docker-compose |
+| [git](skills/devops/git/SKILL.md) | L1 | Controle de versao com Git |
 
-- Tem seu proprio diretorio: `skills/{skill-name}/SKILL.md`
-- Contem metadata YAML obrigatorio
-- Define triggers, constraints e exemplos
-- E carregada sob demanda (JIT - Just-In-Time)
+### Frontend (3 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [html](skills/frontend/html/SKILL.md) | L1 | Estrutura e semantica HTML |
+| [css-basico](skills/frontend/css/css-basico/SKILL.md) | L2 | Fundamentos de CSS |
+| [css-grid-layout-avancado](skills/frontend/css/css-grid-layout-avancado/SKILL.md) | L2 | Layouts complexos com CSS Grid |
 
-```markdown
----
-name: "docker"
-description: "Skill para containerizacao com Docker"
-version: "1.0.0"
-domain: "devops"
-level: "L2"
-tags: ["docker", "containers", "devops"]
-triggers:
-  - "trabalhar com docker"
-  - "criar container"
----
+### Config (3 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [yaml-configuration-best-practices](skills/config/yaml-configuration-best-practices/SKILL.md) | L2 | YAML para configuracao e IaC |
+| [json](skills/config/json/SKILL.md) | L1 | Formato JSON |
+| [java-properties](skills/config/java-properties/SKILL.md) | L1 | Arquivos .properties |
 
-# Docker
+### Markup (3 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [markdown](skills/markup/markdown/SKILL.md) | L1 | Formatacao de texto |
+| [xml](skills/markup/xml/SKILL.md) | L1 | Estrutura e validacao XML |
+| [xslt](skills/markup/xslt/SKILL.md) | L2 | Transformacoes XML |
 
-## Instrucoes
-...
-```
-
-### 2. Personas
-
-Personas sao composicoes de skills que definem um papel especifico:
-
-```markdown
----
-name: "senior-backend-dev"
-type: "persona"
-expertise: ["Python", "APIs", "databases"]
-skills:
-  - python
-  - fastapi
-  - postgresql
----
-```
-
-### 3. Sistema de Memorias
-
-| Tipo | Funcao | Persistencia |
-|------|--------|--------------|
-| **Working** | Contexto ativo da sessao | Sessao |
-| **Episodica** | Historico de interacoes | 90 dias |
-| **Semantica** | Knowledge base | Permanente |
-| **Procedural** | Biblioteca de skills | Permanente |
-
-### 4. Niveis Cognitivos
-
-| Nivel | Nome | Funcao | Aprovacao |
-|-------|------|--------|-----------|
-| **L1** | Automatico | Boilerplate, linting | Auto-aprovado |
-| **L2** | Contextual | Geracao de skills | Humana |
-| **L3** | Estrategico | Arquitetura, personas | Dupla revisao |
+### Docs & Testing (2 skills)
+| Skill | Level | Descricao |
+|-------|-------|-----------|
+| [technical-writing](skills/docs/technical-writing/SKILL.md) | L2 | Redacao tecnica |
+| [hello-world-test](skills/testing/hello-world-test/SKILL.md) | L0 | Skill de teste |
 
 ---
 
-## Fluxo de Auto-Geracao
+## Personas Disponiveis (1 total)
 
+| Persona | Dominio | Skills Compostas |
+|---------|---------|------------------|
+| [senior-fullstack-developer](personas/senior-fullstack-developer/PERSONA.md) | Desenvolvimento | typescript, api-rest, docker, git, graphql |
+
+---
+
+## CLI Usage
+
+### brain.js (Node.js CLI)
+
+```bash
+# Gerar skill com categoria
+node .prompt-os/scripts/brain.js generate skill "descricao" --category backend
+
+# Categorias: frontend, backend, config, markup, devops, docs, testing
 ```
-Usuario pede skill → Classificar → Pesquisar → Gerar → Validar → HUMANO APROVA → Salvar
-```
 
-### Human Gate (Aprovacao Humana)
+### sync-constitution.ps1 (PowerShell)
 
-Nenhum artefato e salvo sem aprovacao explicita:
+```powershell
+# Ver status de todos os agentes
+.\.prompt-os\scripts\sync-constitution.ps1 status
 
-```
-┌─────────────────────────────────────────┐
-│  HUMAN GATE - APROVACAO NECESSARIA      │
-├─────────────────────────────────────────┤
-│  Skill: kubernetes                      │
-│  Dominio: cloud                         │
-│  Validacao: 95/100                      │
-├─────────────────────────────────────────┤
-│  [approve] [view] [edit] [reject]       │
-└─────────────────────────────────────────┘
+# Sincronizar constitution para todos os agentes
+.\.prompt-os\scripts\sync-constitution.ps1 push
+
+# Puxar modificacoes de volta (com deteccao de conflitos)
+.\.prompt-os\scripts\sync-constitution.ps1 pull
 ```
 
 ---
 
-## Integracao com Spec-Kit
+## Human Gate Protocol
+
+O sistema implementa aprovacao humana obrigatoria para todas as operacoes de persistencia:
+
+| Nivel | Operacao | Aprovacao |
+|-------|----------|-----------|
+| L1 | Boilerplate, linting | Auto-aprovado |
+| L2 | Geracao de skills | Humana obrigatoria |
+| L3 | Arquitetura, personas | Dupla revisao |
+
+### Fluxos Suportados
+
+- **approve**: Salva skill em `skills/{categoria}/{nome}/SKILL.md`
+- **view**: Mostra skill completa antes de decidir
+- **edit**: Salva como draft para edicao manual
+- **reject**: Rejeita com motivo documentado
+- **cancel**: Cancela operacao sem criar arquivos
+
+---
+
+## Spec-Kit Integration
 
 Para features complexas (>5 dias), use o workflow Spec-Kit:
-
-| Complexidade | Workflow |
-|--------------|----------|
-| Simples (<3 dias) | `brain generate skill` direto |
-| Media (3-5 dias) | Spec-Kit recomendado |
-| Complexa (>5 dias) | Spec-Kit **obrigatorio** |
 
 ```bash
 # Inicializar Spec-Kit
@@ -189,45 +241,91 @@ speckit init --here --ai claude
 /speckit.specify "Sistema de autenticacao OAuth2"
 ```
 
+### Agentes Sincronizados
+
+| Agente | Diretorio | Status |
+|--------|-----------|--------|
+| Claude Code | `.claude/` | Synced |
+| Qwen | `.qwen/` | Synced |
+| Gemini CLI | `.gemini/` | Synced |
+| Cursor | `.cursor/` | Synced |
+| OpenCode | `.opencode/` | Synced |
+
 ---
 
-## Documentacao
+## Contribuindo
+
+### Adicionar Nova Skill
+
+1. Execute `node .prompt-os/scripts/brain.js generate skill "descricao" --category categoria`
+2. Preencha os `[PLACEHOLDERS]` gerados
+3. Aprove no Human Gate
+4. Atualize `skills/INDEX.md` se necessario
+
+### Adicionar Nova Persona
+
+1. Crie diretorio `personas/{nome-persona}/`
+2. Crie `PERSONA.md` seguindo o formato existente
+3. Liste skills compostas no frontmatter
+4. Atualize `personas/INDEX.md`
+
+### Criar Nova Categoria de Skill
+
+1. Crie diretorio `skills/{categoria}/`
+2. Adicione categoria em `brain.js` (array de categorias)
+3. Atualize `skills/INDEX.md` com nova secao
+
+---
+
+## Arquitetura
+
+### Sistema de Memorias
+
+| Tipo | Funcao | Persistencia |
+|------|--------|--------------|
+| **Working** | Contexto ativo da sessao | Sessao |
+| **Episodica** | Historico de interacoes | 90 dias |
+| **Semantica** | Knowledge base | Permanente |
+| **Procedural** | Biblioteca de skills | Permanente |
+
+### Niveis de Skills
+
+| Level | Descricao |
+|-------|-----------|
+| L0 | Teste/exemplo |
+| L1 | Fundamentos - conhecimento basico |
+| L2 | Intermediario - padroes e boas praticas |
+| L3 | Avancado - otimizacao e casos complexos |
+
+---
+
+## Documentacao Adicional
 
 | Documento | Descricao |
 |-----------|-----------|
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Arquitetura cognitiva detalhada |
-| [IMPLEMENTATION-GUIDE.md](./IMPLEMENTATION-GUIDE.md) | Guia de implementacao passo-a-passo |
-| [GLOSSARIO-TECNICO-PROMPTOS.md](./GLOSSARIO-TECNICO-PROMPTOS.md) | Referencia de termos tecnicos |
-| [human-gate-protocol.md](./protocolo/human-gate-protocol.md) | Protocolo de aprovacao humana |
-| [constitution.md](./.specify/memory/constitution.md) | Constituicao e principios |
-
----
-
-## Principios Fundamentais
-
-1. **Human-in-the-Loop**: Aprovacao humana obrigatoria para persistencia
-2. **Skill Modularity**: Capacidades encapsuladas em skills independentes
-3. **Template Canonicity**: Todos artefatos seguem templates validados
-4. **Cognitive Levels**: Operacoes classificadas em L1/L2/L3
-5. **Memory System**: Quatro tipos de memoria persistente
-6. **Generation Pipeline**: Classify → Research → Generate → Validate → Approve → Commit
-7. **Spec-Kit Integration**: Features complexas usam workflow Spec-Kit
+| [MEMORY.md](./MEMORY.md) | Estado persistente do sistema |
+| [AGENTS.md](./AGENTS.md) | Configuracao de agentes |
+| [skills/INDEX.md](./skills/INDEX.md) | Indice completo de skills |
+| [personas/INDEX.md](./personas/INDEX.md) | Indice de personas |
+| [constitution.md](./.specify/memory/constitution.md) | Constitution v1.0.0 |
 
 ---
 
 ## Roadmap
 
-### v1.0.0 (Piloto) - Atual
+### v1.0.0 (Atual) - Production
 - [x] Arquitetura cognitiva baseada em CoALA
-- [x] Templates canonicos para Skills, Personas, Prompts
-- [x] Protocolo Human Gate
-- [x] Integracao basica com Spec-Kit
-- [x] Scripts de validacao
+- [x] CLI brain.js v1.1.0 com --category
+- [x] 17 skills em 7 categorias
+- [x] 1 persona (senior-fullstack-developer)
+- [x] Human Gate Protocol completo
+- [x] Spec-Kit integration
+- [x] Sync-constitution para 5 agentes
 
 ### v1.1.0 (Proxima)
-- [ ] CLI funcional (`brain generate skill`)
 - [ ] Vector DB para busca semantica
 - [ ] Embeddings para retrieval de skills
+- [ ] CLI para geracao de personas
 - [ ] Integracao com Slack para aprovacoes
 
 ### v2.0.0 (Futuro)
@@ -247,10 +345,10 @@ speckit init --here --ai claude
 - [DSPy](https://dspy.ai/) - Programmatic prompts
 
 ### Ferramentas Suportadas
-- [Claude Code](https://code.claude.com) - Anthropic CLI
-- [GitHub Copilot](https://docs.github.com/copilot) - GitHub AI
+- [Claude Code](https://claude.ai/code) - Anthropic CLI
 - [Cursor](https://cursor.com) - AI-first IDE
-- [Gemini CLI](https://geminicli.com) - Google AI CLI
+- [Gemini CLI](https://ai.google.dev/) - Google AI CLI
+- [Qwen](https://qwen.ai/) - Alibaba AI
 
 ---
 
@@ -260,4 +358,4 @@ MIT License - veja [LICENSE](./LICENSE) para detalhes.
 
 ---
 
-**Itzamna PromptOS v1.0.0 (Piloto)** | 2026
+**Itzamna PromptOS v1.0.0** | Production Ready | 2026
