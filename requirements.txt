@@ -1,0 +1,10 @@
+# Itzamna PromptOS v1.0.0 - Dependencies
+
+# Core dependencies
+pyyaml>=6.0
+
+# Optional - for enhanced features
+# aiohttp>=3.9.0      # Async HTTP client for web research
+# chromadb>=0.4.0     # Vector database for semantic search
+# openai>=1.0.0       # LLM integration
+# anthropic>=0.20.0   # Claude integration
