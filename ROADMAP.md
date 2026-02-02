@@ -49,7 +49,7 @@ v1.0.0 (Atual)        v1.1.0              v1.2.0              v1.3.0            
 
 **Status:** Especificado  
 **Estimativa:** 3-5 dias  
-**Spec:** [SPEC-001-self-critique.md](.specify/specs/SPEC-001-self-critique.md)
+**Spec:** [SPEC-001](specs/001-self-critique/spec.md)
 
 ### Objetivo
 Sistema avalia qualidade propria antes do Human Gate.
@@ -74,7 +74,7 @@ Sistema avalia qualidade propria antes do Human Gate.
 
 **Status:** Especificado  
 **Estimativa:** 5-7 dias  
-**Spec:** [SPEC-002-auto-increment.md](.specify/specs/SPEC-002-auto-increment.md)  
+**Spec:** [SPEC-002](specs/002-auto-increment/spec.md)  
 **Depende de:** v1.1.0
 
 ### Objetivo
@@ -98,8 +98,9 @@ Sistema detecta lacunas e propoe evolucoes.
 
 ## v1.3.0 - Web Research Real
 
-**Status:** Planejado  
+**Status:** Especificado  
 **Estimativa:** 5-7 dias  
+**Spec:** [SPEC-003](specs/003-web-research/spec.md)  
 **Depende de:** v1.2.0
 
 ### Objetivo
@@ -123,8 +124,9 @@ Substituir mock de pesquisa por busca real.
 
 ## v2.0.0 - Vector DB + RAG
 
-**Status:** Futuro  
+**Status:** Especificado  
 **Estimativa:** 7-10 dias  
+**Spec:** [SPEC-004](specs/004-vector-db-rag/spec.md)  
 **Depende de:** v1.3.0
 
 ### Objetivo
@@ -148,14 +150,14 @@ Busca semantica de skills com RAG.
 
 ## Backlog (Post v2.0.0)
 
-| Feature | Complexidade | Prioridade |
-|---------|--------------|------------|
-| Slack Integration | Media | P3 |
-| CLI para Personas | Baixa | P2 |
-| Multi-language Skills | Media | P3 |
-| A/B Testing de Templates | Alta | P3 |
-| Multi-agent Coordination | Alta | P4 |
-| MCP Full Compatibility | Alta | P4 |
+| Feature | Complexidade | Prioridade | Spec |
+|---------|--------------|------------|------|
+| Slack Integration | Media | P3 | - |
+| CLI para Personas | Baixa | P2 | [SPEC-005](specs/005-persona-cli/spec.md) |
+| Multi-language Skills | Media | P3 | - |
+| A/B Testing de Templates | Alta | P3 | - |
+| Multi-agent Coordination | Alta | P4 | - |
+| MCP Full Compatibility | Alta | P4 | - |
 
 ---
 
