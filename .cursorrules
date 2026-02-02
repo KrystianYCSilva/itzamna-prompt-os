@@ -1,32 +1,90 @@
-# Cursor IDE Rules
+# Cursor IDE Rules - Itzamna PromptOS v2.0.0
 
-Load `/.context/ai-assistant-guide.md` before generating code.
+> **Bootstrap para Cursor IDE**
 
-## Mandatory Rules (T0)
-- [ARCH-001]: Never create/modify files without human approval
-- [ARCH-002]: Kernel (AGENTS.md) must remain < 5KB
-- [ARCH-003]: Skills must be < 1400 tokens
-- [ARCH-004]: Always cite sources in generated content
-- [ARCH-005]: Maintain cross-model compatibility
-- [ARCH-006]: Update MEMORY.md after significant actions
+---
 
-## Context Loading
-Before starting work:
-1. Load `/.context/standards/architectural-rules.md` (T0 rules)
-2. Read `/.context/_meta/tech-stack.md` for project context
-3. Review `MEMORY.md` for current state
+## READ FIRST
+
+Load these files in order:
+
+1. **`ITZAMNA-AGENT.md`** - Main agent (identity, workflows, rules)
+2. **`.prompt-os/PROMPTOS.md`** - System entry point
+3. **`.prompt-os/CONSTITUTION.md`** - T0/T1/T2 rules
+4. **`MEMORY.md`** - Persistent state
+5. **`.context/`** - Project context (load JIT)
+
+---
+
+## T0 Rules (Inviolable)
+
+| ID | Rule |
+|----|------|
+| T0-HUMAN-01 | NEVER create/modify files without human approval |
+| T0-HUMAN-02 | ALWAYS show preview before commit |
+| T0-MEMORY-01 | ALWAYS update MEMORY.md after significant actions |
+| T0-SIZE-01 | Skills < 1400 tokens, Kernel < 5KB |
+| T0-SOURCE-01 | ALWAYS cite sources in generated skills |
+
+---
+
+## Context Loading (JIT)
+
+Load from `.context/` as needed:
+
+| Need | Load |
+|------|------|
+| T0 Rules | `standards/architectural-rules.md` |
+| Project overview | `_meta/project-overview.md` |
+| Tech stack | `_meta/tech-stack.md` |
+| Code quality | `standards/code-quality.md` |
+| Testing | `standards/testing-strategy.md` |
+| Architecture | `patterns/architectural-overview.md` |
+
+---
+
+## Human Gate
+
+**MANDATORY for file operations:**
+
+```
+1. Generate artifact
+2. Self-critique (score 0-100)
+3. Show preview to human
+4. WAIT for response:
+   - "ok/yes/approve" → Commit
+   - "view/show" → Display full content
+   - "edit X" → Revise section X
+   - "reject [reason]" → Learn, offer retry
+   - "cancel" → Abort
+```
+
+---
 
 ## Code Generation
-- Follow patterns in `/.context/patterns/architectural-overview.md`
-- Apply standards from `/.context/standards/code-quality.md`
-- Reference examples in `/.context/examples/` when relevant
+
+- Follow patterns in `.context/patterns/architectural-overview.md`
+- Apply standards from `.context/standards/code-quality.md`
+- Reference examples in `.context/examples/`
+
+---
 
 ## Testing
+
 - Line coverage >= 90%
 - Branch coverage >= 80%
-- Follow testing strategy in `/.context/standards/testing-strategy.md`
+- Follow `.context/standards/testing-strategy.md`
 
-## Workflow
-- Use 6-phase pipeline for new skills/personas
-- Route complex requests (>3 days effort) to Spec-Kit workflow
-- Always show preview before proposing file changes
+---
+
+## References
+
+| Document | Content |
+|----------|---------|
+| `ITZAMNA-AGENT.md` | Complete main agent |
+| `.context/ai-assistant-guide.md` | Full AI guide |
+| `.prompt-os/CONSTITUTION.md` | Complete rules |
+
+---
+
+**EOF** | Cursor Bootstrap | v2.0.0
