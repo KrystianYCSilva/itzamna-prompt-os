@@ -90,65 +90,37 @@ function classifyInput(input) {
   };
 }
 
-// PESQUISA (Mock para MVP)
+// PESQUISA - Retorna placeholders para preenchimento manual
 async function conductResearch(classification) {
-  log.step(2, 'RESEARCH - Pesquisando fontes...');
+  log.step(2, 'RESEARCH - Preparando template com placeholders...');
   
-  const domainPatterns = {
-    graphql: {
-      patterns: [
-        'Usar DataLoader para evitar N+1 queries',
-        'Implementar rate limiting por query complexity',
-        'Separar schema em modulos por dominio',
-      ],
-      antipatterns: [
-        'Expor todos os campos do banco diretamente',
-        'Ignorar depth limiting em queries aninhadas',
-      ],
-      sources: [
-        { url: 'https://graphql.org/learn/best-practices/', type: 'official_docs' },
-      ],
-    },
-    react: {
-      patterns: [
-        'Usar React.memo para componentes puros',
-        'Implementar custom hooks para logica reutilizavel',
-      ],
-      antipatterns: [
-        'Mutar estado diretamente',
-        'Usar indice como key em listas dinamicas',
-      ],
-      sources: [
-        { url: 'https://react.dev/learn', type: 'official_docs' },
-      ],
-    },
-    default: {
-      patterns: [
-        'Seguir principios SOLID',
-        'Documentar funcoes publicas',
-        'Escrever testes unitarios',
-      ],
-      antipatterns: [
-        'Codigo duplicado',
-        'Funcoes muito longas',
-      ],
-      sources: [
-        { url: 'https://refactoring.guru/refactoring', type: 'best_practices' },
-      ],
-    },
+  // Template com placeholders - usuario deve preencher manualmente
+  const research = {
+    patterns: [
+      `[GUIDELINE_1: Descreva a primeira boa pratica para ${classification.description}]`,
+      `[GUIDELINE_2: Descreva a segunda boa pratica para ${classification.description}]`,
+      `[GUIDELINE_3: Descreva a terceira boa pratica para ${classification.description}]`,
+    ],
+    antipatterns: [
+      `[CONSTRAINT_1: Descreva o que NUNCA fazer com ${classification.description}]`,
+      `[CONSTRAINT_2: Descreva outro antipattern para ${classification.description}]`,
+    ],
+    sources: [
+      { url: '[URL_DOCUMENTACAO_OFICIAL]', type: 'official_docs' },
+      { url: '[URL_TUTORIAL_OU_ARTIGO]', type: 'tutorial' },
+    ],
   };
 
-  const research = domainPatterns[classification.domain] || domainPatterns.default;
-  log.info(`Fontes encontradas: ${research.sources.length}`);
-  log.info(`Padroes identificados: ${research.patterns.length}`);
+  log.info(`Template com ${research.patterns.length} guidelines para preencher`);
+  log.info(`Template com ${research.antipatterns.length} constraints para preencher`);
 
   return {
-    summary: `Pesquisa sobre ${classification.domain} concluida.`,
+    summary: `Template preparado para ${classification.description}.`,
     ...research,
   };
 }
 
-// GERACAO
+// GERACAO - Template com [PLACEHOLDERS] para preenchimento manual
 function generateSkillContent(classification, research) {
   const name = toKebabCase(classification.description);
   const title = classification.description
@@ -158,19 +130,22 @@ function generateSkillContent(classification, research) {
 
   const content = `---
 name: "${name}"
-description: "Skill para ${classification.description}. Gerada pelo PromptOS Brain."
+description: "[DESCRICAO: Resumo de 1-2 linhas sobre o que esta skill ensina]"
 version: "1.0.0"
 domain: "${classification.domain}"
 level: "${classification.complexity === 'simple' ? 'L1' : 'L2'}"
 tags:
   - "${classification.domain}"
-  - "auto-generated"
+  - "[TAG_ADICIONAL_1]"
+  - "[TAG_ADICIONAL_2]"
 triggers:
-${classification.triggers.map(t => `  - "${t}"`).join('\n')}
+  - "${classification.description.toLowerCase()}"
+  - "[TRIGGER_2: Quando ativar esta skill]"
+  - "[TRIGGER_3: Outro contexto de ativacao]"
 dependencies: []
 author: "promptos-brain"
 created: "${today()}"
-status: "pending"
+status: "draft"
 sources:
 ${research.sources.map(s => `  - url: "${s.url}"\n    type: "${s.type}"`).join('\n')}
 ---
@@ -179,27 +154,32 @@ ${research.sources.map(s => `  - url: "${s.url}"\n    type: "${s.type}"`).join('
 
 ## Visao Geral
 
-Esta skill fornece diretrizes e padroes para trabalhar com ${classification.domain}. 
-Gerada automaticamente pelo PromptOS Brain.
-Nivel de complexidade: ${classification.complexity}.
+[VISAO_GERAL: Descreva em 2-3 paragrafos o proposito desta skill, quando ela deve ser usada, e qual problema ela resolve. Seja especifico sobre ${classification.description}.]
+
+**Contexto de Uso:**
+- [CONTEXTO_1: Quando usar esta skill]
+- [CONTEXTO_2: Cenario tipico de aplicacao]
+- [CONTEXTO_3: Tipo de projeto ou tarefa]
 
 ---
 
 ## Instrucoes
 
-### Ao receber uma tarefa relacionada a ${classification.domain}:
+### Ao receber uma tarefa relacionada a ${classification.description}:
 
-1. **Analise** o contexto e requisitos especificos da tarefa
-2. **Verifique** se ha codigo existente relacionado no projeto
-3. **Aplique** os padroes documentados abaixo
-4. **Valide** o resultado executando testes apropriados
-5. **Documente** decisoes tecnicas relevantes
+1. **Analise** o contexto e requisitos especificos
+2. **Verifique** [O_QUE_VERIFICAR_ANTES_DE_COMECAR]
+3. **Aplique** os padroes documentados nas Guidelines abaixo
+4. **Valide** [COMO_VALIDAR_O_RESULTADO]
+5. **Documente** [O_QUE_DOCUMENTAR_APOS_CONCLUSAO]
 
 ---
 
 ## Guidelines (SEMPRE)
 
 ${research.patterns.map((p, i) => `${i + 1}. ${p}`).join('\n')}
+
+---
 
 ## Constraints (NUNCA)
 
@@ -209,43 +189,63 @@ ${research.antipatterns.map((a, i) => `${i + 1}. **NUNCA** ${a}`).join('\n')}
 
 ## Exemplos
 
-### Exemplo 1: Caso Basico
+### Exemplo 1: [TITULO_EXEMPLO_1]
 
-**Cenario:** Implementacao padrao de ${classification.domain}
+**Cenario:** [DESCREVA_O_CENARIO_DE_USO]
 
 **Input:**
-\`\`\`
-// Requisicao do usuario
+\`\`\`[LINGUAGEM]
+[CODIGO_OU_REQUISICAO_DE_ENTRADA]
 \`\`\`
 
 **Output esperado:**
-\`\`\`
-// Codigo seguindo os padroes documentados
+\`\`\`[LINGUAGEM]
+[CODIGO_OU_RESULTADO_ESPERADO]
 \`\`\`
 
-### Exemplo 2: Tratamento de Erros
+**Explicacao:** [EXPLIQUE_POR_QUE_ESTE_OUTPUT_SEGUE_AS_GUIDELINES]
 
-**Cenario:** Situacao onde erros podem ocorrer
+---
+
+### Exemplo 2: [TITULO_EXEMPLO_2]
+
+**Cenario:** [DESCREVA_OUTRO_CENARIO_DE_USO]
 
 **Input:**
-\`\`\`
-// Requisicao que pode resultar em erro
+\`\`\`[LINGUAGEM]
+[CODIGO_OU_REQUISICAO_DE_ENTRADA_2]
 \`\`\`
 
 **Output esperado:**
+\`\`\`[LINGUAGEM]
+[CODIGO_OU_RESULTADO_ESPERADO_2]
 \`\`\`
-try {
-  // Operacao principal
-} catch (error) {
-  // Tratamento especifico
-}
-\`\`\`
+
+**Explicacao:** [EXPLIQUE_POR_QUE_ESTE_OUTPUT_SEGUE_AS_GUIDELINES]
+
+---
+
+## Edge Cases
+
+| Situacao | Como Tratar |
+|----------|-------------|
+| [EDGE_CASE_1] | [COMO_RESOLVER_1] |
+| [EDGE_CASE_2] | [COMO_RESOLVER_2] |
+| [EDGE_CASE_3] | [COMO_RESOLVER_3] |
 
 ---
 
 ## Referencias
 
 ${research.sources.map((s, i) => `${i + 1}. ${s.url} (${s.type})`).join('\n')}
+
+---
+
+## Notas de Implementacao
+
+> **IMPORTANTE:** Este arquivo foi gerado como template pelo PromptOS Brain.
+> Todos os campos marcados com [PLACEHOLDER] devem ser preenchidos manualmente.
+> Apos preencher, altere o status de "draft" para "approved" no frontmatter.
 `;
 
   return { 
@@ -268,6 +268,12 @@ function validateDraft(draft) {
   const exampleCount = (draft.content.match(/### Exemplo \d+/g) || []).length;
   if (exampleCount < 2) warnings.push(`Apenas ${exampleCount} exemplo(s) - recomendado: 2+`);
 
+  // Contar placeholders nao preenchidos
+  const placeholderCount = (draft.content.match(/\[[A-Z_]+[^\]]*\]/g) || []).length;
+  if (placeholderCount > 0) {
+    warnings.push(`${placeholderCount} placeholder(s) para preencher manualmente`);
+  }
+
   if (errors.length === 0) {
     log.success('Draft valido!');
   } else {
@@ -275,7 +281,7 @@ function validateDraft(draft) {
   }
   warnings.forEach(w => log.warn(w));
 
-  return { valid: errors.length === 0, errors, warnings };
+  return { valid: errors.length === 0, errors, warnings, placeholderCount };
 }
 
 // HUMAN GATE
@@ -324,10 +330,11 @@ async function commitSkill(draft) {
   const skillDir = path.join(CONFIG.SKILLS_DIR, draft.metadata.name);
   await fs.mkdir(skillDir, { recursive: true });
   
-  const finalContent = draft.fullText.replace('status: "pending"', 'status: "approved"');
+  // Manter status como "draft" - usuario deve mudar para "approved" apos preencher placeholders
   const filePath = path.join(skillDir, 'SKILL.md');
-  await fs.writeFile(filePath, finalContent, 'utf8');
+  await fs.writeFile(filePath, draft.fullText, 'utf8');
   log.info(`Arquivo: ${filePath}`);
+  log.warn('Status: draft - preencha os [PLACEHOLDERS] e altere para "approved"');
   
   // Atualizar INDEX.md
   const indexPath = path.join(CONFIG.SKILLS_DIR, 'INDEX.md');
@@ -335,7 +342,7 @@ async function commitSkill(draft) {
     '# Skills\n\n| Nome | Dominio | Status | Data | Autor |\n|------|---------|--------|------|-------|\n'
   );
   
-  const newEntry = `| ${draft.metadata.name} | ${draft.metadata.domain} | approved | ${today()} | promptos-brain |`;
+  const newEntry = `| ${draft.metadata.name} | ${draft.metadata.domain} | draft | ${today()} | promptos-brain |`;
   if (!indexContent.includes(draft.metadata.name)) {
     indexContent = indexContent.trimEnd() + '\n' + newEntry + '\n';
     await fs.writeFile(indexPath, indexContent, 'utf8');
