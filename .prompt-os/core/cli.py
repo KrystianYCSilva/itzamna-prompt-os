@@ -8,10 +8,13 @@ import sys
 import argparse
 from pathlib import Path
 
-# Add parent directory to path
+# Add .prompt-os directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from core.orchestrator import PromptOSOrchestrator
+
+# Get project root (2 levels up from .prompt-os/core/)
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 
 
 def main():
@@ -21,19 +24,19 @@ def main():
         epilog="""
 Exemplos de uso:
   # Gerar uma skill sobre Python Async
-  python core/cli.py generate skill "Python Async Programming"
+  python .prompt-os/core/cli.py generate skill "Python Async Programming"
   
   # Gerar uma persona para DevOps
-  python core/cli.py generate persona "DevOps Engineer"
+  python .prompt-os/core/cli.py generate persona "DevOps Engineer"
   
   # Workflow completo (Classify -> Research -> Generate -> Validate -> Approve -> Commit)
-  python core/cli.py workflow "Docker containers com multi-stage builds"
+  python .prompt-os/core/cli.py workflow "Docker containers com multi-stage builds"
   
   # Listar skills existentes
-  python core/cli.py list skills
+  python .prompt-os/core/cli.py list skills
   
   # Buscar por termo
-  python core/cli.py search "react"
+  python .prompt-os/core/cli.py search "react"
         """,
     )
 
@@ -94,7 +97,7 @@ Exemplos de uso:
         return 1
 
     orchestrator = PromptOSOrchestrator()
-    base_path = Path(__file__).parent.parent
+    base_path = PROJECT_ROOT
 
     try:
         if args.command == "generate":
@@ -229,21 +232,29 @@ def handle_info(base_path: Path) -> int:
     print("\nArquitetura: CoALA Simplificado")
     print("Pipeline: Classify -> Research -> Generate -> Validate -> Approve -> Commit")
 
-    print("\nDiretorios:")
-    dirs_to_check = [
-        "skills",
-        "personas",
-        "core",
-        "config",
-        "templates",
-        "prompts",
-        "protocolo",
-    ]
-    for dir_name in dirs_to_check:
+    prompt_os_dir = base_path / ".prompt-os"
+
+    print("\nDiretorios (raiz):")
+    root_dirs = ["skills", "personas"]
+    for dir_name in root_dirs:
         dir_path = base_path / dir_name
         status = "[OK]" if dir_path.exists() else "[  ]"
+        count = ""
+        if dir_path.exists():
+            items = [
+                d
+                for d in dir_path.iterdir()
+                if d.is_dir() and not d.name.startswith("_")
+            ]
+            if items:
+                count = f" ({len(items)} itens)"
+        print(f"  {status} {dir_name}/{count}")
 
-        # Contar itens
+    print("\nDiretorios (.prompt-os/):")
+    internal_dirs = ["core", "templates", "prompts", "scripts"]
+    for dir_name in internal_dirs:
+        dir_path = prompt_os_dir / dir_name
+        status = "[OK]" if dir_path.exists() else "[  ]"
         count = ""
         if dir_path.exists():
             items = [
@@ -253,26 +264,36 @@ def handle_info(base_path: Path) -> int:
             ]
             if items:
                 count = f" ({len(items)} itens)"
+        print(f"  {status} .prompt-os/{dir_name}/{count}")
 
-        print(f"  {status} {dir_name}/{count}")
-
-    print("\nArquivos de configuracao:")
-    files_to_check = [
-        "README.md",
-        "ARCHITECTURE.md",
-        "IMPLEMENTATION-GUIDE.md",
-        "MEMORY.md",
-        "AGENTS.md",
-    ]
-    for file_name in files_to_check:
+    print("\nArquivos de configuracao (raiz):")
+    root_files = ["README.md", "AGENTS.md", "MEMORY.md"]
+    for file_name in root_files:
         file_path = base_path / file_name
         status = "[OK]" if file_path.exists() else "[  ]"
         print(f"  {status} {file_name}")
 
-    print("\nDocumentacao:")
-    print("  - README.md: Visao geral e quick start")
-    print("  - ARCHITECTURE.md: Arquitetura tecnica")
-    print("  - IMPLEMENTATION-GUIDE.md: Guia de implementacao")
+    print("\nDocumentacao (docs/):")
+    doc_files = [
+        "ARCHITECTURE.md",
+        "IMPLEMENTATION-GUIDE.md",
+        "GLOSSARIO-TECNICO-PROMPTOS.md",
+    ]
+    for file_name in doc_files:
+        file_path = base_path / "docs" / file_name
+        status = "[OK]" if file_path.exists() else "[  ]"
+        print(f"  {status} docs/{file_name}")
+
+    print("\nOutras estruturas:")
+    other_paths = [
+        ".specify/memory/constitution.md",
+        ".context/_meta",
+        ".context/standards",
+    ]
+    for path_str in other_paths:
+        path = base_path / path_str
+        status = "[OK]" if path.exists() else "[  ]"
+        print(f"  {status} {path_str}")
 
     print("=" * 60 + "\n")
 

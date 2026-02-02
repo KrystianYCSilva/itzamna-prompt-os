@@ -21,15 +21,27 @@ class PromptOSOrchestrator:
     Implementa o pipeline de 6 fases conforme documentacao.
     """
 
-    def __init__(self, config_path: str = "config/system.yaml"):
-        self.base_path = Path(__file__).parent.parent
-        self.config_path = self.base_path / config_path
+    def __init__(self, config_path: str = None):
+        # .prompt-os/core/ -> .prompt-os/ -> project root
+        self.prompt_os_dir = Path(__file__).parent.parent
+        self.base_path = self.prompt_os_dir.parent
+
+        # Config dentro de .prompt-os/
+        self.config_path = (
+            self.prompt_os_dir / "system.yaml"
+            if config_path is None
+            else Path(config_path)
+        )
         self.config = self._load_config()
 
-        # Diretorios conforme estrutura documentada
+        # Diretorios conforme nova estrutura documentada
         self.skills_dir = self.base_path / "skills"
         self.personas_dir = self.base_path / "personas"
         self.memory_file = self.base_path / "MEMORY.md"
+
+        # Templates e prompts dentro de .prompt-os/
+        self.templates_dir = self.prompt_os_dir / "templates"
+        self.prompts_dir = self.prompt_os_dir / "prompts"
 
     def _load_config(self) -> Dict:
         """Carrega a configuracao do sistema"""

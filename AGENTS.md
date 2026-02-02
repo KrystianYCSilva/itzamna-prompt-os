@@ -142,8 +142,8 @@ PHASE 6: COMMIT (only after approval)
 
 | Template | Path | Use |
 |----------|------|-----|
-| Skill | `templates/SKILL.template.md` | New skill |
-| Persona | `templates/PERSONA.template.md` | New persona |
+| Skill | `.prompt-os/templates/SKILL.template.md` | New skill |
+| Persona | `.prompt-os/templates/PERSONA.template.md` | New persona |
 
 ---
 
@@ -238,12 +238,56 @@ PHASE 6: COMMIT (only after approval)
 
 | Command | Description |
 |---------|-------------|
-| `py core/cli.py info` | Show system status |
-| `py core/cli.py list skills` | List all skills |
-| `py core/cli.py list personas` | List all personas |
-| `py core/cli.py search "term"` | Search in index |
-| `py core/cli.py generate skill "desc"` | Generate new skill |
-| `py core/cli.py workflow "desc"` | Full 6-phase pipeline |
+| `py .prompt-os/core/cli.py info` | Show system status |
+| `py .prompt-os/core/cli.py list skills` | List all skills |
+| `py .prompt-os/core/cli.py list personas` | List all personas |
+| `py .prompt-os/core/cli.py search "term"` | Search in index |
+| `py .prompt-os/core/cli.py generate skill "desc"` | Generate new skill |
+| `py .prompt-os/core/cli.py workflow "desc"` | Full 6-phase pipeline |
+
+---
+
+## 11. PROJECT STRUCTURE
+
+```
+{project-root}/
+├── AGENTS.md                    # This file - Kernel PromptOS
+├── MEMORY.md                    # Persistent state (episodic)
+├── README.md                    # Project overview
+│
+├── skills/                      # Skills library
+│   ├── {skill-name}/
+│   │   └── SKILL.md
+│   └── INDEX.md
+│
+├── personas/                    # Personas library
+│   ├── {persona-name}/
+│   │   └── PERSONA.md
+│   └── INDEX.md
+│
+├── docs/                        # Itzamna documentation
+│   ├── ARCHITECTURE.md
+│   ├── IMPLEMENTATION-GUIDE.md
+│   └── GLOSSARIO-TECNICO-PROMPTOS.md
+│
+├── .prompt-os/                  # PromptOS internals (core only)
+│   ├── core/                    # Python implementation
+│   │   ├── orchestrator.py      # 6-phase pipeline
+│   │   └── cli.py               # CLI interface
+│   ├── templates/               # Canonical templates
+│   ├── prompts/                 # Generator prompts
+│   ├── scripts/                 # Utility scripts
+│   └── system.yaml              # Configuration
+│
+├── .specify/                    # Spec-Kit integration
+│   ├── memory/
+│   │   └── constitution.md      # 7 Core Principles
+│   └── templates/
+│
+└── .context/                    # Project context
+    ├── _meta/
+    └── standards/
+```
 
 ---
 
