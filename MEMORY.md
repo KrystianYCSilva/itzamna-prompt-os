@@ -1,8 +1,8 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
-**Ultima Atualizacao:** 2026-02-02T21:00:00
+**Ultima Atualizacao:** 2026-02-02T22:00:00
 **Versao:** 1.0.0
-**Sessoes Totais:** 7
+**Sessoes Totais:** 8
 
 ---
 
@@ -24,6 +24,10 @@
 
 | Data | Tipo | Nome | Status |
 |------|------|------|--------|
+| 2026-02-02 | spec | SPEC-002-auto-increment | created |
+| 2026-02-02 | spec | SPEC-001-self-critique | created |
+| 2026-02-02 | doc | GAP-ANALYSIS.md | created |
+| 2026-02-02 | doc | ROADMAP.md | created |
 | 2026-02-02 | persona | senior-fullstack-developer | approved (nova) |
 | 2026-02-02 | skill | docker | approved (nova) |
 | 2026-02-02 | skill | typescript | approved (nova) |
@@ -35,6 +39,21 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 8 (2026-02-02) - Gap Analysis + Specs para Proximas Fases
+
+- **Gap Analysis realizado**: Comparacao objetivo primario vs estado atual
+- **Gaps criticos identificados**:
+  - Auto-Incrementacao: Sistema nao evolui sozinho
+  - Auto-Criticismo: Sistema nao se avalia
+  - Pesquisa Web Real: Apenas mock implementado
+- **2 SPECs criadas**:
+  - `SPEC-001-self-critique.md` - Modulo de auto-avaliacao (3-5 dias)
+  - `SPEC-002-auto-increment.md` - Modulo de evolucao automatica (5-7 dias)
+- **Documentos criados**:
+  - `docs/GAP-ANALYSIS.md` - Analise completa de lacunas
+  - `ROADMAP.md` - Plano de evolucao v1.0.0 -> v2.0.0
+- **Proxima fase**: v1.1.0 Self-Critique
 
 ### Sessao 7 (2026-02-02) - Fase 5 Production COMPLETA
 
