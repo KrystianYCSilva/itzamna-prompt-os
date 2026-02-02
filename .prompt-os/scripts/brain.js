@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 /**
- * ITZAMNA PROMPTOS BRAIN - CLI Principal v1.0.0
+ * ITZAMNA PROMPTOS BRAIN - CLI Principal v1.1.0
  * 
  * Uso:
- *   node brain.js generate skill "descricao da skill"
+ *   node brain.js generate skill "descricao da skill" [--category frontend]
  *   node brain.js generate persona "descricao da persona"
  *   node brain.js list skills
  *   node brain.js search "termo"
+ * 
+ * Categorias disponiveis:
+ *   frontend, backend, config, markup, devops, docs, testing
  */
 
 const fs = require('fs').promises;
@@ -19,6 +22,7 @@ const CONFIG = {
   get SKILLS_DIR() { return path.join(this.BASE_DIR, 'skills'); },
   get PERSONAS_DIR() { return path.join(this.BASE_DIR, 'personas'); },
   get MEMORY_FILE() { return path.join(this.BASE_DIR, 'MEMORY.md'); },
+  CATEGORIES: ['frontend', 'backend', 'config', 'markup', 'devops', 'docs', 'testing'],
 };
 
 // UTILITARIOS
@@ -44,17 +48,17 @@ function today() {
 }
 
 // CLASSIFICADOR
-function classifyInput(input) {
+function classifyInput(input, explicitCategory = null) {
   const domainKeywords = {
-    graphql: ['graphql', 'apollo', 'schema', 'resolver', 'mutation'],
-    react: ['react', 'hook', 'component', 'jsx', 'tsx', 'redux', 'nextjs'],
-    nodejs: ['node', 'express', 'fastify', 'npm', 'backend', 'server'],
-    devops: ['docker', 'kubernetes', 'k8s', 'ci/cd', 'terraform', 'ansible'],
-    security: ['auth', 'jwt', 'oauth', 'security', 'encryption', 'owasp'],
+    frontend: ['css', 'html', 'tailwind', 'sass', 'webpack', 'vite', 'react', 'vue', 'angular', 'jsx', 'tsx'],
+    backend: ['graphql', 'apollo', 'resolver', 'nodejs', 'express', 'fastify', 'api', 'rest', 'grpc', 'server'],
+    config: ['yaml', 'json', 'properties', 'env', 'configuration', 'settings', 'dotenv'],
+    markup: ['xml', 'xslt', 'markdown', 'md', 'sgml', 'xhtml'],
+    devops: ['docker', 'kubernetes', 'k8s', 'ci/cd', 'terraform', 'ansible', 'git', 'github', 'gitlab'],
+    docs: ['documentation', 'technical writing', 'readme', 'docs', 'manual'],
+    testing: ['test', 'jest', 'pytest', 'cypress', 'coverage', 'tdd', 'unit test'],
     database: ['sql', 'postgres', 'mysql', 'mongodb', 'redis', 'orm', 'prisma'],
-    testing: ['test', 'jest', 'pytest', 'cypress', 'coverage', 'tdd'],
-    api: ['rest', 'api', 'endpoint', 'swagger', 'openapi', 'grpc'],
-    frontend: ['css', 'html', 'tailwind', 'sass', 'webpack', 'vite'],
+    security: ['auth', 'jwt', 'oauth', 'security', 'encryption', 'owasp'],
     python: ['python', 'django', 'flask', 'fastapi', 'pandas', 'numpy'],
   };
 
@@ -70,9 +74,30 @@ function classifyInput(input) {
     }
   }
 
+  // Map non-category domains to appropriate categories
+  const domainToCategoryMap = {
+    database: 'backend',
+    security: 'backend',
+    python: 'backend',
+    react: 'frontend',
+    nodejs: 'backend',
+    api: 'backend',
+    general: 'docs',
+  };
+
+  // Use explicit category if provided, otherwise derive from domain
+  let category = explicitCategory;
+  if (!category) {
+    if (CONFIG.CATEGORIES.includes(detectedDomain)) {
+      category = detectedDomain;
+    } else {
+      category = domainToCategoryMap[detectedDomain] || 'docs';
+    }
+  }
+
   // Detectar complexidade
-  const complexIndicators = ['arquitetura', 'sistema completo', 'enterprise', 'avancado'];
-  const simpleIndicators = ['basico', 'simples', 'introducao', 'hello', 'starter'];
+  const complexIndicators = ['arquitetura', 'sistema completo', 'enterprise', 'avancado', 'advanced'];
+  const simpleIndicators = ['basico', 'simples', 'introducao', 'hello', 'starter', 'basic'];
   
   let complexity = 'medium';
   if (complexIndicators.some(i => lowerInput.includes(i))) complexity = 'complex';
@@ -81,6 +106,7 @@ function classifyInput(input) {
   return {
     description: input,
     domain: detectedDomain,
+    category,
     complexity,
     triggers: [
       `trabalhar com ${detectedDomain}`,
@@ -249,7 +275,7 @@ ${research.sources.map((s, i) => `${i + 1}. ${s.url} (${s.type})`).join('\n')}
 `;
 
   return { 
-    metadata: { name, domain: classification.domain }, 
+    metadata: { name, domain: classification.domain, category: classification.category }, 
     content, 
     fullText: content 
   };
@@ -327,42 +353,40 @@ async function requestApproval(draft) {
 async function commitSkill(draft) {
   log.step(6, 'COMMIT - Salvando skill...');
   
-  const skillDir = path.join(CONFIG.SKILLS_DIR, draft.metadata.name);
+  // Skills are now organized by category
+  const categoryDir = path.join(CONFIG.SKILLS_DIR, draft.metadata.category);
+  const skillDir = path.join(categoryDir, draft.metadata.name);
+  
   await fs.mkdir(skillDir, { recursive: true });
   
   // Manter status como "draft" - usuario deve mudar para "approved" apos preencher placeholders
   const filePath = path.join(skillDir, 'SKILL.md');
   await fs.writeFile(filePath, draft.fullText, 'utf8');
   log.info(`Arquivo: ${filePath}`);
+  log.info(`Categoria: ${draft.metadata.category}`);
   log.warn('Status: draft - preencha os [PLACEHOLDERS] e altere para "approved"');
   
-  // Atualizar INDEX.md
-  const indexPath = path.join(CONFIG.SKILLS_DIR, 'INDEX.md');
-  let indexContent = await fs.readFile(indexPath, 'utf8').catch(() => 
-    '# Skills\n\n| Nome | Dominio | Status | Data | Autor |\n|------|---------|--------|------|-------|\n'
-  );
-  
-  const newEntry = `| ${draft.metadata.name} | ${draft.metadata.domain} | draft | ${today()} | promptos-brain |`;
-  if (!indexContent.includes(draft.metadata.name)) {
-    indexContent = indexContent.trimEnd() + '\n' + newEntry + '\n';
-    await fs.writeFile(indexPath, indexContent, 'utf8');
-    log.info('INDEX.md atualizado');
-  }
+  // Nao atualizar INDEX.md automaticamente - esta organizado por categoria
+  log.info('Lembre-se de atualizar skills/INDEX.md manualmente ou executar brain.js index');
   
   return filePath;
 }
 
 // COMANDOS
-async function generateCommand(type, description) {
+async function generateCommand(type, description, options = {}) {
   console.log('\n' + '='.repeat(70));
   console.log(`PROMPTOS BRAIN - Gerando ${type.toUpperCase()}`);
   console.log('='.repeat(70));
   console.log(`\nInput: "${description}"`);
+  if (options.category) {
+    console.log(`Categoria: ${options.category}`);
+  }
 
   try {
     log.step(1, 'CLASSIFY - Analisando pedido...');
-    const classification = classifyInput(description);
+    const classification = classifyInput(description, options.category);
     log.info(`Dominio: ${classification.domain}`);
+    log.info(`Categoria: ${classification.category}`);
     log.info(`Complexidade: ${classification.complexity}`);
     
     const research = await conductResearch(classification);
@@ -411,18 +435,38 @@ async function listCommand(type) {
   
   try {
     const entries = await fs.readdir(dir, { withFileTypes: true });
-    const items = entries.filter(e => e.isDirectory() && !e.name.startsWith('_'));
+    const categories = entries.filter(e => e.isDirectory() && !e.name.startsWith('_'));
     
-    if (items.length === 0) {
+    if (categories.length === 0) {
       console.log('   (vazio)');
       return;
     }
     
-    for (const item of items) {
-      console.log(`   - ${item.name}`);
+    let totalCount = 0;
+    
+    for (const category of categories) {
+      // Check if this is a category directory (contains subdirectories with SKILL.md)
+      const categoryPath = path.join(dir, category.name);
+      const categoryEntries = await fs.readdir(categoryPath, { withFileTypes: true }).catch(() => []);
+      const skills = categoryEntries.filter(e => e.isDirectory());
+      
+      if (skills.length > 0) {
+        console.log(`   [${category.name}]`);
+        for (const skill of skills) {
+          console.log(`      - ${skill.name}`);
+          totalCount++;
+        }
+      } else {
+        // It's a skill in old flat structure or empty category
+        const hasSkillFile = await fs.access(path.join(categoryPath, 'SKILL.md')).then(() => true).catch(() => false);
+        if (hasSkillFile) {
+          console.log(`   - ${category.name}`);
+          totalCount++;
+        }
+      }
     }
     
-    console.log(`\n   Total: ${items.length}`);
+    console.log(`\n   Total: ${totalCount} ${type}`);
   } catch (error) {
     log.error(`Erro ao listar: ${error.message}`);
   }
@@ -460,18 +504,21 @@ async function main() {
   
   if (args.length === 0) {
     console.log(`
-Itzamna PromptOS Brain CLI v1.0.0
+Itzamna PromptOS Brain CLI v1.1.0
 
 Uso:
-  node brain.js generate skill "descricao"   Gera nova skill
-  node brain.js generate persona "descricao" Gera nova persona
-  node brain.js list skills                  Lista skills
-  node brain.js list personas                Lista personas
-  node brain.js search "termo"               Busca por termo
+  node brain.js generate skill "descricao" [--category CAT]   Gera nova skill
+  node brain.js generate persona "descricao"                  Gera nova persona
+  node brain.js list skills                                   Lista skills
+  node brain.js list personas                                 Lista personas
+  node brain.js search "termo"                                Busca por termo
+
+Categorias disponiveis:
+  frontend, backend, config, markup, devops, docs, testing
 
 Exemplos:
-  node brain.js generate skill "API GraphQL com Apollo Server"
-  node brain.js generate skill "custom hooks React para forms"
+  node brain.js generate skill "API GraphQL com Apollo Server" --category backend
+  node brain.js generate skill "CSS Flexbox layouts" --category frontend
   node brain.js list skills
   node brain.js search "react"
 `);
@@ -480,13 +527,33 @@ Exemplos:
   
   const [command, subcommand, ...rest] = args;
   
+  // Parse options like --category
+  const options = {};
+  const descriptionParts = [];
+  
+  for (let i = 0; i < rest.length; i++) {
+    if (rest[i] === '--category' && rest[i + 1]) {
+      const cat = rest[i + 1].toLowerCase();
+      if (CONFIG.CATEGORIES.includes(cat)) {
+        options.category = cat;
+      } else {
+        log.warn(`Categoria "${cat}" invalida. Disponiveis: ${CONFIG.CATEGORIES.join(', ')}`);
+      }
+      i++; // Skip next arg
+    } else if (!rest[i].startsWith('--')) {
+      descriptionParts.push(rest[i]);
+    }
+  }
+  
+  const description = descriptionParts.join(' ');
+  
   switch (command) {
     case 'generate':
-      if (!subcommand || !rest.length) {
-        log.error('Uso: node brain.js generate <skill|persona> "descricao"');
+      if (!subcommand || !description) {
+        log.error('Uso: node brain.js generate <skill|persona> "descricao" [--category CAT]');
         return;
       }
-      await generateCommand(subcommand, rest.join(' '));
+      await generateCommand(subcommand, description, options);
       break;
       
     case 'list':

@@ -2,18 +2,98 @@
 
 > Biblioteca de skills geradas pelo sistema auto-evolutivo.
 > Cada skill segue o formato canonico definido em `.prompt-os/templates/SKILL.template.md`.
+> Skills organizadas por categoria para facilitar navegacao.
 
-## Indice
+## Estrutura
 
-| Nome | Dominio | Status | Data | Autor |
-|------|---------|--------|------|-------|
-| git | devops | approved | 2026-02-02 | promptos-brain |
-| html | frontend | approved | 2026-02-02 | promptos-brain |
-| json | programming | approved | 2026-02-02 | promptos-brain |
-| markdown | documentation | approved | 2026-02-02 | promptos-brain |
-| python-async-programming | python | approved | 2026-02-02 | promptos-brain |
-| technical-writing | documentation | approved | 2026-02-02 | promptos-brain |
-| xml | programming | approved | 2026-02-02 | promptos-brain |
-| hello-world-test | testing | approved | 2026-02-02 | promptos-brain |
-| css-grid-layout-avancado | frontend | approved | 2026-02-02 | promptos-brain |
-| yaml-configuration-best-practices | general | draft | 2026-02-02 | promptos-brain |
+```
+skills/
+├── INDEX.md
+├── frontend/     # HTML, CSS, JavaScript, frameworks
+├── backend/      # APIs, GraphQL, async programming
+├── config/       # YAML, JSON, properties, env files
+├── markup/       # XML, XSLT, Markdown
+├── devops/       # Git, CI/CD, Docker, Kubernetes
+├── docs/         # Technical writing, documentation
+└── testing/      # Test skills, examples
+```
+
+## Indice por Categoria
+
+### Frontend (3 skills)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [css-basico](frontend/css-basico/SKILL.md) | Fundamentos de CSS: seletores, box model, posicionamento | approved | L1 |
+| [css-grid-layout-avancado](frontend/css-grid-layout-avancado/SKILL.md) | Layouts complexos com CSS Grid | approved | L2 |
+| [html](frontend/html/SKILL.md) | Estrutura e semantica HTML | approved | L1 |
+
+### Backend (2 skills)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [graphql](backend/graphql/SKILL.md) | Schemas, queries, mutations e resolvers | approved | L2 |
+| [python-async-programming](backend/python-async-programming/SKILL.md) | Programacao assincrona com asyncio | approved | L2 |
+
+### Config (3 skills)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [java-properties](config/java-properties/SKILL.md) | Arquivos .properties para Java/Spring | approved | L1 |
+| [json](config/json/SKILL.md) | Formato JSON para dados e configuracao | approved | L1 |
+| [yaml-configuration-best-practices](config/yaml-configuration-best-practices/SKILL.md) | YAML para configuracao e IaC | approved | L2 |
+
+### Markup (3 skills)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [markdown](markup/markdown/SKILL.md) | Formatacao de texto com Markdown | approved | L1 |
+| [xml](markup/xml/SKILL.md) | Estrutura e validacao XML | approved | L1 |
+| [xslt](markup/xslt/SKILL.md) | Transformacoes XML com XSLT | approved | L2 |
+
+### DevOps (1 skill)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [git](devops/git/SKILL.md) | Controle de versao com Git | approved | L1 |
+
+### Docs (1 skill)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [technical-writing](docs/technical-writing/SKILL.md) | Redacao tecnica e documentacao | approved | L2 |
+
+### Testing (1 skill)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [hello-world-test](testing/hello-world-test/SKILL.md) | Skill de teste do sistema | approved | L0 |
+
+---
+
+## Estatisticas
+
+- **Total de Skills:** 14
+- **Aprovadas:** 14
+- **Rascunho:** 0
+- **Categorias:** 7
+
+## Niveis (Levels)
+
+- **L0:** Teste/exemplo
+- **L1:** Fundamentos - conhecimento basico
+- **L2:** Intermediario - padroes e boas praticas
+- **L3:** Avancado - otimizacao e casos complexos
+
+## Adicionar Nova Skill
+
+```bash
+# Via CLI do brain.js
+node .prompt-os/scripts/brain.js generate skill "descricao da skill" --category frontend
+
+# Categorias disponiveis: frontend, backend, config, markup, devops, docs, testing
+```
+
+---
+
+*Atualizado: 2025-01-06*
