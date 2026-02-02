@@ -31,7 +31,15 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+| Principle | Gate | Status |
+|-----------|------|--------|
+| I. Human-in-the-Loop | All artifact creation requires explicit approval | ☐ |
+| II. Skill Modularity | New skills are self-contained and independently testable | ☐ |
+| III. Template Canonicity | Generated artifacts use canonical templates | ☐ |
+| IV. Cognitive Levels | Operations classified (L1/L2/L3) with appropriate approval | ☐ |
+| V. Memory System | State changes recorded with timestamps and provenance | ☐ |
+| VI. Generation Pipeline | Follows: Classify → Research → Generate → Validate → Approve → Commit | ☐ |
+| VII. Spec-Kit Integration | Complex features (>5 days) use Spec-Kit workflow | ☐ |
 
 ## Project Structure
 

@@ -1,6 +1,6 @@
-# 📖 GLOSSÁRIO TÉCNICO - PromptOS v2.0
+# GLOSSARIO TECNICO - Itzamna PromptOS v1.0.0 (Piloto)
 
-> **Version:** 2.0.0 | **Last Updated:** 2026-02-02
+> **Version:** 1.0.0 | **Last Updated:** 2026-02-02
 > **Purpose:** Referência completa de termos, conceitos e taxonomias
 > **Usage:** Consultar antes de pesquisar - evita web searches desnecessários
 
@@ -909,4 +909,4 @@ kubectl scale deploy <n> --replicas=3
 
 ---
 
-**Version:** 2.0.0 | **Entries:** 500+ | **Last Updated:** 2026-02-02
+**Itzamna PromptOS v1.0.0 (Piloto)** | **Entries:** 500+ | **Last Updated:** 2026-02-02

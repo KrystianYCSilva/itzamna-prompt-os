@@ -1,50 +1,252 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                           SYNC IMPACT REPORT                                   ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Version Change: N/A (template) → 1.0.0 (initial ratification)                 ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Modified Principles:                                                           ║
+║   - [PRINCIPLE_1_NAME] → I. Human-in-the-Loop                                 ║
+║   - [PRINCIPLE_2_NAME] → II. Skill Modularity                                 ║
+║   - [PRINCIPLE_3_NAME] → III. Template Canonicity                             ║
+║   - [PRINCIPLE_4_NAME] → IV. Cognitive Levels                                 ║
+║   - [PRINCIPLE_5_NAME] → V. Memory System                                     ║
+║   - (added) → VI. Generation Pipeline                                          ║
+║   - (added) → VII. Spec-Kit Integration                                        ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Added Sections:                                                                ║
+║   - [SECTION_2_NAME] → Cognitive Architecture                                  ║
+║   - [SECTION_3_NAME] → Human Gate Protocol                                     ║
+║   - Governance → Fully defined with amendment procedure                        ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Removed Sections: None                                                         ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Templates Requiring Updates:                                                   ║
+║   - .specify/templates/plan-template.md ⚠ pending (Constitution Check gates)  ║
+║   - .specify/templates/spec-template.md ✅ no changes needed                   ║
+║   - .specify/templates/tasks-template.md ✅ no changes needed                  ║
+║   - .specify/templates/agent-file-template.md ✅ no changes needed             ║
+║   - .specify/templates/checklist-template.md ✅ no changes needed              ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║ Follow-up TODOs:                                                               ║
+║   - Update plan-template.md Constitution Check section with specific gates    ║
+║   - Consider adding principle-specific validation to commands                  ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+# Itzamna PromptOS Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Human-in-the-Loop
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All persistent artifact creation or modification MUST require explicit human approval before commit.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Rules:**
+- Skills, personas, and prompts MUST pass through the Human Gate before being saved
+- No autonomous commits to the knowledge base without human review
+- Approval options MUST include: approve, edit, reject, cancel
+- Rejected artifacts MUST record feedback in MEMORY.md for learning
+- Silence is NOT consent; explicit approval is required
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Rationale:** Human oversight ensures quality control and prevents unintended changes to the
+knowledge base. This principle is the foundation of safe human-agent collaboration.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. Skill Modularity
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Every capability MUST be encapsulated as an independent, composable skill unit.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Rules:**
+- Skills MUST be self-contained with all necessary context
+- Skills MUST define clear triggers, constraints, and examples
+- Skills MUST NOT depend on implicit knowledge or undocumented conventions
+- Skills MUST be independently testable via their defined examples
+- Personas MUST compose skills via explicit references, not duplication
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**Rationale:** Modular skills enable just-in-time loading, reduce context window usage,
+and allow independent evolution of capabilities without system-wide changes.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. Template Canonicity
+
+All generated artifacts MUST conform to canonical templates with validated structure.
+
+**Rules:**
+- Skills MUST use the SKILL.template.md format with required YAML frontmatter
+- Personas MUST use the PERSONA.template.md format
+- Prompts MUST use the PROMPT.template.md format
+- All templates MUST include: metadata, instructions, examples, constraints
+- Generated artifacts MUST pass schema validation before Human Gate presentation
+
+**Rationale:** Consistent structure enables automated validation, indexing, and routing.
+Templates encode institutional knowledge about effective artifact design.
+
+### IV. Cognitive Levels
+
+All operations MUST be classified into cognitive levels that determine autonomy and approval.
+
+**Rules:**
+- **Level 1 (Automatic):** Read-only, boilerplate, formatting - auto-approved
+- **Level 2 (Contextual):** Skill creation, modification - requires human approval
+- **Level 3 (Strategic):** Persona creation, architecture decisions - requires enhanced review
+- Operations MUST NOT be promoted to higher autonomy without explicit governance change
+- Level classification MUST be explicit in operation metadata
+
+**Rationale:** Cognitive levels provide graduated autonomy that matches risk to oversight,
+enabling efficiency for routine tasks while ensuring scrutiny for consequential decisions.
+
+### V. Memory System
+
+The system MUST maintain four types of persistent memory for effective operation.
+
+**Rules:**
+- **Working Memory:** Session context (~10K tokens), ephemeral
+- **Episodic Memory:** Interaction history with timestamps, 90-day retention default
+- **Semantic Memory:** Knowledge base with embeddings, permanent
+- **Procedural Memory:** Skill library indexed by triggers, permanent
+- All memory writes MUST include timestamps and provenance
+- Memory queries MUST respect retention policies
+
+**Rationale:** Structured memory enables context-aware operation, learning from history,
+and efficient skill retrieval without requiring full knowledge base loading.
+
+### VI. Generation Pipeline
+
+All artifact generation MUST follow the standard pipeline: Classify, Research, Generate,
+Validate, Approve, Commit.
+
+**Rules:**
+- **Classify:** Determine type, domain, and complexity before proceeding
+- **Research:** Search existing skills and external sources before generating
+- **Generate:** Apply canonical template with researched content
+- **Validate:** Verify schema, completeness, and consistency before Human Gate
+- **Approve:** Present to human with full context and clear options
+- **Commit:** Save, index, and record in episodic memory only after approval
+- Pipeline steps MUST NOT be skipped or reordered
+
+**Rationale:** The pipeline ensures consistent quality by separating concerns and
+providing multiple checkpoints before artifacts become permanent.
+
+### VII. Spec-Kit Integration
+
+Complex features requiring more than 5 implementation days MUST use the Spec-Kit workflow.
+
+**Rules:**
+- Simple skills (<3 days effort): Direct `brain generate` workflow permitted
+- Medium complexity (3-5 days): Recommend Spec-Kit, user decides
+- Complex features (>5 days): Spec-Kit workflow REQUIRED (`/speckit.specify`)
+- Formal systems: Spec-Kit workflow MANDATORY regardless of timeline
+- Integration MUST preserve traceability between specs and generated artifacts
+
+**Rationale:** Spec-Kit provides structured planning, research, and task decomposition
+that reduces risk for complex implementations and ensures adequate documentation.
+
+## Cognitive Architecture
+
+The system operates on a simplified CoALA (Cognitive Architectures for Language Agents)
+model with three processing levels and a global workspace hub.
+
+### Architecture Components
+
+| Component | Function | Implementation |
+|-----------|----------|----------------|
+| **Global Workspace** | Attention hub, context aggregation | ~10K token working memory |
+| **Recall** | Memory access across all 4 types | Query routing by intent |
+| **Reason** | LLM-based classification and generation | Primary model + fallback |
+| **Act** | Tool execution (search, files, gates) | MCP-compatible interfaces |
+
+### Level Processing Cycles
+
+| Level | Cycle Time | Function | Trigger |
+|-------|------------|----------|---------|
+| L1 | 100ms-2s | Automatic responses | Formatting, linting, boilerplate |
+| L2 | 10-60s | Contextual judgment | Trade-offs, risk detection, generation |
+| L3 | 5-15min | Strategic planning | Architecture, personas, roadmaps |
+
+### Operation Classification
+
+Operations MUST be classified before execution:
+- Determine cognitive level based on operation type and impact
+- Route to appropriate processing cycle
+- Apply level-specific approval requirements
+
+## Human Gate Protocol
+
+The Human Gate is the mandatory approval checkpoint for all L2+ artifact modifications.
+
+### Gate States
+
+| State | Description | Timeout | Next Action |
+|-------|-------------|---------|-------------|
+| `waiting_approval` | Draft ready for review | 24h | Present options |
+| `in_review` | Human actively editing | None | Await completion |
+| `approved` | Human approved | Immediate | Proceed to commit |
+| `rejected` | Human rejected with feedback | Immediate | Record and optionally retry |
+| `cancelled` | Process aborted | Immediate | Clean up |
+
+### Presentation Requirements
+
+All Human Gate presentations MUST include:
+- Artifact type and proposed action
+- Token count and validation score
+- Sources used with confidence ratings
+- Preview of key sections
+- Clear action options: approve, view full, edit, reject
+
+### Approval Actions
+
+- **approve/ok/yes:** Proceed to commit phase
+- **view/show:** Display complete artifact, then re-present options
+- **edit [section]:** Regenerate specified section, re-validate, re-present
+- **reject [reason]:** Record feedback in MEMORY.md, offer retry option
+- **cancel:** Abort without recording (except interaction log)
+
+### Autonomy Levels
+
+Default autonomy level: **A2 (Collaborator)**
+
+| Level | Behavior | Use Case |
+|-------|----------|----------|
+| A1 | Approve each action including reads | High-security contexts |
+| A2 | Approve creations; reads auto-execute | **Default** |
+| A3 | Approve new skills; updates auto-execute | Trusted workflows |
+| A4 | Approve complete plans (batch) | Supervised automation |
+| A5 | Audit-only, no real-time gates | Monitoring mode |
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+### Constitutional Authority
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+This constitution supersedes all other operational guidance when conflicts arise.
+All agents, skills, and workflows MUST comply with these principles.
+
+### Amendment Procedure
+
+1. **Proposal:** Document proposed change with rationale
+2. **Impact Analysis:** Identify affected templates, skills, and workflows
+3. **Review Period:** Minimum 24 hours for non-critical changes
+4. **Approval:** Explicit human approval required
+5. **Migration:** Update all dependent artifacts before amendment takes effect
+6. **Documentation:** Record change in Sync Impact Report header
+
+### Versioning Policy
+
+Constitution versions follow semantic versioning:
+- **MAJOR (X.0.0):** Principle removal, backward-incompatible governance changes
+- **MINOR (X.Y.0):** New principle, material section expansion
+- **PATCH (X.Y.Z):** Clarifications, typo fixes, non-semantic refinements
+
+### Compliance Review
+
+- All implementation plans MUST include a Constitution Check section
+- Violations MUST be justified in the Complexity Tracking table
+- Periodic audits SHOULD verify active skills conform to current principles
+- Non-compliant artifacts SHOULD be flagged for update or deprecation
+
+### Conflict Resolution
+
+When principles conflict:
+1. Human-in-the-Loop takes precedence (Principle I)
+2. Safety and correctness over convenience
+3. Explicit over implicit behavior
+4. Simpler over complex when outcomes equivalent
+
+**Version**: 1.0.0 | **Ratified**: 2026-02-02 | **Last Amended**: 2026-02-02
