@@ -217,6 +217,41 @@ Carregue JIT conforme necessidade:
 
 ---
 
+## MONITORING & DATA COLLECTION
+
+Quando executar specs que testam protocolos (ex: SPEC-010), siga o workflow de monitoramento:
+
+### Arquivos de Tracking
+
+| Arquivo | Proposito | Quando Usar |
+|---------|-----------|-------------|
+| `memory/{agent}-spec{N}-session.md` | Tracking de gaps, rejeicoes, scores | Durante execucao de specs |
+| `specs/{N}/execution-checklist.md` | Checklist de tarefas | Durante execucao de specs |
+| `specs/{N}/data-collection-guide.md` | Guia de coleta de dados | Referencia durante execucao |
+| `specs/{N}/reports/*.md` | Relatorios gerados | Apos conclusao de fase/spec |
+
+### Workflow de Coleta
+
+```
+Para cada artefato gerado:
+1. SELF-CRITIQUE → Registrar score em memory file
+2. HUMAN GATE:
+   - Se approve: Prosseguir
+   - Se reject: Registrar em Log de Rejeicoes
+3. Se gap detectado: Registrar em Gaps Detectados
+4. Ao final: Gerar relatorios usando templates
+```
+
+### Guias de Referencia
+
+- **Coleta de dados**: `specs/{N}/data-collection-guide.md`
+- **Geracao de relatorios**: `docs/MONITORING-GUIDE.md`
+- **Templates**: `docs/monitoring/*.md`
+
+**Carregamento JIT:** Carregue guias conforme necessario durante execucao.
+
+---
+
 ## ESTRUTURA DO PROJETO
 
 ```
