@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-> **Bootstrap para Claude Code** | Itzamna PromptOS v2.0.0
+> **Bootstrap para Claude Code** | Itzamna PromptOS v2.1.0
 
 ---
 
@@ -58,7 +58,8 @@ O contexto esta em `.context/` - carregue JIT:
 
 ## HUMAN GATE
 
-**Nivel de Autonomia: A2 (Colaborador)**
+**Nivel de Autonomia: A2 (Colaborador)**  
+**Protocolo completo:** `.prompt-os/core/HUMAN-GATE.md`
 
 Operacoes que REQUEREM aprovacao:
 - Criar/modificar arquivos
@@ -66,9 +67,9 @@ Operacoes que REQUEREM aprovacao:
 - Fazer commits
 - Deletar arquivos
 
-Formato:
+Formato (v2.1 — score estruturado via Self-Critique):
 ```
-"[Artefato] gerado! Confidence: [score]/100
+"[Artefato] gerado! Score: [score]/100 ([band]) [indicator]
  approve | view | edit | reject | cancel"
 ```
 
@@ -107,4 +108,4 @@ Para informacoes detalhadas, consulte:
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Claude Code Bootstrap | 2026-02-03*
+*Itzamna PromptOS v2.1.0 | Claude Code Bootstrap | 2026-02-03*

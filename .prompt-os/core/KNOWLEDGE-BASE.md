@@ -11,8 +11,8 @@ O PromptOS organiza conhecimento em:
 
 | Tipo | Localizacao | Proposito |
 |------|-------------|-----------|
-| **Skills** | `skills/` | Como fazer coisas especificas |
-| **Personas** | `personas/` | Modos de comportamento/especializacao |
+| **Skills** | `.prompt-os/skills/` | Como fazer coisas especificas |
+| **Personas** | `.prompt-os/personas/` | Modos de comportamento/especializacao |
 | **Docs** | `docs/` | Documentacao do sistema |
 | **Memory** | `.prompt-os/MEMORY.md` | Estado e historico |
 
@@ -26,11 +26,11 @@ Quando precisar de informacao, siga esta ordem:
 
 ```
 1. SKILLS existentes
-   -> skills/INDEX.md para catalogo
-   -> skills/{categoria}/{skill}.md para conteudo
+   -> .prompt-os/skills/INDEX.md para catalogo
+   -> skills/{categoria}/{skill}/SKILL.md para conteudo
 
 2. PERSONAS disponiveis
-   -> personas/INDEX.md para catalogo
+   -> .prompt-os/personas/INDEX.md para catalogo
    -> Se match, carregar persona
 
 3. DOCS do sistema
@@ -48,7 +48,7 @@ Quando precisar de informacao, siga esta ordem:
 #### Por Nome/Topico
 
 ```
-1. Verifique skills/INDEX.md
+1. Verifique .prompt-os/skills/INDEX.md
 2. Busque por:
    - Nome exato: "react-hooks"
    - Categoria: "frontend"

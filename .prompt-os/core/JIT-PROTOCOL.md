@@ -98,7 +98,7 @@ COM JIT: 10-16KB carregado → Rapido, eficiente, focado
 **Carregue APENAS o necessario:**
 
 ```
-7. Consultar: skills/INDEX.md (tabela de lookup)
+7. Consultar: .prompt-os/skills/INDEX.md (tabela de lookup)
 
 8. Selecionar 2-5 skills baseado em:
    - Workflow detectado

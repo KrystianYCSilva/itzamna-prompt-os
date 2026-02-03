@@ -1,8 +1,8 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
-**Ultima Atualizacao:** 2026-02-02T23:30:00
-**Versao:** 2.0.0
-**Sessoes Totais:** 9
+**Ultima Atualizacao:** 2026-02-03T00:00:00
+**Versao:** 2.1.0
+**Sessoes Totais:** 10
 
 ---
 
@@ -16,7 +16,7 @@
 | Personas Geradas | 1 |
 | Taxa de Aprovacao | 100% |
 | Categorias | 7 |
-| Core Protocols | 7 |
+| Core Protocols | 8 |
 | Ultima Geracao | 2026-02-02 |
 
 ---
@@ -25,6 +25,8 @@
 
 | Data | Tipo | Nome | Status |
 |------|------|------|--------|
+| 2026-02-03 | feature | 001-self-critique enhanced protocol | implemented |
+| 2026-02-03 | refactor | .prompt-os/skills/ registry created | completed |
 | 2026-02-02 | refactor | v2.0.0 prompt-based architecture | completed |
 | 2026-02-02 | protocol | PERSONA-GENERATOR.md | created |
 | 2026-02-02 | protocol | KNOWLEDGE-BASE.md | created |
@@ -40,6 +42,37 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 10 (2026-02-03) - v2.1.0 Self-Critique Enhancement + Skills Registry
+
+**Feature: 001-self-critique — IMPLEMENTED**
+
+- **SpecKit workflow completo**: specify → plan → tasks → implement
+- **Enhanced SELF-CRITIQUE.md** (~680 lines):
+  - Structured YAML output (CritiqueResult)
+  - 4-dimension scoring with detailed rubrics (5 criteria × 5pts each)
+  - Score bands com indicadores visuais (🟢🔵🟡🔴)
+  - Constitution Check obrigatorio (T0 BLOCKER)
+  - Fase 2.5: Redundancy Detection para skills (formula: name 30%, tags 30%, domain 20%, keywords 20%)
+  - Suggestion Generation Guidelines com templates
+  - Artifact Type Detection (por pattern, context, conteudo)
+  - Type-specific checklists: code, skill, persona, documentation, architectural_decision
+- **Criado HUMAN-GATE.md** (~415 lines):
+  - Display format com progress bars
+  - Score-based behavior (warnings por band)
+  - Similarity warnings
+  - Constitution violation blockers
+  - Compact format para artefatos simples
+- **Estrutura .prompt-os/ consolidada:**
+  - `.prompt-os/skills/INDEX.md` criado (espelha skills/INDEX.md na raiz)
+  - `.prompt-os/personas/INDEX.md` ja existia
+  - Padrao: `.prompt-os/{skills,personas}/INDEX.md` = registros do sistema
+  - `skills/` e `personas/` na raiz = conteudo gerado pelo usuario
+  - Protocolos internos atualizar para usar `.prompt-os/skills/INDEX.md`
+
+**Tasks completadas:** 34/35 (T034 = validação manual em andamento)
+
+---
 
 ### Sessao 9 (2026-02-02) - v2.0.0 Prompt-Based Architecture
 
@@ -178,7 +211,8 @@
 
 | Protocol | Implements | Status |
 |----------|------------|--------|
-| SELF-CRITIQUE.md | SPEC-001 | Active |
+| SELF-CRITIQUE.md | SPEC-001 | ✅ Enhanced v2.0 |
+| HUMAN-GATE.md | SPEC-001 | ✅ New |
 | AUTO-INCREMENT.md | SPEC-002 | Active |
 | WEB-RESEARCH.md | SPEC-003 | Active |
 | KNOWLEDGE-BASE.md | SPEC-004 | Active |
@@ -194,7 +228,7 @@
 |------|--------|-----------|
 | v1.0.0 | COMPLETO | Piloto funcional (code-centric) |
 | v2.0.0 | COMPLETO | Prompt-based architecture |
-| v2.1.0 | PROXIMO | Enhanced protocols + validation |
+| v2.1.0 | EM ANDAMENTO | Enhanced protocols + validation |
 | v3.0.0 | FUTURO | Advanced RAG integration |
 
 ---
@@ -256,8 +290,10 @@ Scripts = OPTIONAL TOOLS for humans, NOT the core system
 Entry Point: .prompt-os/PROMPTOS.md
 Constitution: .prompt-os/CONSTITUTION.md
 Protocols: .prompt-os/core/*.md
-Skills: skills/**/*.md
-Personas: personas/**/*.md
+Skills Registry: .prompt-os/skills/INDEX.md  (lookup pelo sistema)
+Skills Content:  skills/**/*.md              (conteudo gerado)
+Personas Registry: .prompt-os/personas/INDEX.md
+Personas Content:  personas/**/*.md
 ```
 
 ### Cross-Model Compatibility

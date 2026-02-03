@@ -1,4 +1,4 @@
-# Copilot Instructions - Itzamna PromptOS v2.0.0
+# Copilot Instructions - Itzamna PromptOS v2.1.0
 
 > **Bootstrap para GitHub Copilot**
 
@@ -59,12 +59,13 @@ O contexto está em `.context/` - carregar JIT:
 
 ## Human Gate
 
-**OBRIGATÓRIO para operações de arquivo:**
+**OBRIGATÓRIO para operações de arquivo.**  
+**Protocolo completo:** `.prompt-os/core/HUMAN-GATE.md`
 
 ```
 1. Gerar artefato
-2. Self-critique (score 0-100)
-3. Mostrar preview ao humano
+2. Self-critique (score 0-100, 4 dimensões)
+3. Mostrar preview ao humano (formato estruturado com score + sugestões)
 4. AGUARDAR resposta:
    - "ok/yes/approve" → Commit
    - "view/show" → Exibir conteúdo completo
@@ -102,4 +103,4 @@ Este repo é primariamente baseado em prompts/documentação.
 
 ---
 
-**EOF** | Copilot Bootstrap | v2.0.0
+**EOF** | Copilot Bootstrap | v2.1.0

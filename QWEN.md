@@ -1,6 +1,6 @@
 # QWEN.md
 
-> **Bootstrap para Qwen** | Itzamna PromptOS v2.0.0
+> **Bootstrap para Qwen** | Itzamna PromptOS v2.1.0
 
 ---
 
@@ -58,7 +58,8 @@ O contexto esta em `.context/` - carregue JIT:
 
 ## HUMAN GATE
 
-**Nivel de Autonomia: A2 (Colaborador)**
+**Nivel de Autonomia: A2 (Colaborador)**  
+**Protocolo completo:** `.prompt-os/core/HUMAN-GATE.md`
 
 Operacoes que REQUEREM aprovacao:
 - Criar/modificar arquivos
@@ -77,4 +78,4 @@ Para informacoes detalhadas, consulte:
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Qwen Bootstrap | 2026-02-03*
+*Itzamna PromptOS v2.1.0 | Qwen Bootstrap | 2026-02-03*

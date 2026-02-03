@@ -1,6 +1,6 @@
 # GEMINI.md
 
-> **Bootstrap para Gemini CLI** | Itzamna PromptOS v2.0.0
+> **Bootstrap para Gemini CLI** | Itzamna PromptOS v2.1.0
 
 ---
 
@@ -58,7 +58,8 @@ O contexto esta em `.context/` - carregue JIT:
 
 ## HUMAN GATE
 
-**Nivel de Autonomia: A2 (Colaborador)**
+**Nivel de Autonomia: A2 (Colaborador)**  
+**Protocolo completo:** `.prompt-os/core/HUMAN-GATE.md`
 
 Operacoes que REQUEREM aprovacao:
 - Criar/modificar arquivos
@@ -77,4 +78,4 @@ Para informacoes detalhadas, consulte:
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Gemini CLI Bootstrap | 2026-02-03*
+*Itzamna PromptOS v2.1.0 | Gemini CLI Bootstrap | 2026-02-03*

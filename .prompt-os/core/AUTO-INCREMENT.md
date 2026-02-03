@@ -37,8 +37,8 @@ Aplique auto-incrementacao quando:
 Quando o usuario pede algo, verifique:
 
 ```
-1. Existe skill para isso em skills/INDEX.md?
-2. Existe persona relacionada em personas/?
+1. Existe skill para isso em .prompt-os/skills/INDEX.md?
+2. Existe persona relacionada em .prompt-os/personas/?
 3. Existe conhecimento em docs/?
 
 SE NAO EXISTE:

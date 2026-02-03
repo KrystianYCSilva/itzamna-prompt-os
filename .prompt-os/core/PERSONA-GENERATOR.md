@@ -109,7 +109,7 @@ Extrair:
 
 ### Fase 2: Match de Skills
 
-1. Consulte `skills/INDEX.md`
+1. Consulte `.prompt-os/skills/INDEX.md`
 2. Identifique skills por dominio
 3. Ranqueie por relevancia
 4. Selecione core (3-5) e secondary (2-3)

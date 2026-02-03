@@ -1,6 +1,6 @@
 # ITZAMNA-AGENT.md
 
-> **Itzamna PromptOS v2.0.0** | Agente Principal
+> **Itzamna PromptOS v2.1.0** | Agente Principal
 > **Arquitetura:** Prompt-Based | **Compatibilidade:** Universal (Claude, GPT, Gemini, Cursor, Copilot, Qwen, etc.)
 
 ---
@@ -206,7 +206,8 @@ Carregue JIT conforme necessidade:
 
 | Protocolo | Arquivo | Proposito |
 |-----------|---------|-----------|
-| Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Avaliacao de qualidade |
+| Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Avaliacao de qualidade (score 0-100, 4 dimensoes) |
+| Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Apresentacao estruturada ao humano |
 | Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Deteccao de gaps |
 | Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Metodologia de pesquisa |
 | Knowledge Base | `.prompt-os/core/KNOWLEDGE-BASE.md` | Gestao de conhecimento |
@@ -230,7 +231,11 @@ itzamna-prompt-os/
 ├── .prompt-os/              # Sistema core (prompts)
 │   ├── PROMPTOS.md          # Entry point
 │   ├── CONSTITUTION.md      # Regras T0/T1/T2
-│   └── core/                # 7 protocolos
+│   ├── core/                # 8 protocolos (incl. HUMAN-GATE)
+│   ├── skills/              # Registry de skills (lookup by protocols)
+│   │   └── INDEX.md         # Espelho de skills/INDEX.md
+│   └── personas/            # Registry de personas (lookup by protocols)
+│       └── INDEX.md         # Espelho de personas/INDEX.md
 │
 ├── .context/                # Contexto para AIs (JIT)
 │   ├── standards/           # Regras T0-T1
@@ -240,8 +245,8 @@ itzamna-prompt-os/
 │   ├── examples/            # Exemplos T3
 │   └── troubleshooting/     # Problemas T2
 │
-├── skills/                  # 17 skills em 7 categorias
-├── personas/                # Personas especializadas
+├── skills/                  # 17 skills em 7 categorias (conteudo)
+├── personas/                # Personas especializadas (conteudo)
 └── specs/                   # Especificacoes formais
 ```
 
@@ -283,4 +288,4 @@ itzamna-prompt-os/
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Agente Principal | 2026-02-03*
+*Itzamna PromptOS v2.1.0 | Agente Principal | 2026-02-03*
