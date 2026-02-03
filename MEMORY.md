@@ -19,7 +19,7 @@
 | Personas Geradas | 0 (8 conceituais definidas, criar conforme necessidade) |
 | Taxa de Aprovacao | 100% |
 | Categorias | 1 (linguagens) |
-| Core Protocols | 8 |
+| Core Protocols | 9 (MEMORY-MANAGEMENT added) |
 | Ultima Geracao | 2026-02-03 (Python baseline - SPEC-010 complete) |
 
 ---
@@ -27,18 +27,16 @@
 ## Memoria Episodica Recente
 
 | Data | Tipo | Nome | Status |
-| 2026-02-03 | fix | Phase 1 - Mandatory Protocol Sequence Enforcement | ✅ complete (9/9 tasks) |
+| 2026-02-03 | protocol | MEMORY-MANAGEMENT protocol created + enforced | ✅ complete |
+| 2026-02-03 | update | All 6 bootstraps with Phase 6 (MEMORY-MANAGEMENT) | ✅ complete |
+| 2026-02-03 | update | PROTOCOL-APPLICATION checklist with Phase 6 | ✅ complete |
+| 2026-02-03 | fix | Phase 1 - Protocol Sequence Enforcement | ✅ complete (9/9 tasks) |
 | 2026-02-03 | refactor | Memory architecture cleanup (distributed + workflows) | ✅ complete |
-| 2026-02-03 | update | All 6 agent bootstraps with MANDATORY PROTOCOL SEQUENCE | ✅ complete |
-| 2026-02-03 | update | Protocol cross-references (AUTO-INCREMENT, SELF-CRITIQUE, HUMAN-GATE) | ✅ complete |
+| 2026-02-03 | update | Protocol cross-references (3 protocols) | ✅ complete |
 | 2026-02-03 | create | .prompt-os/checklists/PROTOCOL-APPLICATION.md | ✅ created (208 lines) |
 | 2026-02-03 | create | .context/workflows/spec-010-execution-pattern.md | ✅ created (195 lines) |
-| 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-23/SKILL.md | ✅ created |
-| 2026-02-03 | doc | docs/relatorios-testes/relatorio-java-23-skill-sessao-19.md | ✅ created |
-| 2026-02-03 | update | .prompt-os/skills/INDEX.md | ✅ updated |
-| 2026-02-03 | update | skills/INDEX.md | ✅ updated |
-| 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-21/SKILL.md | ✅ created |
-| 2026-02-03 | update | .prompt-os/skills/linguagens/java/SKILL.md | ✅ updated |
+| 2026-02-03 | skill | java-23 baseline | ✅ created |
+| 2026-02-03 | skill | java-21 baseline | ✅ created |
 |------|------|------|--------|
 | 2026-02-03 | skill | java-11 modern features (var, http-client, string-methods) | ✅ approved (100/100) |
 | 2026-02-03 | skill | java-17 modern features (sealed, records, patterns, virtual threads) | ✅ approved (100/100) |
@@ -80,63 +78,87 @@
 
 ## Notas da Sessao
 
-### Sessao 19 (2026-02-03) - Phase 1: Mandatory Protocol Sequence Enforcement ✅
+### Sessao 19 (2026-02-03) - Phase 1 Complete + MEMORY-MANAGEMENT Protocol ✅
 
-**Feature: Protocol sequence enforcement in all agent bootstraps — 100% COMPLETE**
+**Feature: Protocol enforcement + Memory management protocol — 100% COMPLETE**
 
-- **Objetivo**: Fix protocol violations by adding explicit mandatory sequence to all bootstrap files
-- **Root cause**: Test reports (Sessions 16-18) showed agents skipping protocols (esp. HUMAN-GATE)
-- **Solution**: Phase 1 fixes - enforce AUTO-INCREMENT → SELF-CRITIQUE → HUMAN-GATE → COMMIT sequence
+- **Objetivo Parte 1**: Fix protocol violations by enforcing mandatory sequence in all bootstraps
+- **Objetivo Parte 2**: Create MEMORY-MANAGEMENT protocol to prevent memory inconsistencies
 
-- **Phase 1 Tasks completed: 9/9 (100%)**:
-  1. ✅ Memory Architecture Cleanup
-     - Created `.context/workflows/spec-010-execution-pattern.md` (195 lines)
-     - Deleted `memory/opencode-spec010-session.md` (workflows moved)
-     - Deleted `memory/speckit-memory.md` (SpecKit is tool, not agent)
-     - Consolidated memory: `MEMORY.md` (global) + `memory/{agente}-memory.md` (agent-specific)
-  
-  2-7. ✅ Bootstrap Files Updated (ALL 6):
-     - `AGENTS.md` (+47 lines) - MANDATORY PROTOCOL SEQUENCE section
-     - `QWEN.md` (+41 lines) - Sequence after PROTOCOLOS CORE
-     - `GEMINI.md` (+46 lines) - Sequence as section 5
-     - `CLAUDE.md` (+40 lines) - Sequence as section 7a
-     - `.cursorrules` (+48 lines) - Sequence after Human Gate
-     - `.github/copilot-instructions.md` (+46 lines) - Sequence after Critical Conventions
-  
-  8. ✅ Protocol Cross-References Added (3/3):
-     - `AUTO-INCREMENT.md` - References SELF-CRITIQUE and HUMAN-GATE (first in sequence)
-     - `SELF-CRITIQUE.md` - References AUTO-INCREMENT (before) and HUMAN-GATE (after)
-     - `HUMAN-GATE.md` - References AUTO-INCREMENT and SELF-CRITIQUE (final checkpoint)
-  
-  9. ✅ Protocol Application Checklist Created:
-     - `.prompt-os/checklists/PROTOCOL-APPLICATION.md` (208 lines)
-     - 5-phase verification checklist
-     - Pre-Generation, AUTO-INCREMENT, GENERATE, SELF-CRITIQUE, HUMAN-GATE, COMMIT
-     - Troubleshooting section and quick reference
+**Phase 1 - Protocol Enforcement (9/9 tasks, 100%)**:
+1. ✅ Memory Architecture Cleanup
+   - Created `.context/workflows/spec-010-execution-pattern.md` (195 lines)
+   - Deleted `memory/opencode-spec010-session.md` + `memory/speckit-memory.md`
+   - Consolidated: MEMORY.md (global) + memory/{agente}-memory.md (agent-specific) + .context/workflows/ (patterns)
 
-- **Files modified**: 11 bootstrap/protocol/memory files
-- **Files created**: 3 (SPEC-010 workflow, protocol checklist, Java 23 test report)
-- **Files deleted**: 4 (2 memory files, 2 __pycache__ files)
-- **Impact**: +540 lines added, -173 lines removed = +367 net lines
+2-7. ✅ Bootstrap Files Updated (ALL 6)
+   - `AGENTS.md`, `QWEN.md`, `GEMINI.md`, `CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`
+   - Added MANDATORY PROTOCOL SEQUENCE section (+40-48 lines each)
+   - Explained distributed memory architecture
 
-- **Commit**: `4efe241` - "fix(protocols): enforce mandatory protocol sequence in all agent bootstraps"
+8. ✅ Protocol Cross-References (3/3)
+   - `AUTO-INCREMENT.md` → references SELF-CRITIQUE + HUMAN-GATE
+   - `SELF-CRITIQUE.md` → references AUTO-INCREMENT + HUMAN-GATE
+   - `HUMAN-GATE.md` → references AUTO-INCREMENT + SELF-CRITIQUE
 
-- **Test Reports Referenced**: 5 reports from Sessions 16-18
-  - Report 1: Gemini violated T0-HUMAN-01 (skipped Human Gate)
-  - Report 5: Java 8 skill created without protocol sequence
-  - Root cause: Bootstrap files didn't enforce protocol integration
+9. ✅ Protocol Application Checklist
+   - `.prompt-os/checklists/PROTOCOL-APPLICATION.md` (208 → 270 lines)
+   - 5-phase verification checklist (now 6 with MEMORY-MANAGEMENT)
 
-- **Result**: 
-  - ✅ All agents now have explicit protocol sequence enforcement
-  - ✅ Protocol files cross-reference each other
-  - ✅ Checklist available for verification
-  - ✅ SPEC-003 Web Research Enhancement UNBLOCKED (can proceed safely)
+- **Commit 1**: `4efe241` - "fix(protocols): enforce mandatory protocol sequence"
+- **Commit 2**: `915e87a` - "docs(memory): add Session 19 notes"
 
-- **Next Steps**:
-  - Option A: Proceed directly to SPEC-003 (system unblocked)
-  - Option B: Add Phase 2 (path standardization + naming conventions) before SPEC-003 (~3 hours)
+**MEMORY-MANAGEMENT Protocol Creation**:
+1. ✅ Created `.prompt-os/core/MEMORY-MANAGEMENT.md` (550+ lines)
+   - 3-layer architecture: MEMORY.md / memory/{agente}-memory.md / .context/workflows/
+   - When to update: gaps, rejections, sessions, SPECs
+   - Detailed protocol phases (Header, Statistics, Episodic, Session notes, Agent memory, Workflow docs)
+   - Critical rules (R1-R5): Separation, Format, Naming, Atomicity, Token budget
+   - Checklist for updates (Pre/MEMORY.md/agent/workflows/Post)
+   - 4 practical examples (skill, gap, rejection, SPEC)
+   - Troubleshooting + Integration with other protocols
 
-**Status**: ✅ COMPLETE - SPEC-003 unblocked, protocol violations addressed
+2. ✅ Updated ALL 6 bootstrap files (AGAIN)
+   - Added Phase 6 (MEMORY-MANAGEMENT) to mandatory sequence
+   - Clarified: reject triggers MEMORY-MANAGEMENT
+   - Added T0-MEMORY-01 violation warning
+   - Explained when MEMORY-MANAGEMENT is called (gap defer, reject, commit)
+
+3. ✅ Updated PROTOCOL-APPLICATION.md checklist
+   - Added Phase 6: MEMORY-MANAGEMENT (detailed 8-step checklist)
+   - Updated Checklist Rapido (6 phases)
+   - Post-Commit verification includes memory checks
+
+- **Commit 3**: `1285292` - "feat(protocols): add MEMORY-MANAGEMENT protocol to mandatory sequence"
+
+**Protocol Sequence NOW (6 phases)**:
+```
+1. AUTO-INCREMENT → Gap detection (if defer: MEMORY-MANAGEMENT)
+2. GENERATE → Create artifact
+3. SELF-CRITIQUE → Evaluate quality
+4. HUMAN-GATE → Human approval (if reject: MEMORY-MANAGEMENT)
+5. COMMIT → Persist changes
+6. MEMORY-MANAGEMENT → Update MEMORY.md + agent memory ⚠️ MANDATORY
+```
+
+**Files modified**: 7 bootstrap/protocol/checklist files (modified 3 times total across commits)
+**Files created**: 4 (.context/workflows/spec-010-execution-pattern.md, PROTOCOL-APPLICATION.md, MEMORY-MANAGEMENT.md, relatorio-java-23)
+**Files deleted**: 4 (2 memory files, 2 __pycache__)
+**Impact**: +1,650 lines added total across all commits
+
+**Result**:
+- ✅ Phase 1 complete - Protocol sequence enforced in all 6 bootstraps
+- ✅ MEMORY-MANAGEMENT protocol created and integrated
+- ✅ T0-MEMORY-01 now enforced (always update memory after significant actions)
+- ✅ 3-layer memory architecture documented and required
+- ✅ Memory inconsistencies prevented
+- ✅ SPEC-003 unblocked - ready to proceed safely
+
+**Next Steps**:
+- [ ] Execute Phase 2 (path standardization + naming conventions)
+- [ ] OR proceed directly to SPEC-003 (system fully ready)
+
+**Status**: ✅ COMPLETE - All protocol issues addressed, memory management enforced
 
 ---
 
@@ -718,9 +740,19 @@
 
 ---
 
-## Core Protocols (8 total, in `.prompt-os/core/`)
+## Core Protocols (9 total, in `.prompt-os/core/`)
 
 | Protocol | Implements | Status |
+|----------|------------|--------|
+| SELF-CRITIQUE.md | SPEC-001 | ✅ Enhanced v2.0 |
+| HUMAN-GATE.md | SPEC-001 | ✅ New |
+| AUTO-INCREMENT.md | SPEC-002 | ✅ Active |
+| MEMORY-MANAGEMENT.md | Foundation | ✅ NEW - Enforces T0-MEMORY-01 |
+| WEB-RESEARCH.md | SPEC-003 | Active |
+| KNOWLEDGE-BASE.md | SPEC-004 | Active |
+| PERSONA-GENERATOR.md | SPEC-005 | Active |
+| INPUT-CLASSIFIER.md | Foundation | Active |
+| JIT-PROTOCOL.md | Foundation | Active |
 |----------|------------|--------|
 | SELF-CRITIQUE.md | SPEC-001 | ✅ Enhanced v2.0 |
 | HUMAN-GATE.md | SPEC-001 | ✅ New |
