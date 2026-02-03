@@ -24,5 +24,44 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **T2 (Contexto):** `_meta/`, `troubleshooting/`.
 *   **T3 (Exemplos):** `examples/`, `skills/`.
 
+## 5. MANDATORY PROTOCOL SEQUENCE ⚠️ CRITICAL
+
+**Ao gerar qualquer artefato (skill, persona, code, doc), siga esta sequencia EXATA:**
+
+```
+1. AUTO-INCREMENT (.prompt-os/core/AUTO-INCREMENT.md)
+   → Verificar se artefato similar existe
+   → Detectar gaps se necessario
+   → Registrar gap em memory/{agente}-memory.md se deferred
+
+2. GENERATE
+   → Criar artefato seguindo templates/standards
+   → Aplicar learned actions (version-agnostic, JIT sub-files, etc.)
+
+3. SELF-CRITIQUE (.prompt-os/core/SELF-CRITIQUE.md)
+   → Avaliar em 4 dimensoes (Completude, Clareza, Correcao, Best Practices)
+   → Calcular score (0-100)
+   → Gerar YAML estruturado
+
+4. HUMAN-GATE (.prompt-os/core/HUMAN-GATE.md) ⚠️ CHECKPOINT OBRIGATORIO
+   → Apresentar artefato com score visual
+   → Mostrar preview completo ao humano
+   → Aguardar aprovacao: approve|view|edit|reject|cancel
+   → ⚠️ NUNCA escrever arquivos sem aprovacao (T0-HUMAN-01 violation)
+
+5. COMMIT (somente apos aprovacao)
+   → Escrever arquivos
+   → Atualizar indices (INDEX.md)
+   → Atualizar MEMORY.md
+   → Commit com conventional commits
+```
+
+**⚠️ Pular HUMAN-GATE e uma violacao T0** - A integridade do sistema depende disso.
+
+**Memoria Distribuida:**
+- Cada agente tem memoria propria: `memory/{agente}-memory.md` (ex: `gemini-memory.md`)
+- Memoria global: `MEMORY.md` (apenas estatisticas agregadas e resumos sucintos)
+- Workflows detalhados: `.context/workflows/` ou `docs/`
+
 ---
 **Nota:** Este arquivo (`GEMINI.md`) é um espelho do meu estado interno para garantir que eu não perca o contexto da arquitetura Prompt-Based. Minha memória "viva" é o arquivo `MEMORY.md`.

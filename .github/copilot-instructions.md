@@ -27,6 +27,45 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 - **Token economy**: Prefer JIT loading of only relevant skills/personas (2–5) per task.
 - **Source citation**: Skills must include references; keep skills under 1400 tokens.
 
+## MANDATORY PROTOCOL SEQUENCE ⚠️ CRITICAL
+
+**When generating any artifact (skill, persona, code, doc), follow this EXACT sequence:**
+
+```
+1. AUTO-INCREMENT (.prompt-os/core/AUTO-INCREMENT.md)
+   → Check if similar artifact exists
+   → Detect gaps if necessary
+   → Register gap in memory/{agent}-memory.md if deferred
+
+2. GENERATE
+   → Create artifact following templates/standards
+   → Apply learned actions (version-agnostic, JIT sub-files, etc.)
+
+3. SELF-CRITIQUE (.prompt-os/core/SELF-CRITIQUE.md)
+   → Evaluate in 4 dimensions (Completeness, Clarity, Correctness, Best Practices)
+   → Calculate score (0-100)
+   → Generate structured YAML output
+
+4. HUMAN-GATE (.prompt-os/core/HUMAN-GATE.md) ⚠️ MANDATORY CHECKPOINT
+   → Present artifact with visual score
+   → Show complete preview to human
+   → Wait for approval: approve|view|edit|reject|cancel
+   → ⚠️ NEVER write files without approval (T0-HUMAN-01 violation)
+
+5. COMMIT (only after approval)
+   → Write files
+   → Update indices (INDEX.md)
+   → Update MEMORY.md
+   → Commit with conventional commits
+```
+
+**⚠️ Skipping HUMAN-GATE is a T0 VIOLATION** - System integrity depends on this.
+
+**Distributed Memory:**
+- Each agent has own memory: `memory/{agent}-memory.md` (ex: `opencode-memory.md`)
+- Global memory: `MEMORY.md` (aggregated stats and succinct summaries only)
+- Detailed workflows: `.context/workflows/` or `docs/`
+
 ## Build / Test / Lint (Optional)
 This repo is prompt/documentation-first; no required build. Optional tooling:
 - Node CLI: `node .prompt-os\tools\brain.js ...`

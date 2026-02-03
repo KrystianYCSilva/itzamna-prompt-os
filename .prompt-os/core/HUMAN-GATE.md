@@ -44,6 +44,18 @@ Antes de apresentar ao Human Gate, execute o protocolo SELF-CRITIQUE.md e obtenh
 
 Veja: `.prompt-os/core/SELF-CRITIQUE.md`
 
+**PROTOCOLO COMPLETO - Sequencia Obrigatoria:**
+```
+1. AUTO-INCREMENT (.prompt-os/core/AUTO-INCREMENT.md) → JA aplicado (gap detection)
+2. GENERATE → JA executado (artefato criado)
+3. SELF-CRITIQUE (.prompt-os/core/SELF-CRITIQUE.md) → JA aplicado (este e o resultado)
+4. **HUMAN-GATE** (este protocolo) → Checkpoint final OBRIGATORIO antes de file writes
+5. COMMIT → Somente apos aprovacao humana neste checkpoint
+```
+
+⚠️ **Este protocolo e o ULTIMO checkpoint antes de persistir mudancas.**  
+⚠️ **Pular este passo e uma violacao T0-HUMAN-01** - NUNCA escreva arquivos sem aprovacao.
+
 ---
 
 ### 2. Formato de Display

@@ -5,6 +5,24 @@
 
 ---
 
+## SEQUENCIA DE PROTOCOLOS
+
+Este protocolo e o **TERCEIRO** na sequencia obrigatoria:
+
+```
+1. AUTO-INCREMENT → Verificar gaps (veja .prompt-os/core/AUTO-INCREMENT.md)
+2. GENERATE → Criar artefato
+3. **SELF-CRITIQUE** (este protocolo) → Avaliar qualidade
+4. HUMAN-GATE → Apresentar ao humano (veja .prompt-os/core/HUMAN-GATE.md)
+5. COMMIT → Persistir (somente apos aprovacao)
+```
+
+**Proximos Passos:**
+- Apos completar Self-Critique, SEMPRE apresente via HUMAN-GATE.md
+- NUNCA pule para file write sem Human Gate (T0-HUMAN-01 violation)
+
+---
+
 ## POR QUE AUTO-AVALIAR?
 
 Voce pode cometer erros. Este protocolo ajuda a:

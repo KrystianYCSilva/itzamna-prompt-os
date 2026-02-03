@@ -32,6 +32,15 @@ Aplique auto-incrementacao quando:
 
 ## PROTOCOLO DE DETECCAO DE LACUNAS
 
+**SEQUENCIA DE PROTOCOLOS:** Este protocolo e o **PRIMEIRO** na sequencia obrigatoria:
+```
+1. AUTO-INCREMENT (este protocolo) → Detectar gaps, verificar similaridade
+2. GENERATE → Criar artefato
+3. SELF-CRITIQUE → Avaliar qualidade (veja .prompt-os/core/SELF-CRITIQUE.md)
+4. HUMAN-GATE → Apresentar ao humano (veja .prompt-os/core/HUMAN-GATE.md)
+5. COMMIT → Persistir (somente apos aprovacao)
+```
+
 ### Fase 1: Detectar Gap
 
 Quando o usuario pede algo, verifique:

@@ -28,6 +28,7 @@
 
 | Data | Tipo | Nome | Status |
 | 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-23/SKILL.md | ✅ created |
+| 2026-02-03 | doc | docs/relatorios-testes/relatorio-java-23-skill-sessao-19.md | ✅ created |
 | 2026-02-03 | update | .prompt-os/skills/INDEX.md | ✅ updated |
 | 2026-02-03 | update | skills/INDEX.md | ✅ updated |
 | 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-21/SKILL.md | ✅ created |
