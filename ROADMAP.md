@@ -61,8 +61,9 @@ v1.0.0 was code-centric, requiring Node.js/Python runtime. This was identified a
 ### Deliverables
 - [x] Entry point: `.prompt-os/PROMPTOS.md`
 - [x] Constitution as prompt: `.prompt-os/CONSTITUTION.md`
-- [x] 7 Core protocols created:
+- [x] 8 Core protocols created:
   - [x] `SELF-CRITIQUE.md` (from SPEC-001)
+  - [x] `HUMAN-GATE.md` (from SPEC-001)
   - [x] `AUTO-INCREMENT.md` (from SPEC-002)
   - [x] `WEB-RESEARCH.md` (from SPEC-003)
   - [x] `KNOWLEDGE-BASE.md` (from SPEC-004)
@@ -71,7 +72,7 @@ v1.0.0 was code-centric, requiring Node.js/Python runtime. This was identified a
   - [x] `JIT-PROTOCOL.md` (Foundation)
 - [x] Specs updated with implementation references
 - [x] `specs/IMPLEMENTATION-STATUS.md` mapping document
-- [x] Root files updated (AGENTS.md, README.md, MEMORY.md, ROADMAP.md)
+- [x] Root files updated (ITZAMNA-AGENT.md, AGENTS.md, README.md, MEMORY.md, ROADMAP.md)
 - [x] Cross-model compatibility (Claude, GPT, Gemini, Cursor, Copilot, Qwen)
 
 ### How It Works Now
@@ -89,9 +90,9 @@ ANY AI AGENT (Claude, Gemini, Cursor, etc.)
 
 ---
 
-## v2.1.0 - Enhanced Protocols (PROXIMO)
+## v2.1.0 - Enhanced Protocols (EM ANDAMENTO)
 
-**Status:** Planned  
+**Status:** In progress  
 **Estimate:** 3-5 days
 
 ### Objectives
@@ -155,33 +156,6 @@ See `specs/IMPLEMENTATION-STATUS.md` for detailed mapping.
 
 ---
 
-## Backlog (Post v3.0.0)
-
-| Feature | Complexity | Priority | Notes |
-|---------|------------|----------|-------|
-| Slack Integration | Medium | P3 | Optional notification channel |
-| Multi-language Skills | Medium | P3 | Skills in multiple languages |
-| A/B Testing of Templates | High | P3 | Compare template effectiveness |
-| Multi-agent Coordination | High | P4 | Coordinated agent workflows |
-| MCP Full Compatibility | High | P4 | Model Context Protocol |
-| Visual Protocol Editor | Medium | P3 | GUI for creating protocols |
-
----
-
-## Timeline
-
-```
-2026 Feb                          2026 Mar               2026 Apr
-|----------------------------------|---------------------------|
-v1.0.0    v2.0.0           v2.1.0                    v3.0.0
-  |         |                 |                         |
-  +---------+-------5d--------+----------10d------------+
-  Piloto   Prompt-Based    Enhanced               Advanced
-           (CURRENT)       Protocols              RAG
-```
-
----
-
 ## Optional Tools (Legacy from v1.0)
 
 These tools remain as **optional helpers** for human operators:
@@ -218,12 +192,11 @@ These tools remain as **optional helpers** for human operators:
 
 ## Key Principles for Evolution
 
-1. **Prompts over Code:** Core functionality through Markdown, not scripts
-2. **Cross-Model:** Must work with any AI that can read Markdown
-3. **Human-in-the-Loop:** T0 rules are inviolable
-4. **Self-Documenting:** Protocols explain themselves
-5. **Minimal Dependencies:** Avoid external dependencies in core system
+- PromptOS is **prompt-based** and must remain so.
+- Human-in-the-loop is mandatory for persistence.
+- Keep kernel and skills lightweight for token economy.
+- Maintain cross-model compatibility.
 
 ---
 
-*Roadmap v2.0.0 | Itzamna PromptOS | 2026-02-02*
+**EOF** | Roadmap v2.1.0

@@ -6,7 +6,7 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 ## What Exists Now
 - **Core protocols** (prompt-based): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
 - **State**: `MEMORY.md` is the stable memory file; always update it after significant actions.
-- **Skills/Personas**: 17 approved skills across 7 categories and 1 persona (see `MEMORY.md` for current inventory).
+- **Skills/Personas**: 18 approved skills across 8 categories and 1 persona (see `MEMORY.md` for current inventory).
 - **Optional tools**: Node CLI `brain.js`, Python `cli.py`, PowerShell `sync-constitution.ps1` for human operators.
 
 ## Current Work / Roadmap (from MEMORY.md + specs)
@@ -21,7 +21,7 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 
 ## Critical Conventions
 - **Human Gate (T0)**: Never create/modify/delete files without explicit human approval. Always show a preview before committing changes.
-- **Prompt-first workflow**: Read `.prompt-os/PROMPTOS.md` and `.prompt-os/CONSTITUTION.md` first; then `MEMORY.md`; then load relevant `.context/` and protocols JIT.
+- **Prompt-first workflow**: Read `ITZAMNA-AGENT.md` first; then `.prompt-os/PROMPTOS.md` and `.prompt-os/CONSTITUTION.md`; then `MEMORY.md`; then load relevant `.context/` and protocols JIT.
 - **Skills/Personas**: Markdown + YAML frontmatter. Skills live under `skills/{category}/{skill}/SKILL.md`; personas under `personas/{name}/PERSONA.md`. Update the relevant INDEX.md when adding new ones.
 - **Token economy**: Prefer JIT loading of only relevant skills/personas (2–5) per task.
 - **Source citation**: Skills must include references; keep skills under 1400 tokens.

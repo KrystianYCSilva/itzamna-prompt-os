@@ -1,90 +1,66 @@
-# Cursor IDE Rules - Itzamna PromptOS v2.0.0
+# Cursor IDE Rules - Itzamna PromptOS v2.1.0
 
-> **Bootstrap para Cursor IDE**
-
----
-
-## READ FIRST
-
-Load these files in order:
-
-1. **`ITZAMNA-AGENT.md`** - Main agent (identity, workflows, rules)
-2. **`.prompt-os/PROMPTOS.md`** - System entry point
-3. **`.prompt-os/CONSTITUTION.md`** - T0/T1/T2 rules
-4. **`MEMORY.md`** - Persistent state
-5. **`.context/`** - Project context (load JIT)
+> **Bootstrap minimo para Cursor IDE**
 
 ---
 
-## T0 Rules (Inviolable)
+## READ FIRST (ordem)
 
-| ID | Rule |
-|----|------|
-| T0-HUMAN-01 | NEVER create/modify files without human approval |
-| T0-HUMAN-02 | ALWAYS show preview before commit |
-| T0-MEMORY-01 | ALWAYS update MEMORY.md after significant actions |
+1. **ITZAMNA-AGENT.md** - agente principal (identidade, workflows, regras)
+2. **.prompt-os/PROMPTOS.md** - entry point do sistema
+3. **.prompt-os/CONSTITUTION.md** - regras T0/T1/T2
+4. **MEMORY.md** - estado persistente
+5. **.context/** - contexto do projeto (carregar JIT)
+
+---
+
+## Diretrizes Essenciais
+
+- PromptOS e **prompt-based**: seguir Markdown, nao execucao de codigo.
+- Human Gate e obrigatorio antes de qualquer persistencia.
+- Self-Critique obrigatorio para operacoes L2/L3.
+
+---
+
+## T0 Rules (resumo)
+
+| ID | Regra |
+|----|-------|
+| T0-HUMAN-01 | NUNCA criar/modificar arquivos sem aprovacao humana |
+| T0-HUMAN-02 | SEMPRE mostrar preview antes de commit |
+| T0-MEMORY-01 | SEMPRE atualizar MEMORY.md apos acoes significativas |
 | T0-SIZE-01 | Skills < 1400 tokens, Kernel < 5KB |
-| T0-SOURCE-01 | ALWAYS cite sources in generated skills |
-
----
-
-## Context Loading (JIT)
-
-Load from `.context/` as needed:
-
-| Need | Load |
-|------|------|
-| T0 Rules | `standards/architectural-rules.md` |
-| Project overview | `_meta/project-overview.md` |
-| Tech stack | `_meta/tech-stack.md` |
-| Code quality | `standards/code-quality.md` |
-| Testing | `standards/testing-strategy.md` |
-| Architecture | `patterns/architectural-overview.md` |
+| T0-SOURCE-01 | SEMPRE citar fontes em skills |
 
 ---
 
 ## Human Gate
 
-**MANDATORY for file operations:**
-
 ```
-1. Generate artifact
-2. Self-critique (score 0-100)
-3. Show preview to human
-4. WAIT for response:
-   - "ok/yes/approve" → Commit
-   - "view/show" → Display full content
-   - "edit X" → Revise section X
-   - "reject [reason]" → Learn, offer retry
-   - "cancel" → Abort
+1. Gerar artefato
+2. Self-Critique (score 0-100)
+3. Mostrar preview ao humano
+4. Aguardar: approve | view | edit | reject | cancel
 ```
 
 ---
 
-## Code Generation
+## JIT Context
 
-- Follow patterns in `.context/patterns/architectural-overview.md`
-- Apply standards from `.context/standards/code-quality.md`
-- Reference examples in `.context/examples/`
-
----
-
-## Testing
-
-- Line coverage >= 90%
-- Branch coverage >= 80%
-- Follow `.context/standards/testing-strategy.md`
+Carregue apenas o necessario de `.context/`:
+- `standards/architectural-rules.md` (T0)
+- `_meta/project-overview.md`, `_meta/tech-stack.md`
+- `standards/code-quality.md`, `standards/testing-strategy.md`
+- `patterns/architectural-overview.md`
 
 ---
 
-## References
+## Referencias
 
-| Document | Content |
-|----------|---------|
-| `ITZAMNA-AGENT.md` | Complete main agent |
-| `.context/ai-assistant-guide.md` | Full AI guide |
-| `.prompt-os/CONSTITUTION.md` | Complete rules |
+- `ITZAMNA-AGENT.md`
+- `.context/ai-assistant-guide.md`
+- `.prompt-os/CONSTITUTION.md`
 
 ---
 
-**EOF** | Cursor Bootstrap | v2.0.0
+**EOF** | Cursor Bootstrap | v2.1.0

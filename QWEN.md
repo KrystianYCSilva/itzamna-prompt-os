@@ -10,7 +10,7 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 
 **Carregamento JIT - Ordem de prioridade:**
 
-1. **`ITZAMNA-AGENT.md`** - Agente principal (contextos, workflows, regras comuns)
+1. **`ITZAMNA-AGENT.md`** - Agente principal (workflows + referencias obrigatorias)
 2. **`.prompt-os/PROMPTOS.md`** - Entry point do sistema
 3. **`.prompt-os/CONSTITUTION.md`** - Regras T0/T1/T2
 4. **`MEMORY.md`** - Estado persistente
@@ -39,6 +39,18 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 | T0-MEMORY-01 | SEMPRE atualizar MEMORY.md apos acoes significativas |
 | T0-SIZE-01 | Skills < 1400 tokens, Kernel < 5KB |
 | T0-SOURCE-01 | SEMPRE citar fontes em skills geradas |
+| T0-PROTOCOL-01 | Protocolos devem estar integrados e referenciarem-se mutuamente |
+
+---
+
+## RESUMO DO CONTEXTO (v2.1.0)
+
+- PromptOS e **prompt-based**: core = Markdown (sem execucao obrigatoria de codigo).
+- Entry point: `.prompt-os/PROMPTOS.md`; regras em `.prompt-os/CONSTITUTION.md`.
+- Protocolos core (8): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
+- Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
+- Skills/Personas: 18 skills em 8 categorias; 1 persona (ver `MEMORY.md`).
+- Roadmap v2.1.0 em andamento: validacao cross-model, checklist de validacao de protocolos, docs de criacao de protocolos, melhorias de JIT, metricas.
 
 ---
 
@@ -53,12 +65,15 @@ O contexto esta em `.context/` - carregue JIT:
 | `.context/_meta/tech-stack.md` | Para entender a stack |
 | `.context/patterns/architectural-overview.md` | Ao projetar sistemas |
 | `.context/workflows/development-workflows.md` | Ao executar workflows |
+| `.context/troubleshooting/common-issues.md` | Ao encontrar problemas |
+| `.context/standards/code-quality.md` | Para padroes de qualidade |
+| `.context/standards/testing-strategy.md` | Para estrategia de testes |
 
 ---
 
 ## HUMAN GATE
 
-**Nivel de Autonomia: A2 (Colaborador)**  
+**Nivel de Autonomia: A2 (Colaborador)**
 **Protocolo completo:** `.prompt-os/core/HUMAN-GATE.md`
 
 Operacoes que REQUEREM aprovacao:
@@ -66,6 +81,21 @@ Operacoes que REQUEREM aprovacao:
 - Gerar skills/personas
 - Fazer commits
 - Deletar arquivos
+
+---
+
+## PROTOCOLOS CORE
+
+| Protocolo | Proposito |
+|-----------|-----------|
+| `SELF-CRITIQUE.md` | Avaliacao de qualidade (score 0-100, 4 dimensoes) |
+| `HUMAN-GATE.md` | Apresentacao estruturada ao humano |
+| `AUTO-INCREMENT.md` | Deteccao de gaps |
+| `WEB-RESEARCH.md` | Metodologia de pesquisa |
+| `KNOWLEDGE-BASE.md` | Gestao de conhecimento |
+| `PERSONA-GENERATOR.md` | Criacao de personas |
+| `INPUT-CLASSIFIER.md` | Classificacao de input |
+| `JIT-PROTOCOL.md` | Carregamento otimizado |
 
 ---
 

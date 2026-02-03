@@ -1,8 +1,8 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
-**Ultima Atualizacao:** 2026-02-03T23:30:00
+**Ultima Atualizacao:** 2026-02-03T15:55:00
 **Versao:** 2.1.0
-**Sessoes Totais:** 11
+**Sessoes Totais:** 15
 
 ---
 
@@ -25,6 +25,9 @@
 
 | Data | Tipo | Nome | Status |
 |------|------|------|--------|
+| 2026-02-03 | spec | SPEC-006..009 pre-specs (router/orchestrator/templates/cross-model) | created |
+| 2026-02-03 | refactor | QWEN.md + README.md + copilot-instructions.md | completed |
+| 2026-02-03 | refactor | AGENTS.md + .cursorrules + ROADMAP.md + docs/ARCHITECTURE.md | completed |
 | 2026-02-03 | refactor | .context/ files updated | completed |
 | 2026-02-03 | skill | java-8-orientacao-objetos (L2, linguagens-programacao) | approved |
 | 2026-02-03 | feature | 001-self-critique enhanced protocol | implemented |
@@ -107,6 +110,42 @@
   - Protocolos internos atualizar para usar `.prompt-os/skills/INDEX.md`
 
 **Tasks completadas:** 35/35 (T034 validado: 8 cenários, 9 FRs PASS)
+
+---
+
+### Sessao 12 (2026-02-03) - v2.1.0 README.md and QWEN.md Updates
+
+**Feature: README.md and QWEN.md updates — IMPLEMENTED**
+
+- **Arquivos atualizados**:
+  - `README.md` - Atualizado para v2.1.0 com novas informações sobre a versão
+  - `QWEN.md` - Atualizado com informações sobre os protocolos e regras T0
+
+---
+
+### Sessao 13 (2026-02-03) - v2.1.0 Alignment (AGENTS/Cursor/Docs)
+
+**Feature: alinhamento de bootstraps e docs — IMPLEMENTED**
+
+- **Arquivos atualizados**:
+  - `AGENTS.md` - Bootstrap minimo alinhado ao ITZAMNA-AGENT.md
+  - `.cursorrules` - Bootstrap atualizado para v2.1.0
+  - `ROADMAP.md` - Ajustado para arquitetura prompt-based v2.1.0
+  - `docs/ARCHITECTURE.md` - Reescrito para refletir v2.1.0 e .context/
+
+- **Informações adicionadas**:
+  - Referência à nova categoria de skills: linguagens-programacao/
+  - Atualização da contagem de skills (17 → 18)
+  - Inclusão da nova regra T0: T0-PROTOCOL-01
+  - Atualização da roadmap com status da v2.1.0 como COMPLETA
+  - Adição da seção de Protocolos Core no QWEN.md
+
+- **Verificação de consistência**:
+  - Todos os arquivos do projeto estão alinhados com a v2.1.0
+  - Referências cruzadas entre arquivos estão atualizadas
+  - Documentação reflete as funcionalidades implementadas
+
+**Tasks completadas:** 2/2 (atualização de README.md e QWEN.md)
 
 ---
 
