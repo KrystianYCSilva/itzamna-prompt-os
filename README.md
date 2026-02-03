@@ -176,7 +176,7 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 |----------|---------|------------|
 | `SELF-CRITIQUE.md` | Evaluate quality before Human Gate | SPEC-001 |
 | `HUMAN-GATE.md` | Approval workflow with structured presentation | SPEC-001 |
-| `AUTO-INCREMENT.md` | Detect gaps, learn from rejections | SPEC-002 |
+| `AUTO-INCREMENT.md` | Detect gaps, learn from rejections, proactive suggestions, evolution reports | SPEC-002 |
 | `WEB-RESEARCH.md` | Research methodology, source validation | SPEC-003 |
 | `KNOWLEDGE-BASE.md` | Knowledge management, skill relationships | SPEC-004 |
 | `PERSONA-GENERATOR.md` | Create and compose personas | SPEC-005 |
@@ -276,6 +276,10 @@ All write operations require human approval:
 4. Aperfeiçoar a eficiência do JIT loading
 
 #### Entregas
+- [x] SPEC-001 Self-Critique: Enhanced protocol com 4 dimensões de avaliação (35/35 tasks)
+- [x] SPEC-002 Auto-Increment: Gap detection, rejection learning, proactive suggestions, evolution reports (90/90 tasks, production ready)
+- [x] Distributed memory architecture: `memory/{agente}-memory.md` para cada agente
+- [x] Cross-agent aggregation: Evolution reports agregam dados de TODOS os agentes
 - [x] Cross-model testing documentation
 - [x] Protocol validation checklist
 - [x] `HOW-TO-CREATE-PROTOCOLS.md` guide

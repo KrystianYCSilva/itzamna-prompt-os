@@ -12,10 +12,10 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **Self-Critique:** Obrigatório para toda criação L2/L3 (v2.0 Enhanced).
 
 ## 3. Estado Atual (Snapshot de MEMORY.md)
-*   **Versão:** 2.1.0 (Refatoração Prompt-Based concluída).
+*   **Versão:** 2.1.0 (Enhanced protocols - SPEC-002 completa).
 *   **Skills:** 18 aprovadas (Recém adicionada: `java-8-orientacao-objetos`).
-*   **Feature Recente:** `001-self-critique` e `HUMAN-GATE.md` (Interface visual).
-*   **Próximos Passos:** Validação de protocolos e testes de compatibilidade.
+*   **Feature Recente:** `AUTO-INCREMENT.md` (Gap detection, rejection learning, proactive suggestions, evolution reports).
+*   **Próximos Passos:** Monitoramento de uso do Auto-Increment Protocol.
 
 ## 4. Referências Rápidas de Tiers
 *   **T0 (Absoluto):** `standards/architectural-rules.md`.

@@ -208,7 +208,7 @@ Carregue JIT conforme necessidade:
 |-----------|---------|-----------|
 | Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Avaliacao de qualidade (score 0-100, 4 dimensoes) |
 | Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Apresentacao estruturada ao humano |
-| Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Deteccao de gaps |
+| Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Deteccao de gaps, aprendizado com rejeicoes, sugestoes proativas, relatorios de evolucao |
 | Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Metodologia de pesquisa |
 | Knowledge Base | `.prompt-os/core/KNOWLEDGE-BASE.md` | Gestao de conhecimento |
 | Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criacao de personas |

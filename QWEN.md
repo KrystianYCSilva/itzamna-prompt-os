@@ -50,7 +50,7 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 - Protocolos core (8): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
 - Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
 - Skills/Personas: 18 skills em 8 categorias; 1 persona (ver `MEMORY.md`).
-- Roadmap v2.1.0 em andamento: validacao cross-model, checklist de validacao de protocolos, docs de criacao de protocolos, melhorias de JIT, metricas.
+- Roadmap v2.1.0 completo: SPEC-002 validada (90/90 tasks), memoria distribuida, integracao cross-protocol.
 
 ---
 
@@ -90,7 +90,7 @@ Operacoes que REQUEREM aprovacao:
 |-----------|-----------|
 | `SELF-CRITIQUE.md` | Avaliacao de qualidade (score 0-100, 4 dimensoes) |
 | `HUMAN-GATE.md` | Apresentacao estruturada ao humano |
-| `AUTO-INCREMENT.md` | Deteccao de gaps |
+| `AUTO-INCREMENT.md` | Deteccao de gaps, aprendizado com rejeicoes, sugestoes proativas, relatorios de evolucao |
 | `WEB-RESEARCH.md` | Metodologia de pesquisa |
 | `KNOWLEDGE-BASE.md` | Gestao de conhecimento |
 | `PERSONA-GENERATOR.md` | Criacao de personas |

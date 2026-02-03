@@ -152,7 +152,7 @@ Localizados em `.prompt-os/core/` — carregue JIT conforme necessidade:
 | **Human Gate** | `HUMAN-GATE.md` | Display estruturado com score, indicadores visuais, Constitution violation blockers | Na fase 5 do pipeline |
 | **Input Classifier** | `INPUT-CLASSIFIER.md` | Classifica input → workflow + persona + skills | Ao receber pedido |
 | **JIT Protocol** | `JIT-PROTOCOL.md` | Carregamento otimizado: Kernel (~3KB) → Core (~4KB) → Skills (2-5 × ~2KB). Target: 10-16KB/tarefa | Sempre |
-| **Auto-Increment** | `AUTO-INCREMENT.md` | Detecção de gaps, aprendizado de rejeições, sugestões proativas | Após rejeições ou periodicamente |
+| **Auto-Increment** | `AUTO-INCREMENT.md` | Detecção de gaps, aprendizado com rejeições, sugestões proativas, relatórios de evolução | Após rejeições ou periodicamente |
 | **Web Research** | `WEB-RESEARCH.md` | Metodologia de pesquisa, hierarquia de fontes (T1-T7), cache | Ao precisar de pesquisa externa |
 | **Knowledge Base** | `KNOWLEDGE-BASE.md` | Gerenciamento de conhecimento, busca hierárquica, relações entre skills | Ao buscar skills relacionadas |
 | **Persona Generator** | `PERSONA-GENERATOR.md` | Criação e composição de personas a partir de skills | Ao criar nova persona |
@@ -258,7 +258,7 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 | Spec | Protocolo | Status |
 |------|-----------|--------|
 | SPEC-001 Self-Critique | `SELF-CRITIQUE.md` + `HUMAN-GATE.md` | ✅ Implementado (35/35 tasks completadas) |
-| SPEC-002 Auto-Increment | `AUTO-INCREMENT.md` | ✅ Implementado |
+| SPEC-002 Auto-Increment | `AUTO-INCREMENT.md` | ✅ Implementado (90/90 tasks completadas, production ready) |
 | SPEC-003 Web Research | `WEB-RESEARCH.md` | ✅ Implementado |
 | SPEC-004 Vector DB/RAG | `KNOWLEDGE-BASE.md` | ⚠️ Parcial (prompt-based + tooling opcional) |
 | SPEC-005 Persona CLI | `PERSONA-GENERATOR.md` | ✅ Implementado |
@@ -271,7 +271,7 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 |--------|--------|------|
 | v1.0.0 | ✅ Completo | Piloto code-centric |
 | v2.0.0 | ✅ Completo | Arquitetura prompt-based |
-| **v2.1.0** | **🔄 Em andamento** | Enhanced protocols — validação cross-model, `HOW-TO-CREATE-PROTOCOLS.md`, JIT caching, métricas |
+| **v2.1.0** | **✅ Completo** | Enhanced protocols — SPEC-002 validado (90/90 tasks), integração cross-protocol, memoria distribuída |
 | v3.0.0 | 📋 Planejado | Advanced RAG — embeddings, semantic search, knowledge graph |
 
 ### v2.1.0 — Próximos Passos

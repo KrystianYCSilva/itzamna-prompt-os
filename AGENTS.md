@@ -1,4 +1,4 @@
-﻿# AGENTS.md - Itzamna PromptOS v2.1.0
+# AGENTS.md - Itzamna PromptOS v2.1.0
 
 > **Bootstrap minimo para agentes.**
 > **Agente principal:** `ITZAMNA-AGENT.md` (workflows + referencias).
@@ -60,6 +60,7 @@
 - `.context/README.md` e `.context/ai-assistant-guide.md`
 - `.prompt-os/core/SELF-CRITIQUE.md`
 - `.prompt-os/core/HUMAN-GATE.md`
+- `.prompt-os/core/AUTO-INCREMENT.md`
 
 ---
 

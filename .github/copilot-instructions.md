@@ -10,14 +10,14 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 - **Optional tools**: Node CLI `brain.js`, Python `cli.py`, PowerShell `sync-constitution.ps1` for human operators.
 
 ## Current Work / Roadmap (from MEMORY.md + specs)
-- **v2.1.0** is in progress: enhanced SELF-CRITIQUE + HUMAN-GATE and a consolidated skills registry in `.prompt-os/skills/INDEX.md`.
+- **v2.1.0** is complete: SPEC-002 AUTO-INCREMENT fully validated (90/90 tasks), distributed memory architecture, cross-protocol integration.
 - **Spec status**:
-  - **SPEC-001 Self-Critique**: Full spec/plan/tasks exist; enhancements implemented in prompt protocols.
-  - **SPEC-002 Auto-Increment**: Implemented as `.prompt-os/core/AUTO-INCREMENT.md`.
+  - **SPEC-001 Self-Critique**: ✅ Complete (35/35 tasks) - implemented in prompt protocols.
+  - **SPEC-002 Auto-Increment**: ✅ Complete (90/90 tasks) - production ready, implemented as `.prompt-os/core/AUTO-INCREMENT.md`.
   - **SPEC-003 Web Research**: Implemented as `.prompt-os/core/WEB-RESEARCH.md`.
   - **SPEC-004 Vector DB + RAG**: Prompt-based implementation in `.prompt-os/core/KNOWLEDGE-BASE.md`; full vector DB tooling optional.
   - **SPEC-005 Persona CLI**: Implemented as `.prompt-os/core/PERSONA-GENERATOR.md`.
-- **Next steps (v2.1.0)**: automated protocol validation, cross-model compatibility tests, protocol-creation docs, improved JIT loading, metrics dashboard.
+- **Next steps (v2.2.0)**: monitoring infrastructure setup, merge branch to main, production deployment, feedback collection.
 
 ## Critical Conventions
 - **Human Gate (T0)**: Never create/modify/delete files without explicit human approval. Always show a preview before committing changes.

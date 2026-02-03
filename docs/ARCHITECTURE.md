@@ -114,7 +114,7 @@ Toda operacao de escrita exige aprovacao humana explicita. O protocolo Human Gat
 |-----------|--------|------|
 | SELF-CRITIQUE | Avaliacao de qualidade | SPEC-001 |
 | HUMAN-GATE | Aprovacao humana | SPEC-001 |
-| AUTO-INCREMENT | Deteccao de gaps | SPEC-002 |
+| AUTO-INCREMENT | Deteccao de gaps, aprendizado com rejeicoes, sugestoes proativas, relatorios de evolucao | SPEC-002 |
 | WEB-RESEARCH | Metodologia de pesquisa | SPEC-003 |
 | KNOWLEDGE-BASE | Gestao de conhecimento | SPEC-004 |
 | PERSONA-GENERATOR | Criacao de personas | SPEC-005 |
