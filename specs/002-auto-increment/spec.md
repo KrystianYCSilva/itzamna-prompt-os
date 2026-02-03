@@ -11,7 +11,7 @@
 
 ### Session 2026-02-03
 
-- Q: How should the system handle simultaneous writes to memory when multiple AI agent sessions detect gaps or log rejections at the same time? → A: The system uses distributed memory architecture - each agent writes to its own `MEMORY/{agente}-memory.md` file. Only global statistics (skills total, approval rate, etc.) are stored in root `MEMORY.md`. This eliminates concurrent write conflicts since agents maintain independent memory logs. Pattern analysis aggregates across agent memories when generating evolution reports.
+- Q: How should the system handle simultaneous writes to memory when multiple AI agent sessions detect gaps or log rejections at the same time? → A: The system uses distributed memory architecture - each agent writes to its own `memory/{agente}-memory.md` file. Only global statistics (skills total, approval rate, etc.) are stored in root `MEMORY.md`. This eliminates concurrent write conflicts since agents maintain independent memory logs. Pattern analysis aggregates across agent memories when generating evolution reports.
 
 ---
 
@@ -23,7 +23,7 @@ When a user requests help with a topic that doesn't have a corresponding skill i
 
 **Why this priority**: This is the foundation of the auto-increment system. Without gap detection, the system cannot learn what knowledge is missing. This delivers immediate value by making users aware of system limitations and offering solutions.
 
-**Independent Test**: Can be fully tested by requesting help for a topic with no existing skill (e.g., "How do I use Kafka?") and verifying that (1) the system detects the gap, (2) informs the user, (3) offers creation options, and (4) logs the gap in the agent's dedicated memory file (`MEMORY/{agente}-memory.md`).
+**Independent Test**: Can be fully tested by requesting help for a topic with no existing skill (e.g., "How do I use Kafka?") and verifying that (1) the system detects the gap, (2) informs the user, (3) offers creation options, and (4) logs the gap in the agent's dedicated memory file (`memory/{agente}-memory.md`).
 
 **Acceptance Scenarios**:
 
@@ -90,7 +90,7 @@ Users should be able to request a periodic evolution report that summarizes syst
 - What if the same skill is rejected multiple times for different reasons? (Each rejection is logged separately, and the system mentions "This skill was rejected X times" when suggesting improvements)
 - How does the system handle gaps that are actually covered by existing skills but with different naming? (JIT-PROTOCOL should catch this during search, but if missed, the gap is logged and the human can mention the existing skill during creation)
 - What if agent memory files grow too large with historical data? (Out of scope for this spec — assume memory files are managed by humans or future archival process)
-- How are agent memories aggregated for cross-agent pattern analysis? (Evolution reports read all `MEMORY/{agente}-memory.md` files and aggregate statistics; individual agents only read their own memory for session-local learning)
+- How are agent memories aggregated for cross-agent pattern analysis? (Evolution reports read all `memory/{agente}-memory.md` files and aggregate statistics; individual agents only read their own memory for session-local learning)
 
 ---
 
@@ -108,7 +108,7 @@ Users should be able to request a periodic evolution report that summarizes syst
 - **FR-008**: System MUST suggest skill creation when the same gap (same topic/keywords) appears 2 or more times in the gap log
 - **FR-009**: System MUST proactively suggest skill improvements when an existing skill has Self-Critique scores <60 across multiple generations or is >2 years old
 - **FR-010**: System MUST generate evolution reports on demand by aggregating data across all agent memories and global statistics, containing: skills created/updated count, approval rate, gaps detected/resolved count, top 3 most frequent gaps, rejection category breakdown with percentages, and suggested actions
-- **FR-013**: Each agent MUST maintain its own memory file (`MEMORY/{agente}-memory.md`) for session-local gap and rejection logs, separate from the global statistics in root `MEMORY.md`
+- **FR-013**: Each agent MUST maintain its own memory file (`memory/{agente}-memory.md`) for session-local gap and rejection logs, separate from the global statistics in root `MEMORY.md`
 - **FR-011**: System MUST integrate with Self-Critique protocol (SPEC-001) to track quality scores per skill and identify low-performing skills for improvement suggestions
 - **FR-012**: System MUST NEVER auto-create or auto-modify skills — all creations and modifications must go through Human Gate protocol
 
@@ -137,7 +137,7 @@ Users should be able to request a periodic evolution report that summarizes syst
 
 ## Assumptions
 
-1. **Distributed Memory Architecture**: Each agent maintains its own memory file (`MEMORY/{agente}-memory.md`) for session-local gap and rejection logs. Global statistics (skills total, approval rates, etc.) are maintained in root `MEMORY.md`. This eliminates concurrent write conflicts across agents.
+1. **Distributed Memory Architecture**: Each agent maintains its own memory file (`memory/{agente}-memory.md`) for session-local gap and rejection logs. Global statistics (skills total, approval rates, etc.) are maintained in root `MEMORY.md`. This eliminates concurrent write conflicts across agents.
 2. **Human Gate Prerequisite**: SPEC-001 (Self-Critique + Human Gate) is fully operational before this feature can function
 3. **Prompt-Based Implementation**: This feature operates entirely through markdown instructions that AI agents read and follow — no runtime code or databases required
 4. **Categorization Accuracy**: Simple keyword matching for rejection categorization is sufficient for initial version (no ML/NLP required)
@@ -166,7 +166,7 @@ Users should be able to request a periodic evolution report that summarizes syst
 | Dependency | Type | Status | Reason |
 |------------|------|--------|--------|
 | SPEC-001 (Self-Critique + Human Gate) | Internal | Implemented | Required for rejection logging and quality score tracking |
-| Agent memory files (`MEMORY/{agente}-memory.md`) | Internal | Available | Per-agent persistent storage for gaps and rejections |
+| Agent memory files (`memory/{agente}-memory.md`) | Internal | Available | Per-agent persistent storage for gaps and rejections |
 | Global statistics (`MEMORY.md`) | Internal | Available | Shared statistics across all agents |
 | `.prompt-os/skills/INDEX.md` registry | Internal | Available | Required to detect if skills exist or not |
 | INPUT-CLASSIFIER protocol | Internal | Implemented | Used to extract topics/keywords from user requests |

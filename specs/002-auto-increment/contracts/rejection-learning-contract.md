@@ -147,7 +147,7 @@ If reason contains specific tech/tool:
 Persist rejection for pattern analysis:
 
 ```
-Write to: MEMORY/{agente}-memory.md
+Write to: memory/{agente}-memory.md
 
 Section: ## Log de Rejeicoes
 
@@ -178,7 +178,7 @@ Fields:
 After logging, check for immediate patterns:
 
 ```
-1. Read all entries from MEMORY/{agente}-memory.md -> Log de Rejeicoes
+1. Read all entries from memory/{agente}-memory.md -> Log de Rejeicoes
 2. Count total rejections
 3. Count rejections per category
 4. Calculate percentages:
@@ -314,7 +314,7 @@ When no category exceeds threshold:
 
 ### Write Location
 
-**Agent-Specific Memory**: `MEMORY/{agente}-memory.md`
+**Agent-Specific Memory**: `memory/{agente}-memory.md`
 
 **Why**: Each agent maintains independent rejection logs. Rejections are session-local learning signals.
 
@@ -464,7 +464,7 @@ THEN: Logged with category "examples", learned action "Validate all code example
 
 **Test 2: Pattern Detection**
 ```
-GIVEN: MEMORY/{agente}-memory.md contains 10 rejections, 4 are "examples"
+GIVEN: memory/{agente}-memory.md contains 10 rejections, 4 are "examples"
 WHEN: Pattern analysis runs
 THEN: Pattern detected (40% > 30%), applies correction to next generation
 ```

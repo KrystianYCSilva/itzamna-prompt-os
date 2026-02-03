@@ -95,7 +95,7 @@
 
 **What to Deploy**:
 - `.prompt-os/core/AUTO-INCREMENT.md` (341 lines, v2.0.0)
-- Agent memory template: `MEMORY/{agente}-memory.md`
+- Agent memory template: `memory/{agente}-memory.md`
 - Integration with existing protocols (SELF-CRITIQUE, HUMAN-GATE, JIT-PROTOCOL)
 
 **What's Working**:
@@ -116,7 +116,7 @@
 **Next Steps**:
 1. Merge branch `002-auto-increment` to `main`
 2. Update root bootstraps (AGENTS.md, .cursorrules, PROMPTOS.md)
-3. Initialize MEMORY/ directory structure
+3. Initialize memory/ directory structure
 4. Begin production use
 5. Monitor and gather feedback for v1.1.0 improvements
 
@@ -236,7 +236,7 @@ d5523d7 - test(002-auto-increment): validate User Story 4 - Evolution Reports (M
 **What was done**:
 - Updated AUTO-INCREMENT.md with distributed memory architecture
 - 7 specific line updates made:
-  - Line 65: Gap logging → `MEMORY/{agente}-memory.md`
+  - Line 65: Gap logging → `memory/{agente}-memory.md`
   - Line 89: Rejection logging → agent-specific memory
   - Line 106: Rejection records → agent memory
   - Line 141: Gap counting → reads agent's own memory
@@ -268,7 +268,7 @@ d5523d7 - test(002-auto-increment): validate User Story 4 - Evolution Reports (M
 - ⚠️ AS1-4: Status updates - MINOR (fixed with HIGH recommendation)
 
 **Test Artifacts**:
-- `MEMORY/opencode-memory.md` - Test memory file with gap examples
+- `memory/opencode-memory.md` - Test memory file with gap examples
 - `specs/002-auto-increment/validation-us1.md` - 319-line validation report
 
 **Improvements Applied (HIGH Recommendations)**:
@@ -301,7 +301,7 @@ d5523d7 - test(002-auto-increment): validate User Story 4 - Evolution Reports (M
 - ✅ AS2-4: Evolution report patterns - PASS
 
 **Test Artifacts**:
-- `MEMORY/opencode-memory.md` - Added 11 rejection examples demonstrating 45% pattern
+- `memory/opencode-memory.md` - Added 11 rejection examples demonstrating 45% pattern
 - `specs/002-auto-increment/validation-us2.md` - 484-line validation report
 
 **Improvements Applied (HIGH Recommendations)**:
@@ -335,7 +335,7 @@ d5523d7 - test(002-auto-increment): validate User Story 4 - Evolution Reports (M
 - ✅ AS3-3: Skill >2 years old → suggest update - PASS
 
 **Test Artifacts**:
-- `MEMORY/opencode-memory.md` - Added duplicate gaps (kafka: 3x, argocd: 2x)
+- `memory/opencode-memory.md` - Added duplicate gaps (kafka: 3x, argocd: 2x)
 - `specs/002-auto-increment/validation-us3.md` - 470-line validation report
 
 **Critical Decision Point**: 
@@ -353,7 +353,7 @@ Historical quality tracking "across multiple generations" determined to be out o
 **Status**: 0% complete (0/20 tasks)
 
 **What needs to be done**:
-- Cross-agent memory aggregation (read ALL `MEMORY/*-memory.md` files)
+- Cross-agent memory aggregation (read ALL `memory/*-memory.md` files)
 - Global statistics reading from `MEMORY.md`
 - Metrics calculation (skills created/updated, approval rate, gaps detected/resolved)
 - Report generation with 6 sections:
@@ -407,7 +407,7 @@ Historical quality tracking "across multiple generations" determined to be out o
 
 ### Test Files
 
-**`MEMORY/opencode-memory.md`** (created during validation)
+**`memory/opencode-memory.md`** (created during validation)
 - Contains test data for gaps (kafka: 3x, argocd: 2x)
 - Contains 11 rejection examples (45% "exemplos" pattern)
 - Demonstrates FR-008 proactive suggestions working
@@ -532,7 +532,7 @@ f360a1c - test(002-auto-increment): validate User Story 2 - Rejection Learning (
 
 **Issue**: T041 marked as incomplete but validation reports show Phase 5 as complete.
 
-**Current Status**: T041 was "Create test scenarios in MEMORY/test-agent-memory.md with 3 frequent gaps (counts: 3, 2, 2)". The test memory file was created, but the specific 3-gap scenario was added organically during validation rather than in a dedicated task.
+**Current Status**: T041 was "Create test scenarios in memory/test-agent-memory.md with 3 frequent gaps (counts: 3, 2, 2)". The test memory file was created, but the specific 3-gap scenario was added organically during validation rather than in a dedicated task.
 
 **Decision**: T041 structure was fulfilled (memory file exists with test data), just not in the exact format described.
 
@@ -612,7 +612,7 @@ If time/resources are constrained, consider merging US1-US3 as v1.0.0 MVP and re
 1. **Distributed Memory Architecture**: Early identification and correction of architectural mismatch (Phase 2) prevented downstream issues
 2. **Iterative Validation**: Validating each user story independently enabled focused testing and clear progress tracking
 3. **HIGH Recommendations**: Immediate application of validation recommendations improved protocol quality in real-time
-4. **Test Artifacts**: Creating `MEMORY/opencode-memory.md` provided concrete examples for validation
+4. **Test Artifacts**: Creating `memory/opencode-memory.md` provided concrete examples for validation
 5. **Documentation First**: Comprehensive design docs (4,591 lines) made implementation straightforward
 
 ### What Could Be Improved 🔄

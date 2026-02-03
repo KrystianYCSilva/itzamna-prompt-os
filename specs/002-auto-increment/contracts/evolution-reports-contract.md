@@ -29,7 +29,7 @@ This protocol activates when:
 | Input | Source | Format | Example |
 |-------|--------|--------|---------|
 | `reporting_period` | User or system | String (date range or month/year) | "Janeiro 2026" or "2026-01-01 to 2026-01-31" |
-| `agent_memories` | File system | Array of paths | `["MEMORY/opencode-memory.md", "MEMORY/itzamna-memory.md"]` |
+| `agent_memories` | File system | Array of paths | `["memory/opencode-memory.md", "memory/itzamna-memory.md"]` |
 | `global_stats` | File system | Path to root memory | `MEMORY.md` |
 
 ### Optional Inputs
@@ -51,8 +51,8 @@ Cross-agent aggregation is the core of evolution reports:
 Algorithm:
 
 1. Discover all agent memory files:
-   - Glob pattern: MEMORY/*.md (excluding root MEMORY.md)
-   - Example: ["MEMORY/opencode-memory.md", "MEMORY/itzamna-memory.md"]
+   - Glob pattern: memory/*.md (excluding root MEMORY.md)
+   - Example: ["memory/opencode-memory.md", "memory/itzamna-memory.md"]
 
 2. FOR each agent_memory_file:
    
@@ -376,12 +376,12 @@ When some metrics are unavailable:
 ### Read Locations
 
 **Multiple Agent Memories** (cross-agent aggregation):
-- `MEMORY/opencode-memory.md`
-- `MEMORY/itzamna-memory.md`
-- `MEMORY/speckit-memory.md`
-- `MEMORY/{any-agent}-memory.md`
+- `memory/opencode-memory.md`
+- `memory/itzamna-memory.md`
+- `memory/speckit-memory.md`
+- `memory/{any-agent}-memory.md`
 
-**Pattern**: Read ALL files matching `MEMORY/*.md` (excluding root `MEMORY.md`)
+**Pattern**: Read ALL files matching `memory/*.md` (excluding root `MEMORY.md`)
 
 **Global Statistics**:
 - `MEMORY.md` (root)
@@ -403,14 +403,14 @@ When some metrics are unavailable:
 Function: generate_evolution_report(reporting_period)
 
 1. DISCOVER AGENT MEMORY FILES
-   agent_files = glob("MEMORY/*.md")
-   agent_files = exclude(agent_files, "MEMORY/MEMORY.md")  # Exclude root
+   agent_files = glob("memory/*.md")
+   agent_files = exclude(agent_files, "memory/MEMORY.md")  # Exclude root
    
    Example result:
    [
-     "MEMORY/opencode-memory.md",
-     "MEMORY/itzamna-memory.md",
-     "MEMORY/speckit-memory.md"
+     "memory/opencode-memory.md",
+     "memory/itzamna-memory.md",
+     "memory/speckit-memory.md"
    ]
 
 2. AGGREGATE GAPS
@@ -522,7 +522,7 @@ Optimization strategies:
 ```
 1. Skip corrupted file, log warning
 2. Generate report from remaining valid files
-3. Add warning: "Could not read MEMORY/agent-x-memory.md - skipped"
+3. Add warning: "Could not read memory/agent-x-memory.md - skipped"
 4. Suggest: "Run memory file validation"
 ```
 

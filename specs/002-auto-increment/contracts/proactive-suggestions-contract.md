@@ -29,7 +29,7 @@ This protocol activates when:
 
 | Input | Source | Format | Example |
 |-------|--------|--------|---------|
-| `agent_memory` | File system | Path to memory file | `MEMORY/opencode-memory.md` |
+| `agent_memory` | File system | Path to memory file | `memory/opencode-memory.md` |
 | `gap_logs` | Agent memory | GapRecord entries | Array of gaps with counts |
 | `rejection_logs` | Agent memory | RejectionRecord entries | Array of rejections by artifact |
 | `skills_index` | File system | Path to INDEX.md | `.prompt-os/skills/INDEX.md` |
@@ -51,7 +51,7 @@ This protocol activates when:
 When checking for proactive suggestions, start with gap analysis:
 
 ```
-1. Read MEMORY/{agente}-memory.md -> "## Gaps Detectados" section
+1. Read memory/{agente}-memory.md -> "## Gaps Detectados" section
 2. Group gaps by suggested_skill_name
 3. Count occurrences per skill name
 4. Filter for:
@@ -79,7 +79,7 @@ When checking for proactive suggestions, start with gap analysis:
 Check existing skills for quality issues:
 
 ```
-1. Read MEMORY/{agente}-memory.md -> Self-Critique score logs
+1. Read memory/{agente}-memory.md -> Self-Critique score logs
 2. Group scores by skill name
 3. FOR each skill:
      IF average_score < 60:
@@ -332,7 +332,7 @@ When no patterns warrant suggestions:
 
 ### Read Location
 
-**Agent-Specific Memory**: `MEMORY/{agente}-memory.md`
+**Agent-Specific Memory**: `memory/{agente}-memory.md`
 
 **Sections Read**:
 - `## Gaps Detectados` - For gap frequency analysis
@@ -343,7 +343,7 @@ When no patterns warrant suggestions:
 
 ### Write Location
 
-**Agent-Specific Memory**: `MEMORY/{agente}-memory.md`
+**Agent-Specific Memory**: `memory/{agente}-memory.md`
 
 **Updates**:
 - Gap status changes (pending → deferred/rejected)
@@ -412,7 +412,7 @@ When no patterns warrant suggestions:
 
 ### 5. No Agent Memory File (New Agent)
 
-**Scenario**: First run of new agent, no `MEMORY/{agente}-memory.md` exists
+**Scenario**: First run of new agent, no `memory/{agente}-memory.md` exists
 
 **Handling**:
 ```
@@ -479,7 +479,7 @@ From spec User Story 3:
 
 **Test 1: Frequent Gap Suggestion**
 ```
-GIVEN: MEMORY/{agente}-memory.md contains 2 gaps for "kafka-basics"
+GIVEN: memory/{agente}-memory.md contains 2 gaps for "kafka-basics"
 WHEN: Session starts or gap detected again
 THEN: System suggests "I noticed 'kafka' was requested 2 times. Create skill?"
 ```

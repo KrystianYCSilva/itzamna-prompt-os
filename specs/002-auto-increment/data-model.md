@@ -8,7 +8,7 @@
 
 ## Overview
 
-This document defines the 4 core data entities used by the Auto-Increment Protocol. These entities are stored as **structured Markdown tables** in agent-specific memory files (`MEMORY/{agente}-memory.md`) and global statistics file (`MEMORY.md`).
+This document defines the 4 core data entities used by the Auto-Increment Protocol. These entities are stored as **structured Markdown tables** in agent-specific memory files (`memory/{agente}-memory.md`) and global statistics file (`MEMORY.md`).
 
 **Important**: This is a prompt-based protocol. Entities are represented as Markdown tables that AI agents read and write following structured instructions, not as database records or code objects.
 
@@ -20,7 +20,7 @@ This document defines the 4 core data entities used by the Auto-Increment Protoc
 
 **Purpose**: Tracks detected knowledge gaps when users request topics that don't have corresponding skills.
 
-**Storage**: `MEMORY/{agente}-memory.md` (per-agent session logs)
+**Storage**: `memory/{agente}-memory.md` (per-agent session logs)
 
 **Table Format** (Full Specification):
 
@@ -62,7 +62,7 @@ The existing implementation uses a 4-column simplified format:
 
 **Purpose**: Logs artifact rejections at Human Gate with categorized reasons for learning patterns.
 
-**Storage**: `MEMORY/{agente}-memory.md` (per-agent session logs)
+**Storage**: `memory/{agente}-memory.md` (per-agent session logs)
 
 **Table Format** (Full Specification):
 
@@ -138,7 +138,7 @@ The existing implementation uses a 4-column simplified format:
 **Usage Pattern**:
 
 AI agents calculate this dynamically by:
-1. Reading all `RejectionRecord` entries from `MEMORY/{agente}-memory.md`
+1. Reading all `RejectionRecord` entries from `memory/{agente}-memory.md`
 2. Grouping by `category`
 3. Calculating percentages
 4. Identifying categories > 30%
@@ -162,7 +162,7 @@ IF (rejections with category "examples") / (total rejections) > 0.30:
 **Purpose**: Periodic summary of system growth and learning, generated on-demand.
 
 **Storage**: Generated dynamically by aggregating across:
-- All `MEMORY/{agente}-memory.md` files (gap and rejection logs)
+- All `memory/{agente}-memory.md` files (gap and rejection logs)
 - Root `MEMORY.md` (global statistics)
 
 **Report Structure** (Markdown Format):
@@ -234,7 +234,7 @@ IF (rejections with category "examples") / (total rejections) > 0.30:
 
 **Cross-Agent Aggregation Algorithm**:
 
-1. **Read all agent memory files**: Glob `MEMORY/*.md` (excluding root `MEMORY.md`)
+1. **Read all agent memory files**: Glob `memory/*.md` (excluding root `MEMORY.md`)
 2. **Aggregate GapRecords**: Sum all gap entries, group by `suggested_skill_name`, count occurrences
 3. **Aggregate RejectionRecords**: Sum all rejection entries, group by `category`, calculate percentages
 4. **Read global statistics**: Parse root `MEMORY.md` for `skills_created`, `skills_updated`, `approval_rate`
@@ -254,7 +254,7 @@ IF (rejections with category "examples") / (total rejections) > 0.30:
 
 The Auto-Increment Protocol uses a **distributed memory architecture** to prevent concurrent write conflicts:
 
-**Per-Agent Memory** (`MEMORY/{agente}-memory.md`):
+**Per-Agent Memory** (`memory/{agente}-memory.md`):
 - Each AI agent maintains its own memory file
 - Logs session-local gaps and rejections
 - Written to frequently during active sessions
@@ -269,7 +269,7 @@ The Auto-Increment Protocol uses a **distributed memory architecture** to preven
 **Example Directory Structure**:
 
 ```
-MEMORY/
+memory/
 ├── opencode-memory.md        # OpenCode agent's session logs
 ├── itzamna-memory.md          # ITZAMNA agent's session logs
 ├── speckit-memory.md          # SpecKit agent's session logs
@@ -282,8 +282,8 @@ MEMORY.md                      # Global statistics (root)
 
 | Operation | Write To | Rationale |
 |-----------|----------|-----------|
-| Log new gap | `MEMORY/{agente}-memory.md` | Session-local, agent-specific |
-| Log rejection | `MEMORY/{agente}-memory.md` | Session-local, agent-specific |
+| Log new gap | `memory/{agente}-memory.md` | Session-local, agent-specific |
+| Log rejection | `memory/{agente}-memory.md` | Session-local, agent-specific |
 | Pattern analysis | In-memory calculation | No persistence needed |
 | Evolution report | Output to user (not saved) | On-demand report |
 | Update skill count | `MEMORY.md` (root) | Global statistic |

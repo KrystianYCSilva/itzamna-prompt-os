@@ -43,7 +43,7 @@ The Auto-Increment Protocol has been fully validated across all 4 user stories w
 **What Works**:
 - Detects missing skills by checking `.prompt-os/skills/INDEX.md`
 - Informs users with 3 clear options (create now, proceed without, defer)
-- Logs gaps to agent-specific memory (`MEMORY/{agente}-memory.md`)
+- Logs gaps to agent-specific memory (`memory/{agente}-memory.md`)
 - Tracks repeated gaps and triggers proactive suggestions at 2+ occurrences
 
 **Test Results**:
@@ -118,7 +118,7 @@ The Auto-Increment Protocol has been fully validated across all 4 user stories w
 **Status**: Cross-agent aggregation working, all sections present
 
 **What Works**:
-- Aggregates data across ALL agent memories (`MEMORY/*-memory.md`)
+- Aggregates data across ALL agent memories (`memory/*-memory.md`)
 - Reads global statistics from root `MEMORY.md`
 - Generates report with all 6 required sections
 - Calculates metrics with 100% accuracy
@@ -250,7 +250,7 @@ The Auto-Increment Protocol has been fully validated across all 4 user stories w
 
 **Status**: ✅ PASS  
 **Test**: Phase 2 (T004-T010), Phase 6 (T057)  
-**Evidence**: Each agent maintains own `MEMORY/{agente}-memory.md`, cross-agent aggregation working for evolution reports
+**Evidence**: Each agent maintains own `memory/{agente}-memory.md`, cross-agent aggregation working for evolution reports
 
 ---
 
@@ -539,7 +539,7 @@ The Auto-Increment Protocol has been fully validated across all 4 user stories w
 **Test**: Phase 2 (T004-T010), Phase 6 (T057, T072)
 
 **Validation**:
-- ✅ Each agent maintains own `MEMORY/{agente}-memory.md`
+- ✅ Each agent maintains own `memory/{agente}-memory.md`
 - ✅ Agents read only their own memory for session-local learning
 - ✅ Evolution reports aggregate ALL agent memories
 - ✅ Cross-agent insights working (kafka detected in 2 agents)
@@ -599,7 +599,7 @@ The Auto-Increment Protocol has been fully validated across all 4 user stories w
 1. [x] Merge branch `002-auto-increment` to `main`
 2. [ ] Update `.prompt-os/PROMPTOS.md` to reference AUTO-INCREMENT.md
 3. [ ] Add AUTO-INCREMENT.md to agent bootstrap (AGENTS.md, .cursorrules, etc.)
-4. [ ] Create MEMORY/ directory if it doesn't exist
+4. [ ] Create memory/ directory if it doesn't exist
 5. [ ] Initialize agent memory files (opencode-memory.md, itzamna-memory.md, etc.)
 6. [ ] Update MEMORY.md with Auto-Increment status
 

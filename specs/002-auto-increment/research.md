@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **substantially covers** all 13 functional requirements from the spec. However, the spec introduces a critical architectural clarification not fully reflected in the implementation: **distributed memory architecture** with per-agent memory files (`MEMORY/{agente}-memory.md`).
+The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **substantially covers** all 13 functional requirements from the spec. However, the spec introduces a critical architectural clarification not fully reflected in the implementation: **distributed memory architecture** with per-agent memory files (`memory/{agente}-memory.md`).
 
 **Verdict**: Implementation is 92% complete. Requires minor updates to explicitly mention distributed memory architecture.
 
@@ -36,7 +36,7 @@ The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **su
 
 **Notes:**
 
-1. **FR-003, FR-005, FR-013 (Distributed Memory)**: The implementation references "MEMORY.md" for both gaps and rejections logging (lines 65, 87, 104), but the spec clarifies that each agent should write to its **own memory file** (`MEMORY/{agente}-memory.md`), not the shared root `MEMORY.md`. The root file should only contain global statistics. This is a critical architectural detail added in the spec clarification.
+1. **FR-003, FR-005, FR-013 (Distributed Memory)**: The implementation references "MEMORY.md" for both gaps and rejections logging (lines 65, 87, 104), but the spec clarifies that each agent should write to its **own memory file** (`memory/{agente}-memory.md`), not the shared root `MEMORY.md`. The root file should only contain global statistics. This is a critical architectural detail added in the spec clarification.
 
 2. **FR-010 (Evolution Reports)**: The implementation shows the report format but doesn't explicitly state it should **aggregate across all agent memory files**. It references "MEMORY.md" generically.
 
@@ -210,7 +210,7 @@ The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **su
 
 ### 3. Cross-Agent Aggregation Patterns
 
-**Decision**: Evolution reports read all `MEMORY/{agente}-memory.md` files and aggregate
+**Decision**: Evolution reports read all `memory/{agente}-memory.md` files and aggregate
 
 **Rationale**:
 - Preserves agent independence (no shared lock required)
@@ -234,7 +234,7 @@ The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **su
    - **What**: Implementation references generic "MEMORY.md", spec requires agent-specific files
    - **Impact**: HIGH - Architectural mismatch
    - **Fix**: Update all "MEMORY.md" references to specify:
-     - `MEMORY/{agente}-memory.md` for session-local logs
+     - `memory/{agente}-memory.md` for session-local logs
      - Root `MEMORY.md` only for global statistics
    - **Lines to update**: 65, 87, 104, 135, 228, 273
 
@@ -284,7 +284,7 @@ The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **su
 ### Immediate Actions (Before Phase 1)
 
 1. **Update AUTO-INCREMENT.md** to reflect distributed memory architecture:
-   - Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in logging sections
+   - Replace "MEMORY.md" with "memory/{agente}-memory.md" in logging sections
    - Add note: "Root MEMORY.md stores only global statistics"
    - Add paragraph on cross-agent aggregation in evolution reports section
 
@@ -298,10 +298,10 @@ The existing implementation in `.prompt-os/core/AUTO-INCREMENT.md` (v2.0.0) **su
 3. **data-model.md**: Use full 7-field spec for GapRecord, document simplified format as implementation note
 
 4. **contracts/**: Create 4 contract files explicitly showing:
-   - Gap detection contract: Reads `.prompt-os/skills/INDEX.md`, writes to `MEMORY/{agente}-memory.md`
-   - Rejection learning contract: Reads from HUMAN-GATE, writes to `MEMORY/{agente}-memory.md`
-   - Proactive suggestions contract: Reads `MEMORY/{agente}-memory.md`
-   - Evolution reports contract: Reads ALL `MEMORY/{agente}-memory.md` files + root `MEMORY.md`
+   - Gap detection contract: Reads `.prompt-os/skills/INDEX.md`, writes to `memory/{agente}-memory.md`
+   - Rejection learning contract: Reads from HUMAN-GATE, writes to `memory/{agente}-memory.md`
+   - Proactive suggestions contract: Reads `memory/{agente}-memory.md`
+   - Evolution reports contract: Reads ALL `memory/{agente}-memory.md` files + root `MEMORY.md`
 
 5. **quickstart.md**: Add sections:
    - "Memory Architecture" - Explain distributed vs global

@@ -13,7 +13,7 @@ The Auto-Increment Protocol enables the PromptOS system to evolve autonomously b
 3. **Proactive Suggestions**: Suggesting skill creation when same gap appears 2+ times
 4. **Evolution Reports**: Generating periodic reports showing system growth and improvement patterns
 
-**Technical Approach**: Prompt-based implementation using Markdown instructions that AI agents read and follow. Uses distributed memory architecture where each agent maintains its own memory file (`MEMORY/{agente}-memory.md`) for session-local logs, eliminating concurrent write conflicts.
+**Technical Approach**: Prompt-based implementation using Markdown instructions that AI agents read and follow. Uses distributed memory architecture where each agent maintains its own memory file (`memory/{agente}-memory.md`) for session-local logs, eliminating concurrent write conflicts.
 
 ## Technical Context
 
@@ -26,7 +26,7 @@ The Auto-Increment Protocol enables the PromptOS system to evolve autonomously b
   - `.prompt-os/core/JIT-PROTOCOL.md` (for skill search)
 
 **Storage**: 
-  - Distributed memory: `MEMORY/{agente}-memory.md` (per-agent gap and rejection logs)
+  - Distributed memory: `memory/{agente}-memory.md` (per-agent gap and rejection logs)
   - Global statistics: `MEMORY.md` (root, shared stats: skills total, approval rate, etc.)
   - Skills registry: `.prompt-os/skills/INDEX.md` (to detect gaps)
 
@@ -70,7 +70,7 @@ The Auto-Increment Protocol enables the PromptOS system to evolve autonomously b
 | **T0-HUMAN-04**: NEVER delete without confirming | ✅ PASS | Protocol only creates/logs, never deletes |
 | **T0-STRUCT-01**: CARD-FIRST for features | ✅ PASS | Using SpecKit workflow (specify → clarify → plan → tasks → implement) |
 | **T0-STRUCT-02**: Maintain folder structure | ✅ PASS | All files in `.prompt-os/core/` following existing structure |
-| **T0-STRUCT-03**: No files outside scope | ✅ PASS | Only modifies agent memory files in `MEMORY/` and root `MEMORY.md` |
+| **T0-STRUCT-03**: No files outside scope | ✅ PASS | Only modifies agent memory files in `memory/` and root `MEMORY.md` |
 | **T0-VAL-01**: NEVER claim success without verification | ✅ PASS | Spec includes testable acceptance scenarios for validation |
 | **T0-VAL-02**: NEVER invent APIs | ✅ PASS | Protocol uses existing protocols (SELF-CRITIQUE, HUMAN-GATE, etc.) |
 | **T0-VAL-03**: NEVER ignore errors | ✅ PASS | Protocol defines explicit error handling (e.g., vague topics, unmatched categories) |
@@ -130,7 +130,7 @@ specs/002-auto-increment/
 └── AUTO-INCREMENT.md    # Existing prompt-based implementation (v2.0.0)
                          # Status: Implemented, needs validation against spec
 
-MEMORY/
+memory/
 └── {agente}-memory.md   # Per-agent memory files (distributed architecture)
                          # Created automatically by agents as needed
 
@@ -204,7 +204,7 @@ Document the four key entities with complete field specifications:
 
 ## GapRecord
 
-Logged in: `MEMORY/{agente}-memory.md` under section "## Gaps Detectados"
+Logged in: `memory/{agente}-memory.md` under section "## Gaps Detectados"
 
 | Field | Type | Required | Description | Example |
 |-------|------|----------|-------------|---------|
@@ -251,7 +251,7 @@ Create four contract files documenting interaction patterns:
 - **Input**: All agent memory files, global MEMORY.md
 - **Process**: Aggregate gaps/rejections → Calculate statistics → Format markdown
 - **Output**: Evolution report with 4 sections (Summary, Top Gaps, Patterns, Actions)
-- **Integration**: Read all `MEMORY/{agente}-memory.md` files, read root `MEMORY.md`
+- **Integration**: Read all `memory/{agente}-memory.md` files, read root `MEMORY.md`
 
 ### 3. Quickstart Guide
 
@@ -272,18 +272,18 @@ When user requests unknown topic:
 When artifact rejected at Human Gate:
 1. Read `.prompt-os/core/AUTO-INCREMENT.md` § Rejection Learning
 2. Categorize reason using keyword matching
-3. Log in your `MEMORY/{agente}-memory.md`
+3. Log in your `memory/{agente}-memory.md`
 4. Check if category >30% of total → mention in next generation
 
 ### Proactive Suggestions
 On session start or context match:
-1. Read your `MEMORY/{agente}-memory.md`
+1. Read your `memory/{agente}-memory.md`
 2. Check for gaps with count ≥ 2
 3. Proactively suggest skill creation
 
 ### Evolution Reports
 When user requests report:
-1. Read all `MEMORY/*/memory.md` files
+1. Read all `memory/*/memory.md` files
 2. Read root `MEMORY.md` for global stats
 3. Follow report format in AUTO-INCREMENT.md § Evolution Reports
 

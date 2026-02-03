@@ -11,7 +11,7 @@
 **Test Environment**:
 - Branch: `002-auto-increment`
 - Implementation: `.prompt-os/core/AUTO-INCREMENT.md` (with US1 + US2 recommendations applied)
-- Test Memory File: `MEMORY/opencode-memory.md`
+- Test Memory File: `memory/opencode-memory.md`
 - User Story: US3 - Proactive Suggestions (Priority P3)
 - Dependencies: US1 (Gap Detection) ✅ Validated
 
@@ -33,7 +33,7 @@
 
 Sugira nova skill quando:
 
-1. **Mesmo gap aparece 2+ vezes** no seu `MEMORY/{agente}-memory.md`
+1. **Mesmo gap aparece 2+ vezes** no seu `memory/{agente}-memory.md`
 2. **Usuario menciona tecnologia** que nao temos skill
 3. **Skill existente esta obsoleta** (>2 anos sem atualizacao)
 
@@ -53,7 +53,7 @@ Isso ajudaria em futuras interacoes sobre o tema.
 
 **Evidence**:
 - Protocol explicitly states "Mesmo gap aparece 2+ vezes" matching FR-008 threshold exactly
-- Protocol instructs reading agent's own memory file: `MEMORY/{agente}-memory.md` (distributed architecture)
+- Protocol instructs reading agent's own memory file: `memory/{agente}-memory.md` (distributed architecture)
 - Protocol provides complete message template for proactive suggestion
 - Protocol includes 3 user response options (accept/decline/defer)
 - Message acknowledges pattern: "tem perguntado sobre '{topico}' algumas vezes"
@@ -219,7 +219,7 @@ Antes de entregar qualquer geracao:
 
 **Steps**:
 1. User starts new session (or agent reviews memory at session start)
-2. Agent reads `MEMORY/opencode-memory.md` → `## Gaps Detectados` table
+2. Agent reads `memory/opencode-memory.md` → `## Gaps Detectados` table
 3. Agent counts occurrences of each `Skill Sugerida`:
    - "kafka-basics": 2 occurrences ✅
    - "argocd-deploy": 1 occurrence (below threshold)

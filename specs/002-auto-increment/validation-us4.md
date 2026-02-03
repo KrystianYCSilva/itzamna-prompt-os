@@ -12,9 +12,9 @@
 - Branch: `002-auto-increment`
 - Implementation: `.prompt-os/core/AUTO-INCREMENT.md` (lines 189-236)
 - Test Agent Memories: 
-  - `MEMORY/opencode-memory.md` (67 lines, 11 rejections, 5 gaps)
-  - `MEMORY/itzamna-memory.md` (new, 7 rejections, 7 gaps)
-  - `MEMORY/speckit-memory.md` (new, 6 rejections, 5 gaps)
+  - `memory/opencode-memory.md` (67 lines, 11 rejections, 5 gaps)
+  - `memory/itzamna-memory.md` (new, 7 rejections, 7 gaps)
+  - `memory/speckit-memory.md` (new, 6 rejections, 5 gaps)
 - Global Statistics: `MEMORY.md` (root)
 - User Story: US4 - Evolution Reports (Priority P4)
 - Dependencies: US1 ✅, US2 ✅, US3 ✅
@@ -33,7 +33,7 @@
 
 ### T057: Validate Cross-Agent Aggregation
 
-**Test**: Verify protocol reads ALL `MEMORY/*-memory.md` files
+**Test**: Verify protocol reads ALL `memory/*-memory.md` files
 
 **Protocol Excerpt** (lines 189-200):
 ```markdown
@@ -41,8 +41,8 @@
 
 **IMPORTANTE**: Relatorios de evolucao agregam dados de TODOS os agentes do sistema:
 
-1. **Leia todos os arquivos de memoria**: `MEMORY/opencode-memory.md`, 
-   `MEMORY/itzamna-memory.md`, `MEMORY/speckit-memory.md`, etc.
+1. **Leia todos os arquivos de memoria**: `memory/opencode-memory.md`, 
+   `memory/itzamna-memory.md`, `memory/speckit-memory.md`, etc.
 2. **Agregue estatisticas**: Conte gaps, rejeicoes e padroes em TODOS os arquivos
 3. **Consulte estatisticas globais**: Root `MEMORY.md` para metricas compartilhadas
 4. **Gere relatorio unificado**: Visao completa da evolucao do sistema
@@ -61,7 +61,7 @@
 **Result**: ✅ **PASS**
 
 **Evidence**:
-- Protocol explicitly instructs reading ALL `MEMORY/{agente}-memory.md` files
+- Protocol explicitly instructs reading ALL `memory/{agente}-memory.md` files
 - Step 2 clearly states "Conte gaps, rejeicoes e padroes em TODOS os arquivos"
 - Protocol provides specific agent names (opencode, itzamna, speckit) as examples
 - Cross-agent insights explicitly mentioned: "(ex: 'opencode detecta gaps de infraestrutura, itzamna detecta gaps de documentacao')"
@@ -435,13 +435,13 @@
 
 ### T066: No Agent Memory Files Exist
 
-**Scenario**: What if no `MEMORY/*-memory.md` files exist?
+**Scenario**: What if no `memory/*-memory.md` files exist?
 
 **Protocol Guidance**: Not explicitly documented in AUTO-INCREMENT.md
 
 **Expected Behavior**: System should inform user "No data available yet" or "Evolution report requires at least one agent memory file"
 
-**Test**: Simulate empty MEMORY/ directory
+**Test**: Simulate empty memory/ directory
 
 **Result**: ⚠️ **NOT EXPLICITLY HANDLED**
 
@@ -449,7 +449,7 @@
 ```markdown
 ### Casos Especiais
 
-**Sem dados disponiveis**: Se nenhum arquivo `MEMORY/*-memory.md` existir:
+**Sem dados disponiveis**: Se nenhum arquivo `memory/*-memory.md` existir:
 - Informe: "Nao ha dados suficientes para gerar relatorio de evolucao"
 - Sugira: "Use o sistema por alguns dias para acumular dados"
 ```
@@ -542,7 +542,7 @@ Se houver discrepancia entre agent memories e `MEMORY.md`:
 ```markdown
 ### Erros de Leitura
 
-Se um arquivo `MEMORY/{agente}-memory.md` estiver corrompido:
+Se um arquivo `memory/{agente}-memory.md` estiver corrompido:
 1. Registre warning: "⚠️ Nao foi possivel ler {agente}-memory.md"
 2. Continue processando outros arquivos
 3. Adicione nota no relatorio: "Relatorio parcial (excluindo dados de {agente})"

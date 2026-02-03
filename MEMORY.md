@@ -72,9 +72,9 @@
   - `specs/002-auto-increment/final-validation-report.md` (700+ linhas) - ✅ PRODUCTION READY VERDICT
   - `specs/002-auto-increment/tasks.md` - ✅ 90/90 tasks checked
   - `specs/002-auto-increment/STATUS.md` - ✅ Updated to 100% complete
-  - `MEMORY/opencode-memory.md` - Test data (5 gaps, 11 rejections)
-  - `MEMORY/itzamna-memory.md` - Test data (7 gaps, 7 rejections)
-  - `MEMORY/speckit-memory.md` - Test data (5 gaps, 6 rejections)
+  - `memory/opencode-memory.md` - Test data (5 gaps, 11 rejections)
+  - `memory/itzamna-memory.md` - Test data (7 gaps, 7 rejections)
+  - `memory/speckit-memory.md` - Test data (5 gaps, 6 rejections)
 
 - **Implementação final**:
   - `.prompt-os/core/AUTO-INCREMENT.md` (341 linhas, v2.0.0) - ✅ PRODUCTION READY
@@ -151,7 +151,7 @@
 **Próximos passos**:
 1. Merge `002-auto-increment` para `main`
 2. Atualizar bootstraps (AGENTS.md, .cursorrules, PROMPTOS.md)
-3. Inicializar estrutura MEMORY/
+3. Inicializar estrutura memory/
 4. Começar uso em produção
 5. Coletar feedback para v1.1.0
 
@@ -465,7 +465,7 @@
 - [ ] **SPEC-002 Auto-Increment**: ✅ COMPLETO - Pronto para merge e produção
 - [ ] Merge branch 002-auto-increment para main
 - [ ] Atualizar AGENTS.md, .cursorrules, PROMPTOS.md com referências ao AUTO-INCREMENT.md
-- [ ] Inicializar estrutura MEMORY/ em produção
+- [ ] Inicializar estrutura memory/ em produção
 - [ ] Começar monitoramento de uso do Auto-Increment Protocol
 - [ ] Coletar feedback dos usuários para v1.1.0
 - [ ] Validacao automatica de protocols

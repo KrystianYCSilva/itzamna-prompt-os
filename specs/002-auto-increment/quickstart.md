@@ -26,7 +26,7 @@ This is a **prompt-based protocol** - AI agents read instructions from `.prompt-
 
 | Situation | Protocol | Action |
 |-----------|----------|--------|
-| User requests unknown topic | Gap Detection | Check INDEX.md → Inform user → Log to `MEMORY/{agente}-memory.md` |
+| User requests unknown topic | Gap Detection | Check INDEX.md → Inform user → Log to `memory/{agente}-memory.md` |
 | Human rejects artifact | Rejection Learning | Ask reason → Categorize → Log → Apply patterns |
 | Session starts | Proactive Suggestions | Check for gaps ≥2 → Suggest creation |
 | User requests report | Evolution Reports | Aggregate all agent memories → Generate report |
@@ -43,7 +43,7 @@ Checklist:
 [ ] Use JIT-PROTOCOL to search (fuzzy matching)
 [ ] IF NOT FOUND:
     [ ] Inform user with 3 options (create/proceed/defer)
-    [ ] Log to MEMORY/{agente}-memory.md under "## Gaps Detectados"
+    [ ] Log to memory/{agente}-memory.md under "## Gaps Detectados"
     [ ] Check if gap count >= 2 → Suggest creating
 ```
 
@@ -66,7 +66,7 @@ Checklist:
 [ ] IF NOT: Ask "Could you tell me why you rejected this?"
 [ ] Categorize reason (examples/specificity/clarity/completeness/relevance/other)
 [ ] Derive learned action (e.g., "Test all examples")
-[ ] Log to MEMORY/{agente}-memory.md under "## Log de Rejeicoes"
+[ ] Log to memory/{agente}-memory.md under "## Log de Rejeicoes"
 [ ] Calculate patterns: Any category > 30%?
 [ ] IF YES: Apply proactively in next generation
 ```
@@ -87,7 +87,7 @@ Agent:
 Trigger: Session start OR user asks "What should I improve?"
 
 Checklist:
-[ ] Read MEMORY/{agente}-memory.md
+[ ] Read memory/{agente}-memory.md
 [ ] Count gaps per suggested_skill_name (status pending/deferred)
 [ ] Identify gaps with count >= 2
 [ ] Check skill quality scores (identify avg < 60)
@@ -112,7 +112,7 @@ Agent:
 Trigger: User says "Generate evolution report" or "Show system stats"
 
 Checklist:
-[ ] Discover all agent memory files: MEMORY/*.md (exclude root)
+[ ] Discover all agent memory files: memory/*.md (exclude root)
 [ ] Read gaps from all agents → Aggregate
 [ ] Read rejections from all agents → Aggregate
 [ ] Read global stats from root MEMORY.md
@@ -128,7 +128,7 @@ Checklist:
 ```
 User: "Generate evolution report for January 2026"
 Agent:
-  1. Read MEMORY/opencode-memory.md, MEMORY/itzamna-memory.md, etc.
+  1. Read memory/opencode-memory.md, memory/itzamna-memory.md, etc.
   2. Aggregate: 12 gaps total, 5 resolved
   3. Top gaps: kafka-basics (3×), argocd-deploy (2×)
   4. Rejections: 40% examples, 25% clarity
@@ -138,7 +138,7 @@ Agent:
 
 ### Memory File Structure
 
-**Agent-Specific Memory**: `MEMORY/{agente}-memory.md`
+**Agent-Specific Memory**: `memory/{agente}-memory.md`
 
 ```markdown
 # Memory for {Agente Name}
@@ -279,7 +279,7 @@ Your Options:
 **Key Concept**: Each agent maintains its own memory file to prevent write conflicts.
 
 ```
-MEMORY/
+memory/
 ├── opencode-memory.md     # OpenCode agent's session logs
 ├── itzamna-memory.md       # ITZAMNA agent's session logs
 ├── speckit-memory.md       # SpecKit agent's session logs
@@ -301,8 +301,8 @@ MEMORY.md (root)            # Global statistics (shared)
 
 | Operation | Location | When |
 |-----------|----------|------|
-| Log gap | `MEMORY/{agente}-memory.md` | After gap detected |
-| Log rejection | `MEMORY/{agente}-memory.md` | After Human Gate rejection |
+| Log gap | `memory/{agente}-memory.md` | After gap detected |
+| Log rejection | `memory/{agente}-memory.md` | After Human Gate rejection |
 | Check patterns | Own memory only | Before each generation |
 | Generate report | ALL agent memories | When user requests report |
 | Update global stats | `MEMORY.md` (root) | Manually or via reports |
@@ -322,19 +322,19 @@ MEMORY.md (root)            # Global statistics (shared)
 
 ```bash
 # 1. Create archive directory
-mkdir -p MEMORY/archive/
+mkdir -p memory/archive/
 
 # 2. Move old entries (keep last 3 months)
 # Example: Archive 2025 data in Jan 2026
-cp MEMORY/opencode-memory.md MEMORY/archive/opencode-memory-2025.md
+cp memory/opencode-memory.md memory/archive/opencode-memory-2025.md
 
-# 3. Edit MEMORY/opencode-memory.md
+# 3. Edit memory/opencode-memory.md
 # - Keep only entries from last 3 months
 # - Delete older rows from tables
 # - Keep section headers
 
 # 4. Document archive
-echo "Archived 2025 data on 2026-02-03" >> MEMORY/archive/README.md
+echo "Archived 2025 data on 2026-02-03" >> memory/archive/README.md
 ```
 
 **Archival Policy** (Recommended):
@@ -356,7 +356,7 @@ echo "Archived 2025 data on 2026-02-03" >> MEMORY/archive/README.md
 2. Verify: Agent says "No skill found for 'kafka'"
 3. Verify: Agent presents 3 options
 4. Choose "proceed without"
-5. Verify: Gap logged in MEMORY/{agente}-memory.md
+5. Verify: Gap logged in memory/{agente}-memory.md
 6. Request same topic again
 7. Verify: Agent mentions "2nd time this topic was requested"
 ```
@@ -421,11 +421,11 @@ Symptom: Rejected artifact, but not in memory log
 
 Possible Causes:
 - Agent memory file doesn't exist yet (first run)
-- Write permission issue on MEMORY/ directory
+- Write permission issue on memory/ directory
 - Agent crashed before writing
 
 Solution:
-- Check: Does MEMORY/{agente}-memory.md exist?
+- Check: Does memory/{agente}-memory.md exist?
 - Manually create with template if needed
 - Retry rejection, verify log entry appears
 ```
@@ -441,7 +441,7 @@ Possible Causes:
 - Memory files corrupted (malformed tables)
 
 Solution:
-- Check: Run `ls MEMORY/*.md` to list agent files
+- Check: Run `ls memory/*.md` to list agent files
 - Try: Request report for "All time" (no period filter)
 - Validate: Open memory files, check table formatting
 ```
@@ -459,7 +459,7 @@ Possible Causes:
 Solution:
 - Verify: Count rejections manually, confirm percentage
 - Remind agent: "Check rejection patterns before generating"
-- Check: Is agent reading correct MEMORY/{agente}-memory.md?
+- Check: Is agent reading correct memory/{agente}-memory.md?
 ```
 
 ---
@@ -568,8 +568,8 @@ User: [approves] ✅
 User: "Generate evolution report for January 2026"
 
 Agent: Generating report...
-  1. Reading MEMORY/opencode-memory.md... (5 gaps, 3 rejections)
-  2. Reading MEMORY/itzamna-memory.md... (7 gaps, 2 rejections)
+  1. Reading memory/opencode-memory.md... (5 gaps, 3 rejections)
+  2. Reading memory/itzamna-memory.md... (7 gaps, 2 rejections)
   3. Reading MEMORY.md (global stats)
   4. Aggregating data...
   5. Calculating patterns...
@@ -685,7 +685,7 @@ What would you like to do?
 **Found a Bug?**
 
 - Check if memory files exist and are formatted correctly
-- Verify agent is reading correct memory file (`MEMORY/{agente}-memory.md`)
+- Verify agent is reading correct memory file (`memory/{agente}-memory.md`)
 - Review recent changes to AUTO-INCREMENT.md protocol
 
 ---

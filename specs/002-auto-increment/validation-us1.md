@@ -11,7 +11,7 @@
 **Test Environment**:
 - Branch: `002-auto-increment`
 - Implementation: `.prompt-os/core/AUTO-INCREMENT.md` (post Phase 2 updates)
-- Test Memory File: `MEMORY/opencode-memory.md` (created T011)
+- Test Memory File: `memory/opencode-memory.md` (created T011)
 - Skills Registry: `.prompt-os/skills/INDEX.md`
 
 ---
@@ -101,9 +101,9 @@ O que prefere?"
 ```
 ### Fase 3: Registrar Gap na Memoria do Agente
 
-Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`MEMORY/{agente}-memory.md`):
+Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`memory/{agente}-memory.md`):
 
-**IMPORTANTE**: Cada agente registra em seu proprio arquivo (ex: `MEMORY/opencode-memory.md`, `MEMORY/itzamna-memory.md`) para evitar conflitos de escrita concorrente.
+**IMPORTANTE**: Cada agente registra em seu proprio arquivo (ex: `memory/opencode-memory.md`, `memory/itzamna-memory.md`) para evitar conflitos de escrita concorrente.
 
 ## Gaps Detectados
 
@@ -113,7 +113,7 @@ Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`
 | 2026-02-01 | "Deploy com ArgoCD" | argocd-deploy | pending |
 ```
 
-**Test Memory File** (`MEMORY/opencode-memory.md`):
+**Test Memory File** (`memory/opencode-memory.md`):
 ```markdown
 ## Gaps Detectados
 
@@ -126,7 +126,7 @@ Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`
 **Result**: ⚠️ **PARTIAL PASS** (MVP format acceptable)
 
 **Evidence**:
-- ✅ Protocol instructs logging to agent-specific memory file (`MEMORY/{agente}-memory.md`)
+- ✅ Protocol instructs logging to agent-specific memory file (`memory/{agente}-memory.md`)
 - ✅ Table includes: `Data` (date), `Request` (user request text), `Skill Sugerida` (suggested skill name), `Status`
 - ⚠️ Missing: `detection_count`, `first_detected`, `last_detected` fields (marked optional in data-model.md)
 
@@ -152,7 +152,7 @@ Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`
 ```
 Sugira nova skill quando:
 
-1. **Mesmo gap aparece 2+ vezes** no seu `MEMORY/{agente}-memory.md`
+1. **Mesmo gap aparece 2+ vezes** no seu `memory/{agente}-memory.md`
 2. **Usuario menciona tecnologia** que nao temos skill
 3. **Skill existente esta obsoleta** (>2 anos sem atualizacao)
 
@@ -171,7 +171,7 @@ Isso ajudaria em futuras interacoes sobre o tema.
 **Result**: ✅ **PASS**
 
 **Evidence**:
-- Protocol explicitly states "Mesmo gap aparece 2+ vezes no seu MEMORY/{agente}-memory.md"
+- Protocol explicitly states "Mesmo gap aparece 2+ vezes no seu memory/{agente}-memory.md"
 - Protocol provides exact message template for proactive suggestion
 - Protocol includes user options for accepting/declining suggestion
 
@@ -196,7 +196,7 @@ Isso ajudaria em futuras interacoes sobre o tema.
 3. Skill not found → Agent identifies this as gap
 4. Agent presents message with 3 options (§ Fase 2: Informar ao Usuario line 52-62)
 5. User chooses option 2 or 3 (defer/proceed without)
-6. Agent logs gap to `MEMORY/opencode-memory.md` with format: `| 2026-02-03 | "Help me configure Kafka" | kafka-basics | pending |` (§ Fase 3 line 65-76)
+6. Agent logs gap to `memory/opencode-memory.md` with format: `| 2026-02-03 | "Help me configure Kafka" | kafka-basics | pending |` (§ Fase 3 line 65-76)
 
 **Result**: ✅ **PASS** (Protocol covers all steps)
 

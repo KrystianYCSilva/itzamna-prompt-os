@@ -11,7 +11,7 @@
 **Test Environment**:
 - Branch: `002-auto-increment`
 - Implementation: `.prompt-os/core/AUTO-INCREMENT.md` (with HIGH recommendations applied)
-- Test Memory File: `MEMORY/opencode-memory.md`
+- Test Memory File: `memory/opencode-memory.md`
 - User Story: US2 - Rejection Learning (Priority P2)
 
 ---
@@ -76,7 +76,7 @@ Classifique o motivo da rejeicao:
 ```
 ### Registro de Rejeicao
 
-Adicione ao seu arquivo de memoria (`MEMORY/{agente}-memory.md`):
+Adicione ao seu arquivo de memoria (`memory/{agente}-memory.md`):
 
 ## Log de Rejeicoes
 
@@ -99,7 +99,7 @@ Adicione ao seu arquivo de memoria (`MEMORY/{agente}-memory.md`):
 
 **Evidence**:
 - Protocol table includes all 6 required fields (date, type, item, reason, category, learned action)
-- Protocol instructs logging to agent-specific memory file (`MEMORY/{agente}-memory.md`)
+- Protocol instructs logging to agent-specific memory file (`memory/{agente}-memory.md`)
 - Protocol provides 2 concrete examples showing correct format
 - Timestamp (full DateTime) is marked **optional** in data model (`data-model.md:77`)
 
@@ -209,7 +209,7 @@ SE categoria "exemplos" aparece em >30% das rejeicoes:
    - "Examples" → contains "example" → NOT in Portuguese keywords
    - "doesn't work" → matches English keyword from data model
    - **Categorization**: `examples` ✅
-4. Agent logs to `MEMORY/opencode-memory.md` (§ Registro de Rejeicao line 116-125):
+4. Agent logs to `memory/opencode-memory.md` (§ Registro de Rejeicao line 116-125):
    ```
    | 2026-02-03 | skill | example-skill | "Examples don't work" | examples | Validate all examples before showing |
    ```
@@ -235,7 +235,7 @@ SE categoria "exemplos" aparece em >30% das rejeicoes:
 **Protocol Excerpt**:
 ```
 1. **SEMPRE pergunte o motivo** (se nao foi dado)
-2. **Registre em `MEMORY/{agente}-memory.md`** para aprendizado
+2. **Registre em `memory/{agente}-memory.md`** para aprendizado
 3. **Ajuste sua abordagem** na proxima tentativa
 ```
 

@@ -36,7 +36,7 @@ This protocol activates when:
 
 | Input | Source | Format | Example |
 |-------|--------|--------|---------|
-| `agent_memory` | File system | Path to agent memory | `MEMORY/opencode-memory.md` |
+| `agent_memory` | File system | Path to agent memory | `memory/opencode-memory.md` |
 | `search_context` | JIT-PROTOCOL | Skill search results | `{found: false, searched: ["kafka", "stream"]}` |
 
 ---
@@ -111,7 +111,7 @@ What do you prefer?"
 For options 2 or 3 (skill not created immediately), persist gap for future reference:
 
 ```
-Write to: MEMORY/{agente}-memory.md
+Write to: memory/{agente}-memory.md
 
 Section: ## Gaps Detectados
 
@@ -156,7 +156,7 @@ Examples:
 After logging gap, check historical data:
 
 ```
-1. Read MEMORY/{agente}-memory.md
+1. Read memory/{agente}-memory.md
 2. Count occurrences of same suggested_skill_name
 3. IF count >= 2:
      -> Add note to user: "This is the {count}th time this topic was requested"
@@ -241,7 +241,7 @@ When registry is unavailable or corrupted:
 
 ### Write Location
 
-**Agent-Specific Memory**: `MEMORY/{agente}-memory.md`
+**Agent-Specific Memory**: `memory/{agente}-memory.md`
 
 **Why**: Each agent maintains independent gap logs to prevent concurrent write conflicts. Agents operate in separate sessions and write to isolated files.
 
@@ -312,7 +312,7 @@ When registry is unavailable or corrupted:
 
 ### 4. Agent Memory File Missing
 
-**Scenario**: First run of agent, `MEMORY/{agente}-memory.md` doesn't exist
+**Scenario**: First run of agent, `memory/{agente}-memory.md` doesn't exist
 
 **Handling**:
 ```
@@ -379,7 +379,7 @@ THEN: No gap detected, proceed with existing skill
 
 **Test 3: Repeated Gap Detection**
 ```
-GIVEN: MEMORY/{agente}-memory.md contains 1 entry for "kafka-basics"
+GIVEN: memory/{agente}-memory.md contains 1 entry for "kafka-basics"
 WHEN: User requests "Kafka help" again
 THEN: Detection count = 2, system recommends creating skill
 ```

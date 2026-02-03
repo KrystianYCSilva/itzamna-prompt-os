@@ -18,7 +18,7 @@
 ## Path Conventions
 
 - Implementation: `.prompt-os/core/AUTO-INCREMENT.md` (existing)
-- Agent memories: `MEMORY/{agente}-memory.md` (distributed)
+- Agent memories: `memory/{agente}-memory.md` (distributed)
 - Global stats: `MEMORY.md` (root)
 - Documentation: `specs/002-auto-increment/`
 
@@ -42,9 +42,9 @@
 
 **⚠️ CRITICAL**: This phase MUST complete before user stories can be validated, as it fixes the architectural mismatch identified in research.md
 
-- [x] T004 Update .prompt-os/core/AUTO-INCREMENT.md line 65: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in gap logging section
+- [x] T004 Update .prompt-os/core/AUTO-INCREMENT.md line 65: Replace "MEMORY.md" with "memory/{agente}-memory.md" in gap logging section
 - [x] T005 Update .prompt-os/core/AUTO-INCREMENT.md line 87: Replace "MEMORY.md" with agent-specific memory reference
-- [x] T006 Update .prompt-os/core/AUTO-INCREMENT.md line 104: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in rejection logging section
+- [x] T006 Update .prompt-os/core/AUTO-INCREMENT.md line 104: Replace "MEMORY.md" with "memory/{agente}-memory.md" in rejection logging section
 - [x] T007 Update .prompt-os/core/AUTO-INCREMENT.md line 135: Clarify gap counting reads from agent's own memory file
 - [x] T008 Update .prompt-os/core/AUTO-INCREMENT.md line 228: Update memory reference to agent-specific file
 - [x] T009 Update .prompt-os/core/AUTO-INCREMENT.md line 273: Add note explaining distributed vs global memory architecture
@@ -58,14 +58,14 @@
 
 **Goal**: Validate that gap detection protocol correctly detects missing skills, informs users with 3 options, logs to agent-specific memory, and tracks repeated gaps.
 
-**Independent Test**: Request help for non-existent skill (e.g., "How do I use Kafka?") and verify: (1) gap detected, (2) user informed with 3 options, (3) gap logged in `MEMORY/{agente}-memory.md`, (4) 2nd request mentions "This is the 2nd time"
+**Independent Test**: Request help for non-existent skill (e.g., "How do I use Kafka?") and verify: (1) gap detected, (2) user informed with 3 options, (3) gap logged in `memory/{agente}-memory.md`, (4) 2nd request mentions "This is the 2nd time"
 
 ### Validation for User Story 1
 
-- [x] T011 [US1] Create test agent memory file MEMORY/test-agent-memory.md with gap detection template
+- [x] T011 [US1] Create test agent memory file memory/test-agent-memory.md with gap detection template
 - [x] T012 [US1] Validate FR-001: Skill existence check works against .prompt-os/skills/INDEX.md
 - [x] T013 [US1] Validate FR-002: User notification includes exactly 3 options (create now/proceed without/defer)
-- [x] T014 [US1] Validate FR-003: Gap logging to MEMORY/test-agent-memory.md includes all required fields (date, request, suggested_skill_name, status)
+- [x] T014 [US1] Validate FR-003: Gap logging to memory/test-agent-memory.md includes all required fields (date, request, suggested_skill_name, status)
 - [x] T015 [US1] Validate FR-008: Repeated gap (2+ occurrences) triggers proactive suggestion message
 - [x] T016 [US1] Test Acceptance Scenario 1: Request "Help me configure Kafka" with no kafka skill → verify gap detected and logged with status "pending"
 - [x] T017 [US1] Test Acceptance Scenario 2: User chooses "create now" → verify skill generation workflow starts
@@ -89,9 +89,9 @@
 
 ### Validation for User Story 2
 
-- [x] T025 [US2] Create test rejection scenarios in MEMORY/test-agent-memory.md with 10 sample rejections
+- [x] T025 [US2] Create test rejection scenarios in memory/test-agent-memory.md with 10 sample rejections
 - [x] T026 [US2] Validate FR-004: Test categorization of 20 rejection reasons across all 6 categories (examples/specificity/clarity/completeness/relevance/other)
-- [x] T027 [US2] Validate FR-005: Rejection logging to MEMORY/test-agent-memory.md includes all required fields (date, artifact_type, artifact_name, reason, category, learned_action, timestamp)
+- [x] T027 [US2] Validate FR-005: Rejection logging to memory/test-agent-memory.md includes all required fields (date, artifact_type, artifact_name, reason, category, learned_action, timestamp)
 - [x] T028 [US2] Validate FR-006: Pattern identification when "examples" category exceeds 30% (test with 4/10 = 40%)
 - [x] T029 [US2] Validate FR-007: Proactive corrections applied in next generation (verify message mentions "I've noticed examples are a concern")
 - [x] T030 [US2] Test Acceptance Scenario 1: Reject with reason "Examples don't work" → verify categorized as "examples" and logged
@@ -118,7 +118,7 @@
 
 ### Validation for User Story 3
 
-- [ ] T041 [US3] Create test scenarios in MEMORY/test-agent-memory.md with 3 frequent gaps (counts: 3, 2, 2)
+- [ ] T041 [US3] Create test scenarios in memory/test-agent-memory.md with 3 frequent gaps (counts: 3, 2, 2)
 - [x] T042 [US3] Validate FR-008: Gap frequency analysis correctly identifies gaps with count ≥ 2
 - [x] T043 [US3] Validate FR-009 (low scores): Simulate skill with Self-Critique scores [45, 52, 58] (avg 51.7) → verify improvement suggestion
 - [x] T044 [US3] Validate FR-009 (outdated skills): Simulate skill created 2022-01-01 (4+ years old) → verify update suggestion
@@ -147,7 +147,7 @@
 
 - [x] T055 [US4] Create test data: 3 agent memory files (opencode, itzamna, speckit) with gaps and rejections
 - [x] T056 [US4] Create test global statistics in MEMORY.md with sample metrics
-- [x] T057 [US4] Validate FR-010: Cross-agent aggregation reads ALL MEMORY/*-memory.md files (verify 3 agents processed)
+- [x] T057 [US4] Validate FR-010: Cross-agent aggregation reads ALL memory/*-memory.md files (verify 3 agents processed)
 - [x] T058 [US4] Validate FR-010: Report includes all 6 sections (Summary, Top Gaps, Rejection Patterns, Suggested Actions)
 - [x] T059 [US4] Validate FR-010: Summary metrics calculated correctly (skills created/updated, approval rate, gaps detected/resolved)
 - [x] T060 [US4] Validate FR-010: Top 3 gaps sorted by occurrence count descending
@@ -180,7 +180,7 @@
 - [x] T078 [P] Test all 6 edge cases documented in spec.md Edge Cases section
 - [x] T079 Test integration between all 4 user stories: Gap detection → Rejection learning → Proactive suggestions → Evolution report
 - [x] T080 Validate distributed memory architecture: Test concurrent writes to 3 agent memories simultaneously (no conflicts)
-- [x] T081 Validate memory file structure: Verify MEMORY/{agente}-memory.md format matches data-model.md specifications
+- [x] T081 Validate memory file structure: Verify memory/{agente}-memory.md format matches data-model.md specifications
 - [x] T082 Test evolution report with real multi-agent data: opencode + itzamna + speckit agents
 - [x] T083 [P] Update quickstart.md with any lessons learned during validation
 - [x] T084 [P] Update research.md with final completeness score after updates
@@ -189,7 +189,7 @@
 - [x] T087 Run through quickstart.md manual scenarios: For Humans section (all 4 user interactions)
 - [x] T088 Verify AGENTS.md context updated correctly with Markdown technology and distributed memory references
 - [x] T089 [P] Review all contracts/ files for accuracy against final AUTO-INCREMENT.md implementation
-- [x] T090 Create MEMORY/ directory structure documentation in specs/002-auto-increment/memory-architecture.md
+- [x] T090 Create memory/ directory structure documentation in specs/002-auto-increment/memory-architecture.md
 
 ---
 
