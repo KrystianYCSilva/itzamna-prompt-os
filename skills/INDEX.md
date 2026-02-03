@@ -68,12 +68,13 @@ skills/
 |------|-----------|--------|-------|
 | [technical-writing](docs/technical-writing/SKILL.md) | Redacao tecnica e documentacao | approved | L2 |
 
-### Linguagens de Programacao (2 skills)
+### Linguagens de Programacao (3 skills)
 
 | Nome | Descricao | Status | Level |
 |------|-----------|--------|-------|
 | [java](linguagens-programacao/java/SKILL.md) | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | approved | L1 |
 | [java-8-orientacao-objetos](linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | approved | L2 |
+| [kotlin](linguagens-programacao/kotlin/SKILL.md) | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | approved | L1 |
 
 ### Testing (1 skill)
 
@@ -85,8 +86,8 @@ skills/
 
 ## Estatisticas
 
-- **Total de Skills:** 19
-- **Aprovadas:** 19
+- **Total de Skills:** 20
+- **Aprovadas:** 20
 - **Rascunho:** 0
 - **Categorias:** 8
 
@@ -108,4 +109,4 @@ node .prompt-os/scripts/brain.js generate skill "descricao da skill" --category 
 
 ---
 
-*Atualizado: 2026-02-02*
+*Atualizado: 2026-02-03*

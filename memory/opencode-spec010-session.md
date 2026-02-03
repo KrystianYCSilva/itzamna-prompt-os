@@ -45,7 +45,7 @@
 | Data | Artifact | Type | Overall | Comp | Clar | Corr | BP | Notes |
 |------|----------|------|---------|------|------|------|----|-------|
 | 2026-02-03 | java-baseline | skill | 100 | 25 | 25 | 25 | 25 | Excellent - Version-agnostic baseline. 6 timeless examples. Human feedback: remove version specificity. Revised from 98→100. APPROVED. |
-| 2026-02-03 | kotlin-baseline | skill | 99 | 25 | 25 | 25 | 24 | Excellent - Null safety, coroutines, multiplatform. 10 examples. Token count 1,460 (slightly over). Version-agnostic applied. |
+| 2026-02-03 | kotlin-baseline | skill | 99 | 25 | 25 | 25 | 24 | Excellent - Null safety, coroutines, multiplatform. 10 examples. Token count 1,460 (slightly over). Version-agnostic applied. APPROVED. |
 
 **Legenda:**
 - Overall: Score total (0-100)

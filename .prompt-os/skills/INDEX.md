@@ -17,7 +17,7 @@ Uma skill define **COMO FAZER** algo especifico:
 
 ---
 
-## SKILLS DISPONIVEIS (17 total, 7 categorias)
+## SKILLS DISPONIVEIS (20 total, 8 categorias)
 
 ### Frontend (3 skills)
 
@@ -65,12 +65,13 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | technical-writing | Redacao tecnica e documentacao | L2 | `skills/docs/technical-writing/SKILL.md` |
 
-### Linguagens de Programacao (2 skills)
+### Linguagens de Programacao (3 skills)
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
 | java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
+| kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
 
 ### Testing (1 skill)
 
@@ -84,8 +85,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 19 |
-| Aprovadas | 19 |
+| Total de Skills | 20 |
+| Aprovadas | 20 |
 | Rascunho | 0 |
 | Categorias | 8 |
 
@@ -164,4 +165,4 @@ node .prompt-os/tools/brain.js generate skill "descricao da skill" --category {c
 
 ---
 
-*Sincronizado com skills/INDEX.md | Atualizado: 2026-02-02*
+*Sincronizado com skills/INDEX.md | Atualizado: 2026-02-03*
