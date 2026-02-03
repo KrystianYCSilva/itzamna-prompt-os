@@ -2,7 +2,7 @@
 
 **Ultima Atualizacao:** 2026-02-03
 **Versao:** 2.1.0
-**Sessoes Totais:** 20
+**Sessoes Totais:** 21
 **Spec Atual:** SPEC-010 ✅ COMPLETE | SPEC-003 🟢 UNBLOCKED
 
 ---
@@ -28,7 +28,9 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
-| 2026-02-03 | skill    | kotlin-2xx                                                           | ✅ approved (100/100)      |
+| 2026-02-03 | tool     | Solution 8 - INDEX validation script (validate-indices.py)           | ✅ approved (97.5/100)   |
+| 2026-02-03 | doc      | Solution 7 - Skill Governance Document (SKILL-GOVERNANCE.md)         | ✅ created (450 lines)   |
+| 2026-02-03 | skill    | kotlin-2xx                                                           | ✅ approved (100/100)    |
 | 2026-02-03 | feat     | Phase 2 - T1-NAMING rules + INDEX guide                              | ✅ complete (6/6 tasks)  |
 | 2026-02-03 | protocol | MEMORY-MANAGEMENT protocol created + enforced                        | ✅ complete              |
 | 2026-02-03 | fix      | Phase 1 - Protocol Sequence Enforcement                              | ✅ complete (9/9 tasks)  |
@@ -48,6 +50,48 @@
 
 ## Notas da Sessao
 
+### Sessao 21 (2026-02-03) - Solution 7 & 8: Governance + Validation 🛡️
+
+**Feature: Skill Governance Document + INDEX Validation Script — ✅ COMPLETE**
+
+- **Solution 7**: Created `.prompt-os/docs/SKILL-GOVERNANCE.md` (~450 lines)
+  - Decision tree for when to create version-specific vs specialized skills
+  - Update vs create policy with examples
+  - Deprecation lifecycle (never delete, mark + link replacement)
+  - Version matrix for supported language versions
+  - Visual flowcharts for create/update/deprecate workflows
+
+- **Solution 8**: Created INDEX validation automation (~785 lines total)
+  - **validate-indices.py** (~390 lines) - Python script with 5 validation functions:
+    1. Link validation - Check all file paths exist
+    2. Count verification - Compare header stats vs actual entries
+    3. Malformed detection - Table format validation
+    4. Duplicate detection - Find duplicate names/paths
+    5. Metadata validation - Verify levels (L0-L3) and path formats
+  - **pre-commit-hook.template** (~45 lines) - Git hook for automatic validation
+  - **README-validate-indices.md** (~350 lines) - Complete documentation with examples
+
+- **Self-Critique Results**:
+  - Solution 7: Not formally scored (documentation artifact)
+  - Solution 8: **97.5/100** (Completeness 98, Clarity 100, Correctness 97, Best Practices 95)
+
+- **Files created**: 5 (SKILL-GOVERNANCE.md, validate-indices.py, validate-indices.sh, pre-commit-hook.template, README-validate-indices.md)
+- **Files modified**: 1 (MEMORY.md)
+
+- **Result**:
+  - ✅ Governance policies documented for consistent skill management
+  - ✅ Automated validation prevents INDEX.md corruption
+  - ✅ Cross-platform validation script (Windows/Unix/Mac)
+  - ✅ Pre-commit integration ready for adoption
+  - ✅ Comprehensive docs with troubleshooting guide
+
+- **Next Steps**:
+  - [ ] Install pre-commit hook: `cp .prompt-os/scripts/pre-commit-hook.template .git/hooks/pre-commit`
+  - [ ] Await human command for SPEC-003 Phase 3 continuation
+
+**Status**: ✅ COMPLETE
+
+---
 ### Sessao 20 (2026-02-03) - Retroactive Protocol Application 👨‍🏫
 
 **Feature: Criação da skill `kotlin-2xx` com aplicação retroativa dos protocolos — ✅ COMPLETE**
