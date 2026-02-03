@@ -250,6 +250,13 @@ A biblioteca padrão Java é vasta:
 - **Hibernate:** ORM para persistência
 - **JUnit/TestNG:** Testing frameworks
 
+## Specialized Version Skills
+
+Para features específicas de versões LTS ou modernas:
+- [java-17](java-17/SKILL.md) - Sealed classes, records, pattern matching, virtual threads (Preview)
+- [java-11](java-11/SKILL.md) - var, HttpClient, String methods (Java 11 LTS)
+- [java-8-orientacao-objetos](../../linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) - OOP fundamentals
+
 ## Recursos e Referências
 
 **Documentação Oficial:**
@@ -267,3 +274,7 @@ A biblioteca padrão Java é vasta:
 **Build Tools:**
 - [Maven Documentation](https://maven.apache.org/guides/)
 - [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html)
+
+## Versões Específicas
+
+- [Java 11](./java-11/SKILL.md) - Features da versão LTS 11 (var, HttpClient, String methods)

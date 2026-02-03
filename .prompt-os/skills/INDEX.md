@@ -71,6 +71,8 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | c-cpp | Fundamentos de C/C++: ponteiros, memoria manual, RAII, compilacao nativa | L1 | `.prompt-os/skills/linguagens/c-cpp/SKILL.md` |
 | java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
+| java-11 | Features do Java 11 (LTS): var, HttpClient, String methods | L2 | `.prompt-os/skills/linguagens/java/java-11/SKILL.md` |
+| java-17 | Features do Java 17 (LTS): sealed classes, records, pattern matching, virtual threads | L2 | `.prompt-os/skills/linguagens/java/java-17/SKILL.md` |
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
 | javascript | Fundamentos de JavaScript: tipagem dinamica, event loop, async/await, npm | L1 | `.prompt-os/skills/linguagens/javascript/SKILL.md` |
 | kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
@@ -88,8 +90,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 23 |
-| Aprovadas | 23 |
+| Total de Skills | 24 |
+| Aprovadas | 24 |
 | Rascunho | 0 |
 | Categorias | 8 |
 
