@@ -15,7 +15,8 @@ skills/
 ├── markup/       # XML, XSLT, Markdown
 ├── devops/       # Git, CI/CD, Docker, Kubernetes
 ├── docs/         # Technical writing, documentation
-└── testing/      # Test skills, examples
+├── testing/      # Test skills, examples
+└── linguagens-programacao/  # Java, Python, Go, etc.
 ```
 
 ## Indice por Categoria
@@ -67,6 +68,12 @@ skills/
 |------|-----------|--------|-------|
 | [technical-writing](docs/technical-writing/SKILL.md) | Redacao tecnica e documentacao | approved | L2 |
 
+### Linguagens de Programacao (1 skill)
+
+| Nome | Descricao | Status | Level |
+|------|-----------|--------|-------|
+| [java-8-orientacao-objetos](linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | approved | L2 |
+
 ### Testing (1 skill)
 
 | Nome | Descricao | Status | Level |
@@ -77,10 +84,10 @@ skills/
 
 ## Estatisticas
 
-- **Total de Skills:** 17
-- **Aprovadas:** 17
+- **Total de Skills:** 18
+- **Aprovadas:** 18
 - **Rascunho:** 0
-- **Categorias:** 7
+- **Categorias:** 8
 
 ## Niveis (Levels)
 

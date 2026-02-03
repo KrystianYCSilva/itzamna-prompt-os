@@ -10,12 +10,12 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Skills Totais | 17 |
-| Skills Approved | 17 |
+| Skills Totais | 18 |
+| Skills Approved | 18 |
 | Skills Draft | 0 |
 | Personas Geradas | 1 |
 | Taxa de Aprovacao | 100% |
-| Categorias | 7 |
+| Categorias | 8 |
 | Core Protocols | 8 |
 | Ultima Geracao | 2026-02-02 |
 
@@ -25,6 +25,7 @@
 
 | Data | Tipo | Nome | Status |
 |------|------|------|--------|
+| 2026-02-03 | skill | java-8-orientacao-objetos (L2, linguagens-programacao) | approved |
 | 2026-02-03 | feature | 001-self-critique enhanced protocol | implemented |
 | 2026-02-03 | refactor | .prompt-os/skills/ registry created | completed |
 | 2026-02-02 | refactor | v2.0.0 prompt-based architecture | completed |
@@ -192,6 +193,11 @@
 |-------|-------|--------|
 | technical-writing | L2 | approved |
 
+### linguagens-programacao/ (1 skill)
+| Skill | Level | Status |
+|-------|-------|--------|
+| java/java-8-orientacao-objetos | L2 | approved |
+
 ### testing/ (1 skill)
 | Skill | Level | Status |
 |-------|-------|--------|
@@ -264,7 +270,8 @@
 - [x] Spec-Kit integration completa
 - [x] 5 SPECs formais criadas
 - [x] **v2.0.0 PROMPT-BASED ARCHITECTURE**
-- [x] 7 core protocols criados
+- [x] 8 core protocols criados (incl. HUMAN-GATE)
+- [x] 18 skills aprovadas em 8 categorias (incl. linguagens-programacao)
 - [x] Entry point PROMPTOS.md
 
 ---
