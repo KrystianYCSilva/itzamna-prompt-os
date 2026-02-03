@@ -47,6 +47,7 @@
 | 2026-02-03 | java-baseline | skill | 100 | 25 | 25 | 25 | 25 | Excellent - Version-agnostic baseline. 6 timeless examples. Human feedback: remove version specificity. Revised from 98→100. APPROVED. |
 | 2026-02-03 | kotlin-baseline | skill | 99 | 25 | 25 | 25 | 24 | Excellent - Null safety, coroutines, multiplatform. 10 examples. Token count 1,460 (slightly over). Version-agnostic applied. APPROVED. |
 | 2026-02-03 | c-cpp-baseline | skill | 99 | 24 | 25 | 25 | 25 | Excellent - Pointers, manual memory, RAII, threads. 7 examples + 3 JIT sub-files. Refactored: 2,500→1,400 tokens. Version-agnostic applied. APPROVED. |
+| 2026-02-03 | javascript-baseline | skill | 99 | 24 | 25 | 25 | 25 | Excellent - Dynamic typing, event loop, async/await, prototypes. 11 examples + 1 JIT sub-file. Refactored: 2,750→1,500 tokens. Version-agnostic applied. APPROVED. |
 
 **Legenda:**
 - Overall: Score total (0-100)

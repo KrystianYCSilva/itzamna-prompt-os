@@ -65,13 +65,14 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | technical-writing | Redacao tecnica e documentacao | L2 | `skills/docs/technical-writing/SKILL.md` |
 
-### Linguagens de Programacao (4 skills)
+### Linguagens de Programacao (5 skills)
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
 | c-cpp | Fundamentos de C/C++: ponteiros, memoria manual, RAII, compilacao nativa | L1 | `.prompt-os/skills/linguagens/c-cpp/SKILL.md` |
 | java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
+| javascript | Fundamentos de JavaScript: tipagem dinamica, event loop, async/await, npm | L1 | `.prompt-os/skills/linguagens/javascript/SKILL.md` |
 | kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
 
 ### Testing (1 skill)
@@ -86,8 +87,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 21 |
-| Aprovadas | 21 |
+| Total de Skills | 22 |
+| Aprovadas | 22 |
 | Rascunho | 0 |
 | Categorias | 8 |
 

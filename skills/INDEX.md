@@ -68,13 +68,14 @@ skills/
 |------|-----------|--------|-------|
 | [technical-writing](docs/technical-writing/SKILL.md) | Redacao tecnica e documentacao | approved | L2 |
 
-### Linguagens de Programacao (4 skills)
+### Linguagens de Programacao (5 skills)
 
 | Nome | Descricao | Status | Level |
 |------|-----------|--------|-------|
 | [c-cpp](linguagens-programacao/c-cpp/SKILL.md) | Fundamentos de C/C++: ponteiros, memoria manual, RAII, compilacao nativa | approved | L1 |
 | [java](linguagens-programacao/java/SKILL.md) | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | approved | L1 |
 | [java-8-orientacao-objetos](linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | approved | L2 |
+| [javascript](linguagens-programacao/javascript/SKILL.md) | Fundamentos de JavaScript: tipagem dinamica, event loop, async/await, npm | approved | L1 |
 | [kotlin](linguagens-programacao/kotlin/SKILL.md) | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | approved | L1 |
 
 ### Testing (1 skill)
@@ -87,8 +88,8 @@ skills/
 
 ## Estatisticas
 
-- **Total de Skills:** 21
-- **Aprovadas:** 21
+- **Total de Skills:** 22
+- **Aprovadas:** 22
 - **Rascunho:** 0
 - **Categorias:** 8
 
