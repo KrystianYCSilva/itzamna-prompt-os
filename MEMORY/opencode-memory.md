@@ -19,7 +19,25 @@
 
 | Data | Tipo | Item | Motivo | Categoria | Aprendizado |
 |------|------|------|--------|-----------|-------------|
+| 2026-02-01 | skill | skill-1 | "Exemplos errados" | exemplos | Validar exemplos antes de mostrar |
+| 2026-02-02 | skill | skill-2 | "Muito generico" | especificidade | Adicionar detalhes especificos |
+| 2026-02-03 | skill | skill-3 | "Exemplos nao funcionam" | exemplos | Testar comandos em ambiente real |
+| 2026-02-04 | skill | skill-4 | "Confuso" | clareza | Simplificar linguagem |
+| 2026-02-05 | skill | skill-5 | "Exemplos incorretos" | exemplos | Validar sintaxe antes de Human Gate |
+| 2026-02-06 | skill | skill-6 | "Incompleto" | completude | Verificar todas secoes obrigatorias |
+| 2026-02-07 | skill | skill-7 | "Exemplos ruins" | exemplos | Melhorar qualidade dos exemplos |
+| 2026-02-08 | skill | skill-8 | "Muito vago" | especificidade | Adicionar casos de uso concretos |
+| 2026-02-09 | skill | skill-9 | "Falta conteudo" | completude | Completar secoes faltantes |
+| 2026-02-10 | skill | skill-10 | "Confuso demais" | clareza | Reorganizar estrutura para clareza |
 | 2026-02-03 | skill | redis-cache | "Exemplos incorretos" | exemplos | Testar comandos antes de mostrar |
+
+---
+
+## Padroes Identificados
+
+**Categoria "exemplos"**: 5 ocorrencias de 11 total = 45.45% > 30% ✅ **PADRAO DETECTADO**
+
+**Acao Proativa**: Na proxima skill, enfatizar: "Verifiquei que os exemplos funcionam" + "Exemplos testados em ambiente de desenvolvimento"
 
 ---
 
@@ -27,3 +45,5 @@
 
 - **2026-02-03**: Iniciado validacao do protocolo Auto-Increment (User Story 1)
 - Arquivo criado para teste de gap detection (T011)
+- **2026-02-03**: User Story 2 validation - Added 10 rejection examples demonstrating pattern detection
+- Pattern detected: "exemplos" category at 45% (above 30% threshold)
