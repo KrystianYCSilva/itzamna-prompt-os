@@ -110,6 +110,7 @@ Classifique o motivo da rejeicao:
 | **Clareza** | "confuso", "nao entendi" | Simplificar linguagem |
 | **Completude** | "falta", "incompleto" | Verificar todas secoes |
 | **Relevancia** | "nao aplica", "fora do escopo" | Melhorar classificacao |
+| **Outros** | (nenhum match acima) | Revisar manualmente |
 
 ### Registro de Rejeicao
 
@@ -178,6 +179,10 @@ Gostaria que eu atualizasse esta skill?
 
 [Sim, atualizar] [Nao agora] [Me mostre as mudancas primeiro]"
 ```
+
+**Multiplas Rejeicoes**: Se a mesma skill foi rejeitada 2+ vezes (verifique `Log de Rejeicoes` no `MEMORY/{agente}-memory.md`), mencione o historico:
+
+> "Esta skill foi rejeitada {X} vezes anteriormente por motivos diferentes. Isso indica que precisa de revisao mais profunda."
 
 ---
 
