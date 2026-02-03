@@ -65,10 +65,11 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | technical-writing | Redacao tecnica e documentacao | L2 | `skills/docs/technical-writing/SKILL.md` |
 
-### Linguagens de Programacao (1 skill)
+### Linguagens de Programacao (2 skills)
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
+| java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
 
 ### Testing (1 skill)
@@ -83,8 +84,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 18 |
-| Aprovadas | 18 |
+| Total de Skills | 19 |
+| Aprovadas | 19 |
 | Rascunho | 0 |
 | Categorias | 8 |
 
