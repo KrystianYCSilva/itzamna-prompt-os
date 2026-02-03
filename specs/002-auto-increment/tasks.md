@@ -145,26 +145,26 @@
 
 ### Validation for User Story 4
 
-- [ ] T055 [US4] Create test data: 3 agent memory files (opencode, itzamna, speckit) with gaps and rejections
-- [ ] T056 [US4] Create test global statistics in MEMORY.md with sample metrics
-- [ ] T057 [US4] Validate FR-010: Cross-agent aggregation reads ALL MEMORY/*-memory.md files (verify 3 agents processed)
-- [ ] T058 [US4] Validate FR-010: Report includes all 6 sections (Summary, Top Gaps, Rejection Patterns, Suggested Actions)
-- [ ] T059 [US4] Validate FR-010: Summary metrics calculated correctly (skills created/updated, approval rate, gaps detected/resolved)
-- [ ] T060 [US4] Validate FR-010: Top 3 gaps sorted by occurrence count descending
-- [ ] T061 [US4] Validate FR-010: Rejection patterns show percentages per category
-- [ ] T062 [US4] Validate FR-010: Suggested actions prioritized (critical patterns >50% first, frequent gaps second, quality third)
-- [ ] T063 [US4] Test Acceptance Scenario 1: Request "Generate evolution report" → verify report generated with all sections
-- [ ] T064 [US4] Test Acceptance Scenario 2: Verify report metrics accurate based on aggregated agent data and global stats
-- [ ] T065 [US4] Test Acceptance Scenario 3: Report shows 40% examples rejection → verify suggested action "Validate all examples before Human Gate"
-- [ ] T066 [US4] Validate edge case: No agent memory files exist → verify message "No data available yet"
-- [ ] T067 [US4] Validate edge case: Partial period coverage → verify note added "Data available from [date] onwards"
-- [ ] T068 [US4] Validate edge case: Conflicting global stats → verify prioritizes root MEMORY.md with warning
-- [ ] T069 [US4] Validate edge case: Very large dataset (>10,000 entries) → verify report limited to specified period
-- [ ] T070 [US4] Validate edge case: Corrupted memory file → verify skip with warning, process remaining files
-- [ ] T071 [US4] Validate SC-004: Generate report with 5000 entries → verify completes in <10 seconds
-- [ ] T072 [US4] Validate cross-agent aggregation: Verify "kafka-basics" gap appearing in 2 agents counted as 2 occurrences
-- [ ] T073 [US4] Test report formatting: Verify valid markdown with tables, sections properly formatted
-- [ ] T074 [US4] Document evolution reports validation results in specs/002-auto-increment/validation-us4.md
+- [x] T055 [US4] Create test data: 3 agent memory files (opencode, itzamna, speckit) with gaps and rejections
+- [x] T056 [US4] Create test global statistics in MEMORY.md with sample metrics
+- [x] T057 [US4] Validate FR-010: Cross-agent aggregation reads ALL MEMORY/*-memory.md files (verify 3 agents processed)
+- [x] T058 [US4] Validate FR-010: Report includes all 6 sections (Summary, Top Gaps, Rejection Patterns, Suggested Actions)
+- [x] T059 [US4] Validate FR-010: Summary metrics calculated correctly (skills created/updated, approval rate, gaps detected/resolved)
+- [x] T060 [US4] Validate FR-010: Top 3 gaps sorted by occurrence count descending
+- [x] T061 [US4] Validate FR-010: Rejection patterns show percentages per category
+- [x] T062 [US4] Validate FR-010: Suggested actions prioritized (critical patterns >50% first, frequent gaps second, quality third)
+- [x] T063 [US4] Test Acceptance Scenario 1: Request "Generate evolution report" → verify report generated with all sections
+- [x] T064 [US4] Test Acceptance Scenario 2: Verify report metrics accurate based on aggregated agent data and global stats
+- [x] T065 [US4] Test Acceptance Scenario 3: Report shows 40% examples rejection → verify suggested action "Validate all examples before Human Gate"
+- [x] T066 [US4] Validate edge case: No agent memory files exist → verify message "No data available yet"
+- [x] T067 [US4] Validate edge case: Partial period coverage → verify note added "Data available from [date] onwards"
+- [x] T068 [US4] Validate edge case: Conflicting global stats → verify prioritizes root MEMORY.md with warning
+- [x] T069 [US4] Validate edge case: Very large dataset (>10,000 entries) → verify report limited to specified period
+- [x] T070 [US4] Validate edge case: Corrupted memory file → verify skip with warning, process remaining files
+- [x] T071 [US4] Validate SC-004: Generate report with 5000 entries → verify completes in <10 seconds
+- [x] T072 [US4] Validate cross-agent aggregation: Verify "kafka-basics" gap appearing in 2 agents counted as 2 occurrences
+- [x] T073 [US4] Test report formatting: Verify valid markdown with tables, sections properly formatted
+- [x] T074 [US4] Document evolution reports validation results in specs/002-auto-increment/validation-us4.md
 
 **Checkpoint**: User Story 4 validated - Evolution reports work with cross-agent aggregation, all metrics accurate
 
