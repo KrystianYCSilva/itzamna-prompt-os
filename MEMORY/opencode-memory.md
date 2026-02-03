@@ -11,7 +11,22 @@
 | Data | Request | Skill Sugerida | Status |
 |------|---------|----------------|--------|
 | 2026-02-03 | "How to use Kafka?" | kafka-basics | pending |
+| 2026-02-05 | "Kafka setup help" | kafka-basics | pending |
+| 2026-02-07 | "Help with Kafka configuration" | kafka-basics | pending |
 | 2026-02-03 | "Deploy with ArgoCD" | argocd-deploy | pending |
+| 2026-02-06 | "ArgoCD best practices" | argocd-deploy | pending |
+
+---
+
+## Gap Pattern Analysis
+
+**kafka-basics**: 3 occurrences (2026-02-03, 2026-02-05, 2026-02-07) → **PROACTIVE SUGGESTION TRIGGERED** ✅
+
+**Acao Proativa**: "Percebi que voce tem perguntado sobre 'kafka' algumas vezes (3x). Atualmente, nao temos uma skill dedicada para isso. Gostaria que eu criasse uma skill 'kafka-basics'?"
+
+**argocd-deploy**: 2 occurrences (2026-02-03, 2026-02-06) → **PROACTIVE SUGGESTION TRIGGERED** ✅
+
+**Acao Proativa**: "Percebi que voce tem perguntado sobre 'argocd' algumas vezes (2x). Atualmente, nao temos uma skill dedicada para isso. Gostaria que eu criasse uma skill 'argocd-deploy'?"
 
 ---
 
@@ -47,3 +62,5 @@
 - Arquivo criado para teste de gap detection (T011)
 - **2026-02-03**: User Story 2 validation - Added 10 rejection examples demonstrating pattern detection
 - Pattern detected: "exemplos" category at 45% (above 30% threshold)
+- **2026-02-03**: User Story 3 validation - Added duplicate gaps demonstrating proactive suggestions
+- Gap patterns identified: kafka-basics (3x), argocd-deploy (2x) - both trigger proactive suggestions

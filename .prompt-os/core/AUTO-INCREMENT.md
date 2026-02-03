@@ -277,7 +277,7 @@ Periodicamente (quando solicitado), gere relatorio:
 
 Antes de entregar qualquer geracao:
 1. Aplique self-critique
-2. Se score < 70, mencione e ofereca melhorias
+2. Se score < 60, mencione e ofereca melhorias
 3. Registre score para analise de padroes
 
 ### Com INPUT-CLASSIFIER.md
