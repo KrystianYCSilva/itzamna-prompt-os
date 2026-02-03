@@ -28,9 +28,9 @@
 
 **Purpose**: Validate existing documentation and prepare for protocol updates
 
-- [ ] T001 Review all Phase 1 deliverables in specs/002-auto-increment/ (data-model.md, contracts/, quickstart.md)
-- [ ] T002 [P] Validate research.md findings against current AUTO-INCREMENT.md implementation
-- [ ] T003 [P] Create backup of .prompt-os/core/AUTO-INCREMENT.md before any modifications
+- [x] T001 Review all Phase 1 deliverables in specs/002-auto-increment/ (data-model.md, contracts/, quickstart.md)
+- [x] T002 [P] Validate research.md findings against current AUTO-INCREMENT.md implementation
+- [x] T003 [P] Create backup of .prompt-os/core/AUTO-INCREMENT.md before any modifications
 
 **Checkpoint**: Documentation reviewed, implementation backed up
 
@@ -42,13 +42,13 @@
 
 **⚠️ CRITICAL**: This phase MUST complete before user stories can be validated, as it fixes the architectural mismatch identified in research.md
 
-- [ ] T004 Update .prompt-os/core/AUTO-INCREMENT.md line 65: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in gap logging section
-- [ ] T005 Update .prompt-os/core/AUTO-INCREMENT.md line 87: Replace "MEMORY.md" with agent-specific memory reference
-- [ ] T006 Update .prompt-os/core/AUTO-INCREMENT.md line 104: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in rejection logging section
-- [ ] T007 Update .prompt-os/core/AUTO-INCREMENT.md line 135: Clarify gap counting reads from agent's own memory file
-- [ ] T008 Update .prompt-os/core/AUTO-INCREMENT.md line 228: Update memory reference to agent-specific file
-- [ ] T009 Update .prompt-os/core/AUTO-INCREMENT.md line 273: Add note explaining distributed vs global memory architecture
-- [ ] T010 Add cross-agent aggregation paragraph before line 174 in AUTO-INCREMENT.md explaining evolution reports read ALL agent memories
+- [x] T004 Update .prompt-os/core/AUTO-INCREMENT.md line 65: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in gap logging section
+- [x] T005 Update .prompt-os/core/AUTO-INCREMENT.md line 87: Replace "MEMORY.md" with agent-specific memory reference
+- [x] T006 Update .prompt-os/core/AUTO-INCREMENT.md line 104: Replace "MEMORY.md" with "MEMORY/{agente}-memory.md" in rejection logging section
+- [x] T007 Update .prompt-os/core/AUTO-INCREMENT.md line 135: Clarify gap counting reads from agent's own memory file
+- [x] T008 Update .prompt-os/core/AUTO-INCREMENT.md line 228: Update memory reference to agent-specific file
+- [x] T009 Update .prompt-os/core/AUTO-INCREMENT.md line 273: Add note explaining distributed vs global memory architecture
+- [x] T010 Add cross-agent aggregation paragraph before line 174 in AUTO-INCREMENT.md explaining evolution reports read ALL agent memories
 
 **Checkpoint**: AUTO-INCREMENT.md updated with distributed memory architecture - Foundation ready for user story validation
 
@@ -62,20 +62,20 @@
 
 ### Validation for User Story 1
 
-- [ ] T011 [US1] Create test agent memory file MEMORY/test-agent-memory.md with gap detection template
-- [ ] T012 [US1] Validate FR-001: Skill existence check works against .prompt-os/skills/INDEX.md
-- [ ] T013 [US1] Validate FR-002: User notification includes exactly 3 options (create now/proceed without/defer)
-- [ ] T014 [US1] Validate FR-003: Gap logging to MEMORY/test-agent-memory.md includes all required fields (date, request, suggested_skill_name, status)
-- [ ] T015 [US1] Validate FR-008: Repeated gap (2+ occurrences) triggers proactive suggestion message
-- [ ] T016 [US1] Test Acceptance Scenario 1: Request "Help me configure Kafka" with no kafka skill → verify gap detected and logged with status "pending"
-- [ ] T017 [US1] Test Acceptance Scenario 2: User chooses "create now" → verify skill generation workflow starts
-- [ ] T018 [US1] Test Acceptance Scenario 3: User chooses "proceed without" → verify gap logged with status "deferred"
-- [ ] T019 [US1] Test Acceptance Scenario 4: Same topic requested 2+ times → verify system mentions "This is the Nth time"
-- [ ] T020 [US1] Validate edge case: Vague topic (unclear skill name) → verify system asks for clarification
-- [ ] T021 [US1] Validate edge case: Gap covered by different name → verify JIT-PROTOCOL catches it
-- [ ] T022 [US1] Validate SC-001: Test 10 non-existent skills, verify 9+ gaps detected (90% threshold)
-- [ ] T023 [US1] Validate SC-007: Log 2 same gaps, verify suggestion appears within 1 interaction
-- [ ] T024 [US1] Document gap detection validation results in specs/002-auto-increment/validation-us1.md
+- [x] T011 [US1] Create test agent memory file MEMORY/test-agent-memory.md with gap detection template
+- [x] T012 [US1] Validate FR-001: Skill existence check works against .prompt-os/skills/INDEX.md
+- [x] T013 [US1] Validate FR-002: User notification includes exactly 3 options (create now/proceed without/defer)
+- [x] T014 [US1] Validate FR-003: Gap logging to MEMORY/test-agent-memory.md includes all required fields (date, request, suggested_skill_name, status)
+- [x] T015 [US1] Validate FR-008: Repeated gap (2+ occurrences) triggers proactive suggestion message
+- [x] T016 [US1] Test Acceptance Scenario 1: Request "Help me configure Kafka" with no kafka skill → verify gap detected and logged with status "pending"
+- [x] T017 [US1] Test Acceptance Scenario 2: User chooses "create now" → verify skill generation workflow starts
+- [x] T018 [US1] Test Acceptance Scenario 3: User chooses "proceed without" → verify gap logged with status "deferred"
+- [x] T019 [US1] Test Acceptance Scenario 4: Same topic requested 2+ times → verify system mentions "This is the Nth time"
+- [x] T020 [US1] Validate edge case: Vague topic (unclear skill name) → verify system asks for clarification
+- [x] T021 [US1] Validate edge case: Gap covered by different name → verify JIT-PROTOCOL catches it
+- [x] T022 [US1] Validate SC-001: Test 10 non-existent skills, verify 9+ gaps detected (90% threshold)
+- [x] T023 [US1] Validate SC-007: Log 2 same gaps, verify suggestion appears within 1 interaction
+- [x] T024 [US1] Document gap detection validation results in specs/002-auto-increment/validation-us1.md
 
 **Checkpoint**: User Story 1 validated - Gap detection works independently with distributed memory
 
@@ -89,22 +89,22 @@
 
 ### Validation for User Story 2
 
-- [ ] T025 [US2] Create test rejection scenarios in MEMORY/test-agent-memory.md with 10 sample rejections
-- [ ] T026 [US2] Validate FR-004: Test categorization of 20 rejection reasons across all 6 categories (examples/specificity/clarity/completeness/relevance/other)
-- [ ] T027 [US2] Validate FR-005: Rejection logging to MEMORY/test-agent-memory.md includes all required fields (date, artifact_type, artifact_name, reason, category, learned_action, timestamp)
-- [ ] T028 [US2] Validate FR-006: Pattern identification when "examples" category exceeds 30% (test with 4/10 = 40%)
-- [ ] T029 [US2] Validate FR-007: Proactive corrections applied in next generation (verify message mentions "I've noticed examples are a concern")
-- [ ] T030 [US2] Test Acceptance Scenario 1: Reject with reason "Examples don't work" → verify categorized as "examples" and logged
-- [ ] T031 [US2] Test Acceptance Scenario 2: Reject without reason → verify system asks "Could you tell me why you rejected this?"
-- [ ] T032 [US2] Test Acceptance Scenario 3: 10 rejections with 4 "examples" (40%) → verify pattern detected and proactive mention appears
-- [ ] T033 [US2] Test Acceptance Scenario 4: Pattern learned → verify evolution report includes "Examples: 40%" with suggested action
-- [ ] T034 [US2] Validate edge case: Rejection without reason → verify logged as "No reason provided" with category "other"
-- [ ] T035 [US2] Validate edge case: Ambiguous reason matching multiple categories → verify first priority match used
-- [ ] T036 [US2] Validate edge case: Same artifact rejected multiple times → verify each logged separately with mention "rejected X times"
-- [ ] T037 [US2] Validate SC-006: Reject 10 artifacts, verify 10 logged (100% capture rate)
-- [ ] T038 [US2] Validate integration with SELF-CRITIQUE.md (FR-011): Verify quality scores tracked per skill
-- [ ] T039 [US2] Validate integration with HUMAN-GATE.md (FR-012): Verify rejection capture works correctly
-- [ ] T040 [US2] Document rejection learning validation results in specs/002-auto-increment/validation-us2.md
+- [x] T025 [US2] Create test rejection scenarios in MEMORY/test-agent-memory.md with 10 sample rejections
+- [x] T026 [US2] Validate FR-004: Test categorization of 20 rejection reasons across all 6 categories (examples/specificity/clarity/completeness/relevance/other)
+- [x] T027 [US2] Validate FR-005: Rejection logging to MEMORY/test-agent-memory.md includes all required fields (date, artifact_type, artifact_name, reason, category, learned_action, timestamp)
+- [x] T028 [US2] Validate FR-006: Pattern identification when "examples" category exceeds 30% (test with 4/10 = 40%)
+- [x] T029 [US2] Validate FR-007: Proactive corrections applied in next generation (verify message mentions "I've noticed examples are a concern")
+- [x] T030 [US2] Test Acceptance Scenario 1: Reject with reason "Examples don't work" → verify categorized as "examples" and logged
+- [x] T031 [US2] Test Acceptance Scenario 2: Reject without reason → verify system asks "Could you tell me why you rejected this?"
+- [x] T032 [US2] Test Acceptance Scenario 3: 10 rejections with 4 "examples" (40%) → verify pattern detected and proactive mention appears
+- [x] T033 [US2] Test Acceptance Scenario 4: Pattern learned → verify evolution report includes "Examples: 40%" with suggested action
+- [x] T034 [US2] Validate edge case: Rejection without reason → verify logged as "No reason provided" with category "other"
+- [x] T035 [US2] Validate edge case: Ambiguous reason matching multiple categories → verify first priority match used
+- [x] T036 [US2] Validate edge case: Same artifact rejected multiple times → verify each logged separately with mention "rejected X times"
+- [x] T037 [US2] Validate SC-006: Reject 10 artifacts, verify 10 logged (100% capture rate)
+- [x] T038 [US2] Validate integration with SELF-CRITIQUE.md (FR-011): Verify quality scores tracked per skill
+- [x] T039 [US2] Validate integration with HUMAN-GATE.md (FR-012): Verify rejection capture works correctly
+- [x] T040 [US2] Document rejection learning validation results in specs/002-auto-increment/validation-us2.md
 
 **Checkpoint**: User Story 2 validated - Rejection learning works independently, patterns detected correctly
 
@@ -119,19 +119,19 @@
 ### Validation for User Story 3
 
 - [ ] T041 [US3] Create test scenarios in MEMORY/test-agent-memory.md with 3 frequent gaps (counts: 3, 2, 2)
-- [ ] T042 [US3] Validate FR-008: Gap frequency analysis correctly identifies gaps with count ≥ 2
-- [ ] T043 [US3] Validate FR-009 (low scores): Simulate skill with Self-Critique scores [45, 52, 58] (avg 51.7) → verify improvement suggestion
-- [ ] T044 [US3] Validate FR-009 (outdated skills): Simulate skill created 2022-01-01 (4+ years old) → verify update suggestion
-- [ ] T045 [US3] Validate suggestion prioritization algorithm (gaps × 10, quality × 2, age × 5) with 3 test cases
-- [ ] T046 [US3] Test Acceptance Scenario 1: "Kafka" detected 2+ times → verify proactive suggestion "I noticed 'kafka' was requested multiple times"
-- [ ] T047 [US3] Test Acceptance Scenario 2: Skill has low Self-Critique scores (<60) → verify suggestion "The skill '{name}' has been scoring low"
-- [ ] T048 [US3] Test Acceptance Scenario 3: Skill created >2 years ago → verify suggestion "The skill '{name}' is outdated"
-- [ ] T049 [US3] Validate edge case: Suggestion already acted upon → verify re-check before presenting
-- [ ] T050 [US3] Validate edge case: User repeatedly defers suggestion (3 times) → verify suggestion stops (status "rejected")
-- [ ] T051 [US3] Validate edge case: Conflicting priorities → verify both suggestions presented in priority order
-- [ ] T052 [US3] Test cooldown periods: Deferred suggestion shouldn't re-appear for 7 days
-- [ ] T053 [US3] Validate SC-007: After 2nd gap detection, verify suggestion appears within 1 interaction
-- [ ] T054 [US3] Document proactive suggestions validation results in specs/002-auto-increment/validation-us3.md
+- [x] T042 [US3] Validate FR-008: Gap frequency analysis correctly identifies gaps with count ≥ 2
+- [x] T043 [US3] Validate FR-009 (low scores): Simulate skill with Self-Critique scores [45, 52, 58] (avg 51.7) → verify improvement suggestion
+- [x] T044 [US3] Validate FR-009 (outdated skills): Simulate skill created 2022-01-01 (4+ years old) → verify update suggestion
+- [x] T045 [US3] Validate suggestion prioritization algorithm (gaps × 10, quality × 2, age × 5) with 3 test cases
+- [x] T046 [US3] Test Acceptance Scenario 1: "Kafka" detected 2+ times → verify proactive suggestion "I noticed 'kafka' was requested multiple times"
+- [x] T047 [US3] Test Acceptance Scenario 2: Skill has low Self-Critique scores (<60) → verify suggestion "The skill '{name}' has been scoring low"
+- [x] T048 [US3] Test Acceptance Scenario 3: Skill created >2 years ago → verify suggestion "The skill '{name}' is outdated"
+- [x] T049 [US3] Validate edge case: Suggestion already acted upon → verify re-check before presenting
+- [x] T050 [US3] Validate edge case: User repeatedly defers suggestion (3 times) → verify suggestion stops (status "rejected")
+- [x] T051 [US3] Validate edge case: Conflicting priorities → verify both suggestions presented in priority order
+- [x] T052 [US3] Test cooldown periods: Deferred suggestion shouldn't re-appear for 7 days
+- [x] T053 [US3] Validate SC-007: After 2nd gap detection, verify suggestion appears within 1 interaction
+- [x] T054 [US3] Document proactive suggestions validation results in specs/002-auto-increment/validation-us3.md
 
 **Checkpoint**: User Story 3 validated - Proactive suggestions work independently, correct prioritization
 
