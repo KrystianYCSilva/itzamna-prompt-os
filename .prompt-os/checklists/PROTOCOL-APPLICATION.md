@@ -22,9 +22,9 @@ Use esta checklist **SEMPRE** que for:
 Antes de comecar, verifique:
 
 - [ ] Li o bootstrap file do meu agente (AGENTS.md, QWEN.md, GEMINI.md, CLAUDE.md, .cursorrules, ou .github/copilot-instructions.md)
-- [ ] Entendi a sequencia obrigatoria: AUTO-INCREMENT → GENERATE → SELF-CRITIQUE → HUMAN-GATE → COMMIT
+- [ ] Entendi a sequencia obrigatoria: AUTO-INCREMENT → GENERATE → SELF-CRITIQUE → HUMAN-GATE → COMMIT → MEMORY-MANAGEMENT
 - [ ] Verifiquei que esta task requer file write (nao e apenas read-only)
-- [ ] Carreguei protocolos relevantes: `.prompt-os/core/AUTO-INCREMENT.md`, `SELF-CRITIQUE.md`, `HUMAN-GATE.md`
+- [ ] Carreguei protocolos relevantes: `.prompt-os/core/AUTO-INCREMENT.md`, `SELF-CRITIQUE.md`, `HUMAN-GATE.md`, `MEMORY-MANAGEMENT.md`
 
 **Se qualquer item falhou:** Pare e leia os arquivos necessarios antes de continuar.
 
@@ -134,10 +134,6 @@ Antes de comecar, verifique:
   - [ ] Usei section replacement (nao line replacement)
   - [ ] Verifiquei formatacao (tabelas alinhadas)
   - [ ] Testei links gerados
-- [ ] Atualizei MEMORY.md ou `memory/{agente}-memory.md`:
-  - [ ] Registrei artefato criado
-  - [ ] Atualizei estatisticas (skill count, avg score, etc.)
-  - [ ] Adicionei nota de sessao se relevante
 - [ ] Verifiquei files modificados: `git status`
 - [ ] Criei commit com conventional commits:
   - [ ] Tipo correto: `feat` | `fix` | `docs` | `refactor` | `test`
@@ -150,6 +146,33 @@ Antes de comecar, verifique:
 
 ---
 
+## Phase 6: MEMORY-MANAGEMENT ⚠️ OBRIGATORIO
+
+**Objetivo:** Atualizar memoria distribuida para manter historico e contexto.
+
+**⚠️ CRITICAL: Esta fase e OBRIGATORIA apos QUALQUER artifact criado!**
+
+- [ ] Li `.prompt-os/core/MEMORY-MANAGEMENT.md`
+- [ ] Atualizei MEMORY.md (global):
+  - [ ] Header (Ultima Atualizacao, Sessoes Totais +1, Spec Atual)
+  - [ ] Estatisticas (Skills Totais +1, Taxa de Aprovacao, etc.)
+  - [ ] Memoria Episodica Recente (adicionei evento no topo, max 5-10)
+  - [ ] Notas da Sessao (adicionei/atualizei nota da sessao atual)
+  - [ ] Mantive sucinto (NO workflows completos)
+- [ ] Atualizei memory/{agente}-memory.md (agent-specific):
+  - [ ] Se gap foi deferred: Adicionei linha à tabela "Gaps Detectados"
+  - [ ] Se artifact foi rejeitado: Adicionei linha à tabela "Log de Rejeicoes"
+  - [ ] Adicionei nota de sessao detalhada em "Notas de Sessao"
+  - [ ] Mantive tabelas formatadas (pipes alinhados)
+- [ ] Se SPEC completa: Considerei criar workflow doc em `.context/workflows/`
+- [ ] ⚠️ Commitei memoria junto com artifact (nunca separado)
+
+**⚠️ CRITICO:** Commitar artifact sem atualizar memoria e uma **violacao T0-MEMORY-01**.
+
+**Output:** Memoria atualizada, contexto preservado, historico mantido.
+
+---
+
 ## Post-Commit Verification
 
 Apos commit, verifique rapidamente:
@@ -157,7 +180,8 @@ Apos commit, verifique rapidamente:
 - [ ] `git status` mostra working tree limpo
 - [ ] Arquivos criados existem no filesystem
 - [ ] INDEX.md abre sem erros de formatacao
-- [ ] MEMORY.md foi atualizado corretamente
+- [ ] MEMORY.md foi atualizado corretamente ⚠️ OBRIGATORIO
+- [ ] memory/{agente}-memory.md foi atualizado (se aplicavel)
 
 **Se qualquer verificacao falhou:** Corrija imediatamente com novo commit (nao use `--amend` a menos que commit nao foi pushed).
 
@@ -173,9 +197,13 @@ Para referencia rapida durante execucao:
 [ ] SELF-CRITIQUE: Score calculado (>= 75/100)
 [ ] HUMAN-GATE: Apresentado e aprovado pelo humano ⚠️
 [ ] COMMIT: Files escritos, INDEX.md atualizado, commit criado
+[ ] MEMORY-MANAGEMENT: MEMORY.md + agent memory atualizados ⚠️
 ```
 
-**⚠️ Lembre-se:** HUMAN-GATE e obrigatorio. Pular = T0 violation.
+**⚠️ Lembre-se:** 
+- HUMAN-GATE e obrigatorio (T0-HUMAN-01)
+- MEMORY-MANAGEMENT e obrigatorio (T0-MEMORY-01)
+- Pular qualquer um = T0 violation
 
 ---
 

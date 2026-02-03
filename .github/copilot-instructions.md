@@ -35,7 +35,7 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 1. AUTO-INCREMENT (.prompt-os/core/AUTO-INCREMENT.md)
    → Check if similar artifact exists
    → Detect gaps if necessary
-   → Register gap in memory/{agent}-memory.md if deferred
+   → If gap + defer: MEMORY-MANAGEMENT registers gap
 
 2. GENERATE
    → Create artifact following templates/standards
@@ -50,21 +50,31 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
    → Present artifact with visual score
    → Show complete preview to human
    → Wait for approval: approve|view|edit|reject|cancel
+   → If reject: MEMORY-MANAGEMENT registers rejection
    → ⚠️ NEVER write files without approval (T0-HUMAN-01 violation)
 
 5. COMMIT (only after approval)
    → Write files
    → Update indices (INDEX.md)
-   → Update MEMORY.md
    → Commit with conventional commits
+
+6. MEMORY-MANAGEMENT (.prompt-os/core/MEMORY-MANAGEMENT.md) ⚠️ MANDATORY
+   → Update MEMORY.md (statistics + episodic)
+   → Update memory/{agent}-memory.md (session notes)
+   → Create workflow doc if necessary (.context/workflows/)
+   → ⚠️ NEVER commit without updating memory (T0-MEMORY-01 violation)
 ```
 
-**⚠️ Skipping HUMAN-GATE is a T0 VIOLATION** - System integrity depends on this.
+**⚠️ T0 Violations**:
+- Skipping HUMAN-GATE = T0-HUMAN-01 violation
+- Skipping MEMORY-MANAGEMENT = T0-MEMORY-01 violation
 
-**Distributed Memory:**
-- Each agent has own memory: `memory/{agent}-memory.md` (ex: `opencode-memory.md`)
-- Global memory: `MEMORY.md` (aggregated stats and succinct summaries only)
-- Detailed workflows: `.context/workflows/` or `docs/`
+**Memory Architecture (3 Layers):**
+- **MEMORY.md**: Aggregated statistics + last 5-10 sessions (SUCCINCT)
+- **memory/{agent}-memory.md**: Gaps + Rejections + Detailed sessions (AGENT-SPECIFIC)
+- **.context/workflows/**: Reusable execution patterns (WORKFLOW DOCS)
+
+**Read full protocol:** `.prompt-os/core/MEMORY-MANAGEMENT.md`
 
 ## Build / Test / Lint (Optional)
 This repo is prompt/documentation-first; no required build. Optional tooling:

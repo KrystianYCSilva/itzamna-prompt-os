@@ -32,7 +32,7 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 1. AUTO-INCREMENT (.prompt-os/core/AUTO-INCREMENT.md)
    → Verificar se artefato similar existe
    → Detectar gaps se necessario
-   → Registrar gap em memory/{agente}-memory.md se deferred
+   → Se gap + defer: MEMORY-MANAGEMENT registra gap
 
 2. GENERATE
    → Criar artefato seguindo templates/standards
@@ -47,21 +47,31 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
    → Apresentar artefato com score visual
    → Mostrar preview completo ao humano
    → Aguardar aprovacao: approve|view|edit|reject|cancel
+   → Se reject: MEMORY-MANAGEMENT registra rejeicao
    → ⚠️ NUNCA escrever arquivos sem aprovacao (T0-HUMAN-01 violation)
 
 5. COMMIT (somente apos aprovacao)
    → Escrever arquivos
    → Atualizar indices (INDEX.md)
-   → Atualizar MEMORY.md
    → Commit com conventional commits
+
+6. MEMORY-MANAGEMENT (.prompt-os/core/MEMORY-MANAGEMENT.md) ⚠️ OBRIGATORIO
+   → Atualizar MEMORY.md (estatisticas + episodica)
+   → Atualizar memory/{agente}-memory.md (nota de sessao)
+   → Criar workflow doc se necessario (.context/workflows/)
+   → ⚠️ NUNCA commitar sem atualizar memoria (T0-MEMORY-01 violation)
 ```
 
-**⚠️ Pular HUMAN-GATE e uma violacao T0** - A integridade do sistema depende disso.
+**⚠️ Violacoes T0**:
+- Pular HUMAN-GATE = T0-HUMAN-01 violation
+- Pular MEMORY-MANAGEMENT = T0-MEMORY-01 violation
 
-**Memoria Distribuida:**
-- Cada agente tem memoria propria: `memory/{agente}-memory.md` (ex: `gemini-memory.md`)
-- Memoria global: `MEMORY.md` (apenas estatisticas agregadas e resumos sucintos)
-- Workflows detalhados: `.context/workflows/` ou `docs/`
+**Arquitetura de Memoria (3 Camadas):**
+- **MEMORY.md**: Estatisticas agregadas + ultimas 5-10 sessoes (SUCINTO)
+- **memory/{agente}-memory.md**: Gaps + Rejeicoes + Sessoes detalhadas (AGENT-SPECIFIC)
+- **.context/workflows/**: Execution patterns reutilizaveis (WORKFLOW DOCS)
+
+**Leia o protocolo completo:** `.prompt-os/core/MEMORY-MANAGEMENT.md`
 
 ---
 **Nota:** Este arquivo (`GEMINI.md`) é um espelho do meu estado interno para garantir que eu não perca o contexto da arquitetura Prompt-Based. Minha memória "viva" é o arquivo `MEMORY.md`.
