@@ -102,6 +102,46 @@
 | T1-ARCH-03 | **Interfaces para dependencias externas** | MVP, prototipo |
 | T1-ARCH-04 | **Tratamento de erros explicito** | Nunca (promova a T0 se necessario) |
 
+### T1-NAMING: Nomenclatura de Skills e Categorias
+
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-NAMING-01 | **Categorias em ingles** | Nunca (padrao do sistema) |
+| T1-NAMING-02 | **Subcategorias lowercase com hifens** | Convencao legada existente |
+| T1-NAMING-03 | **Skills seguem padrao da categoria** | Compatibilidade com sistema legado |
+
+**Categorias validas:**
+
+| Categoria | Subcategorias | Exemplo de Path |
+|-----------|---------------|-----------------|
+| `linguagens` | `java`, `kotlin`, `python`, `javascript`, `c-cpp`, `go`, `rust`, `typescript` | `.prompt-os/skills/linguagens/java/SKILL.md` |
+| `frameworks` | `spring`, `react`, `django`, `express`, `flask`, `angular`, `vue` | `.prompt-os/skills/frameworks/spring/SKILL.md` |
+| `cloud` | `aws`, `azure`, `gcp`, `kubernetes`, `docker`, `terraform` | `.prompt-os/skills/cloud/aws/SKILL.md` |
+| `databases` | `postgresql`, `mongodb`, `redis`, `elasticsearch` | `.prompt-os/skills/databases/postgresql/SKILL.md` |
+| `devops` | `cicd`, `monitoring`, `logging`, `infrastructure` | `.prompt-os/skills/devops/cicd/SKILL.md` |
+| `frontend` | `css`, `html`, `ui-ux`, `accessibility` | `.prompt-os/skills/frontend/css/SKILL.md` |
+| `backend` | `apis`, `authentication`, `microservices`, `messaging` | `.prompt-os/skills/backend/apis/SKILL.md` |
+| `testing` | `unit`, `integration`, `e2e`, `performance` | `.prompt-os/skills/testing/unit/SKILL.md` |
+| `tools` | `git`, `vim`, `vscode`, `ide` | `.prompt-os/skills/tools/git/SKILL.md` |
+| `patterns` | `design-patterns`, `architectural-patterns`, `best-practices` | `.prompt-os/skills/patterns/design-patterns/SKILL.md` |
+
+**Estrutura de paths:**
+```
+.prompt-os/skills/{categoria}/{subcategoria}/{versao}/SKILL.md
+                     ^ingles    ^lowercase-hifens  ^opcional
+```
+
+**Exemplos corretos:**
+- `.prompt-os/skills/linguagens/java/SKILL.md` (baseline)
+- `.prompt-os/skills/linguagens/java/java-17/SKILL.md` (versao especifica)
+- `.prompt-os/skills/frameworks/spring/spring-boot/SKILL.md` (sub-framework)
+- `.prompt-os/skills/cloud/aws/lambda/SKILL.md` (servico especifico)
+
+**Exemplos INCORRETOS:**
+- ❌ `.prompt-os/skills/Linguagens/Java/SKILL.md` (PascalCase)
+- ❌ `.prompt-os/skills/linguagens/Java_17/SKILL.md` (snake_case)
+- ❌ `.prompt-os/skills/programming-languages/java/SKILL.md` (categoria em ingles errada)
+
 ### T1-DOC: Documentacao
 
 | ID | Regra | Quando Quebrar |
