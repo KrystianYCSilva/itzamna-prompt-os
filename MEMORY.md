@@ -70,7 +70,7 @@
   - `skills/` e `personas/` na raiz = conteudo gerado pelo usuario
   - Protocolos internos atualizar para usar `.prompt-os/skills/INDEX.md`
 
-**Tasks completadas:** 34/35 (T034 = validação manual em andamento)
+**Tasks completadas:** 35/35 (T034 validado: 8 cenários, 9 FRs PASS)
 
 ---
 
@@ -207,7 +207,7 @@
 
 ---
 
-## Core Protocols (7 total, in `.prompt-os/core/`)
+## Core Protocols (8 total, in `.prompt-os/core/`)
 
 | Protocol | Implements | Status |
 |----------|------------|--------|

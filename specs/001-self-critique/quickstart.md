@@ -94,7 +94,7 @@ Choose the checklist matching your artifact type:
 
 ### Step 5: Check for Redundancy (Skills Only)
 
-1. Read `skills/INDEX.md` to get list of existing skills
+1. Read `.prompt-os/skills/INDEX.md` to get list of existing skills
 2. Compare your new skill's:
    - Name
    - Tags
