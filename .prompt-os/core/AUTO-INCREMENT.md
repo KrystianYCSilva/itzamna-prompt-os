@@ -62,9 +62,11 @@ Opcoes:
 O que prefere?"
 ```
 
-### Fase 3: Registrar Gap no MEMORY.md
+### Fase 3: Registrar Gap na Memoria do Agente
 
-Se o usuario NAO quiser criar skill agora, registre para futuro:
+Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`MEMORY/{agente}-memory.md`):
+
+**IMPORTANTE**: Cada agente registra em seu proprio arquivo (ex: `MEMORY/opencode-memory.md`, `MEMORY/itzamna-memory.md`) para evitar conflitos de escrita concorrente.
 
 ```markdown
 ## Gaps Detectados
@@ -84,7 +86,7 @@ Se o usuario NAO quiser criar skill agora, registre para futuro:
 Se o humano rejeitar algo que voce gerou:
 
 1. **SEMPRE pergunte o motivo** (se nao foi dado)
-2. **Registre no MEMORY.md** para aprendizado
+2. **Registre em `MEMORY/{agente}-memory.md`** para aprendizado
 3. **Ajuste sua abordagem** na proxima tentativa
 
 ### Categorias de Rejeicao
@@ -100,6 +102,8 @@ Classifique o motivo da rejeicao:
 | **Relevancia** | "nao aplica", "fora do escopo" | Melhorar classificacao |
 
 ### Registro de Rejeicao
+
+Adicione ao seu arquivo de memoria (`MEMORY/{agente}-memory.md`):
 
 ```markdown
 ## Log de Rejeicoes
@@ -132,7 +136,7 @@ SE categoria "exemplos" aparece em >30% das rejeicoes:
 
 Sugira nova skill quando:
 
-1. **Mesmo gap aparece 2+ vezes** em MEMORY.md
+1. **Mesmo gap aparece 2+ vezes** no seu `MEMORY/{agente}-memory.md`
 2. **Usuario menciona tecnologia** que nao temos skill
 3. **Skill existente esta obsoleta** (>2 anos sem atualizacao)
 
@@ -168,6 +172,17 @@ Gostaria que eu atualizasse esta skill?
 ---
 
 ## RELATORIO DE EVOLUCAO
+
+### Agregacao Cross-Agent
+
+**IMPORTANTE**: Relatorios de evolucao agregam dados de TODOS os agentes do sistema:
+
+1. **Leia todos os arquivos de memoria**: `MEMORY/opencode-memory.md`, `MEMORY/itzamna-memory.md`, `MEMORY/speckit-memory.md`, etc.
+2. **Agregue estatisticas**: Conte gaps, rejeicoes e padroes em TODOS os arquivos
+3. **Consulte estatisticas globais**: Root `MEMORY.md` para metricas compartilhadas
+4. **Gere relatorio unificado**: Visao completa da evolucao do sistema
+
+Isto permite insights cross-agent (ex: "opencode detecta gaps de infraestrutura, itzamna detecta gaps de documentacao").
 
 ### O Que Incluir
 
@@ -225,7 +240,7 @@ Periodicamente (quando solicitado), gere relatorio:
 ```
 [ ] Perguntar motivo (se nao dado)
 [ ] Classificar categoria
-[ ] Registrar em MEMORY.md
+[ ] Registrar em MEMORY/{agente}-memory.md
 [ ] Identificar se e padrao recorrente
 [ ] Ajustar proxima tentativa
 ```
@@ -270,7 +285,12 @@ Ao carregar skills:
 
 ### O Que Lembrar
 
-Mantenha em mente (ou consulte MEMORY.md):
+**Arquitetura de Memoria Distribuida:**
+- Cada agente registra em seu proprio arquivo: `MEMORY/{agente}-memory.md` (ex: `opencode-memory.md`, `itzamna-memory.md`)
+- Root `MEMORY.md` contem apenas estatisticas globais agregadas
+- Isto evita conflitos de escrita concorrente entre diferentes agentes
+
+Mantenha em mente (ou consulte seu arquivo de memoria):
 
 1. **Gaps frequentes** - O que usuarios pedem que nao temos
 2. **Padroes de rejeicao** - Por que coisas sao rejeitadas
