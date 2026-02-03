@@ -4,9 +4,11 @@
 
 [![Version](https://img.shields.io/badge/version-2.1.0-blue)]()
 [![Architecture](https://img.shields.io/badge/architecture-Prompt--Based-green)]()
-[![Skills](https://img.shields.io/badge/skills-18-purple)]()
+[![Skills](https://img.shields.io/badge/skills-23-purple)]()
 [![Personas](https://img.shields.io/badge/personas-1-orange)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
+[![SPEC-010](https://img.shields.io/badge/SPEC--010-Complete-success)]()
+
 
 ---
 
@@ -141,8 +143,9 @@ itzamna-prompt-os/
 │   ├── tools/                   # Optional CLI tools
 │   └── scripts/                 # Utility scripts
 │
-├── skills/                      # Skills library (18 total)
+├── skills/                      # Skills library (23 total)
 │   ├── INDEX.md                 # Skills index
+│   ├── linguagens-programacao/  # 6 skills (5 baselines: Java, Kotlin, C/C++, JavaScript, Python)
 │   ├── frontend/                # 3 skills
 │   ├── backend/                 # 4 skills
 │   ├── config/                  # 3 skills
@@ -185,7 +188,18 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 
 ---
 
-## Skills Library (18 Total)
+## Skills Library (23 Total)
+
+### Linguagens de Programação (6 skills) 🆕
+
+| Skill | Level | Description |
+|-------|-------|-------------|
+| [java](`.prompt-os/skills/linguagens/java/SKILL.md`) | L1 | Java baseline: static typing, JVM, GC, threads |
+| [kotlin](`.prompt-os/skills/linguagens/kotlin/SKILL.md`) | L1 | Kotlin baseline: null safety, coroutines, multiplatform |
+| [c-cpp](`.prompt-os/skills/linguagens/c-cpp/SKILL.md`) | L1 | C/C++ baseline: pointers, RAII, manual memory (+ 3 JIT sub-files) |
+| [javascript](`.prompt-os/skills/linguagens/javascript/SKILL.md`) | L1 | JavaScript baseline: event loop, async/await, npm (+ JIT sub-file) |
+| [python](`.prompt-os/skills/linguagens/python/SKILL.md`) | L1 | Python baseline: duck typing, GIL, asyncio (+ JIT sub-file) |
+| [java-8-orientacao-objetos](skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) | L2 | Java 8 e orientação a objetos |
 
 ### Backend (4 skills)
 | Skill | Level | Description |
@@ -221,11 +235,6 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 | [markdown](skills/markup/markdown/SKILL.md) | L1 | Text formatting |
 | [xml](skills/markup/xml/SKILL.md) | L1 | XML structure |
 | [xslt](skills/markup/xslt/SKILL.md) | L2 | XML transformations |
-
-### Linguagens de Programação (1 skill)
-| Skill | Level | Description |
-|-------|-------|-------------|
-| [java-8-orientacao-objetos](skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) | L2 | Java 8 e orientação a objetos |
 
 ### Docs & Testing (2 skills)
 | Skill | Level | Description |

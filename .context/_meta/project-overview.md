@@ -2,6 +2,7 @@
 
 > **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 > **Última Atualização:** 2026-02-03
+> **SPEC-010 Status:** ✅ COMPLETE (5 language baselines delivered)
 
 ---
 
@@ -77,28 +78,57 @@
 ### Métricas
 
 ```yaml
-version: 2.0.0
+version: 2.1.0
 architecture: prompt-based
 entry_point: .prompt-os/PROMPTOS.md
-core_protocols: 7
-skills_total: 17
-skills_categories: 7
+core_protocols: 8
+skills_total: 23
+skills_categories: 8
+skills_language_baselines: 5
 personas_total: 1
 agents_synced: 5
-specs_implemented: 5
+specs_implemented: 6
 ```
+
+### SPEC-010: Language Skills Baseline (COMPLETE ✅)
+
+**Period:** 2026-02-03  
+**Status:** Phase 1 Complete - 5 language baselines delivered
+
+| Metric | Target | Achieved | Status |
+|--------|--------|----------|--------|
+| Skills created | 5 | 5 | ✅ 100% |
+| Avg Self-Critique score | ≥75 | 99.20 | ✅ +32% above target |
+| Rejection rate | <20% | 0% | ✅ Perfect |
+| Constitution violations | 0 | 0 | ✅ Perfect |
+| Avg time per skill | <60min | 51min | ✅ 15% faster |
+
+**Languages delivered:**
+- Java (100/100) - Static typing, JVM, GC, threads
+- Kotlin (99/100) - Null safety, coroutines, multiplatform
+- C/C++ (99/100) - Manual memory, RAII, compilation (3 JIT sub-files)
+- JavaScript (99/100) - Event loop, async/await, npm (1 JIT sub-file)
+- Python (99/100) - Duck typing, GIL, asyncio (1 JIT sub-file)
+
+**Innovation:** JIT sub-files pattern - solved token limits while preserving completeness
+
+**Reports:**
+- `specs/010-language-skills-baseline/reports/self-critique-metrics.md`
+- `specs/010-language-skills-baseline/reports/gap-detection-report.md`
+- `specs/010-language-skills-baseline/reports/rejection-analysis-report.md`
 
 ### Core Protocols Implementados
 
 | Protocolo | Arquivo | Propósito |
 |-----------|---------|-----------|
-| Self-Critique | `SELF-CRITIQUE.md` | Avaliação de qualidade |
-| Auto-Increment | `AUTO-INCREMENT.md` | Detecção de gaps |
+| Self-Critique | `SELF-CRITIQUE.md` | Avaliação de qualidade (SPEC-001) |
+| Auto-Increment | `AUTO-INCREMENT.md` | Detecção de gaps e rejection learning (SPEC-002) |
 | Web Research | `WEB-RESEARCH.md` | Metodologia de pesquisa |
 | Knowledge Base | `KNOWLEDGE-BASE.md` | Gestão de conhecimento |
 | Persona Generator | `PERSONA-GENERATOR.md` | Criação de personas |
 | Input Classifier | `INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `JIT-PROTOCOL.md` | Carregamento otimizado |
+| Human Gate | `HUMAN-GATE.md` | Aprovação humana antes de persistir |
 
 ### Agentes Sincronizados
 
@@ -172,6 +202,7 @@ O sistema funciona com qualquer AI que consiga:
 
 | Versão | Data | Mudança Principal |
 |--------|------|-------------------|
+| 2.1.0 | 2026-02-03 | SPEC-010 complete: 5 language baselines, JIT sub-files innovation |
 | 2.0.0 | 2026-02-02 | Arquitetura prompt-based |
 | 1.0.0 | 2026-02-02 | Piloto funcional (code-centric) |
 
@@ -185,4 +216,4 @@ O sistema funciona com qualquer AI que consiga:
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Project Overview | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Project Overview | 2026-02-03*
