@@ -47,6 +47,7 @@ Baseado no tipo de tarefa, carregue protocolos de .prompt-os/core/:
 - INPUT-CLASSIFIER.md → Para classificação de input
 - JIT-PROTOCOL.md → Para carregamento otimizado
 - HUMAN-GATE.md → Para aprovação humana
+- MEMORY-MANAGEMENT.md → Para gestão de memória persistente
 ```
 
 ---
@@ -251,6 +252,11 @@ NUNCA inventar informações
 **Propósito:** Protocolo de aprovação humana
 **Quando usar:** Antes de qualquer operação de persistência L2/L3
 **Output:** Interface para aprovação do usuário
+
+### 7.9 MEMORY-MANAGEMENT.md
+**Propósito:** Gestão de memória persistente (3 camadas)
+**Quando usar:** Após ações significativas, ao final de sessões
+**Output:** MEMORY.md atualizado, agent-memory atualizado, workflow docs criados se necessário
 
 ---
 

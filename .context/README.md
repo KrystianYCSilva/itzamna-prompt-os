@@ -100,6 +100,7 @@ ALWAYS cite a regra específica (ID) na resposta
 | Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Carregamento sob demanda |
 | Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Aprovação humana |
+| Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Gestão de memória (3 camadas) |
 
 ### Constitution
 ```
