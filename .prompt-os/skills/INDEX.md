@@ -65,7 +65,7 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | technical-writing | Redacao tecnica e documentacao | L2 | `skills/docs/technical-writing/SKILL.md` |
 
-### Linguagens de Programacao (5 skills)
+### Linguagens de Programacao (6 skills)
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
@@ -74,6 +74,7 @@ Uma skill define **COMO FAZER** algo especifico:
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
 | javascript | Fundamentos de JavaScript: tipagem dinamica, event loop, async/await, npm | L1 | `.prompt-os/skills/linguagens/javascript/SKILL.md` |
 | kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
+| python | Fundamentos da linguagem Python: duck typing, GIL, asyncio, ecossistema pip/PyPI | L1 | `.prompt-os/skills/linguagens/python/SKILL.md` |
 
 ### Testing (1 skill)
 
@@ -87,8 +88,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 22 |
-| Aprovadas | 22 |
+| Total de Skills | 23 |
+| Aprovadas | 23 |
 | Rascunho | 0 |
 | Categorias | 8 |
 

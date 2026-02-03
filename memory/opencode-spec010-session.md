@@ -88,6 +88,20 @@
 - Rejection rate: <20%
 - Resolution time: <30min por skill
 
+### Self-Critique Tracking
+
+| Linguagem | Score | Status | Commit | Notes |
+|-----------|-------|--------|--------|-------|
+| Java | 100/100 | APPROVED | f98c934 | Baseline version-agnostic (learned action) |
+| Kotlin | 99/100 | APPROVED | 6ed835a | Version-agnostic, slightly over 1,400 tokens (acceptable) |
+| C/C++ | 99/100 | APPROVED | c24cf50 | JIT sub-files innovation (compilation, build-tools, advanced-memory) |
+| JavaScript | 99/100 | APPROVED | 7e6d762 | JIT sub-file (ecosystem), refactored 2,750→1,500 tokens |
+| Python | 99/100 | APPROVED | PENDING | JIT sub-file (ecosystem), 518 lines main + 390 lines JIT |
+
+**Average score:** 99.20  
+**Rejection rate:** 0%  
+**Constitution violations:** 0
+
 ---
 
 **Ultimo update:** 2026-02-03
