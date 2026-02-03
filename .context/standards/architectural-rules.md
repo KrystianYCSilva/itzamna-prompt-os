@@ -1,7 +1,7 @@
 # Architectural Rules - T0 (Enforcement)
 
 > **Tier:** T0 - ABSOLUTO. SEMPRE seguir estas regras.
-> **Versão:** 2.0.0 | **Atualizado:** 2026-02-02
+> **Versão:** 2.1.0 | **Atualizado:** 2026-02-03
 
 ---
 
@@ -17,7 +17,7 @@ Regras T0 são **INVIOLÁVEIS**. Se uma ação viola qualquer regra T0:
 
 ## ARCH-001: Human-in-the-Loop Enforcement
 
-**ID:** `T0-HUMAN-01`  
+**ID:** `T0-HUMAN-01`
 **Regra:** Nenhuma operação de persistência pode ocorrer sem aprovação humana explícita.
 
 ### Operações que Requerem Aprovação
@@ -61,7 +61,7 @@ saveToFile(artifact); // Nunca salvar sem aprovação!
 
 ## ARCH-002: Kernel Lightweight Constraint
 
-**ID:** `T0-SIZE-01`  
+**ID:** `T0-SIZE-01`
 **Regra:** O kernel (AGENTS.md) deve ter menos de 5KB.
 
 ### Justificativa
@@ -80,11 +80,11 @@ Context windows de AI são limitados. Kernel leve deixa espaço para skills e co
 
 ```markdown
 // ✅ CORRETO
-# AGENTS.md - Itzamna PromptOS v2.0.0
+# AGENTS.md - Itzamna PromptOS v2.1.0
 > **Size:** ~4.5KB (dentro do limite)
 
-// ❌ PROIBIDO  
-# AGENTS.md - Itzamna PromptOS v2.0.0
+// ❌ PROIBIDO
+# AGENTS.md - Itzamna PromptOS v2.1.0
 > **Size:** ~8KB (excede limite!)
 // Mover conteúdo para .prompt-os/core/ ou skills/
 ```
@@ -93,7 +93,7 @@ Context windows de AI são limitados. Kernel leve deixa espaço para skills e co
 
 ## ARCH-003: Skill Size Limit
 
-**ID:** `T0-SIZE-02`  
+**ID:** `T0-SIZE-02`
 **Regra:** Cada skill deve ter menos de 1400 tokens.
 
 ### Justificativa
@@ -109,7 +109,7 @@ Skills muito grandes consomem contexto desnecessariamente. Preferir composição
 
 ## ARCH-004: Source Citation Requirement
 
-**ID:** `T0-SOURCE-01`  
+**ID:** `T0-SOURCE-01`
 **Regra:** Sempre citar fontes em skills geradas.
 
 ### Requisitos
@@ -142,7 +142,7 @@ Skills muito grandes consomem contexto desnecessariamente. Preferir composição
 
 ## ARCH-005: Cross-Model Compatibility
 
-**ID:** `T0-COMPAT-01`  
+**ID:** `T0-COMPAT-01`
 **Regra:** Todas as implementações devem funcionar em diferentes modelos de IA.
 
 ### Modelos Suportados
@@ -172,7 +172,7 @@ Assumir capacidades não-universais
 
 ## ARCH-006: Memory State Management
 
-**ID:** `T0-MEMORY-01`  
+**ID:** `T0-MEMORY-01`
 **Regra:** Atualizar MEMORY.md após cada ação significativa.
 
 ### Ações que Requerem Atualização
@@ -190,15 +190,15 @@ Assumir capacidades não-universais
 
 | Data | Tipo | Nome | Status |
 |------|------|------|--------|
-| 2026-02-02 | skill | docker | approved |
-| 2026-02-02 | persona | devops-expert | approved |
+| 2026-02-03 | skill | docker | approved |
+| 2026-02-03 | persona | devops-expert | approved |
 ```
 
 ---
 
 ## ARCH-007: Prompt-Based Architecture
 
-**ID:** `T0-ARCH-01`  
+**ID:** `T0-ARCH-01`
 **Regra:** O core do sistema são prompts (Markdown), não código executável.
 
 ### Princípio
@@ -223,7 +223,7 @@ Protocols: .prompt-os/core/*.md
 
 ## ARCH-008: Entry Point Requirement
 
-**ID:** `T0-ENTRY-01`  
+**ID:** `T0-ENTRY-01`
 **Regra:** `.prompt-os/PROMPTOS.md` é o entry point obrigatório.
 
 ### Bootstrap Sequence
@@ -239,7 +239,7 @@ Protocols: .prompt-os/core/*.md
 
 ## ARCH-009: Self-Critique Before Persist
 
-**ID:** `T0-CRITIQUE-01`  
+**ID:** `T0-CRITIQUE-01`
 **Regra:** Executar Self-Critique antes de qualquer operação L2/L3.
 
 ### Fluxo
@@ -256,7 +256,7 @@ Protocols: .prompt-os/core/*.md
 
 ## ARCH-010: Tier Precedence
 
-**ID:** `T0-TIER-01`  
+**ID:** `T0-TIER-01`
 **Regra:** Respeitar hierarquia de tiers em conflitos.
 
 ### Hierarquia
@@ -277,6 +277,32 @@ SE T2 conflita com T3 → T2 VENCE
 
 // ❌ PROIBIDO
 Ignorar regra T0 silenciosamente
+```
+
+---
+
+## ARCH-011: Enhanced Protocol Integration
+
+**ID:** `T0-PROTOCOL-01`
+**Regra:** Todos os protocolos devem estar integrados e referenciarem-se mutuamente.
+
+### Justificativa
+Para garantir consistência e evitar redundâncias entre os protocolos do sistema.
+
+### Implementação
+
+- Self-Critique deve referenciar Human Gate
+- Human Gate deve exibir resultados do Self-Critique
+- JIT Protocol deve referenciar Input Classifier
+- Knowledge Base deve referenciar outras skills
+
+### Exemplo
+
+```markdown
+// ✅ CORRETO
+## Protocolos Integrados
+- Self-Critique: Avalia qualidade antes do Human Gate
+- Human Gate: Apresenta resultado do Self-Critique ao usuário
 ```
 
 ---
@@ -304,6 +330,10 @@ Antes de qualquer ação de persistência:
 - [ ] Funciona em múltiplos modelos?
 - [ ] Sem dependências específicas?
 - [ ] Markdown padrão?
+
+### T0 - Integração
+- [ ] Protocolos referenciam-se corretamente?
+- [ ] Informações do Self-Critique incluídas no Human Gate?
 
 ---
 
@@ -333,4 +363,4 @@ Sugestão: Posso mostrar o preview para você aprovar?
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Architectural Rules | T0 Enforcement | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Architectural Rules | T0 Enforcement | 2026-02-03*

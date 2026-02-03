@@ -51,10 +51,10 @@ function chk(x) {
 def calculate_total_price(items):
     """
     Calcula o preço total de uma lista de itens.
-    
+
     Args:
         items: Lista de dicionários com 'price' e 'quantity'
-        
+
     Returns:
         float: Preço total calculado
     """
@@ -157,3 +157,16 @@ describe('validateUserInput', () => {
   });
 });
 ```
+
+## Integração com Protocolos (v2.1.0)
+
+### Aplicação de Padrões Durante a Geração
+- Ao gerar código, aplicar automaticamente os padrões definidos
+- Verificar conformidade com os protocolos de qualidade
+- Incluir exemplos de código que seguem os padrões
+- Referenciar os protocolos relevantes (.prompt-os/core/)
+
+### Verificação de Qualidade
+- Usar SELF-CRITIQUE.md para avaliar qualidade do código gerado
+- Verificar se o código segue os padrões definidos antes de apresentar no HUMAN-GATE.md
+- Incluir checklist de qualidade nos artefatos gerados

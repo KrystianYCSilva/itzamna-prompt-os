@@ -129,10 +129,10 @@ test('error case', () => {
 test('should validate user input correctly', () => {
   // Arrange
   const input = '  hello world  ';
-  
+
   // Act
   const result = validateUserInput(input);
-  
+
   // Assert
   expect(result).toBe('hello world');
 });
@@ -160,3 +160,15 @@ test.each([
 - Documentar cenários complexos de teste
 - Manter exemplos atualizados com o comportamento esperado
 - Registrar exceções e motivos para skips condicionais
+
+## Integração com Protocolos (v2.1.0)
+
+### Testes Durante a Geração de Skills
+- Ao gerar uma skill, incluir exemplos de teste quando apropriado
+- Verificar se os exemplos fornecidos são testáveis
+- Incluir seção de testes na própria skill se for relevante
+
+### Verificação de Qualidade
+- Usar SELF-CRITIQUE.md para avaliar qualidade dos testes propostos
+- Verificar se os testes cobrem casos de borda e situações de erro
+- Incluir checklist de qualidade de testes nos artefatos gerados

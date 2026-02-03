@@ -1,7 +1,7 @@
-# Tech Stack - Itzamna PromptOS v2.0.0
+# Tech Stack - Itzamna PromptOS v2.1.0
 
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
-> **Última Atualização:** 2026-02-02
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Última Atualização:** 2026-02-03
 
 ---
 

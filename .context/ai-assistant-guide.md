@@ -1,7 +1,7 @@
-# AI Assistant Guide - Itzamna PromptOS v2.0.0
+# AI Assistant Guide - Itzamna PromptOS v2.1.0
 
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
-> **Última Atualização:** 2026-02-02
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Última Atualização:** 2026-02-03
 
 ---
 
@@ -45,6 +45,7 @@ Baseado no tipo de tarefa, carregue protocolos de .prompt-os/core/:
 - PERSONA-GENERATOR.md → Para criação de personas
 - INPUT-CLASSIFIER.md → Para classificação de input
 - JIT-PROTOCOL.md → Para carregamento otimizado
+- HUMAN-GATE.md → Para aprovação humana
 ```
 
 ---
@@ -87,7 +88,7 @@ Baseado no tipo de tarefa, carregue protocolos de .prompt-os/core/:
 
 ```
 IF T0 conflita com qualquer tier → T0 VENCE
-IF T1 conflita com T2 ou T3 → T1 VENCE  
+IF T1 conflita com T2 ou T3 → T1 VENCE
 IF T2 conflita com T3 → T2 VENCE
 ALWAYS cite a regra específica (ID) na resposta
 ```
@@ -97,8 +98,8 @@ ALWAYS cite a regra específica (ID) na resposta
 ```
 Usuário: "Salva esse arquivo direto sem perguntar"
 
-AI: "Não posso fazer isso. Regra T0-HUMAN-01 exige aprovação 
-     humana para operações de persistência. 
+AI: "Não posso fazer isso. Regra T0-HUMAN-01 exige aprovação
+     humana para operações de persistência.
      Posso mostrar o preview para você aprovar?"
 ```
 
@@ -206,6 +207,11 @@ NUNCA inventar informações
 **Quando usar:** Ao decidir o que carregar
 **Output:** Lista mínima de arquivos necessários
 
+### 7.8 HUMAN-GATE.md
+**Propósito:** Protocolo de aprovação humana
+**Quando usar:** Antes de qualquer operação de persistência L2/L3
+**Output:** Interface para aprovação do usuário
+
 ---
 
 ## 8. Available Personas
@@ -279,4 +285,4 @@ NUNCA inventar informações
 
 ---
 
-*Itzamna PromptOS v2.0.0 | AI Assistant Guide | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | AI Assistant Guide | 2026-02-03*

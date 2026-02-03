@@ -1,7 +1,7 @@
 # Common Issues & Troubleshooting - T2 (Context)
 
 > **Tier**: T2 - Informativo. Problemas comuns e soluções para o desenvolvimento com Itzamna PromptOS.
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 
 ## Problemas de Bootstrap
 
@@ -228,6 +228,33 @@
 2. Reforçar: "Regras ARCH-XXX são T0 ABSOLUTO"
 ```
 
+## Problemas de Integração de Protocolos (v2.1.0)
+
+### 18. Protocolos Não Integrados
+**Sintoma**: Protocolos não se referenciam mutuamente como esperado.
+
+**Causa**: Implementação incompleta da ADR-011.
+
+**Solução**:
+```
+1. Verificar se Self-Critique referencia Human Gate
+2. Verificar se Human Gate exibe resultados do Self-Critique
+3. Verificar integração entre JIT Protocol e Input Classifier
+4. Confirmar que Knowledge Base referencia outras skills
+```
+
+### 19. Informações do Self-Critique Não Exibidas
+**Sintoma**: Human Gate não mostra score e sugestões do Self-Critique.
+
+**Causa**: Falta de integração entre os protocolos.
+
+**Solução**:
+```
+1. Verificar se Self-Critique gera saída formatada correta
+2. Verificar se Human Gate lê e exibe essas informações
+3. Confirmar que ambos protocolos seguem formato padronizado
+```
+
 ## Diagnóstico Rápido
 
 ### Checklist de Verificação
@@ -240,6 +267,7 @@
 □ Human Gate está funcionando?
 □ Self-Critique está sendo executado?
 □ MEMORY.md está sendo atualizado?
+□ Protocolos estão integrados (v2.1.0)?
 ```
 
 ### Comandos de Reset
@@ -265,12 +293,14 @@ Para "resetar" o AI para estado correto:
 1. Sempre mostrar preview antes de persistir
 2. Executar Self-Critique antes do Human Gate
 3. Atualizar MEMORY.md após cada ação significativa
+4. Verificar integração entre protocolos (v2.1.0)
 
 ### Ao Encontrar Problemas
 1. Identificar qual protocolo/regra foi violado
 2. Citar regra específica (ID)
 3. Instruir AI a seguir o protocolo correto
+4. Verificar integração com outros protocolos
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Troubleshooting | T2 Context | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Troubleshooting | T2 Context | 2026-02-03*

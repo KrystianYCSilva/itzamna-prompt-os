@@ -1,14 +1,14 @@
 # Key Decisions - Itzamna PromptOS
 
-> **Versão:** 2.0.0 | Architectural Decision Records (ADRs)
-> **Última Atualização:** 2026-02-02
+> **Versão:** 2.1.0 | Architectural Decision Records (ADRs)
+> **Última Atualização:** 2026-02-03
 
 ---
 
 ## ADR-001: Human-in-the-Loop Protocol
 
-**Data:** 2026-01-15  
-**Status:** ✅ Aprovado  
+**Data:** 2026-01-15
+**Status:** ✅ Aprovado
 **Tier:** T0
 
 ### Contexto
@@ -31,8 +31,8 @@ Implementar protocolo de aprovação humana obrigatória para todas as operaçõ
 
 ## ADR-002: Kernel Lightweight Architecture
 
-**Data:** 2026-01-16  
-**Status:** ✅ Aprovado  
+**Data:** 2026-01-16
+**Status:** ✅ Aprovado
 **Tier:** T0
 
 ### Contexto
@@ -54,8 +54,8 @@ Manter o kernel (AGENTS.md) com tamanho inferior a 5KB, contendo apenas regras f
 
 ## ADR-003: JIT Skill Loading
 
-**Data:** 2026-01-17  
-**Status:** ✅ Aprovado  
+**Data:** 2026-01-17
+**Status:** ✅ Aprovado
 **Tier:** T1
 
 ### Contexto
@@ -77,8 +77,8 @@ Implementar carregamento Just-In-Time (JIT) de skills baseado em necessidade con
 
 ## ADR-004: Cross-Model Compatibility
 
-**Data:** 2026-01-18  
-**Status:** ✅ Aprovado  
+**Data:** 2026-01-18
+**Status:** ✅ Aprovado
 **Tier:** T0
 
 ### Contexto
@@ -101,8 +101,8 @@ Garantir que todas as implementações funcionem consistentemente em diferentes 
 
 ## ADR-005: 6-Phase Generation Pipeline
 
-**Data:** 2026-01-19  
-**Status:** ✅ Aprovado  
+**Data:** 2026-01-19
+**Status:** ✅ Aprovado
 **Tier:** T1
 
 ### Contexto
@@ -125,8 +125,8 @@ Implementar pipeline de 6 fases: Classify → Research → Generate → Self-Cri
 
 ## ADR-006: Prompt-Based Architecture (v2.0.0)
 
-**Data:** 2026-02-02  
-**Status:** ✅ Aprovado  
+**Data:** 2026-02-02
+**Status:** ✅ Aprovado
 **Tier:** T0
 
 ### Contexto
@@ -173,8 +173,8 @@ Reestruturar o sistema para ser **prompt-based**: o core são arquivos Markdown 
 
 ## ADR-007: Tier System for Rules
 
-**Data:** 2026-02-02  
-**Status:** ✅ Aprovado  
+**Data:** 2026-02-02
+**Status:** ✅ Aprovado
 **Tier:** T0
 
 ### Contexto
@@ -204,8 +204,8 @@ Se tiers conflitam, tier mais alto vence.
 
 ## ADR-008: Self-Critique Before Human Gate
 
-**Data:** 2026-02-02  
-**Status:** ✅ Aprovado  
+**Data:** 2026-02-02
+**Status:** ✅ Aprovado
 **Tier:** T1
 
 ### Contexto
@@ -229,8 +229,8 @@ Implementar auto-avaliação antes do Human Gate, com score de confiança e suge
 
 ## ADR-009: Unified Context Structure
 
-**Data:** 2026-02-02  
-**Status:** ✅ Aprovado  
+**Data:** 2026-02-02
+**Status:** ✅ Aprovado
 **Tier:** T1
 
 ### Contexto
@@ -265,8 +265,8 @@ Implementar estrutura `.context/` padronizada baseada na RFC-UNIFIED-CONTEXT-STR
 
 ## ADR-010: Learning from Rejections
 
-**Data:** 2026-02-02  
-**Status:** ✅ Aprovado  
+**Data:** 2026-02-02
+**Status:** ✅ Aprovado
 **Tier:** T1
 
 ### Contexto
@@ -282,13 +282,44 @@ Registrar motivos de rejeição e usar para melhorar o sistema.
 
 ---
 
+## ADR-011: Enhanced Protocol Integration (v2.1.0)
+
+**Data:** 2026-02-03
+**Status:** ✅ Aprovado
+**Tier:** T1
+
+### Contexto
+A v2.0.0 introduziu a arquitetura prompt-based, mas faltava integração mais profunda entre os protocolos.
+
+### Decisão
+Integrar mais profundamente os protocolos core, especialmente o Human Gate, com os demais protocolos.
+
+### Razões
+1. **Consistência:** Garantir que todos os protocolos sejam usados juntos de forma coerente
+2. **Eficiência:** Reduzir redundâncias entre protocolos
+3. **Qualidade:** Melhorar a integração entre Self-Critique e Human Gate
+
+### Consequências
+- ✅ Maior integração entre protocolos
+- ✅ Menos inconsistências na aplicação
+- ✅ Melhor experiência de uso
+- ⚠️ Requer revisão de todos os protocolos existentes
+
+### Implementação
+- Atualização do `.prompt-os/core/HUMAN-GATE.md`
+- Integração com Self-Critique para mostrar scores automaticamente
+- Atualização de todos os protocolos para referenciar uns aos outros
+
+---
+
 ## Histórico de Versões
 
 | Versão | Data | ADRs Adicionados |
 |--------|------|------------------|
+| 2.1.0 | 2026-02-03 | ADR-011 |
 | 2.0.0 | 2026-02-02 | ADR-006 a ADR-010 |
 | 1.0.0 | 2026-01-19 | ADR-001 a ADR-005 |
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Key Decisions | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Key Decisions | 2026-02-03*

@@ -1,7 +1,7 @@
 # PromptOS Structure Examples - T3 (Illustrative)
 
-> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.0.0.
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
+> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.1.0.
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 
 ## Estrutura do Sistema PromptOS
 
@@ -22,7 +22,8 @@ itzamna-prompt-os/
 │   │   ├── KNOWLEDGE-BASE.md        # Gestão de conhecimento
 │   │   ├── PERSONA-GENERATOR.md     # Criação de personas
 │   │   ├── INPUT-CLASSIFIER.md      # Classificação de input
-│   │   └── JIT-PROTOCOL.md          # Carregamento otimizado
+│   │   ├── JIT-PROTOCOL.md          # Carregamento otimizado
+│   │   └── HUMAN-GATE.md            # Aprovação humana (v2.1.0)
 │   │
 │   ├── templates/                   # Templates canônicos
 │   │   ├── SKILL.template.md
@@ -291,4 +292,4 @@ refactor(personas): simplify fullstack developer
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Examples | T3 Illustrative | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Examples | T3 Illustrative | 2026-02-03*

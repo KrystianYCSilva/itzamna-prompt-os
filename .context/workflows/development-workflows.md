@@ -1,9 +1,9 @@
 # Development Workflows - T1 (Normative)
 
 > **Tier**: T1 - Normativo. Siga estes fluxos de trabalho para manter consistência no desenvolvimento.
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 
-## Fluxos PromptOS v2.0.0
+## Fluxos PromptOS v2.1.0
 
 ### 1. Workflow de Inicialização (Bootstrap)
 
@@ -380,4 +380,4 @@ SE esforço estimado > 5 dias OU funcionalidade crítica:
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Development Workflows | T1 Normative | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Development Workflows | T1 Normative | 2026-02-03*

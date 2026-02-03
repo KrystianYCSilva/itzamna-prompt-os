@@ -1,18 +1,18 @@
 # Architectural Overview - T1 (Blueprints)
 
 > **Tier**: T1 - Blueprints. Estes padrões arquiteturais devem ser seguidos em novas implementações.
-> **Versão:** 2.0.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 
 ## Visão Geral da Arquitetura
 
-### Insight Chave (v2.0.0)
+### Insight Chave (v2.1.0)
 
 ```
 PromptOS = PROMPTS (Markdown) que AI agents LEEM e SEGUEM
          ≠ Código que executa
 
 Entry Point: .prompt-os/PROMPTOS.md
-Protocols: .prompt-os/core/*.md (7 protocolos)
+Protocols: .prompt-os/core/*.md (8 protocolos)
 Knowledge: skills/*.md (17 skills)
 ```
 
@@ -36,7 +36,7 @@ Knowledge: skills/*.md (17 skills)
 ┌──────────────────┐ ┌──────────────┐ ┌──────────────────┐
 │ CONSTITUTION.md  │ │  core/*.md   │ │   skills/*.md    │
 │   (T0 Rules)     │ │ (Protocols)  │ │  (Knowledge)     │
-│   7 princípios   │ │ 7 protocolos │ │  17 skills       │
+│   7 princípios   │ │ 8 protocolos │ │  17 skills       │
 └──────────────────┘ └──────────────┘ └──────────────────┘
                               │
                               ▼
@@ -53,11 +53,11 @@ Knowledge: skills/*.md (17 skills)
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Componentes Principais (v2.0.0)
+### Componentes Principais (v2.1.0)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Itzamna PromptOS v2.0.0                  │
+│                    Itzamna PromptOS v2.1.0                  │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
 │  │   .prompt-os/   │  │    skills/      │  │  personas/  │ │
@@ -82,10 +82,11 @@ Knowledge: skills/*.md (17 skills)
 ### 1. Prompt-Based Architecture (CORE)
 **Objetivo**: Sistema funciona via instruções Markdown, não código executável.
 
-**Princípio v2.0.0**:
+**Princípio v2.1.0**:
 ```
 O sistema são PROMPTS que AI agents LEEM e SEGUEM.
 Não há código que precisa executar para funcionar.
+Todos os protocolos estão integrados e se referenciam mutuamente.
 ```
 
 **Características**:
@@ -122,17 +123,19 @@ Não há código que precisa executar para funcionar.
 - Pré-visualização antes de persistência
 - Registro de decisões de aprovação/rejeição
 - Workflow explícito de gate humano
+- Integração com Self-Critique (v2.1.0)
 
 **Implementação**:
 - Fase 5 do pipeline de geração (Human Gate)
 - Comandos: approve, view, edit, reject, cancel
 - Definido em CONSTITUTION.md (T0-HUMAN-01)
+- Recebe e exibe resultados do Self-Critique
 
 **Fluxo**:
 ```
 1. AI gera artefato
 2. AI executa Self-Critique
-3. AI MOSTRA preview ao usuário
+3. AI MOSTRA preview + score + sugestões ao usuário
 4. AGUARDA decisão: approve | reject | edit
 5. SE aprovado: persiste e atualiza MEMORY.md
 6. SE rejeitado: registra motivo para aprendizado
@@ -250,9 +253,9 @@ PHASE 6: COMMIT (após aprovação)
 | L2 | 10-60s | Criação de skill, código | Não |
 | L3 | 5-15min | Arquitetura, planejamento | Não |
 
-## Protocolos Core (v2.0.0)
+## Protocolos Core (v2.1.0)
 
-### 7 Protocolos Implementados
+### 8 Protocolos Implementados
 
 | Protocolo | Arquivo | Propósito |
 |-----------|---------|-----------|
@@ -263,6 +266,7 @@ PHASE 6: COMMIT (após aprovação)
 | Persona Generator | `PERSONA-GENERATOR.md` | Criação de personas |
 | Input Classifier | `INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `JIT-PROTOCOL.md` | Carregamento otimizado |
+| Human Gate | `HUMAN-GATE.md` | Aprovação humana (v2.1.0) |
 
 ### Como Protocolos Funcionam
 
@@ -277,7 +281,8 @@ Exemplo:
 5. AI pesquisa e gera
 6. AI lê: SELF-CRITIQUE.md
 7. AI avalia qualidade
-8. AI apresenta para Human Gate
+8. AI lê: HUMAN-GATE.md
+9. AI apresenta para aprovação humana
 ```
 
 ## Padrões de Integração
@@ -294,11 +299,25 @@ Exemplo:
 | Gemini | `.gemini/` | Lê PROMPTOS.md |
 | Qwen | `.qwen/` | Lê PROMPTOS.md |
 
-### 2. Spec-Kit Integration
+### 2. Enhanced Protocol Integration (v2.1.0)
+**Objetivo**: Garantir que todos os protocolos se referenciem mutuamente e funcionem em conjunto.
+
+**Características (v2.1.0)**:
+- Self-Critique se integra com Human Gate
+- Human Gate exibe resultados do Self-Critique
+- JIT Protocol referencia Input Classifier
+- Knowledge Base referencia outras skills
+
+**Implementação**:
+- Protocolos se referenciam mutuamente
+- Resultados de um alimentam o próximo
+- Informações compartilhadas entre protocolos
+
+### 3. Spec-Kit Integration
 **Objetivo**: Especificações formais para funcionalidades complexas (>5 dias).
 
 **Quando Usar**:
-- Esforço estimado > 5 dias
+- Esforço estimado > 5 dias OU funcionalidade crítica
 - Funcionalidade crítica
 - Múltiplos componentes envolvidos
 
@@ -352,4 +371,4 @@ SEMPRE citar regra específica (ID) na resposta
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Architectural Overview | T1 Blueprints | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Architectural Overview | T1 Blueprints | 2026-02-03*

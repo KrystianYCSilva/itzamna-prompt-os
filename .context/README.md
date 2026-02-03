@@ -1,7 +1,7 @@
 # .context/ - AI Context Hub
 
-> **Itzamna PromptOS v2.0.0** | Prompt-Based Architecture
-> **Atualizado:** 2026-02-02
+> **Itzamna PromptOS v2.1.0** | Prompt-Based Architecture
+> **Atualizado:** 2026-02-03
 
 ---
 
@@ -99,6 +99,7 @@ ALWAYS cite a regra específica (ID) na resposta
 | Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criação de personas |
 | Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Carregamento sob demanda |
+| Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Aprovação humana |
 
 ### Constitution
 ```
@@ -172,4 +173,4 @@ Qualquer agente pode ler .prompt-os/PROMPTOS.md e seguir as instruções
 
 ---
 
-*Itzamna PromptOS v2.0.0 | Prompt-Based Architecture | 2026-02-02*
+*Itzamna PromptOS v2.1.0 | Prompt-Based Architecture | 2026-02-03*
