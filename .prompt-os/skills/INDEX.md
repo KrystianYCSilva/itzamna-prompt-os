@@ -17,7 +17,7 @@ Uma skill define **COMO FAZER** algo especifico:
 
 ---
 
-## SKILLS DISPONIVEIS (20 total, 8 categorias)
+## SKILLS DISPONIVEIS (21 total, 8 categorias)
 
 ### Frontend (3 skills)
 
@@ -65,10 +65,11 @@ Uma skill define **COMO FAZER** algo especifico:
 |------|-----------|-------|---------|
 | technical-writing | Redacao tecnica e documentacao | L2 | `skills/docs/technical-writing/SKILL.md` |
 
-### Linguagens de Programacao (3 skills)
+### Linguagens de Programacao (4 skills)
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
+| c-cpp | Fundamentos de C/C++: ponteiros, memoria manual, RAII, compilacao nativa | L1 | `.prompt-os/skills/linguagens/c-cpp/SKILL.md` |
 | java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
 | java-8-orientacao-objetos | Fundamentos de OOP em Java 8: classes, heranca, interfaces e polimorismo | L2 | `skills/linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md` |
 | kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
@@ -85,8 +86,8 @@ Uma skill define **COMO FAZER** algo especifico:
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 20 |
-| Aprovadas | 20 |
+| Total de Skills | 21 |
+| Aprovadas | 21 |
 | Rascunho | 0 |
 | Categorias | 8 |
 
