@@ -2,8 +2,8 @@
 
 **Ultima Atualizacao:** 2026-02-03
 **Versao:** 2.1.0
-**Sessoes Totais:** 16
-**Spec Atual:** Transição SPEC-010 → SPEC-003 (AGUARDANDO APROVAÇÃO)
+**Sessoes Totais:** 18
+**Spec Atual:** SPEC-010 ✅ COMPLETE | Ready for SPEC-003 (AGUARDANDO APROVAÇÃO)
 
 ---
 
@@ -11,23 +11,29 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Skills Totais | 24 |
-| Skills Approved | 24 |
+| Skills Totais | 10 (5 baselines + 5 advanced) |
+| Skills Approved | 10 |
 | Skills Draft | 0 |
 | Language Baselines | 5 (Java, Kotlin, C/C++, JavaScript, Python) |
-| Language Advanced | 3 (Java 8 OOP, Java 11, Java 17) |
-| Personas Geradas | 1 |
+| Language Advanced | 5 (Java 8, Java 11, Java 17, Java 21, Java 23) |
+| Personas Geradas | 0 (8 conceituais definidas, criar conforme necessidade) |
 | Taxa de Aprovacao | 100% |
-| Categorias | 8 |
+| Categorias | 1 (linguagens) |
 | Core Protocols | 8 |
-| Ultima Geracao | 2026-02-03 (Java 17 skill) |
+| Ultima Geracao | 2026-02-03 (Python baseline - SPEC-010 complete) |
 
 ---
 
 ## Memoria Episodica Recente
 
 | Data | Tipo | Nome | Status |
+| 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-23/SKILL.md | ✅ created |
+| 2026-02-03 | update | .prompt-os/skills/INDEX.md | ✅ updated |
+| 2026-02-03 | update | skills/INDEX.md | ✅ updated |
+| 2026-02-03 | skill | .prompt-os/skills/linguagens/java/java-21/SKILL.md | ✅ created |
+| 2026-02-03 | update | .prompt-os/skills/linguagens/java/SKILL.md | ✅ updated |
 |------|------|------|--------|
+| 2026-02-03 | skill | java-11 modern features (var, http-client, string-methods) | ✅ approved (100/100) |
 | 2026-02-03 | skill | java-17 modern features (sealed, records, patterns, virtual threads) | ✅ approved (100/100) |
 | 2026-02-03 | transition | SPEC-010 → SPEC-003 documentation | ✅ complete |
 | 2026-02-03 | doc | specs/TRANSITION-010-TO-003.md | ✅ created |
@@ -66,6 +72,82 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 18 (2026-02-03) - System Cleanup 🧹
+
+**Feature: Remove test artifacts & clean system for SPEC-003 — COMPLETE**
+
+- **Objetivo**: Remover skills/personas de teste (v1.0) e backups, deixar sistema limpo para SPEC-003
+
+- **Removals completed (5 items)**:
+  1. ✅ `skills/` directory (root) - 18 test skills from v1.0 removed
+  2. ✅ `personas/` directory (root) - 1 test persona removed
+  3. ✅ `.prompt-os/core/SELF-CRITIQUE.md.backup` - Backup file removed
+  4. ✅ `.prompt-os/core/AUTO-INCREMENT.md.backup-20260203` - Backup file removed
+  5. ✅ `.prompt-os/core/__pycache__/` - Python cache removed
+
+- **INDEX files updated (2)**:
+  1. ✅ `.prompt-os/skills/INDEX.md` - Rewritten to reference ONLY `.prompt-os/skills/` (5 baselines + 5 advanced)
+  2. ✅ `.prompt-os/personas/INDEX.md` - Updated to show 8 conceptual personas (not yet created)
+
+- **Architecture clarification**:
+  - **OLD (v1.0):** Skills/personas mixed between root and `.prompt-os/`
+  - **NEW (v2.1.0):** ALL content in `.prompt-os/` structure
+  - **Skills:** `.prompt-os/skills/linguagens/` (5 baselines + 5 advanced = 10 total)
+  - **Personas:** `.prompt-os/personas/` (0 created, 8 conceptual defined)
+
+- **Final state**:
+  - Skills: 10 (down from 24 - removed 18 test examples, kept 5 baselines + 5 advanced)
+  - Personas: 0 (removed 1 test example, 8 conceptual templates ready)
+  - Clean `.prompt-os/core/` (no backups, no __pycache__)
+  - System ready for SPEC-003
+
+**Status**: ✅ COMPLETE - Sistema limpo e pronto para SPEC-003
+
+---
+
+### Sessao 17 (2026-02-03) - Agent Bootstrap & Memory Updates 🔄
+
+**Feature: Agent synchronization & distributed memory updates — COMPLETE**
+
+- **Objetivo**: Sincronizar todos os agentes com SPEC-010 achievements e atualizar distributed memory
+
+- **Agent bootstrap files updated (6 total)**:
+  1. ✅ `AGENTS.md` - Verified (already minimal, no changes needed)
+  2. ✅ `CLAUDE.md` - Updated skills count (18→23), added language baselines section, SPEC-010 achievements, v2.2.0 roadmap
+  3. ✅ `QWEN.md` - Updated skills count and SPEC-010 status in context summary
+  4. ✅ `GEMINI.md` - Updated current state with SPEC-010 completion and skills count
+  5. ✅ `.cursorrules` - Verified (already minimal, no changes needed)
+  6. ✅ `.github/copilot-instructions.md` - Updated skills count and SPEC status with SPEC-010 achievements
+
+- **Distributed memory files updated (3 total)**:
+  1. ✅ `memory/opencode-memory.md` - Added Session 16 notes (agent updates, SPEC-010 complete, transition doc)
+  2. ✅ `memory/itzamna-memory.md` - Added Session 16 notes (v2.1.0 complete, language baselines, JIT pattern)
+  3. ✅ `memory/speckit-memory.md` - Added Session 16 notes (23 skills, SPEC-010 complete, transition ready)
+
+- **Architecture clarification**:
+  - ✅ Verified directory structure: `skills/` (root) and `.prompt-os/skills/` serve **different purposes**
+  - `.prompt-os/skills/INDEX.md` = Registry (metadata for protocol lookup)
+  - `skills/` (root) = Content (actual skill files for JIT loading)
+  - Same pattern for personas: `.prompt-os/personas/INDEX.md` (registry) + `personas/` (content)
+  - Both directories are **necessary** and not deprecated
+
+- **Key updates made**:
+  - Skills count: 18 → 23 (all agent files)
+  - Language Baselines: Added 5 (Java, Kotlin, C/C++, JavaScript, Python)
+  - SPEC-010 status: ✅ COMPLETE (99.20 avg score, 0% rejections)
+  - JIT sub-files pattern: Documented and referenced
+  - v2.2.0 roadmap: SPEC-003 Web Research Enhancement as NEXT
+  - Cross-agent memory: All 3 distributed memory files synced
+
+- **Files modified (10 total)**:
+  - 6 agent bootstrap files
+  - 3 distributed memory files
+  - 1 main memory file (MEMORY.md - this file)
+
+**Status**: ✅ COMPLETE - All agents synchronized, memory updated, ready for SPEC-003
+
+---
 
 ### Sessao 16 (2026-02-03) - Transição SPEC-010 → SPEC-003 📋
 
@@ -548,10 +630,11 @@
 |-------|-------|--------|
 | technical-writing | L2 | approved |
 
-### linguagens-programacao/ (1 skill)
+### linguagens-programacao/ (2 skills)
 | Skill | Level | Status |
 |-------|-------|--------|
 | java/java-8-orientacao-objetos | L2 | approved |
+| java/java-11 | L2 | approved |
 
 ### testing/ (1 skill)
 | Skill | Level | Status |
@@ -682,3 +765,5 @@ Key improvement in v2.1.0:
 - JIT Protocol properly integrated with Input Classifier
 - Knowledge Base referencing other skills for better context
 - All protocols now reference each other for consistency
+
+

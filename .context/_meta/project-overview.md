@@ -3,6 +3,7 @@
 > **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
 > **Última Atualização:** 2026-02-03
 > **SPEC-010 Status:** ✅ COMPLETE (5 language baselines delivered)
+> **Próxima SPEC:** SPEC-003 (Web Research Protocol Enhancement)
 
 ---
 
@@ -112,10 +113,17 @@ specs_implemented: 6
 
 **Innovation:** JIT sub-files pattern - solved token limits while preserving completeness
 
+**Key Learnings from SPEC-010:**
+1. ✅ **JIT sub-files pattern proven** - Use for skills >1,400 tokens (score improvements: 94→99)
+2. ✅ **Version-agnostic approach** - Avoid version-specific markers ("Language (moderno)" pattern)
+3. ✅ **Self-Critique ≥99 = approval** - Perfect correlation (100% first-pass approval rate)
+4. ✅ **Zero gaps for baselines** - Comprehensive scope prevents gap triggers
+5. ✅ **Consistent structure enhances quality** - Template-driven creation faster (51min avg vs 60min target)
+
 **Reports:**
-- `specs/010-language-skills-baseline/reports/self-critique-metrics.md`
-- `specs/010-language-skills-baseline/reports/gap-detection-report.md`
-- `specs/010-language-skills-baseline/reports/rejection-analysis-report.md`
+- `specs/010-language-skills-baseline/reports/self-critique-metrics.md` (99.20 avg score, 0% rejections)
+- `specs/010-language-skills-baseline/reports/gap-detection-report.md` (0 gaps - optimal for baselines)
+- `specs/010-language-skills-baseline/reports/rejection-analysis-report.md` (0% rejection rate vs <20% target)
 
 ### Core Protocols Implementados
 
@@ -205,6 +213,27 @@ O sistema funciona com qualquer AI que consiga:
 | 2.1.0 | 2026-02-03 | SPEC-010 complete: 5 language baselines, JIT sub-files innovation |
 | 2.0.0 | 2026-02-02 | Arquitetura prompt-based |
 | 1.0.0 | 2026-02-02 | Piloto funcional (code-centric) |
+
+---
+
+## Roadmap
+
+### Próximas SPECs
+
+| SPEC | Nome | Status | Prioridade | Dependências |
+|------|------|--------|------------|--------------|
+| **003** | **Web Research Protocol Enhancement** | **NEXT** | **P1** | SPEC-002 (Auto-Increment) |
+| 004 | Vector DB RAG | Planejada | P2 | SPEC-003 |
+| 005 | Persona CLI | Planejada | P2 | SPEC-001, SPEC-002 |
+| 011 | Advanced Language Skills (Phase 2) | Planejada | P1 | SPEC-010 |
+
+**SPEC-003 Focus:** Enhance WEB-RESEARCH.md protocol with real source validation, citation management, and research quality metrics.
+
+**Expected deliverables:**
+- Enhanced `.prompt-os/core/WEB-RESEARCH.md` with source validation rules
+- Source citation templates for skills
+- Research quality checklist (official docs, recency, authority)
+- Integration with Auto-Increment for source gap detection
 
 ---
 

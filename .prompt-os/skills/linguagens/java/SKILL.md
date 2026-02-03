@@ -253,6 +253,7 @@ A biblioteca padrão Java é vasta:
 ## Specialized Version Skills
 
 Para features específicas de versões LTS ou modernas:
+- [java-23](java-23/SKILL.md) - Primitive patterns, module imports, structured concurrency, scoped values (Preview)
 - [java-17](java-17/SKILL.md) - Sealed classes, records, pattern matching, virtual threads (Preview)
 - [java-11](java-11/SKILL.md) - var, HttpClient, String methods (Java 11 LTS)
 - [java-8-orientacao-objetos](../../linguagens-programacao/java/java-8-orientacao-objetos/SKILL.md) - OOP fundamentals
@@ -277,4 +278,9 @@ Para features específicas de versões LTS ou modernas:
 
 ## Versões Específicas
 
+- [Java 23](./java-23/SKILL.md) - Preview language + concurrency features (JEP 455/476/480/481)
+- [Java 8](./java-8/SKILL.md) - Features introduzidas na versão 8 (lambdas, streams, optional, nova API de datas)
 - [Java 11](./java-11/SKILL.md) - Features da versão LTS 11 (var, HttpClient, String methods)
+- [Java 17](./java-17/SKILL.md) - Features introduzidas na versão 17 (records, sealed classes, switch expressions)
+- [Java 21](./java-21/SKILL.md) - LTS com Virtual Threads, Pattern Matching e Sequenced Collections
+

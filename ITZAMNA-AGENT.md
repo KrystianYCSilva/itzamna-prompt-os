@@ -2,6 +2,7 @@
 
 > **Itzamna PromptOS v2.1.0** | Agente Principal
 > **Arquitetura:** Prompt-Based | **Compatibilidade:** Universal (Claude, GPT, Gemini, Cursor, Copilot, Qwen, etc.)
+> **SPEC-010:** ✅ COMPLETE (5 language baselines, 99.20 avg score) | **Próxima:** SPEC-003 (Web Research)
 
 ---
 
@@ -241,6 +242,39 @@ Para cada artefato gerado:
 3. Se gap detectado: Registrar em Gaps Detectados
 4. Ao final: Gerar relatorios usando templates
 ```
+
+### Aprendizados SPEC-010 (Language Skills Baseline)
+
+**Métricas alcançadas:**
+- ✅ 99.20 average Self-Critique score (+32% acima do target de 75)
+- ✅ 0% rejection rate (target <20%)
+- ✅ 0 gaps detectados (ótimo para baselines auto-contidos)
+- ✅ 0 violações de Constitution
+- ✅ 51min avg por skill (15% mais rápido que target de 60min)
+
+**Padrões proven:**
+1. **JIT sub-files pattern** - Skills >1,400 tokens → extrair seções para arquivos JIT
+   - C/C++: 3 sub-files (compilation, build-tools, advanced-memory)
+   - JavaScript: 1 sub-file (ecosystem)
+   - Python: 1 sub-file (ecosystem)
+   - Score improvement: 94→99 (C/C++), 95→99 (JavaScript)
+
+2. **Version-agnostic baselines** - "Language (moderno)" ao invés de versões específicas
+   - Aprendido em Java (skill 1/5), aplicado em todas subsequentes
+   - Evita content desatualizado
+
+3. **Self-Critique ≥99 = aprovação** - Correlação perfeita
+   - Todos os 5 skills com score ≥99 foram aprovados (100% first-pass approval)
+
+4. **Estrutura consistente** - Template-driven creation
+   - Velocidade: 51min avg (15% abaixo do target)
+   - Clareza: 100% em todos os skills
+
+**Learned actions (aplicar em specs futuras):**
+- [ ] Use JIT sub-files quando skill aproxima 1,400 tokens
+- [ ] Version-agnostic approach para baselines
+- [ ] Self-Critique rigoroso antes de Human Gate (target ≥99 para baselines)
+- [ ] Estrutura template consistente acelera criação
 
 ### Guias de Referencia
 

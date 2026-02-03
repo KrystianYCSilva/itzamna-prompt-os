@@ -18,16 +18,20 @@ Uma persona define **QUEM voce deve ser** ao executar uma tarefa:
 
 ## PERSONAS DISPONIVEIS
 
-| ID | Persona | Quando Usar | Arquivo |
-|----|---------|-------------|---------|
-| PO | Product Owner | Criar features, CARDs, requisitos | `product-owner/PERSONA.md` |
-| SE | Software Engineer | Implementar codigo | `software-engineer/PERSONA.md` |
-| QA | QA Engineer | Criar e executar testes | `qa-engineer/PERSONA.md` |
-| CR | Code Reviewer | Revisar codigo | `code-reviewer/PERSONA.md` |
-| DB | Debugger | Corrigir bugs | `debugger/PERSONA.md` |
-| TW | Technical Writer | Documentacao | `technical-writer/PERSONA.md` |
-| SA | Solutions Architect | Decisoes arquiteturais | `solutions-architect/PERSONA.md` |
-| DO | DevOps Engineer | Infraestrutura, CI/CD | `devops-engineer/PERSONA.md` |
+**Status:** Nenhuma persona gerada ainda. A tabela abaixo define as **8 personas conceituais** que podem ser criadas conforme necessidade.
+
+| ID | Persona | Quando Usar | Status |
+|----|---------|-------------|--------|
+| PO | Product Owner | Criar features, CARDs, requisitos | 📋 Not created |
+| SE | Software Engineer | Implementar codigo | 📋 Not created |
+| QA | QA Engineer | Criar e executar testes | 📋 Not created |
+| CR | Code Reviewer | Revisar codigo | 📋 Not created |
+| DB | Debugger | Corrigir bugs | 📋 Not created |
+| TW | Technical Writer | Documentacao | 📋 Not created |
+| SA | Solutions Architect | Decisoes arquiteturais | 📋 Not created |
+| DO | DevOps Engineer | Infraestrutura, CI/CD | 📋 Not created |
+
+**Nota:** Personas antigas em `personas/` foram removidas (exemplos de teste v1.0). Novas personas serão criadas em `.prompt-os/personas/` conforme necessidade usando `PERSONA-GENERATOR.md`.
 
 ---
 

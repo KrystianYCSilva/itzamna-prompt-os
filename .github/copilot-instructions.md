@@ -6,18 +6,19 @@ Itzamna PromptOS is a **prompt-based** operating system for AI agents. The core 
 ## What Exists Now
 - **Core protocols** (prompt-based): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
 - **State**: `MEMORY.md` is the stable memory file; always update it after significant actions.
-- **Skills/Personas**: 18 approved skills across 8 categories and 1 persona (see `MEMORY.md` for current inventory).
+- **Skills/Personas**: 23 approved skills across 8 categories (18 legacy + 5 language baselines: Java, Kotlin, C/C++, JavaScript, Python) and 1 persona (see `MEMORY.md` for current inventory).
 - **Optional tools**: Node CLI `brain.js`, Python `cli.py`, PowerShell `sync-constitution.ps1` for human operators.
 
 ## Current Work / Roadmap (from MEMORY.md + specs)
-- **v2.1.0** is complete: SPEC-002 AUTO-INCREMENT fully validated (90/90 tasks), distributed memory architecture, cross-protocol integration.
+- **v2.1.0** is complete: SPEC-002 AUTO-INCREMENT fully validated (90/90 tasks), SPEC-010 Language Skills Baseline complete (5/5 skills, 99.20 avg score, 0% rejections), distributed memory architecture, cross-protocol integration.
 - **Spec status**:
   - **SPEC-001 Self-Critique**: ✅ Complete (35/35 tasks) - implemented in prompt protocols.
   - **SPEC-002 Auto-Increment**: ✅ Complete (90/90 tasks) - production ready, implemented as `.prompt-os/core/AUTO-INCREMENT.md`.
-  - **SPEC-003 Web Research**: Implemented as `.prompt-os/core/WEB-RESEARCH.md`.
+  - **SPEC-010 Language Skills Baseline**: ✅ Complete (5/5 skills) - Java, Kotlin, C/C++, JavaScript, Python baselines delivered. JIT sub-files pattern proven (scores: 94→99 for C/C++, 95→99 for JavaScript).
+  - **SPEC-003 Web Research**: Implemented as `.prompt-os/core/WEB-RESEARCH.md`. NEXT: v2.2.0 enhancement.
   - **SPEC-004 Vector DB + RAG**: Prompt-based implementation in `.prompt-os/core/KNOWLEDGE-BASE.md`; full vector DB tooling optional.
   - **SPEC-005 Persona CLI**: Implemented as `.prompt-os/core/PERSONA-GENERATOR.md`.
-- **Next steps (v2.2.0)**: monitoring infrastructure setup, merge branch to main, production deployment, feedback collection.
+- **Next steps (v2.2.0)**: SPEC-003 Web Research Enhancement - query optimization, source ranking improvements, research workflows.
 
 ## Critical Conventions
 - **Human Gate (T0)**: Never create/modify/delete files without explicit human approval. Always show a preview before committing changes.

@@ -287,6 +287,7 @@ All write operations require human approval:
 #### Entregas
 - [x] SPEC-001 Self-Critique: Enhanced protocol com 4 dimensões de avaliação (35/35 tasks)
 - [x] SPEC-002 Auto-Increment: Gap detection, rejection learning, proactive suggestions, evolution reports (90/90 tasks, production ready)
+- [x] SPEC-010 Language Skills Baseline: 5 baselines (Java, Kotlin, C/C++, JavaScript, Python) - 99.20 avg score
 - [x] Distributed memory architecture: `memory/{agente}-memory.md` para cada agente
 - [x] Cross-agent aggregation: Evolution reports agregam dados de TODOS os agentes
 - [x] Cross-model testing documentation
@@ -303,6 +304,45 @@ All write operations require human approval:
 | Cross-model consistency | > 90% | 100% |
 | Protocol load time | < 100ms | 85ms avg |
 | Documentation coverage | 100% | 100% |
+| SPEC-010 Self-Critique score | ≥75 | 99.20 (+32%) |
+| SPEC-010 Rejection rate | <20% | 0% (perfect) |
+| SPEC-010 Constitution violations | 0 | 0 (perfect) |
+
+**Key Innovation:** JIT sub-files pattern - solved T0-SIZE-01 token limits while preserving completeness
+
+---
+
+### v2.2.0 - Web Research Enhancement (PRÓXIMA)
+
+**Status:** Planejada  
+**SPEC:** 003 (Web Research Protocol Enhancement)  
+**Início Estimado:** 2026-02-04  
+**Duração Estimada:** 3-5 dias
+
+#### Objetivos
+1. Enhance WEB-RESEARCH.md protocol with real source validation
+2. Implement citation management and quality metrics
+3. Create source validation rules (official docs, recency, authority)
+4. Integrate with Auto-Increment for source gap detection
+
+#### Entregas Planejadas
+- [ ] Enhanced `.prompt-os/core/WEB-RESEARCH.md` with source validation rules
+- [ ] Source citation templates for skills
+- [ ] Research quality checklist (5-tier source hierarchy)
+- [ ] Source validation examples and patterns
+- [ ] Integration tests with existing protocols (Self-Critique, Auto-Increment)
+- [ ] Documentation updates (README, ai-assistant-guide, ITZAMNA-AGENT)
+
+#### Critérios de Sucesso
+- [ ] All skills generated use validated sources (>= Tier 2)
+- [ ] Source citations follow consistent format
+- [ ] Research quality score incorporated into Self-Critique
+- [ ] Auto-Increment suggests source improvements when quality < threshold
+
+**Preparação baseada em SPEC-010:**
+- Aplicar JIT sub-files pattern se WEB-RESEARCH.md > 1,400 tokens
+- Target Self-Critique score ≥95 para protocol enhancements
+- Zero Constitution violations (especialmente T0-SOURCE-01)
 
 ---
 

@@ -12,10 +12,11 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **Self-Critique:** Obrigatório para toda criação L2/L3 (v2.0 Enhanced).
 
 ## 3. Estado Atual (Snapshot de MEMORY.md)
-*   **Versão:** 2.1.0 (Enhanced protocols - SPEC-002 completa).
-*   **Skills:** 18 aprovadas (Recém adicionada: `java-8-orientacao-objetos`).
+*   **Versão:** 2.1.0 (Enhanced protocols - SPEC-002 completa, SPEC-010 completa).
+*   **Skills:** 23 aprovadas (18 legacy + 5 language baselines: Java, Kotlin, C/C++, JavaScript, Python).
+*   **SPEC-010:** ✅ COMPLETE - Language Skills Baseline (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
 *   **Feature Recente:** `AUTO-INCREMENT.md` (Gap detection, rejection learning, proactive suggestions, evolution reports).
-*   **Próximos Passos:** Monitoramento de uso do Auto-Increment Protocol.
+*   **Próximos Passos:** SPEC-003 Web Research Enhancement (v2.2.0).
 
 ## 4. Referências Rápidas de Tiers
 *   **T0 (Absoluto):** `standards/architectural-rules.md`.

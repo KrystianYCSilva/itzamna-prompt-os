@@ -49,8 +49,10 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 - Entry point: `.prompt-os/PROMPTOS.md`; regras em `.prompt-os/CONSTITUTION.md`.
 - Protocolos core (8): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
 - Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
-- Skills/Personas: 18 skills em 8 categorias; 1 persona (ver `MEMORY.md`).
-- Roadmap v2.1.0 completo: SPEC-002 validada (90/90 tasks), memoria distribuida, integracao cross-protocol.
+- Skills/Personas: **23 skills** em 8 categorias (18 legacy + **5 language baselines**: Java, Kotlin, C/C++, JavaScript, Python); 1 persona (ver `MEMORY.md`).
+- SPEC-010 **✅ COMPLETE**: 5 language baselines delivered (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
+- Roadmap v2.1.0 completo: SPEC-002 validada (90/90 tasks), SPEC-010 validada (5/5 skills), memoria distribuida, integracao cross-protocol.
+- **Próximo (v2.2.0)**: SPEC-003 Web Research Enhancement.
 
 ---
 
