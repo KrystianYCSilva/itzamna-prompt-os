@@ -45,6 +45,11 @@ SE NAO EXISTE:
   -> Registre como GAP
   -> Informe ao usuario
   -> Sugira criacao
+
+SE TOPICO MUITO VAGO:
+  -> Pergunte clarificacao ANTES de registrar gap
+  -> Exemplo: "Qual tecnologia de streaming voce quer usar?" 
+  -> Aguarde resposta especifica para sugerir nome de skill
 ```
 
 ### Fase 2: Informar ao Usuario
@@ -76,6 +81,11 @@ Se o usuario NAO quiser criar skill agora, registre no seu arquivo de memoria (`
 | 2026-02-02 | "Como usar Kafka?" | kafka-basics | pending |
 | 2026-02-01 | "Deploy com ArgoCD" | argocd-deploy | pending |
 ```
+
+**Atualizacao de Status**: Sempre atualize o status do gap conforme acao do usuario:
+- `pending` → `created` quando skill for criada e adicionada ao INDEX.md
+- `pending` → `deferred` quando usuario escolher opcao 2 ou 3 (proceder sem skill)
+- `pending` → `rejected` quando usuario explicitamente recusar criacao
 
 ---
 
