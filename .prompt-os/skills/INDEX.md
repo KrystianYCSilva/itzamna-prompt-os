@@ -39,6 +39,8 @@ Uma skill define **COMO FAZER** algo especifico:
 | java-17 | Features do Java 17 (LTS): sealed classes, records, pattern matching | L2 | `.prompt-os/skills/linguagens/java/java-17/SKILL.md` |
 | java-21 | Features do Java 21 (LTS): virtual threads, pattern matching, sequenced collections | L2 | `.prompt-os/skills/linguagens/java/java-21/SKILL.md` |
 | java-23 | Features do Java 23: primitive patterns, flexible constructor bodies | L2 | `.prompt-os/skills/linguagens/java/java-23/SKILL.md` |
+| kotlin-1xx | Especificidades do Kotlin 1.x.x (antes do K2): extension functions, DSLs | L2 | `.prompt-os/skills/linguagens/kotlin/kotlin-1xx/SKILL.md` |
+| kotlin-2xx | Features do Kotlin 2.x (K2): context receivers, compiler performance | L2 | `.prompt-os/skills/linguagens/kotlin/kotlin-2xx/SKILL.md` |
 
 ---
 
@@ -63,8 +65,8 @@ Algumas skills usam **sub-files** para manter o tamanho dentro do limite T0-SIZE
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 5 baselines + 5 advanced = 10 |
-| Aprovadas | 10 |
+| Total de Skills | 5 baselines + 7 advanced = 12 |
+| Aprovadas | 12 |
 | Rascunho | 0 |
 | Categorias | 1 (linguagens) |
 

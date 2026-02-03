@@ -316,3 +316,11 @@ Biblioteca padrão rica com extensions para coleções, strings, I/O:
 **Comunidade:**
 - [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
 - [Kotlin Forum](https://discuss.kotlinlang.org/)
+
+**Versões Específicas:**
+- [Kotlin 2.x (K2)](./kotlin-2xx/SKILL.md) - Para features específicas do compilador K2, como `context receivers`.
+
+**Versões Antigas (Kotlin 1.x.x):**
+- [@kotlin-1xx](kotlin-1xx/SKILL.md) - Especificidades do desenvolvimento em Kotlin 1.x.x (antes do K2 Compiler)
+- [@kotlin-funcional](kotlin-1xx/kotlin-funcional/) - Programação funcional em Kotlin 1.x.x
+- [@kotlin-orientacao-objetos](kotlin-1xx/kotlin-orientacao-objetos/) - Orientação a objetos em Kotlin 1.x.x
