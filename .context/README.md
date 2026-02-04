@@ -1,7 +1,7 @@
 # .context/ - AI Context Hub
 
-> **Itzamna PromptOS v2.1.0** | Prompt-Based Architecture
-> **Atualizado:** 2026-02-03
+> **Itzamna PromptOS v2.2.0** | Prompt-Based Architecture
+> **Atualizado:** 2026-02-04
 
 ---
 
@@ -176,4 +176,4 @@ Qualquer agente pode ler .prompt-os/PROMPTOS.md e seguir as instruções
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Prompt-Based Architecture | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Prompt-Based Architecture | 2026-02-04*
