@@ -48,8 +48,8 @@
 ## 🔗 QUICK NAVIGATION
 
 - [PROTOCOL-APPLICATION.md](PROTOCOL-APPLICATION.md) — Full protocol application checklist
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Core](../README.md)
+- [PromptOS Root](../../README.md)
 
 ---
 

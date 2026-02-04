@@ -26,6 +26,7 @@
 1. Classifique o input usando INPUT-CLASSIFIER.md
 2. Carregue skills/protocolos necessários (JIT)
 3. Siga Human Gate para operações de escrita
+4. Para visao humana consolidada: docs/ARCHITECTURE.md
 ```
 
 ---
@@ -138,6 +139,7 @@ Qualquer agente pode ler .prompt-os/PROMPTOS.md e seguir as instruções
 | Necessidade | Arquivo |
 |-------------|---------|
 | Entender o projeto | `_meta/project-overview.md` |
+| Arquitetura consolidada (humano) | `docs/ARCHITECTURE.md` |
 | Ver tecnologias | `_meta/tech-stack.md` |
 | Decisões arquiteturais | `_meta/key-decisions.md` |
 | Regras obrigatórias | `standards/architectural-rules.md` |

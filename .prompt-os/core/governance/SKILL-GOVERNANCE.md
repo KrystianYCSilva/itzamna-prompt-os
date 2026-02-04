@@ -20,7 +20,7 @@ Este documento estabelece **políticas de governança** para o ciclo de vida de 
 **Fora do escopo:**
 - Processo técnico de criação (veja `ITZAMNA-AGENT.md` workflows)
 - Protocolos core (veja `.prompt-os/core/`)
-- INDEX maintenance (veja `.prompt-os/docs/INDEX-MAINTENANCE.md`)
+- INDEX maintenance (veja `INDEX-MAINTENANCE.md`)
 
 ---
 

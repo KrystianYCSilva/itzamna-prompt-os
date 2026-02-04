@@ -1,8 +1,8 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
-**Ultima Atualizacao:** 2026-02-03
+**Ultima Atualizacao:** 2026-02-04
 **Versao:** 2.2.0
-**Sessoes Totais:** 26
+**Sessoes Totais:** 28
 **Spec Atual:** v2.2.0 ✅ COMPLETE (SPEC-003 Web Research + SPEC-004 Knowledge Base/RAG) | Proximo: v2.3.0 (Ecosystem + Baselines)
 
 ---
@@ -29,6 +29,7 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-04 | docs     | Documentacao consolidada + arquivos arquivados                        | ✅ complete              |
 | 2026-02-03 | fix      | /speckit.analyze remediation — 11 findings, all resolved            | ✅ complete              |
 | 2026-02-03 | validation | SC-001 20-query walk-through (100% hit-rate, 2 gaps detected)      | ✅ PASS                  |
 | 2026-02-03 | validation | SC-003 5-draft redundancy gate (0 false negatives, boundary OK)    | ✅ PASS                  |
@@ -70,6 +71,22 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 28 (2026-02-04) - Docs Consolidation + Archive Cleanup
+
+**Planejado:**
+- Consolidar documentacao em docs/ARCHITECTURE.md
+- Mover legado para docs/_archive
+- Reposicionar templates de monitoramento
+- Ajustar referencias em .context e docs
+- Criar memory/codex-memory.md
+
+**Executado:**
+- docs/ARCHITECTURE.md consolidado
+- docs/_archive criado e preenchido
+- monitoring templates movidos para .prompt-os/templates/monitoring
+- referencias atualizadas (.context + templates + ITZAMNA-AGENT)
+- memory/codex-memory.md criado
 
 ### Sessao 27 (2026-02-03) - Agent & Docs Sync + SPEC-004 Completion Summary 📋
 

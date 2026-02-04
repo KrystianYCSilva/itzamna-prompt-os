@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 DIRECTORY CONTENTS
+## DIRECTORY CONTENTS
 
 | Template | Purpose | Usage |
 |----------|---------|-------|
@@ -16,12 +16,11 @@
 | [SKILL.template.md](SKILL.template.md) | Skill definition for agents | Defining capabilities and knowledge domains |
 | [TEST-PLAN.template.md](TEST-PLAN.template.md) | Test plan and quality assurance | Planning test execution and coverage |
 | [context/](context/) | Context document templates | Foundational project/system documentation |
+| [monitoring/](monitoring/) | Monitoring report templates | Self-critique, gaps, rejections, evolution |
 
 ---
 
-## 📂 CONTEXT TEMPLATES
-
-Context templates are in `[context/](context/)` subdirectory:
+## CONTEXT TEMPLATES
 
 | Template | Purpose |
 |----------|---------|
@@ -32,36 +31,24 @@ Context templates are in `[context/](context/)` subdirectory:
 
 ---
 
-## 🚀 HOW TO USE TEMPLATES
+## MONITORING TEMPLATES
 
-1. **Copy template**: `cp {template}.md {your-file}.md`
-2. **Fill in content**: Replace `{{ placeholder }}` and sections
-3. **Follow structure**: Maintain markdown hierarchy and formatting
-4. **Reference examples**: See worked examples in `.context/` or `specs/` directories
-
----
-
-## 📌 TEMPLATE STANDARDS
-
-All templates follow these conventions:
-- **Frontmatter**: YAML metadata (optional, see examples)
-- **H1 Title**: Primary heading
-- **Sections**: Organized with H2/H3 headings
-- **Placeholders**: `{{ }}` format for interactive fields
-- **Notes**: Tips marked with `>` blockquotes
+| Template | Purpose |
+|----------|---------|
+| [self-critique-metrics.md](monitoring/self-critique-metrics.md) | Report of self-critique scores |
+| [gap-detection-report.md](monitoring/gap-detection-report.md) | Gaps and coverage |
+| [rejection-analysis-report.md](monitoring/rejection-analysis-report.md) | Rejection categories and patterns |
+| [evolution-report-template.md](monitoring/evolution-report-template.md) | Evolution summary |
 
 ---
 
-## 🔗 QUICK NAVIGATION
-
-- [Parent: Core](..\README.md)
-- [Index](../INDEX.md)
-- [PromptOS Root](.../README.md)
+## HOW TO USE TEMPLATES
+1. Copy template
+2. Fill content
+3. Keep structure
+4. Reference examples
 
 ---
 
-## 📌 MAINTENANCE
-
-**Last updated**: 2026-02-03  
-**Total templates**: 11 (7 main + 4 context)
-
+Last updated: 2026-02-04
+Total templates: 15 (7 main + 4 context + 4 monitoring)

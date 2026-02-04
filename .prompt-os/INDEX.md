@@ -10,11 +10,12 @@
 - [Core Protocols](#core-protocols) - 9 files
 - [Skills](#skills) - 13+ skills
 - [Personas](#personas)
-- [Templates](#templates) - 8 files
+- [Templates](#templates) - 15 templates
 - [Tools](#tools) - 8 scripts
-- [Prompts](#prompts) - 3 files
-- [Checklists](#checklists) - 1 file
-- [Config & Docs](#config--docs) - 4 files
+- [Prompts](#prompts) - 3 files (in core)
+- [Checklists](#checklists) - 1 file (in core)
+- [Governance](#governance) - 2 files (in core)
+- [Config](#config) - 3 files
 
 ---
 
@@ -35,9 +36,12 @@ The fundamental decision-making and validation algorithms for the system.
 | `core/WEB-RESEARCH.md` | 9.1KB | Research protocol, source validation, citation templates | research, sources, validation |
 
 **Sub-directories in core/:**
-- `core/knowledge-base/` - RAG implementation files (4 files)
-- `core/persona-generator/` - Persona generation workflow (4 files)
-- `core/web-research/` - Research validation rules (4 files)
+- `core/checklists/` - Operational checklists
+- `core/governance/` - Maintenance & policies (formerly docs/)
+- `core/knowledge-base/` - RAG implementation files
+- `core/persona-generator/` - Persona workflows
+- `core/prompts/` - Strategic prompts
+- `core/web-research/` - Research validation rules
 
 ---
 
@@ -106,7 +110,7 @@ Reusable markdown templates for generating artifacts. Located in `templates/`.
 | `MEMORY.template.md` | Memory state files | memory, state, persistence |
 | `SKILL.template.md` | New skill generation | skill, capability, how-to |
 | `TEST-PLAN.template.md` | Test planning documents | test, qa, planning |
-| `PERSONA.template.md` | Persona definition files | persona, role, behavior |
+| `monitoring/` | Monitoring report templates | monitoring, reports, metrics |
 
 ---
 
@@ -136,38 +140,40 @@ Helper scripts for automation (optional, for human use). Located in `tools/`.
 
 ## Prompts
 
-AI generation prompts for creating artifacts. Located in `prompts/`.
+AI generation prompts for creating artifacts. Located in `core/prompts/`.
 
 | File | Purpose | Tags |
 |------|---------|------|
-| `skill-generator-prompt.md` | Generate new skills | skill, generation, prompt |
-| `persona-generator-prompt.md` | Generate personas | persona, generation, prompt |
-| `research-pipeline-prompt.md` | Web research workflow | research, pipeline, prompt |
+| `core/prompts/skill-generator-prompt.md` | Generate new skills | skill, generation, prompt |
+| `core/prompts/persona-generator-prompt.md` | Generate personas | persona, generation, prompt |
+| `core/prompts/research-pipeline-prompt.md` | Web research workflow | research, pipeline, prompt |
 
 ---
 
 ## Checklists
 
-Execution checklists for complex protocols. Located in `checklists/`.
+Execution checklists for complex protocols. Located in `core/checklists/`.
 
 | File | Purpose | Tags |
 |------|---------|------|
-| `PROTOCOL-APPLICATION.md` | Mandatory protocol checklist | checklist, protocol, execution |
+| `core/checklists/PROTOCOL-APPLICATION.md` | Mandatory protocol checklist | checklist, protocol, execution |
 
 ---
 
-## Config & Docs
+## Governance
 
-Configuration and internal documentation files.
-
-### Documentation (docs/ subdirectory)
+Configuration and internal documentation files. Located in `core/governance/`.
 
 | File | Purpose | Tags |
 |------|---------|------|
-| `docs/INDEX-MAINTENANCE.md` | How to maintain INDEX.md files | maintenance, documentation |
-| `docs/SKILL-GOVERNANCE.md` | Rules for skill creation/update | governance, skills, standards |
+| `core/governance/INDEX-MAINTENANCE.md` | How to maintain INDEX.md files | maintenance, documentation |
+| `core/governance/SKILL-GOVERNANCE.md` | Rules for skill creation/update | governance, skills, standards |
 
-### Configuration & Root Files
+---
+
+## Config
+
+Root configuration files.
 
 | File | Purpose | Tags |
 |------|---------|------|
@@ -193,14 +199,11 @@ Configuration and internal documentation files.
 |----------|-------|
 | Core Protocols | 9 |
 | Skills (total) | 13 |
-| Language Baselines | 6 |
-| Advanced Variants | 7 |
-| Templates | 8 |
-| Tools (JS) | 4 |
-| Tools (Shell) | 4 |
+| Templates | 15 |
+| Tools | 8 |
 | Prompts | 3 |
 | Checklists | 1 |
-| Docs | 2 |
+| Governance Docs | 2 |
 | **Total Files** | **45+** |
 
 ---
@@ -219,13 +222,6 @@ Search for keywords in the **Purpose** and **Tags** columns.
 - Search: "memory"
 - Found: `MEMORY.md`, `core/MEMORY-MANAGEMENT.md`, `templates/MEMORY.template.md`
 
-### Find by Tags
-Use tags to discover related files.
-
-**Example:** Need approval workflow?
-- Search tag: `human-gate`
-- Found: `core/HUMAN-GATE.md`
-
 ---
 
 ## Subdirectory Indices
@@ -234,7 +230,7 @@ For detailed file listings within subdirectories:
 
 - **Skills:** See `skills/INDEX.md` - Complete skill registry with redundancy detection
 - **Personas:** See `personas/INDEX.md` - Available personas and triggers
-- **Core:** See core protocol files directly (no separate index)
+- **Core:** See `core/INDEX.md` - Master core registry
 
 ---
 
@@ -242,25 +238,9 @@ For detailed file listings within subdirectories:
 
 - **Version**: 2.2.0
 - **Last Updated**: 2026-02-03
-- **Format**: Markdown + YAML
 - **Maintenance**: Update whenever files are added/removed
 
-For maintenance procedures, see `docs/INDEX-MAINTENANCE.md`.
-
----
-
-## Statistics by Type
-
-```
-Markdown Files:  38
-Config Files:     3
-Python Files:     2
-JavaScript:       4
-Shell Scripts:    4
-Templates:        8
-─────────────────
-Total:           45+
-```
+For maintenance procedures, see `core/governance/INDEX-MAINTENANCE.md`.
 
 ---
 

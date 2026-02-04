@@ -342,3 +342,8 @@ NUNCA inventar informações
 ---
 
 *Itzamna PromptOS v2.1.0 | AI Assistant Guide | 2026-02-03*
+
+## Referencias Rapidas (humano)
+
+- `docs/ARCHITECTURE.md` (visao consolidada)
+- Templates de monitoramento: `.prompt-os/templates/monitoring/`

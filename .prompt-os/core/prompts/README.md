@@ -58,9 +58,8 @@ Structured process for creating skill definitions with:
 
 ## 🔗 QUICK NAVIGATION
 
-- [README.md](../README.md) — Core protocols overview
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Core](../README.md)
+- [PromptOS Root](../../README.md)
 
 ---
 

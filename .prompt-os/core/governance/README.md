@@ -1,6 +1,6 @@
-# Docs
+# Governance
 
-> Internal documentation for PromptOS system management: INDEX.md maintenance guidelines and SKILL governance policies.
+> Internal governance standards for PromptOS system management: INDEX.md maintenance guidelines and SKILL governance policies.
 
 ---
 
@@ -39,8 +39,8 @@ Policies for SKILL file creation, review, and evolution:
 
 ## 🔗 QUICK NAVIGATION
 
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Core](../README.md)
+- [PromptOS Root](../../README.md)
 
 ---
 

@@ -279,8 +279,8 @@ Para cada artefato gerado:
 ### Guias de Referencia
 
 - **Coleta de dados**: `specs/{N}/data-collection-guide.md`
-- **Geracao de relatorios**: `docs/MONITORING-GUIDE.md`
-- **Templates**: `docs/monitoring/*.md`
+- **Geracao de relatorios**: `.prompt-os/templates/monitoring/`
+- **Templates**: `.prompt-os/templates/monitoring/*.md`
 
 **Carregamento JIT:** Carregue guias conforme necessario durante execucao.
 

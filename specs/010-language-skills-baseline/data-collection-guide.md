@@ -303,7 +303,7 @@ Exemplo:
 Quando todas as 5 skills estiverem prontas:
 
 1. **Revisar dados coletados** em `memory/opencode-spec010-session.md`
-2. **Gerar relatórios** usando templates em `docs/monitoring/`:
+2. **Gerar relatorios** usando templates em `.prompt-os/templates/monitoring/`:
    - Gap Detection Report (se houver gaps)
    - Rejection Analysis Report (se houver rejeições)
    - Self-Critique Metrics Report (sempre)
@@ -335,4 +335,4 @@ Ao iniciar a primeira skill (Java), siga este guia passo a passo para garantir q
 
 **Versão:** 1.0  
 **Última atualização:** 2026-02-03  
-**Related:** `docs/MONITORING-GUIDE.md`, `specs/010-language-skills-baseline/execution-checklist.md`
+**Related:** `.prompt-os/templates/monitoring/INDEX.md`, `specs/010-language-skills-baseline/execution-checklist.md`

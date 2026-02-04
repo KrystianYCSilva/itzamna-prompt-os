@@ -1,168 +1,138 @@
-# Itzamna PromptOS v2.1.0 - Arquitetura
+# Itzamna PromptOS v2.2.0 - Arquitetura Consolidada
 
-> **Sistema Operacional Cognitivo para Programacao Paralela Humano-Agente**
-> **Arquitetura:** Prompt-Based | **Atualizado:** 2026-02-03
-
----
-
-## 1. Visao Geral
-
-O Itzamna PromptOS e um sistema **prompt-based**: o core sao arquivos Markdown que agentes de IA leem e seguem. Nao ha execucao obrigatoria de codigo para o funcionamento do sistema.
-
-**Entry point:** `.prompt-os/PROMPTOS.md`
+> Sistema operacional cognitivo para programacao paralela humano-agente
+> Arquitetura: Prompt-Based | Atualizado: 2026-02-04
 
 ---
 
-## 2. Insight Chave
+## 1. Resumo rapido (documentacao resumida)
 
-```
-PromptOS = PROMPTS (Markdown) que AI agents LEEM e SEGUEM
-         ≠ Codigo que EXECUTA
-```
+**O que e**: um sistema prompt-based onde agentes leem Markdown e seguem protocolos.
+**Entry point**: `.prompt-os/PROMPTOS.md`
+**Regras inviolaveis**: `.prompt-os/CONSTITUTION.md` (T0/T1/T2)
+**Estado atual**: `MEMORY.md`
+
+**Onde encontrar o que voce precisa**
+- Arquitetura consolidada: `docs/ARCHITECTURE.md` (este arquivo)
+- Protocolos: `.prompt-os/core/`
+- Contexto para agentes: `.context/`
+- Skills/personas: `skills/` e `personas/`
+- Specs e relatorios: `specs/`
+- Templates de monitoramento: `.prompt-os/templates/monitoring/`
+
+**Specs principais (todas prontas)**
+SPEC-001, SPEC-002, SPEC-003, SPEC-004, SPEC-005, SPEC-010
 
 ---
 
-## 3. Componentes Principais
+## 2. Arquitetura Prompt-Based
+
+PromptOS = colecao de **prompts (Markdown)** que agentes **leem e seguem**.
+Nao depende de runtime, banco de dados ou servico ativo.
 
 ```
-.prompt-os/
-├── PROMPTOS.md           # Entry point (leia primeiro)
-├── CONSTITUTION.md       # Regras T0/T1/T2
-├── core/                 # Protocolos comportamentais
-│   ├── SELF-CRITIQUE.md
-│   ├── HUMAN-GATE.md
-│   ├── AUTO-INCREMENT.md
-│   ├── WEB-RESEARCH.md
-│   ├── KNOWLEDGE-BASE.md
-│   ├── PERSONA-GENERATOR.md
-│   ├── INPUT-CLASSIFIER.md
-│   ├── JIT-PROTOCOL.md
-│   └── MEMORY-MANAGEMENT.md
-├── skills/INDEX.md       # Registry interno (espelho)
-├── personas/INDEX.md     # Registry interno (espelho)
-├── scripts/              # Tooling (opcional)
-│   ├── validate-indices.py
-│   └── pre-commit-hook.template
-└── docs/                 # Governance
-    └── SKILL-GOVERNANCE.md
-
-skills/                   # Conteudo gerado (12 skills)
-personas/                 # Conteudo gerado (0 personas - on-demand)
-memory/                   # Agent-specific memories
-.context/                 # Contexto estruturado (T0-T3)
-MEMORY.md                 # Memoria persistente
-ITZAMNA-AGENT.md           # Agente principal
+Agente -> .prompt-os/PROMPTOS.md -> Protocolos core -> Skills/Personas -> Human Gate -> Memory
 ```
 
 ---
 
-## 4. Fluxo de Operacao (Prompt-Based)
+## 3. Estrutura do Repositorio (macro)
 
 ```
-AI Agent
-  ↓
-Ler ITZAMNA-AGENT.md
-  ↓
-Ler .prompt-os/PROMPTOS.md
-  ↓
-Ler .prompt-os/CONSTITUTION.md
-  ↓
-Carregar protocolos core JIT
-  ↓
-Carregar skills/personas JIT
-  ↓
-Executar tarefa
-  ↓
-Human Gate (antes de persistir)
-  ↓
-Atualizar MEMORY.md
+itzamna-prompt-os/
+├── .prompt-os/           # Core do sistema (protocolos, templates, tools)
+├── .context/             # Contexto para agentes (T0-T3)
+├── skills/               # Skills geradas
+├── personas/             # Personas geradas
+├── specs/                # Specs e relatorios formais
+├── docs/                 # Documentacao humana consolidada
+├── memory/               # Memoria por agente
+├── MEMORY.md             # Memoria persistente global
+└── ITZAMNA-AGENT.md      # Agente principal
 ```
 
 ---
 
-## 5. Human-in-the-Loop (T0)
+## 4. Protocolos Core e SPECs
 
-Toda operacao de escrita exige aprovacao humana explicita. O protocolo Human Gate define preview + aprovacao:
+| SPEC | Protocolo | Arquivo | Status |
+|------|-----------|---------|--------|
+| SPEC-001 | Self-Critique + Human Gate | `core/SELF-CRITIQUE.md`, `core/HUMAN-GATE.md` | ✅ |
+| SPEC-002 | Auto-Increment | `core/AUTO-INCREMENT.md` | ✅ |
+| SPEC-003 | Web Research | `core/WEB-RESEARCH.md` + sub-files | ✅ |
+| SPEC-004 | Knowledge Base / RAG | `core/KNOWLEDGE-BASE.md` + sub-files | ✅ |
+| SPEC-005 | Persona Generator | `core/PERSONA-GENERATOR.md` | ✅ |
+| SPEC-010 | Language Baselines | `skills/linguagens/*/SKILL.md` | ✅ |
+
+**Docs estrategicos**
+- `specs/TRANSITION-010-TO-003.md`
+- `specs/005-SPEC-STRATEGY.md`
+
+---
+
+## 5. Fluxo Operacional (Human Gate)
 
 ```
-1. Gerar artefato
-2. Self-Critique (score 0-100)
-3. Mostrar preview
-4. Aguardar: approve | view | edit | reject | cancel
+AUTO-INCREMENT -> GENERATE -> SELF-CRITIQUE -> HUMAN-GATE -> COMMIT -> MEMORY
 ```
 
----
-
-## 6. Sistema de Memorias (CoALA simplificado)
-
-**Arquitetura de 3 Camadas (Session 19):**
-
-| Tipo | Funcao | Local |
-|------|--------|-------|
-| Working | Contexto da sessao | Context window |
-| Episodica (L1) | Estatisticas agregadas | MEMORY.md |
-| Episodica (L2) | Sessoes detalhadas | memory/{agente}-memory.md |
-| Semantica | Conhecimento | skills/ + docs/ |
-| Procedural | Protocolos e workflows | .prompt-os/core/ + .context/workflows/ |
-
-**Protocolo:** `.prompt-os/core/MEMORY-MANAGEMENT.md`
+Toda escrita exige aprovacao humana (T0-HUMAN-01).
 
 ---
 
-## 7. Tiers de Autoridade (.context/)
+## 6. Memoria e Governanca
 
-| Tier | Tipo | Prevalece Sobre | Arquivo |
-|------|------|-----------------|---------|
-| T0 | Enforcement | Todos | .context/standards/architectural-rules.md |
-| T1 | Standards | T2, T3 | .context/standards/ + patterns/ + workflows/ |
-| T2 | Context | T3 | .context/_meta/ + troubleshooting/ |
-| T3 | Examples | Nenhum | .context/examples/ |
+**3 camadas**
+- `MEMORY.md` (global e resumido)
+- `memory/{agent}-memory.md` (episodica por agente)
+- `.context/workflows/` (padroes reutilizaveis)
 
 ---
 
-## 8. Protocolos Core (9)
+## 7. Pesquisa e Knowledge Base
 
-| Protocolo | Funcao | Spec |
-|-----------|--------|------|
-| SELF-CRITIQUE | Avaliacao de qualidade | SPEC-001 |
-| HUMAN-GATE | Aprovacao humana | SPEC-001 |
-| AUTO-INCREMENT | Deteccao de gaps, aprendizado com rejeicoes, sugestoes proativas, relatorios de evolucao | SPEC-002 |
-| WEB-RESEARCH | Metodologia de pesquisa | SPEC-003 |
-| KNOWLEDGE-BASE | Gestao de conhecimento | SPEC-004 |
-| PERSONA-GENERATOR | Criacao de personas | SPEC-005 |
-| INPUT-CLASSIFIER | Classificacao de input | Foundation |
-| JIT-PROTOCOL | Carregamento JIT | Foundation |
-| MEMORY-MANAGEMENT | Gestao de memoria persistente (3 camadas) | Session 19 |
+- Web Research: valida fontes, tiers e citacoes
+- Knowledge Base: similarity scoring + redundancy gate + RAG prompt-based
+- Gaps alimentam Auto-Increment
 
 ---
 
-## 9. Governance & Validation (Session 20-21)
+## 8. Skills, Personas e Templates
 
-**Solution 7: Skill Governance**
-- `.prompt-os/docs/SKILL-GOVERNANCE.md` (~450 lines)
-- Define regras de qualidade, deprecation, e lifecycle de skills
-
-**Solution 8: INDEX Validation**
-- `.prompt-os/scripts/validate-indices.py` (~390 lines)
-- Validacao automatizada de INDEX.md (links, counts, duplicates, metadata)
-- Self-Critique Score: 97.5/100
-- Pre-commit hook integration disponivel
+- Skills: `skills/` (JIT, < 1,400 tokens por skill principal)
+- Personas: `personas/`
+- Templates gerais: `.prompt-os/templates/`
+- Templates de monitoramento: `.prompt-os/templates/monitoring/`
 
 ---
 
-## 10. Ferramentas Opcionais (Nao Core)
+## 9. Integracao e Automacao
 
-- Node CLI: `node .prompt-os\tools\brain.js ...`
-- Python CLI: `py .prompt-os\core\cli.py ...`
-- PowerShell: `\.\.prompt-os\scripts\sync-constitution.ps1 ...`
-- INDEX Validation: `py .prompt-os\scripts\validate-indices.py`
+Ferramentas opcionais:
+- `.prompt-os/tools/brain.js`
+- `.prompt-os/core/cli.py`
+- `.prompt-os/scripts/validate-indices.py`
 
----
-
-## 11. Historico (Legacy)
-
-v1.0.0 era code-centric (scripts .js/.py). A partir do v2.0.0, o sistema passou a ser **prompt-based** e universal. Consulte `docs/v1/` para referencias historicas.
+Blueprint futuro: `docs/blueprints/dspy-mcp-blueprint.md`
 
 ---
 
-**EOF** | Arquitetura v2.1.0
+## 10. Status Atual e Proximos Passos
+
+**Status**: v2.2.0 completa (SPEC-001/002/003/004/005/010)
+**Proximo**: v2.3.0 (ver `specs/v2.3.0-plan.md`)
+
+---
+
+## 11. Referencias Rapidas
+
+- Entry point: `.prompt-os/PROMPTOS.md`
+- Regras: `.prompt-os/CONSTITUTION.md`
+- Memoria: `MEMORY.md`
+- Contexto: `.context/README.md`
+- Specs: `specs/`
+- Execucao: `ITZAMNA-AGENT.md`
+
+---
+
+EOF

@@ -69,8 +69,8 @@ Scores artifact quality:
 
 ## 🔗 QUICK NAVIGATION
 
-- [Parent: Docs](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Templates](..\README.md)
+- [PromptOS Root](...\README.md)
 
 ---
 
@@ -79,4 +79,3 @@ Scores artifact quality:
 **Last updated**: 2026-02-03  
 **Total templates**: 4  
 **Version**: 1.0.0
-

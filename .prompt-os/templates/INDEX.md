@@ -1,10 +1,10 @@
 # INDEX: Templates
 
-> Collection of 11 reusable Markdown templates for PromptOS artifacts, skills, context documents, and quality assurance plans.
+> Collection of reusable Markdown templates for PromptOS artifacts, skills, context documents, monitoring reports, and quality assurance plans.
 
 ---
 
-## 📋 MAIN TEMPLATES (7 files)
+## MAIN TEMPLATES (7 files)
 
 | File | Purpose | When to Use | Size |
 |------|---------|------------|------|
@@ -18,7 +18,7 @@
 
 ---
 
-## 📂 CONTEXT TEMPLATES (4 files in `context/` subdirectory)
+## CONTEXT TEMPLATES (4 files)
 
 | File | Purpose | When to Use | Size |
 |------|---------|------------|------|
@@ -29,72 +29,16 @@
 
 ---
 
-## 🎯 READING ORDER
+## MONITORING TEMPLATES (4 files)
 
-1. Start with **README.md** (this directory) for overview
-2. Choose template based on your artifact type
-3. Reference examples in `.context/` or `specs/` directories
-4. Follow template structure and replace placeholders
-
----
-
-## 🚀 USE CASES
-
-| Use Case | Primary Template | Context? |
-|----------|-----------------|----------|
-| New agent creation | AGENTS.template.md | No |
-| Recording decision | ADR.template.md | No |
-| Documenting skill | SKILL.template.md | No |
-| Test planning | TEST-PLAN.template.md | No |
-| Directory navigation | INDEX.template.md | No |
-| Agent memory/history | MEMORY.template.md | No |
-| Quick reference | CARD.template.md | No |
-| Project setup | Multiple | YES (use context/ templates) |
-| System design | ADR.template.md | YES (use architectural-rules.template.md) |
+| File | Purpose | When to Use |
+|------|---------|------------|
+| [monitoring/self-critique-metrics.md](monitoring/self-critique-metrics.md) | Self-critique score reports | After specs or major artifacts |
+| [monitoring/gap-detection-report.md](monitoring/gap-detection-report.md) | Gap detection report | After gap analysis or Auto-Increment |
+| [monitoring/rejection-analysis-report.md](monitoring/rejection-analysis-report.md) | Rejection patterns report | After Human Gate rejections |
+| [monitoring/evolution-report-template.md](monitoring/evolution-report-template.md) | Evolution report | Periodic system evolution review |
 
 ---
 
-## 📐 TEMPLATE STRUCTURE OVERVIEW
-
-### Main Templates
-- **ADR**: Decision context, alternatives, decision, consequences
-- **AGENTS**: Name, persona, capabilities, constraints, examples
-- **CARD**: Term, definition, key points, use cases
-- **INDEX**: Directory description, file listing, reading order, navigation
-- **MEMORY**: Episodes/sessions, decisions, patterns, statistics
-- **SKILL**: Name, description, use cases, key concepts, examples
-- **TEST-PLAN**: Objectives, scope, resources, test cases, reporting
-
-### Context Templates
-- **architectural-rules.template.md**: Rules, rationale, exceptions, verification
-- **code-quality.template.md**: Standards, linting, testing, documentation
-- **project-overview.template.md**: Vision, scope, stakeholders, timeline
-- **tech-stack.template.md**: Components, versions, justification, dependencies
-
----
-
-## 💡 BEST PRACTICES
-
-1. **Preserve Structure**: Keep template sections and hierarchy
-2. **Replace Placeholders**: Look for `{{ }}` format and fill with actual content
-3. **Follow Style**: Maintain markdown conventions (headings, tables, code blocks)
-4. **Link References**: Add links to related documents (INDEX.md, SKILL.md, etc.)
-5. **Version Control**: Track changes in git, update `Last updated` field
-
----
-
-## 🔗 QUICK NAVIGATION
-
-- [README.md](README.md) — Overview and usage guide
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
-
----
-
-## 📌 MAINTENANCE
-
-**Last updated**: 2026-02-03  
-**Total templates**: 11  
-**Categories**: Main (7) + Context (4)  
-**Typical size**: 200 bytes – 6.4 KB
-
+Last updated: 2026-02-04
+Total templates: 15

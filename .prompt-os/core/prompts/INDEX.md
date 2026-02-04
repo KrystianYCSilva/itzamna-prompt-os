@@ -59,8 +59,8 @@
 ## 🔗 QUICK NAVIGATION
 
 - [README.md](README.md) — Prompts overview
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Core](../README.md)
+- [PromptOS Root](../../README.md)
 
 ---
 
