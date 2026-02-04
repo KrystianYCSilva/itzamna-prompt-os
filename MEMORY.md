@@ -21,7 +21,7 @@
 | Categorias | 1 (linguagens) |
 | Core Protocols | 9 + 4 JIT web-research + 4 JIT knowledge-base = 17 total |
 | Ultima Geracao | 2026-02-03 (Go baseline skill) |
-| SPECs em andamento | SPEC-004 (Vector DB/RAG) — Phase 0+1+2 complete |
+| SPECs em andamento | SPEC-004 (Vector DB/RAG) — Phase 0+1+2+3 complete, SC-001/SC-003 validated |
 
 ---
 
@@ -29,6 +29,9 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-03 | validation | SC-001 20-query walk-through (100% hit-rate, 2 gaps detected)      | ✅ PASS                  |
+| 2026-02-03 | validation | SC-003 5-draft redundancy gate (0 false negatives, boundary OK)    | ✅ PASS                  |
+| 2026-02-03 | tasks    | SPEC-004 tasks.md — 36 tasks, 7 phases, 4 user stories               | ✅ created               |
 | 2026-02-03 | protocol | KNOWLEDGE-BASE.md refactored (447→~100 lines, JIT router)            | ✅ complete              |
 | 2026-02-03 | protocol | knowledge-base/ 4 JIT sub-files (scoring, redundancy, rag, relations) | ✅ created              |
 | 2026-02-03 | spec     | SPEC-004 Phase 0+1 — plan, research, data-model, contracts, quickstart | ✅ complete            |
@@ -94,7 +97,20 @@
   - `feat(spec): SPEC-004 phase 0+1 — data model, contracts, quickstart & .cursorrules update`
   - `feat(spec): SPEC-004 phase 2 — refactor KNOWLEDGE-BASE into JIT router + 4 sub-files`
 
-**Status:** ✅ Phase 0+1+2 COMPLETE — protocol files live, ready for Phase 3 (tasks.md / integration testing)
+- **Phase 3 (Tasks + Validation):** 6 files in `specs/004-vector-db-rag/`
+  - tasks.md: 36 tasks across 7 phases (Setup → Foundational → US1–US4 → Polish)
+  - validation/: SC-001 (20 queries, 100% hit), SC-003 (5 drafts, 0 false negatives), SUMMARY.md
+  - SC-001 result: 20/20 hits. Both gap queries (Kafka, Kubernetes) correctly produced gapDetected
+  - SC-003 result: Draft 1 (93, hard-blocked ✅), Drafts 2-4 (89/82/80, 3 options ✅), Draft 5 (60, allowed ✅). Boundary case score=80 correctly enters Tier 1
+  - Deferred: SC-002 (RAG A/B), SC-005 (T0 compliance trace), SC-006 (relationship graph) — all require live skill creation
+
+- **Commits:** 4 total this session
+  - `feat(spec): SPEC-004 phase 0+1 — data model, contracts, quickstart & .cursorrules update`
+  - `feat(spec): SPEC-004 phase 2 — refactor KNOWLEDGE-BASE into JIT router + 4 sub-files`
+  - `docs(memory): session 26 — SPEC-004 phase 0+1+2 complete`
+  - `feat(spec): SPEC-004 phase 3 — tasks.md + SC-001/SC-003 integration validation (zero false negatives)`
+
+**Status:** ✅ Phase 0+1+2+3 COMPLETE — protocol live, tasks defined, SC-001/SC-003 validated. Deferred SCs (002/005/006) run on next skill-creation session.
 
 ---
 
