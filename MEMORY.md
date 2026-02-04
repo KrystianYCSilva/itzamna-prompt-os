@@ -29,6 +29,7 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-03 | fix      | /speckit.analyze remediation — 11 findings, all resolved            | ✅ complete              |
 | 2026-02-03 | validation | SC-001 20-query walk-through (100% hit-rate, 2 gaps detected)      | ✅ PASS                  |
 | 2026-02-03 | validation | SC-003 5-draft redundancy gate (0 false negatives, boundary OK)    | ✅ PASS                  |
 | 2026-02-03 | tasks    | SPEC-004 tasks.md — 36 tasks, 7 phases, 4 user stories               | ✅ created               |
