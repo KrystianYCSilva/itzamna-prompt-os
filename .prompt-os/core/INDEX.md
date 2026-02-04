@@ -1,6 +1,6 @@
 # .prompt-os/core/INDEX.md - Master Index
 
-> **Master registry of all 9 core protocols + 6 subdirectories.**  
+> **Master registry of all 12 core protocols + 6 subdirectories.**  
 > Start here to understand what exists, then navigate to specific protocols or subdirectories.
 
 ---
@@ -9,27 +9,30 @@
 
 | Component | Count | Total Lines | Total Size |
 |-----------|-------|-------------|-----------|
-| Core Protocols | 9 | 3,560 | 103KB |
+| Core Protocols | 12 | 4,500+ | 140KB+ |
 | Subdirectory Files | ~25 | ~3,000+ | ~100KB+ |
-| **TOTAL** | **~35 files** | **~6,500+** | **~200KB+** |
+| **TOTAL** | **~40 files** | **~7,500+** | **~240KB+** |
 
 ---
 
-## The 9 Core Protocols (Mandatory)
+## The 12 Core Protocols (Mandatory)
 
 These are the fundamental algorithms that power PromptOS. **Every AI agent must understand these.**
 
 | # | Protocol | File | Lines | Size | Purpose | Status |
 |---|----------|------|-------|------|---------|--------|
 | 1 | **AUTO-INCREMENT** | `AUTO-INCREMENT.md` | 384 | 11K | System evolution and gap detection | ✅ Stable |
-| 2 | **HUMAN-GATE** | `HUMAN-GATE.md` | 426 | 12K | Approval workflow for artifacts (T0-HUMAN-01) | ✅ Stable |
-| 3 | **INPUT-CLASSIFIER** | `INPUT-CLASSIFIER.md` | 308 | 8.8K | Route user requests to correct workflow | ✅ Stable |
-| 4 | **JIT-PROTOCOL** | `JIT-PROTOCOL.md` | 350 | 8.8K | Token-efficient skill loading | ✅ Stable |
-| 5 | **KNOWLEDGE-BASE** | `KNOWLEDGE-BASE.md` | 118 | 4.4K | RAG system overview | ✅ Stable |
-| 6 | **MEMORY-MANAGEMENT** | `MEMORY-MANAGEMENT.md` | 862 | 25K | Multi-layer memory architecture (T0-MEMORY-01) | ✅ Stable |
-| 7 | **PERSONA-GENERATOR** | `PERSONA-GENERATOR.md` | 225 | 5.5K | Create specialized personas from skills | ✅ Stable |
-| 8 | **SELF-CRITIQUE** | `SELF-CRITIQUE.md` | 697 | 20K | Quality evaluation (0-100 scoring) | ✅ Stable |
-| 9 | **WEB-RESEARCH** | `WEB-RESEARCH.md` | 190 | 5.5K | Research and source validation | ✅ Stable |
+| 2 | **BOOTSTRAP** | `BOOTSTRAP.md` | 63 | 1.4K | Project initialization workflow | ✅ Stable |
+| 3 | **COMMAND-ROUTER** | `COMMAND-ROUTER.md` | 156 | 5.6K | CLI command parsing and routing (SPEC-006) | ✅ Stable |
+| 4 | **HUMAN-GATE** | `HUMAN-GATE.md` | 426 | 12K | Approval workflow for artifacts (T0-HUMAN-01) | ✅ Stable |
+| 5 | **INPUT-CLASSIFIER** | `INPUT-CLASSIFIER.md` | 308 | 9.8K | Route user requests to correct workflow | ✅ Stable |
+| 6 | **JIT-PROTOCOL** | `JIT-PROTOCOL.md` | 350 | 16.8K | Token-efficient skill loading | ✅ Stable |
+| 7 | **KNOWLEDGE-BASE** | `KNOWLEDGE-BASE.md` | 118 | 4.4K | RAG system overview | ✅ Stable |
+| 8 | **MEMORY-MANAGEMENT** | `MEMORY-MANAGEMENT.md` | 862 | 25K | Multi-layer memory architecture (T0-MEMORY-01) | ✅ Stable |
+| 9 | **PERSONA-GENERATOR** | `PERSONA-GENERATOR.md` | 225 | 5.5K | Create specialized personas from skills | ✅ Stable |
+| 10 | **SELF-CRITIQUE** | `SELF-CRITIQUE.md` | 697 | 20K | Quality evaluation (0-100 scoring) | ✅ Stable |
+| 11 | **WEB-RESEARCH** | `WEB-RESEARCH.md` | 190 | 5.5K | Research and source validation | ✅ Stable |
+| 12 | **WORKFLOW-ORCHESTRATOR** | `WORKFLOW-ORCHESTRATOR.md` | 510 | 18.9K | Workflow → Persona → Skills mapping (SPEC-007) | ✅ Stable |
 
 ---
 
@@ -122,14 +125,17 @@ These protocols enforce the architectural rules defined in:
 ├── INDEX.md                     # ← YOU ARE HERE (master index)
 │
 ├── AUTO-INCREMENT.md            # Protocol 1: Gap detection
-├── HUMAN-GATE.md                # Protocol 2: Approval workflow
-├── INPUT-CLASSIFIER.md          # Protocol 3: Route requests
-├── JIT-PROTOCOL.md              # Protocol 4: Load skills efficiently
-├── KNOWLEDGE-BASE.md            # Protocol 5: RAG overview
-├── MEMORY-MANAGEMENT.md         # Protocol 6: Multi-layer memory
-├── PERSONA-GENERATOR.md         # Protocol 7: Create personas
-├── SELF-CRITIQUE.md             # Protocol 8: Evaluate quality
-├── WEB-RESEARCH.md              # Protocol 9: Research & sources
+├── BOOTSTRAP.md                 # Protocol 2: Project initialization
+├── COMMAND-ROUTER.md            # Protocol 3: CLI command parsing (SPEC-006)
+├── HUMAN-GATE.md                # Protocol 4: Approval workflow
+├── INPUT-CLASSIFIER.md          # Protocol 5: Route requests
+├── JIT-PROTOCOL.md              # Protocol 6: Load skills efficiently
+├── KNOWLEDGE-BASE.md            # Protocol 7: RAG overview
+├── MEMORY-MANAGEMENT.md         # Protocol 8: Multi-layer memory
+├── PERSONA-GENERATOR.md         # Protocol 9: Create personas
+├── SELF-CRITIQUE.md             # Protocol 10: Evaluate quality
+├── WEB-RESEARCH.md              # Protocol 11: Research & sources
+├── WORKFLOW-ORCHESTRATOR.md     # Protocol 12: Workflow → Persona mapping (SPEC-007)
 │
 ├── checklists/                  # Subdirectory: Operational checklists
 │   ├── INDEX.md
@@ -160,12 +166,12 @@ These protocols enforce the architectural rules defined in:
 
 | Metric | Value |
 |--------|-------|
-| Core Protocols | 9 |
+| Core Protocols | 12 |
 | Subdirectories | 6 |
-| Total Files | ~35 |
-| Version | 2.2.0 |
+| Total Files | ~40 |
+| Version | 2.3.0-dev |
 | Status | Production Ready |
-| Last Updated | 2026-02-03 |
+| Last Updated | 2026-02-04 |
 
 ---
 
@@ -179,6 +185,6 @@ These protocols enforce the architectural rules defined in:
 
 ---
 
-*Last Updated: 2026-02-03*  
+*Last Updated: 2026-02-04*  
 *Maintained by PromptOS Team*  
 *For updates, see [governance/INDEX-MAINTENANCE.md](./governance/INDEX-MAINTENANCE.md)*

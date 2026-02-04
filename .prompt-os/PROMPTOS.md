@@ -1,4 +1,4 @@
-# ITZAMNA PROMPTOS v2.0.0
+# ITZAMNA PROMPTOS v2.3.0-dev
 
 > **Sistema de Prompts para Programacao Assistida por IA**  
 > Leia este arquivo PRIMEIRO ao iniciar qualquer sessao de desenvolvimento.
@@ -230,8 +230,8 @@ Algumas acoes requerem aprovacao explicita do humano:
 
 ## VERSAO E MANUTENCAO
 
-- **Versao**: 2.0.0
-- **Data**: 2026-02-03
+- **Versao**: 2.3.0-dev
+- **Data**: 2026-02-04
 - **Mantenedor**: PromptOS Team
 
 Para atualizar o sistema, o humano pode:

@@ -20,6 +20,8 @@ function parseArgs(argv) {
     force: false,
     dryRun: false,
     verbose: false,
+    contextOnly: false,
+    noCoreCopy: false,
   };
 
   if (argv.length > 0) {
@@ -42,6 +44,14 @@ function parseArgs(argv) {
     }
     if (a === '--dry-run') {
       args.dryRun = true;
+      continue;
+    }
+    if (a === '--context-only') {
+      args.contextOnly = true;
+      continue;
+    }
+    if (a === '--no-core-copy') {
+      args.noCoreCopy = true;
       continue;
     }
     if (a === '--verbose') {
@@ -70,6 +80,8 @@ function usage() {
     '  --context   Tag do contexto: min-context | complete-context (obrigatorio)',
     '  --force     Sobrescreve arquivos se existirem',
     '  --dry-run   Mostra o que seria feito, sem copiar',
+    '  --context-only  Gera apenas .context/ e MEMORY.md (nao copia .prompt-os nem ITZAMNA-AGENT.md)',
+    '  --no-core-copy  Alias de --context-only',
     '  --verbose   Log detalhado',
   ].join('\n');
 }
@@ -170,6 +182,7 @@ async function initCommand(args) {
   const targetRoot = path.resolve(process.cwd(), args.target);
   const templateRoot = path.join(repoRoot, '.prompt-os', 'templates', 'context', args.context);
   const memoryTemplate = path.join(repoRoot, '.prompt-os', 'templates', 'MEMORY.template.md');
+  const skipCoreCopy = args.contextOnly || args.noCoreCopy;
 
   if (!(await exists(templateRoot))) {
     console.error(`Erro: template nao encontrado: ${templateRoot}`);
@@ -181,23 +194,30 @@ async function initCommand(args) {
   }
 
   for (const item of COPY_ITEMS) {
-    const src = path.join(repoRoot, item);
-    if (!(await exists(src))) {
-      console.error(`Erro: item nao encontrado no repo: ${item}`);
-      process.exit(1);
+    if (!skipCoreCopy) {
+      const src = path.join(repoRoot, item);
+      if (!(await exists(src))) {
+        console.error(`Erro: item nao encontrado no repo: ${item}`);
+        process.exit(1);
+      }
     }
   }
 
   const conflicts = [];
-  for (const item of COPY_ITEMS) {
-    const dest = path.join(targetRoot, item);
-    if (await exists(dest)) conflicts.push(item);
+  if (!skipCoreCopy) {
+    for (const item of COPY_ITEMS) {
+      const dest = path.join(targetRoot, item);
+      if (await exists(dest)) conflicts.push(item);
+    }
   }
   if (await exists(path.join(targetRoot, '.context'))) {
     conflicts.push('.context');
   }
   if (await exists(path.join(targetRoot, 'MEMORY.md'))) {
     conflicts.push('MEMORY.md');
+  }
+  if (await exists(path.join(targetRoot, '.promptos-init.json'))) {
+    conflicts.push('.promptos-init.json');
   }
 
   if (conflicts.length > 0 && !args.force) {
@@ -209,20 +229,27 @@ async function initCommand(args) {
 
   if (args.dryRun) {
     console.log('Dry-run: copiaria os seguintes itens:');
-    for (const item of COPY_ITEMS) console.log(`- ${item}`);
+    if (!skipCoreCopy) {
+      for (const item of COPY_ITEMS) console.log(`- ${item}`);
+    } else {
+      console.log('- (core copy desabilitado)');
+    }
     console.log(`- .context/ (via templates: ${args.context})`);
     console.log('- MEMORY.md (via template)');
+    console.log('- .promptos-init.json (metadata)');
     console.log(`Destino: ${targetRoot}`);
     process.exit(0);
   }
 
   await fsp.mkdir(targetRoot, { recursive: true });
 
-  for (const item of COPY_ITEMS) {
-    const src = path.join(repoRoot, item);
-    const dest = path.join(targetRoot, item);
-    if (args.verbose) console.log(`Copiando ${item}...`);
-    await copyRecursive(src, dest);
+  if (!skipCoreCopy) {
+    for (const item of COPY_ITEMS) {
+      const src = path.join(repoRoot, item);
+      const dest = path.join(targetRoot, item);
+      if (args.verbose) console.log(`Copiando ${item}...`);
+      await copyRecursive(src, dest);
+    }
   }
 
   const now = new Date();
@@ -246,6 +273,20 @@ async function initCommand(args) {
     N: '0',
   });
   await fsp.writeFile(path.join(targetRoot, 'MEMORY.md'), memoryRendered, 'utf8');
+
+  const metadata = {
+    promptosVersion: '2.2.0',
+    contextTag: args.context,
+    initializedAt: ts.iso,
+    projectName: projectName,
+    coreCopied: !skipCoreCopy,
+    cli: 'scripts/setup-promptos.js',
+  };
+  await fsp.writeFile(
+    path.join(targetRoot, '.promptos-init.json'),
+    JSON.stringify(metadata, null, 2),
+    'utf8'
+  );
 
   console.log('Setup PromptOS concluido.');
   console.log(`Destino: ${targetRoot}`);

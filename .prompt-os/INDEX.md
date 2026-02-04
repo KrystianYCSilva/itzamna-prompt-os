@@ -7,7 +7,7 @@
 
 ## Navigation
 
-- [Core Protocols](#core-protocols) - 9 files
+- [Core Protocols](#core-protocols) - 12 files
 - [Skills](#skills) - 13 skills
 - [Personas](#personas)
 - [Templates](#templates) - 15 templates
@@ -25,15 +25,18 @@ The fundamental decision-making and validation algorithms for the system.
 
 | File | Size | Purpose | Tags |
 |------|------|---------|------|
-| `core/AUTO-INCREMENT.md` | 6.8KB | Version tracking, gap detection, redundancy scoring | versioning, gap-detection, registry |
-| `core/HUMAN-GATE.md` | 5.2KB | Approval workflow for artifacts, preview protocol, user interaction | approval, human-gate, workflow |
-| `core/INPUT-CLASSIFIER.md` | 7.1KB | Classify user requests into workflows, personas, and skills | classification, routing, workflow |
-| `core/JIT-PROTOCOL.md` | 4.9KB | Just-In-Time loading, token economy, selective context | token-efficiency, loading, context |
-| `core/KNOWLEDGE-BASE.md` | 8.3KB | RAG workflow, similarity scoring, redundancy gate | rag, knowledge, retrieval |
-| `core/MEMORY-MANAGEMENT.md` | 10.2KB | 3-layer memory architecture, episodic recording, state persistence | memory, state, persistence |
-| `core/PERSONA-GENERATOR.md` | 7.4KB | Dynamic persona generation, trait inference, trigger detection | persona, generation, behavior |
-| `core/SELF-CRITIQUE.md` | 6.5KB | Self-evaluation framework, 4-dimension scoring (0-100) | evaluation, scoring, quality |
-| `core/WEB-RESEARCH.md` | 9.1KB | Research protocol, source validation, citation templates | research, sources, validation |
+| `core/AUTO-INCREMENT.md` | 11KB | Version tracking, gap detection, redundancy scoring | versioning, gap-detection, registry |
+| `core/BOOTSTRAP.md` | 1.4KB | Project initialization workflow via chat | init, bootstrap, setup |
+| `core/COMMAND-ROUTER.md` | 5.6KB | CLI command parsing and routing (SPEC-006) | cli, routing, commands |
+| `core/HUMAN-GATE.md` | 12KB | Approval workflow for artifacts, preview protocol, user interaction | approval, human-gate, workflow |
+| `core/INPUT-CLASSIFIER.md` | 9.8KB | Classify user requests into workflows, personas, and skills | classification, routing, workflow |
+| `core/JIT-PROTOCOL.md` | 16.8KB | Just-In-Time loading, token economy, selective context | token-efficiency, loading, context |
+| `core/KNOWLEDGE-BASE.md` | 4.4KB | RAG workflow, similarity scoring, redundancy gate | rag, knowledge, retrieval |
+| `core/MEMORY-MANAGEMENT.md` | 25KB | 3-layer memory architecture, episodic recording, state persistence | memory, state, persistence |
+| `core/PERSONA-GENERATOR.md` | 5.5KB | Dynamic persona generation, trait inference, trigger detection | persona, generation, behavior |
+| `core/SELF-CRITIQUE.md` | 20KB | Self-evaluation framework, 4-dimension scoring (0-100) | evaluation, scoring, quality |
+| `core/WEB-RESEARCH.md` | 5.5KB | Research protocol, source validation, citation templates | research, sources, validation |
+| `core/WORKFLOW-ORCHESTRATOR.md` | 18.9KB | Workflow → Persona → Skills mapping (SPEC-007) | orchestration, persona, skills |
 
 **Sub-directories in core/:**
 - `core/checklists/` - Operational checklists
@@ -197,14 +200,14 @@ Root configuration files.
 
 | Category | Count |
 |----------|-------|
-| Core Protocols | 9 |
+| Core Protocols | 12 |
 | Skills (total) | 13 |
 | Templates | 15 |
 | Tools | 8 |
 | Prompts | 3 |
 | Checklists | 1 |
 | Governance Docs | 2 |
-| **Total Files** | **45+** |
+| **Total Files** | **50+** |
 
 ---
 
@@ -236,7 +239,7 @@ For detailed file listings within subdirectories:
 
 ## Version & Maintenance
 
-- **Version**: 2.2.0
+- **Version**: 2.3.0-dev
 - **Last Updated**: 2026-02-04
 - **Maintenance**: Update whenever files are added/removed
 
@@ -244,4 +247,4 @@ For maintenance procedures, see `core/governance/INDEX-MAINTENANCE.md`.
 
 ---
 
-*Index last generated: 2026-02-04 | Next update: When new files are added*
+*Index last generated: 2026-02-04 | v2.3.0-dev | Next update: When new files are added*

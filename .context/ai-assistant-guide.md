@@ -1,7 +1,7 @@
 # AI Assistant Guide — T0 Authority
 
 > **Tier**: T0 (Enforcement) — Fonte de verdade para regras, links e protocolos.
-> **Versão**: 2.2.0 | **Atualizado**: 2026-02-04
+> **Versão**: 2.3.0-dev | **Atualizado**: 2026-02-04
 > **Leia SEMPRE antes de qualquer ação.**
 
 ---

@@ -81,7 +81,59 @@
 
 ## Notas da Sessao
 
-### Sessao 29 (2026-02-04) - SPEC-006 Phase 3 Command Router Parsing 🚦
+### Sessao 29 (2026-02-04) - SPEC-011 Slash Command Aliases Specification 🎯
+
+**Part 1: SPEC-006/007 Completion & Documentation — ✅ COMPLETE**
+- Memory consolidation: Merged `opencode-spec003-session.md` into main memory
+- Created session memory template for reuse
+- SPEC-006 validation and completion (COMMAND-ROUTER.md)
+- SPEC-007 full implementation (WORKFLOW-ORCHESTRATOR.md)
+- Cross-model validation for both specs
+- Created comprehensive completion summaries
+
+**Part 2: SPEC-011 Specification — ✅ COMPLETE**
+
+**Feature: Slash Command Aliases System — Specification Phase Complete**
+
+- **Command**: `/speckit.specify` with planning document input
+- **Branch**: Created `011-slash-command-aliases`
+- **Short Name**: "slash-command-aliases"
+- **Feature Number**: 011 (first spec for this naming pattern)
+
+**Specification Created**:
+- **File**: `specs/011-slash-command-aliases/spec.md` (181 lines)
+- **User Stories**: 3 (P1-P3 prioritized, independently testable)
+  - P1: Basic command invocation via slash syntax
+  - P2: Special commands for system introspection (status, skill, memory)
+  - P3: Help and discovery commands
+- **Functional Requirements**: 12 (FR-001 to FR-012)
+- **Success Criteria**: 6 (measurable, technology-agnostic)
+- **Edge Cases**: 6 scenarios documented
+- **Key Entities**: 3 (Slash Command Alias, Special Command, Command Mapping)
+
+**Quality Validation**: ✅ 16/16 Checks Passed
+- Content Quality: 4/4 ✅
+- Requirement Completeness: 8/8 ✅
+- Feature Readiness: 4/4 ✅
+- Zero [NEEDS CLARIFICATION] markers
+- All requirements testable and unambiguous
+
+**Artifacts Created**:
+1. `specs/011-slash-command-aliases/spec.md` — Complete specification
+2. `specs/011-slash-command-aliases/checklists/requirements.md` — Quality validation checklist
+3. `specs/011-slash-command-aliases/CREATION-SUMMARY.md` — Comprehensive overview
+
+**Integration Points**:
+- SPEC-006 (COMMAND-ROUTER.md): Slash commands will integrate with existing routing
+- SPEC-007 (WORKFLOW-ORCHESTRATOR.md): Slash commands will respect persona/skill mappings
+- INPUT-CLASSIFIER.md: Must be extended to detect `/itzamna.*` patterns
+- Agent configs: All agent files need slash command documentation
+
+**Next Phase**: `/speckit.plan` (ready to execute)
+
+---
+
+### Sessao 29 Earlier (2026-02-04) - SPEC-006 Phase 3 Command Router Parsing 🚦
 
 **Feature: Command Router Parsing Logic (Phase 3) — ✅ COMPLETE**
 

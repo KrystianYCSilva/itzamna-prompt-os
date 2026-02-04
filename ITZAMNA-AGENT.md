@@ -1,7 +1,7 @@
 # ITZAMNA-AGENT.md — T1 Workflows & Memory
 
 > **Tier**: T1 | **Leia T0 primeiro**: `.context/ai-assistant-guide.md`
-> **Versão**: 2.2.0 | **Atualizado**: 2026-02-04
+> **Versão**: 2.3.0-dev | **Atualizado**: 2026-02-04
 > Arquitetura Prompt-Based | Cross-Model (Claude, GPT, Gemini, Cursor, Copilot, Qwen)
 
 ---
@@ -20,14 +20,15 @@
 
 | Métrica | Valor |
 |---------|-------|
-| Versão | 2.2.0 |
+| Versão | 2.3.0-dev |
 | Skills | 13 (6 baselines + 7 advanced, todas aprovadas) |
 | Baselines | Java, Kotlin, C/C++, JavaScript, Python, Go |
 | Personas | 0 criadas (8 conceituais, on-demand) |
-| Core Protocols | 17 (9 main + 4 JIT web-research + 4 JIT knowledge-base) |
-| SPECs Completas | 6 (001, 002, 003, 004, 005, 010) |
-| Próximo | v2.3.0 — Ecosystem + Baselines (Rust, TypeScript) |
-| Feature em andamento | SPEC-006 Command Router (Phase 3 complete) |
+| Core Protocols | 19 (11 main + 4 JIT web-research + 4 JIT knowledge-base) |
+| SPECs Completas | 8 (001, 002, 003, 004, 005, 006, 007, 010) |
+| Em Especificação | SPEC-011 (Slash Command Aliases) |
+| Próximo | Implementar SPEC-011, depois Ecosystem + Baselines |
+| Feature em andamento | SPEC-011 Slash Command Aliases (Specification complete) |
 
 ---
 
@@ -144,10 +145,13 @@ Classificação detalhada: `.prompt-os/core/INPUT-CLASSIFIER.md`
 | Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Fase 4 do pipeline |
 | Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Após rejeições, gaps |
 | Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Ao receber pedido |
+| Command Router | `.prompt-os/core/COMMAND-ROUTER.md` | Comandos `#` ou `/itzamna.*` |
+| Workflow Orchestrator | `.prompt-os/core/WORKFLOW-ORCHESTRATOR.md` | Workflow → Persona mapping |
 | JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Economia de tokens |
 | Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Pesquisa externa |
 | Knowledge Base | `.prompt-os/core/KNOWLEDGE-BASE.md` | Buscar skills relacionadas |
 | Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criar persona |
+| Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Atualizar memória após ações |
 | Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Após ações significativas |
 
 ---

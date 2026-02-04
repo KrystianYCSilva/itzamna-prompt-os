@@ -1,10 +1,10 @@
-# Project Overview - Itzamna PromptOS v2.2.0
+# Project Overview - Itzamna PromptOS v2.3.0-dev
 
-> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.3.0-dev | **Arquitetura:** Prompt-Based
 > **Última Atualização:** 2026-02-04
-> **SPEC-003 Status:** ✅ COMPLETE (Web Research Enhancement, 23/23 tasks)
-> **SPEC-010 Status:** ✅ COMPLETE (6 language baselines delivered)
-> **Próxima SPEC:** v2.3.0 (Advanced Features & Ecosystem)
+> **SPEC-006/007 Status:** ✅ COMPLETE (Command Router & Workflow Orchestrator)
+> **SPEC-011 Status:** 📝 IN PROGRESS (Slash Command Aliases - Specification complete)
+> **Próxima Fase:** Planning & Implementation de SPEC-011
 
 ---
 

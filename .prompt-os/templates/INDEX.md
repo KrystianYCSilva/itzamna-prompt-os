@@ -18,7 +18,31 @@
 
 ---
 
-## CONTEXT TEMPLATES (4 files)
+## CONTEXT TEMPLATES v2 (15 files)
+
+> **Estrutura baseada em tags**: `min-context` e `complete-context`
+
+| File | Purpose | When to Use |
+|------|---------|------------|
+| [context/min-context/.context/README.md](context/min-context/.context/README.md) | Context hub (min) | Bootstrap minimo |
+| [context/min-context/.context/_meta/tech-stack.md](context/min-context/.context/_meta/tech-stack.md) | Tech stack (min) | Bootstrap minimo |
+| [context/min-context/.context/standards/architectural-rules.md](context/min-context/.context/standards/architectural-rules.md) | Regras T0 (min) | Bootstrap minimo |
+| [context/complete-context/.context/README.md](context/complete-context/.context/README.md) | Context hub (full) | Bootstrap completo |
+| [context/complete-context/.context/ai-assistant-guide.md](context/complete-context/.context/ai-assistant-guide.md) | Guia T0 (full) | Bootstrap completo |
+| [context/complete-context/.context/_meta/project-overview.md](context/complete-context/.context/_meta/project-overview.md) | Visao geral | Bootstrap completo |
+| [context/complete-context/.context/_meta/tech-stack.md](context/complete-context/.context/_meta/tech-stack.md) | Tech stack | Bootstrap completo |
+| [context/complete-context/.context/_meta/key-decisions.md](context/complete-context/.context/_meta/key-decisions.md) | Decisoes (ADRs) | Bootstrap completo |
+| [context/complete-context/.context/standards/architectural-rules.md](context/complete-context/.context/standards/architectural-rules.md) | Regras T0 | Bootstrap completo |
+| [context/complete-context/.context/standards/code-quality.md](context/complete-context/.context/standards/code-quality.md) | Qualidade | Bootstrap completo |
+| [context/complete-context/.context/standards/testing-strategy.md](context/complete-context/.context/standards/testing-strategy.md) | Testes | Bootstrap completo |
+| [context/complete-context/.context/patterns/architectural-overview.md](context/complete-context/.context/patterns/architectural-overview.md) | Blueprint | Bootstrap completo |
+| [context/complete-context/.context/examples/clean-architecture-structure.md](context/complete-context/.context/examples/clean-architecture-structure.md) | Exemplo | Bootstrap completo |
+| [context/complete-context/.context/workflows/development-workflows.md](context/complete-context/.context/workflows/development-workflows.md) | Workflows | Bootstrap completo |
+| [context/complete-context/.context/troubleshooting/common-issues.md](context/complete-context/.context/troubleshooting/common-issues.md) | Troubleshooting | Bootstrap completo |
+
+---
+
+## CONTEXT TEMPLATES (Legacy - 4 files)
 
 | File | Purpose | When to Use | Size |
 |------|---------|------------|------|
@@ -50,4 +74,4 @@
 ## 📌 MAINTENANCE
 
 **Last updated**: 2026-02-04
-**Total templates**: 15
+**Total templates**: 30

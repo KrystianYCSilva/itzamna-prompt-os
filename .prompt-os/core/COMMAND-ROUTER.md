@@ -20,8 +20,8 @@ Formal definition of the supported command structure (EBNF).
 
 ```ebnf
 command_message = command_prefix , command_name , [ space , subcommand ] , { space , argument } , { space , flag } ;
-command_prefix = "#" ;
-command_name = "init" | "add" | "sync" | "update" | "impl" | "docs" ;
+command_prefix = "#" | "/" ;
+command_name = "init" | "ini" | "itzamna.init" | "add" | "sync" | "update" | "impl" | "docs" ;
 subcommand = string ;
 argument = quoted_string | unquoted_string ;
 flag = "--" , flag_name , [ space , flag_value ] ;
@@ -30,7 +30,7 @@ space = " " ;
 ```
 
 ### Parsing Rules
-1. **Strict Start:** Commands MUST appear at the very beginning of the message (regex: `^#`).
+1. **Strict Start:** Commands MUST appear at the very beginning of the message (regex: `^(#|/)`).
 2. **Quoting:** Arguments with spaces MUST be enclosed in quotes (e.g., `"my arg"`).
 3. **Flags:** Last flag wins if duplicates exist.
 
@@ -82,6 +82,8 @@ Mapping of commands to their respective workflows.
 | Command | Subcommand | Workflow Target | Description |
 |---------|------------|-----------------|-------------|
 | `#init` | * | `BOOTSTRAP.md` | Initialize a new project or agent structure. |
+| `#ini` | * | `BOOTSTRAP.md` | Alias for init (short form). |
+| `/itzamna.init` | * | `BOOTSTRAP.md` | Bootstrap via chat. |
 | `#add` | `agent` | `BOOTSTRAP-AGENT.md` | Add a new agent to the system configuration. |
 | `#sync` | * | `SYNC-CONTEXT.md` | Synchronize context files and indices. |
 | `#update` | * | `UPDATE.md` | Update system components or dependencies. |

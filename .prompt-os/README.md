@@ -42,7 +42,7 @@ Everything is **prompt-based**: AI agents read markdown files and follow them. T
 Contains the fundamental algorithms, decision-making processes, and governance rules.
 
 **Key Components:**
-- **Protocols:** `AUTO-INCREMENT`, `HUMAN-GATE`, `MEMORY-MANAGEMENT`, etc.
+- **Protocols (12):** `AUTO-INCREMENT`, `BOOTSTRAP`, `COMMAND-ROUTER`, `HUMAN-GATE`, `INPUT-CLASSIFIER`, `JIT-PROTOCOL`, `KNOWLEDGE-BASE`, `MEMORY-MANAGEMENT`, `PERSONA-GENERATOR`, `SELF-CRITIQUE`, `WEB-RESEARCH`, `WORKFLOW-ORCHESTRATOR`
 - **Governance:** `core/governance/` (Maintenance rules & policies)
 - **Checklists:** `core/checklists/` (Execution guides)
 - **Prompts:** `core/prompts/` (Strategic AI prompts)
@@ -136,9 +136,10 @@ Six mandatory protocols for artifact generation:
 
 ## Version & Maintenance
 
-- **Version**: 2.2.0
+- **Version**: 2.3.0-dev
 - **Status**: Production ready
-- **Next Phase**: v2.3.0 (advanced personas, expanded skills)
+- **Current**: SPEC-011 (Slash Command Aliases) in specification
+- **Next Phase**: v2.3.0 (slash commands, advanced personas, expanded skills)
 
 Maintained by the PromptOS team. See `core/governance/INDEX-MAINTENANCE.md` for contribution guidelines.
 

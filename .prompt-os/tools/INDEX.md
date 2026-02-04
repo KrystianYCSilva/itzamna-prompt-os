@@ -39,4 +39,4 @@
 | `cli/web-research.js` | SPEC-003 | Validate and score research sources | JavaScript |
 | `cli/knowledge-base.js` | SPEC-004 | Multi-signal similarity search and RAG | JavaScript |
 | `cli/persona-generator.js` | SPEC-005 | Generate personas from natural language | JavaScript |
-| `cli/main.js` | - | Central CLI entry point | JavaScript |
+| `cli/main.js` | - | Central CLI entry point for all tools | JavaScript |

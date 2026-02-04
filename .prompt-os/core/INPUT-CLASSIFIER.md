@@ -25,8 +25,8 @@ INPUT: [mensagem do usuario]
 ┌─────────────────────────────────────┐
 │ 0. E UM COMANDO ROUTER?             │ → DELEGATE TO COMMAND-ROUTER.md
 │    CRITERIO ESTRITO:                │   STOP CLASSIFICATION HERE.
-│    Deve ser o PRIMEIRO token (Regex: ^#)
-│    Ex: "#init", "#add agent"        │   Execute instructions in protocol.
+│    Deve ser o PRIMEIRO token (Regex: ^(#|/))
+│    Ex: "#init", "#ini", "/itzamna.init" │ Execute instructions in protocol.
 └─────────────────────────────────────┘
     ↓ (nao)
 ┌─────────────────────────────────────┐
@@ -65,7 +65,7 @@ INPUT: [mensagem do usuario]
 
 ## PROTOCOLOS AUXILIARES
 
-- **COMMAND-ROUTER.md**: Use para comandos de sistema (#init, #add, #sync). **IMPORTANTE:** O comando deve estar no INICIO ABSOLUTO da mensagem (primeiros caracteres). Se estiver no meio do texto, ignore.
+- **COMMAND-ROUTER.md**: Use para comandos de sistema (#init, #ini, /itzamna.init, #add, #sync). **IMPORTANTE:** O comando deve estar no INICIO ABSOLUTO da mensagem (primeiros caracteres). Se estiver no meio do texto, ignore.
 - **WORKFLOW-ORCHESTRATOR.md**: Apos o Router identificar o workflow, delegue ao Orchestrator para resolucao de Persona e Skills.
 
 ## SHORTCUTS DISPONIVEIS
