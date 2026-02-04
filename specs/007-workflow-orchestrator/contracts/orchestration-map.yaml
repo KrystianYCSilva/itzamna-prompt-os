@@ -1,0 +1,126 @@
+openapi: 3.0.0
+info:
+  title: Workflow Orchestrator - Orchestration Map
+  version: 1.0.0
+  description: >
+    Static contract defining the binding between workflows, personas, and skill sets.
+    Skills are listed in priority order (index 0 = highest). This order governs
+    eviction when the 5-skill cap is reached.
+paths: {}
+components:
+  schemas:
+    OrchestrationMapEntry:
+      type: object
+      required:
+        - workflow
+        - persona
+        - skills
+      properties:
+        workflow:
+          type: string
+          enum: [new, impl, bug, review, docs, test, arch]
+        persona:
+          type: string
+          enum:
+            - Product Owner
+            - Software Engineer
+            - Debugger
+            - Code Reviewer
+            - Technical Writer
+            - QA Engineer
+            - Solutions Architect
+        skills:
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 5
+          description: Ordered by priority. Index 0 is evicted last.
+
+    ActiveContext:
+      type: object
+      required:
+        - workflow
+        - persona
+        - skills
+      properties:
+        workflow:
+          type: string
+          enum: [new, impl, bug, review, docs, test, arch]
+        persona:
+          type: string
+        skills:
+          type: array
+          items:
+            type: string
+          minItems: 2
+          maxItems: 5
+        stack_skill:
+          type: string
+          nullable: true
+        warnings:
+          type: array
+          items:
+            type: string
+
+    TechStackProfile:
+      type: object
+      properties:
+        primary_language:
+          type: string
+        skill_id:
+          type: string
+        last_updated:
+          type: string
+          format: date
+
+  examples:
+    ImplDefault:
+      value:
+        workflow: impl
+        persona: Software Engineer
+        skills: [typescript, clean-code, software-testing]
+        stack_skill: typescript
+        warnings: []
+
+    ImplWithOverride:
+      value:
+        workflow: impl
+        persona: Solutions Architect
+        skills: [security-basics, tdd, typescript, clean-code]
+        stack_skill: typescript
+        warnings:
+          - "Persona overridden to 'Solutions Architect' via --persona flag."
+
+    BugMissingStack:
+      value:
+        workflow: bug
+        persona: Debugger
+        skills: [debugging-techniques, error-handling]
+        stack_skill: null
+        warnings:
+          - "Tech Stack Profile missing or outdated. Language-specific skill omitted. Update .context/_meta/tech-stack.md to resolve."
+
+  # Static map — source of truth for the 7 MVP workflows
+  orchestrationMap:
+    - workflow: new
+      persona: Product Owner
+      skills: [requirements-gathering, card-templates]
+    - workflow: impl
+      persona: Software Engineer
+      skills: ["{stack-skill}", clean-code, software-testing]
+    - workflow: bug
+      persona: Debugger
+      skills: [debugging-techniques, error-handling, "{stack-skill}"]
+    - workflow: review
+      persona: Code Reviewer
+      skills: [code-quality, security-basics]
+    - workflow: docs
+      persona: Technical Writer
+      skills: [technical-writing, markdown]
+    - workflow: test
+      persona: QA Engineer
+      skills: [software-testing, tdd]
+    - workflow: arch
+      persona: Solutions Architect
+      skills: [system-design, architecture-patterns]

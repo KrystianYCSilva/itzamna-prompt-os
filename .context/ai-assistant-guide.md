@@ -1,349 +1,348 @@
-# AI Assistant Guide - Itzamna PromptOS v2.2.0
+# AI Assistant Guide — T0 Authority
 
-> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
-> **Última Atualização:** 2026-02-04
-> **SPEC-010:** ✅ COMPLETE | **SPEC-003:** ✅ COMPLETE | **SPEC-004:** ✅ COMPLETE | **Próxima:** v2.3.0 (Ecosystem + Baselines)
-
----
-
-## IMPORTANTE: Arquitetura Prompt-Based
-
-**PromptOS NÃO é um sistema baseado em código que executa.** É uma coleção de **arquivos Markdown** que AI agents **leem e seguem**.
-
-```
-AI Agent → Lê .prompt-os/PROMPTOS.md → Segue instruções → Comporta-se conforme protocolos
-```
+> **Tier**: T0 (Enforcement) — Fonte de verdade para regras, links e protocolos.
+> **Versão**: 2.2.0 | **Atualizado**: 2026-02-04
+> **Leia SEMPRE antes de qualquer ação.**
 
 ---
 
-## 1. Bootstrap Sequence
+## Hierarquia dos Arquivos de Agente
 
-### Passo 1: Entry Point
 ```
-LEIA: .prompt-os/PROMPTOS.md
-Este é o ponto de entrada principal do sistema.
-```
-
-### Passo 2: Constitution
-```
-LEIA: .prompt-os/CONSTITUTION.md
-Contém regras T0 (invioláveis), T1 (fortes) e T2 (convenções).
+T0  .context/ai-assistant-guide.md   ← ESTE ARQUIVO (regras, links, protocolos)
+ └─ T1  ITZAMNA-AGENT.md            ← Workflows, memória longa, exemplos
+     └─ T3  CLAUDE.md / GEMINI.md / QWEN.md / AGENTS.md
+            .cursorrules / copilot-instructions.md
+            └─ Dicas específicas do CLI; sempre referenciam T0 + T1
 ```
 
-### Passo 3: Contexto do Projeto
-```
-LEIA: .context/_meta/tech-stack.md
-LEIA: .context/_meta/project-overview.md
-```
-
-### Passo 4: Carregar Protocolos (JIT)
-```
-Baseado no tipo de tarefa, carregue protocolos de .prompt-os/core/:
-- SELF-CRITIQUE.md → Para avaliação de qualidade
-- AUTO-INCREMENT.md → Para detecção de gaps
-- WEB-RESEARCH.md → Para pesquisa
-- KNOWLEDGE-BASE.md → Para gestão de conhecimento
-- PERSONA-GENERATOR.md → Para criação de personas
-- INPUT-CLASSIFIER.md → Para classificação de input
-- JIT-PROTOCOL.md → Para carregamento otimizado
-- HUMAN-GATE.md → Para aprovação humana
-- MEMORY-MANAGEMENT.md → Para gestão de memória persistente
-```
+Em conflito entre tiers, o mais alto **sempre** vence. Cite o ID da regra.
 
 ---
 
-## 2. Request Classification
+## Mapa de Arquivos (Links Canônicos)
 
-| Tipo de Request | Protocolos a Carregar | Exemplo |
-|-----------------|----------------------|---------|
-| Skill Generation | `SELF-CRITIQUE.md`, `WEB-RESEARCH.md` | "Generate a Docker skill" |
-| Persona Creation | `PERSONA-GENERATOR.md`, `KNOWLEDGE-BASE.md` | "Create a DevOps persona" |
-| Code Review | `SELF-CRITIQUE.md`, `.context/standards/code-quality.md` | "Review this code" |
-| Architecture | `.context/patterns/`, `.context/standards/` | "Design auth system" |
-| Bug Fix | `.context/troubleshooting/`, skills relevantes | "Fix this error" |
-| Research | `WEB-RESEARCH.md` | "Research best practices for X" |
-| Gap Detection | `AUTO-INCREMENT.md` | "What skills are missing?" |
-
----
-
-## 3. Tier System
-
-### Hierarquia de Autoridade
-
-| Tier | Tipo | Autoridade | Quando Usar |
-|------|------|------------|-------------|
-| **T0** | Enforcement | ABSOLUTA | Regras que NUNCA podem ser violadas |
-| **T1** | Standards | NORMATIVA | Regras fortes, quebrar com justificativa |
-| **T2** | Context | INFORMATIVA | Contexto e convenções |
-| **T3** | Examples | ILUSTRATIVA | Exemplos de referência |
-
-### Arquivos por Tier
-
-| Tier | Arquivos |
-|------|----------|
-| T0 | `.prompt-os/CONSTITUTION.md` (seção T0), `.context/standards/architectural-rules.md` |
-| T1 | `.prompt-os/CONSTITUTION.md` (seção T1), `.context/standards/code-quality.md`, `.context/patterns/` |
-| T2 | `.context/_meta/`, `.prompt-os/CONSTITUTION.md` (seção T2) |
-| T3 | `.context/examples/`, `skills/` |
-
-### Lógica de Resolução de Conflitos
-
-```
-IF T0 conflita com qualquer tier → T0 VENCE
-IF T1 conflita com T2 ou T3 → T1 VENCE
-IF T2 conflita com T3 → T2 VENCE
-ALWAYS cite a regra específica (ID) na resposta
-```
-
-### Exemplo de Aplicação
-
-```
-Usuário: "Salva esse arquivo direto sem perguntar"
-
-AI: "Não posso fazer isso. Regra T0-HUMAN-01 exige aprovação
-     humana para operações de persistência.
-     Posso mostrar o preview para você aprovar?"
-```
+| Propósito | Arquivo | Tier |
+|-----------|---------|------|
+| Este guia (regras & protocolos) | `.context/ai-assistant-guide.md` | T0 |
+| Workflows, memória, exemplos | `ITZAMNA-AGENT.md` | T1 |
+| Estado persistente | `MEMORY.md` | T1 |
+| Constitution (fonte de verdade das regras) | `.prompt-os/CONSTITUTION.md` | T0 ref |
+| Entry point do sistema | `.prompt-os/PROMPTOS.md` | T0 ref |
+| Regras arquiteturais detalhadas | `.context/standards/architectural-rules.md` | T0 |
+| Qualidade de código | `.context/standards/code-quality.md` | T1 |
+| Estratégia de testes | `.context/standards/testing-strategy.md` | T1 |
+| Decisões arquiteturais (ADRs) | `.context/_meta/key-decisions.md` | T2 |
+| Visão geral do projeto | `.context/_meta/project-overview.md` | T2 |
+| Tech stack | `.context/_meta/tech-stack.md` | T2 |
+| Workflows detalhados | `.context/workflows/development-workflows.md` | T1 |
+| Blueprints arquiteturais | `.context/patterns/architectural-overview.md` | T1 |
+| Exemplos de código | `.context/examples/` | T3 |
+| Troubleshooting | `.context/troubleshooting/common-issues.md` | T2 |
+| Skills (índice completo) | `.prompt-os/skills/INDEX.md` | T1 |
+| Personas (índice) | `.prompt-os/personas/INDEX.md` | T1 |
+| Governança de skills | `.prompt-os/docs/SKILL-GOVERNANCE.md` | T1 |
+| Validação de INDEX | `.prompt-os/scripts/validate-indices.py` | T1 |
+| Constitution do SpecKit | `.specify/memory/constitution.md` | T1 |
+| Docs consolidados | `docs/ARCHITECTURE.md` | T2 |
+| Monitoring templates | `.prompt-os/templates/monitoring/` | T2 |
 
 ---
 
-## 4. Human Gate Protocol
+## T0 — Regras Invioláveis
 
-### Quando Aplicar
+### T0-SEC: Segurança
 
-| Nível | Operação | Aprovação |
-|-------|----------|-----------|
-| L1 | Leitura, formatação, lint | Auto-aprovado |
-| L2 | Criação de skills, modificações | **Requer aprovação** |
-| L3 | Arquitetura, personas, mudanças estruturais | **Requer aprovação + revisão** |
+| ID | Regra |
+|----|-------|
+| T0-SEC-01 | NUNCA secrets hardcoded — use env vars, `.env`, secrets managers |
+| T0-SEC-02 | NUNCA SQL injection — use parameterized queries, ORMs |
+| T0-SEC-03 | NUNCA expor dados sensíveis em logs — mascare senhas, tokens, PII |
+| T0-SEC-04 | NUNCA desabilite validações de segurança — CORS, CSRF, rate limiting |
 
-### Fluxo do Human Gate
+**Se detectar violação:** Pare → Avise o usuário → Sugira correção → NÃO prossiga.
 
-```
-1. Gerar artefato (skill, persona, código)
-2. Executar Self-Critique (ver SELF-CRITIQUE.md)
-3. Mostrar preview ao usuário
-4. Aguardar decisão:
-   - approve → Salvar e commitar
-   - view → Mostrar conteúdo completo
-   - edit → Permitir edição
-   - reject [motivo] → Registrar feedback, aprender
-   - cancel → Abortar sem registro
-5. Se aprovado, atualizar MEMORY.md
-```
+### T0-HUMAN: Controle Humano
+
+| ID | Regra |
+|----|-------|
+| T0-HUMAN-01 | Mudanças significativas REQUEREM aprovação humana |
+| T0-HUMAN-02 | NUNCA commit automático |
+| T0-HUMAN-03 | NUNCA push automático |
+| T0-HUMAN-04 | NUNCA delete sem confirmar |
+
+**Arquivos críticos (sempre pedir aprovação):** `package.json`, `pom.xml`, `build.gradle`,
+`.env*` (nunca commite!), `Dockerfile`, `docker-compose.yml`, CI/CD configs, security configs.
+
+### T0-STRUCT: Estrutura
+
+| ID | Regra |
+|----|-------|
+| T0-STRUCT-01 | CARD-FIRST para novas features (exceções: `#impl-direct`, bug fixes urgentes, refators pequenos) |
+| T0-STRUCT-02 | Mantenha estrutura de pastas existente |
+| T0-STRUCT-03 | Não crie arquivos fora do escopo sem permissão |
+
+### T0-VALIDATE: Validação
+
+| ID | Regra |
+|----|-------|
+| T0-VAL-01 | NUNCA afirme sucesso sem verificar |
+| T0-VAL-02 | NUNCA invente APIs/métodos — verifique docs oficiais |
+| T0-VAL-03 | NUNCA ignore erros de compilação |
+
+### T0 Arquiteturais (`.context/standards/architectural-rules.md`)
+
+| ID | Regra |
+|----|-------|
+| T0-SIZE-01 | Kernel < 5KB; PROMPTOS.md < 3KB; CONSTITUTION.md < 10KB |
+| T0-SIZE-02 | Skills individuais < 1400 tokens |
+| T0-SOURCE-01 | Sempre citar fontes (mínimo 2 para skills técnicas) |
+| T0-COMPAT-01 | Compatibilidade cross-model obrigatória |
+| T0-MEMORY-01 | Atualizar MEMORY.md após ações significativas |
+| T0-ARCH-01 | Core do sistema é prompts (Markdown), não código executável |
+| T0-ENTRY-01 | `.prompt-os/PROMPTOS.md` é o entry point obrigatório |
+| T0-CRITIQUE-01 | Self-Critique antes de qualquer operação L2/L3 (score < 70 bloqueia) |
+| T0-TIER-01 | Respeitar hierarquia T0 > T1 > T2 > T3 |
+| T0-PROTOCOL-01 | Protocolos devem referenciar-se mutuamente |
 
 ---
 
-## 5. Definition of Done
+## T1 — Regras Fortes
 
-| Métrica | Mínimo | Verificação |
-|---------|--------|-------------|
-| **Self-Critique Score** | >= 70 | Executar protocolo SELF-CRITIQUE.md |
-| **Human Approval** | Obrigatório | Human Gate para L2/L3 |
-| **Sources Cited** | >= 2 fontes | Para skills geradas |
-| **Template Compliance** | 100% | Todas seções preenchidas |
-| **Token Limit (Skills)** | < 1,400 tokens | Use JIT sub-files se necessário |
-| **MEMORY.md Updated** | Obrigatório | Após ações significativas |
+Quebrar RARAMENTE e apenas com justificativa explícita. Sempre informe o usuário.
 
-### JIT Sub-Files Pattern (SPEC-010 Innovation)
+### T1-QUAL: Qualidade
 
-**Problema:** Skills que excedem T0-SIZE-01 (1,400 tokens)
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-QUAL-01 | SOLID | Protótipo, POC, scripts descartáveis |
+| T1-QUAL-02 | Testes para código novo | Código trivial, getters/setters |
+| T1-QUAL-03 | DRY | Duplicação mais clara que abstração |
+| T1-QUAL-04 | Funções pequenas e focadas | Performance crítica |
+| T1-QUAL-05 | Nomes descritivos | Convenções do domínio (i, j) |
 
-**Solução:** Extrair seções detalhadas para arquivos JIT separados
+### T1-ARCH: Arquitetura
 
-**Estrutura:**
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-ARCH-01 | Separação de camadas | Scripts simples, CLIs pequenos |
+| T1-ARCH-02 | Dependency Injection | Código legado |
+| T1-ARCH-03 | Interfaces para dependências externas | MVP, protótipo |
+| T1-ARCH-04 | Tratamento de erros explícito | NUNCA (promova a T0) |
+
+### T1-NAMING: Skills & Categorias
+
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-NAMING-01 | Categorias em inglês | NUNCA |
+| T1-NAMING-02 | Subcategorias lowercase com hífens | Convenção legada |
+| T1-NAMING-03 | Skills seguem padrão da categoria | Compat. sistema legado |
+
+**Categorias válidas:**
+
+| Categoria | Subcategorias |
+|-----------|---------------|
+| `linguagens` | java, kotlin, python, javascript, c-cpp, go, rust, typescript |
+| `frameworks` | spring, react, django, express, flask, angular, vue |
+| `cloud` | aws, azure, gcp, kubernetes, docker, terraform |
+| `databases` | postgresql, mongodb, redis, elasticsearch |
+| `devops` | cicd, monitoring, logging, infrastructure |
+| `frontend` | css, html, ui-ux, accessibility |
+| `backend` | apis, authentication, microservices, messaging |
+| `testing` | unit, integration, e2e, performance |
+| `tools` | git, vim, vscode, ide |
+| `patterns` | design-patterns, architectural-patterns, best-practices |
+
+**Path:** `.prompt-os/skills/{categoria}/{subcategoria}/{versao}/SKILL.md`
+
+### T1-DOC: Documentação
+
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-DOC-01 | Documente decisões importantes | Óbvias ou temporárias |
+| T1-DOC-02 | README para novos projetos/módulos | Módulo interno pequeno |
+| T1-DOC-03 | Comentários para lógica complexa | Auto-explicativo |
+| T1-DOC-04 | CHANGELOG para releases | Desenvolvimento inicial |
+
+### T1-PERF: Performance
+
+| ID | Regra | Quando Quebrar |
+|----|-------|----------------|
+| T1-PERF-01 | Otimize queries de banco | Dev, dados pequenos |
+| T1-PERF-02 | Cache onde apropriado | MVP |
+| T1-PERF-03 | Lazy loading para objetos grandes | Sempre necessários |
+
+---
+
+## T2 — Convenções
+
+### Nomenclatura de Código
+
+| Elemento | Convenção | Exemplo |
+|----------|-----------|---------|
+| Arquivos | kebab-case | `user-service.ts` |
+| Classes | PascalCase | `UserService` |
+| Funções | camelCase | `getUserById()` |
+| Constantes | UPPER_SNAKE | `MAX_RETRY_COUNT` |
+| Variáveis | camelCase | `userName` |
+| Tabelas BD | snake_case | `user_profiles` |
+| Colunas BD | snake_case | `created_at` |
+
+### Git
+
+| Tipo | Formato |
+|------|---------|
+| Commits | Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`) |
+| Feature | `feature/CARD-XXX-descricao` |
+| Fix | `fix/CARD-XXX-descricao` |
+| Hotfix | `hotfix/descricao` |
+
+### Estilo de Código
+
+| Regra | Padrão |
+|-------|--------|
+| Indentação | 2 spaces (JS/TS), 4 spaces (Java/Python) |
+| Linha máxima | 120 chars |
+| Imports | Organizados (externos → internos → relativos) |
+| Aspas | Single (JS/TS), double (Java/Python) |
+
+### Testes
+
+| Tipo | Proporção | Frameworks |
+|------|-----------|------------|
+| Unit | 70% | Jest (JS), pytest (Python), Pester (PS) |
+| Integration | 20% | Jest, pytest |
+| E2E | 10% | Cypress |
+
+**Coverage target:** Line ≥ 90%, Branch ≥ 80%, Function ≥ 95%
+
+---
+
+## Protocolo Obrigatório (6 Fases)
+
+Ao gerar qualquer artefato (skill, persona, código, doc):
+
+```
+1. AUTO-INCREMENT  → Verificar se artefato similar existe; detectar gaps
+2. GENERATE        → Criar seguindo templates/standards
+3. SELF-CRITIQUE   → Score 0-100 (< 70 = bloquear e iterar)
+4. HUMAN-GATE      → Preview ao humano; aguardar approve|view|edit|reject|cancel
+                     ⚠️ NUNCA escrever sem aprovação (T0-HUMAN-01)
+5. COMMIT          → Escrever arquivos, atualizar INDEX.md
+6. MEMORY-MGMT     → Atualizar MEMORY.md + memory/{agente}-memory.md
+                     ⚠️ NUNCA commitar sem atualizar (T0-MEMORY-01)
+```
+
+**Score Bands:**
+
+| Score | Band | Indicador | Ação |
+|-------|------|-----------|------|
+| 90-100 | Excelente | 🟢 | Prosseguir |
+| 70-89 | Bom | 🔵 | Prosseguir com sugestões |
+| 50-69 | Precisa melhoria | 🟡 | BLOQUEAR — iterar |
+| 0-49 | Insuficiente | 🔴 | BLOQUEAR — rever |
+
+---
+
+## Human Gate
+
+**Formato de apresentação:**
+```
+[Artefato] gerado! Score: [N]/100 ([band]) [indicador]
+Sources: [fontes]
+
+approve | view | edit | reject | cancel
+```
+
+**Níveis cognitivos:**
+
+| Nível | Exemplos | Auto-Approve? |
+|-------|----------|---------------|
+| L1 | Formatação, lint, leitura | Sim |
+| L2 | Skills, código | Não |
+| L3 | Arquitetura, personas | Não (revisão dupla) |
+
+---
+
+## Definition of Done
+
+| Critério | Mínimo |
+|----------|--------|
+| Self-Critique Score | ≥ 70 (≥ 99 para baselines) |
+| Human Approval | Obrigatório L2/L3 |
+| Sources Cited | ≥ 2 fontes (skills técnicas) |
+| Template Compliance | 100% |
+| Token Limit (Skills) | < 1,400 tokens (use JIT sub-files se necessário) |
+| MEMORY.md Updated | Obrigatório após ações significativas |
+
+---
+
+## JIT Sub-Files Pattern
+
+Para skills que excedem 1,400 tokens:
+
 ```
 skills/{categoria}/{skill}/
-├── SKILL.md          # Main skill (~1,400-1,550 tokens)
-├── {topic}.md        # JIT sub-file (loaded on demand)
-└── {topic2}.md       # JIT sub-file (loaded on demand)
+├── SKILL.md          # Principal (~1,400 tokens)
+├── {topic}.md        # JIT sub-file (carregado sob demanda)
+└── {topic2}.md       # JIT sub-file
 ```
 
-**Exemplo (C/C++ baseline - SPEC-010):**
-```
-.prompt-os/skills/linguagens/c-cpp/
-├── SKILL.md             # Main: 370 lines, ~1,400 tokens
-├── compilation.md       # JIT: compilation process details
-├── build-tools.md       # JIT: CMake, Make, build systems
-└── advanced-memory.md   # JIT: RAII, smart pointers, memory
-```
+Referência no SKILL.md: `[Ver detalhes](./{topic}.md)`
 
-**Quando usar:**
-- ✅ Skill principal > 1,400 tokens → Extrair sub-topics para JIT files
-- ✅ Tópicos complexos que merecem aprofundamento separado
-- ✅ Conteúdo avançado que nem todo usuário precisará
-
-**Benefícios comprovados (SPEC-010):**
-- Score improvement: 94 → 99 (C/C++), 95 → 99 (JavaScript)
-- T0-SIZE-01 compliance sem perda de completude
-- Melhor organização de conteúdo avançado
-
-**Nomenclatura:**
-- Main skill: `SKILL.md` (sempre)
-- Sub-files: `{topic}.md` (e.g., `ecosystem.md`, `compilation.md`, `advanced-memory.md`)
-- Referência no SKILL.md: `[Ver detalhes completos](./{topic}.md)` (JIT loading)
+**Benefícios provados (SPEC-010):** Score 94→99 (C/C++), 95→99 (JavaScript).
 
 ---
 
-## 6. Metodologia de Pesquisa
+## Metodologia de Pesquisa
 
-Ver protocolo completo: `.prompt-os/core/WEB-RESEARCH.md`
+Ver protocolo: `.prompt-os/core/WEB-RESEARCH.md`
 
-### Hierarquia de Fontes
-
-| Tier | Tipo | Exemplos | Uso |
-|------|------|----------|-----|
-| **1** | Oficiais | docs.docker.com, developer.mozilla.org | SEMPRE primeiro |
-| **2** | Acadêmicas | artigos, pesquisas peer-reviewed | Suplementar |
-| **3** | Consolidados | Baeldung, StackOverflow (alta pontuação) | Suplementar |
-| **4** | Fórums | Reddit, Discord | ÚLTIMO RECURSO |
-| **X** | **PROIBIDO** | Blogs pessoais, redes sociais | NUNCA |
-
-### Regras de Pesquisa
-
-```
-SEMPRE trazer referência (URL + data de acesso)
-SEMPRE validar com fonte oficial quando possível
-SEMPRE preferir documentação oficial
-NUNCA usar fontes não-verificáveis
-NUNCA inventar informações
-```
+| Tier | Tipo | Uso |
+|------|------|-----|
+| 1 | Oficiais (docs.docker.com, developer.mozilla.org) | SEMPRE primeiro |
+| 2 | Acadêmicas (peer-reviewed) | Suplementar |
+| 3 | Consolidados (Baeldung, SO alta pontuação) | Suplementar |
+| 4 | Fórums (Reddit, Discord) | ÚLTIMO recurso |
+| X | Blogs pessoais, redes sociais | NUNCA |
 
 ---
 
-## 7. Protocolos Core
+## Como Aplicar Regras
 
-### 7.1 SELF-CRITIQUE.md
-**Propósito:** Avaliar qualidade antes do Human Gate
-**Quando usar:** Antes de qualquer geração L2/L3
-**Output:** Score 0-100, sugestões de melhoria
+**Ao escrever código:**
+1. T0 — Estou violando regra inviolável? → SIM: Pare. NÃO: Continue.
+2. T1 — Estou seguindo regras fortes? → NÃO sem justificativa: Informe usuário.
+3. T2 — Estou seguindo convenções? → Siga a convenção do projeto se diferente.
 
-### 7.2 AUTO-INCREMENT.md
-**Propósito:** Detectar gaps, aprender com rejeições
-**Quando usar:** Periodicamente, após rejeições
-**Output:** Lista de gaps, sugestões de evolução
+**Ao revisar código:**
+- T0 violation = BLOCKER
+- T1 violation = WARNING
+- T2 violation = INFO
 
-### 7.3 WEB-RESEARCH.md
-**Propósito:** Metodologia de pesquisa estruturada
-**Quando usar:** Ao gerar skills, buscar informações
-**Output:** Fontes validadas, informações estruturadas
-
-### 7.4 KNOWLEDGE-BASE.md
-**Propósito:** Gestão de conhecimento, relacionamentos
-**Quando usar:** Ao buscar skills relacionadas
-**Output:** Skills relevantes, hierarquia de conhecimento
-
-### 7.5 PERSONA-GENERATOR.md
-**Propósito:** Criar e compor personas
-**Quando usar:** Ao criar novas personas
-**Output:** Persona completa com skills compostas
-
-### 7.6 INPUT-CLASSIFIER.md
-**Propósito:** Classificar tipo de input
-**Quando usar:** No início de cada interação
-**Output:** Tipo, domínio, nível cognitivo
-
-### 7.7 JIT-PROTOCOL.md
-**Propósito:** Carregamento otimizado de contexto
-**Quando usar:** Ao decidir o que carregar
-**Output:** Lista mínima de arquivos necessários
-
-### 7.8 HUMAN-GATE.md
-**Propósito:** Protocolo de aprovação humana
-**Quando usar:** Antes de qualquer operação de persistência L2/L3
-**Output:** Interface para aprovação do usuário
-
-### 7.9 MEMORY-MANAGEMENT.md
-**Propósito:** Gestão de memória persistente (3 camadas)
-**Quando usar:** Após ações significativas, ao final de sessões
-**Output:** MEMORY.md atualizado, agent-memory atualizado, workflow docs criados se necessário
+**Exceções:** Pode solicitar exceção de T1/T2 ao usuário. NUNCA de T0.
 
 ---
 
-## 8. Available Personas
+## Checklist Rápido
 
-| Persona | Domínio | Skills Core | Quando Ativar |
-|---------|---------|-------------|---------------|
-| senior-fullstack-developer | Desenvolvimento | typescript, api-rest, docker, git, graphql | Tarefas de desenvolvimento fullstack |
-| skill-engineer | PromptOS | geração de skills | Criar novas skills |
-| software-architect | Arquitetura | design de sistemas | Decisões arquiteturais |
-| code-reviewer | Qualidade | revisão de código | Code reviews |
-| devops-expert | DevOps | CI/CD, containers | Tarefas de infraestrutura |
+**Antes de persistir:**
+- [ ] Self-Critique executado? Score ≥ 70?
+- [ ] JIT sub-files se skill > 1,400 tokens?
+- [ ] Preview mostrado ao usuário?
+- [ ] Aprovação explícita recebida?
+- [ ] MEMORY.md será atualizado?
 
----
+**Segurança (T0):**
+- [ ] Sem secrets hardcoded?
+- [ ] Sem SQL injection?
+- [ ] Sem dados sensíveis em logs?
 
-## 9. Fluxo de Trabalho Típico
-
-### Para Nova Skill
-
-```
-1. [INPUT-CLASSIFIER] Classificar request
-2. [WEB-RESEARCH] Pesquisar fontes
-3. [KNOWLEDGE-BASE] Verificar skills existentes
-4. [GENERATE] Gerar skill usando template
-5. [CHECK TOKEN LIMIT] Se > 1,400 tokens → aplicar JIT sub-files pattern
-6. [SELF-CRITIQUE] Avaliar qualidade (target: ≥99 para baseline, ≥80 para advanced)
-7. [HUMAN GATE] Mostrar para aprovação
-8. [COMMIT] Se aprovado, salvar e atualizar MEMORY.md
-```
-
-**Aprendizados SPEC-010:**
-- ✅ Self-Critique score ≥99 → 100% aprovação (5/5 skills aprovadas)
-- ✅ Version-agnostic approach: Use "Language (moderno)" ao invés de versões específicas
-- ✅ JIT sub-files: Scores melhoram de 94→99 quando bem aplicado
-- ✅ Estrutura consistente: Template-driven creation é 15% mais rápida (51min vs 60min)
-
-### Para Nova Persona
-
-```
-1. [INPUT-CLASSIFIER] Classificar request
-2. [PERSONA-GENERATOR] Seguir protocolo de criação
-3. [KNOWLEDGE-BASE] Identificar skills para compor
-4. [SELF-CRITIQUE] Avaliar qualidade
-5. [HUMAN GATE] Mostrar para aprovação
-6. [COMMIT] Se aprovado, salvar
-```
-
-### Para Tarefa de Código
-
-```
-1. [INPUT-CLASSIFIER] Classificar request
-2. [JIT-PROTOCOL] Carregar contexto mínimo
-3. [standards/] Verificar regras aplicáveis
-4. [EXECUTE] Executar tarefa
-5. [SELF-CRITIQUE] Se L2/L3, avaliar
-6. [HUMAN GATE] Se escrita, aprovar
-```
+**Skills Naming (T1):**
+- [ ] Categoria em inglês?
+- [ ] Subcategoria lowercase com hífens?
+- [ ] Path: `{categoria}/{subcategoria}/{versão}/SKILL.md`?
 
 ---
 
-## 10. Checklist Rápido
-
-### Antes de Gerar Código
-- [ ] Carreguei .prompt-os/PROMPTOS.md?
-- [ ] Verifiquei regras T0 em CONSTITUTION.md?
-- [ ] Classifiquei o nível da tarefa (L1/L2/L3)?
-- [ ] Carreguei protocolos relevantes?
-- [ ] Se gerando skill, verifiquei token limit (~1,400)?
-
-### Antes de Persistir
-- [ ] Executei Self-Critique?
-- [ ] Score ≥70 (mínimo) ou ≥99 (baseline quality)?
-- [ ] Apliquei JIT sub-files se skill > 1,400 tokens?
-- [ ] Mostrei preview ao usuário?
-- [ ] Recebi aprovação explícita?
-- [ ] Atualizei MEMORY.md?
-
-### Ao Encontrar Conflito
-- [ ] Identifiquei os tiers envolvidos?
-- [ ] Apliquei regra de precedência correta?
-- [ ] Citei a regra específica (ID)?
-
----
-
-*Itzamna PromptOS v2.2.0 | AI Assistant Guide | 2026-02-04*
-
-## Referencias Rapidas (humano)
-
-- `docs/ARCHITECTURE.md` (visao consolidada)
-- Templates de monitoramento: `.prompt-os/templates/monitoring/`
+*`.context/ai-assistant-guide.md` — T0 Authority | Itzamna PromptOS v2.2.0 | 2026-02-04*

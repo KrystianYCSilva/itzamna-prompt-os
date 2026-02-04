@@ -30,3 +30,6 @@
 - Fixed remaining path references in README, docs/ARCHITECTURE.md, docs/MONITORING-GUIDE.md, docs/TIER-SYSTEM.md, docs/GLOSSARIO-TECNICO.md, and ROADMAP.md
 - Aligned .context paths and versions (architectural overview, workflows, troubleshooting, examples)
 - Updated tooling/templates paths for skills/personas (.prompt-os/system.yaml, jit-loader.js, setup-promptos-brain.sh, AGENTS.template)
+- Added blueprint for itzana repo tool (Spec-Kit-style) in docs/blueprints
+- Added docs/blueprints/INDEX.md and linked it from docs/INDEX.md
+- Linked blueprints registry from docs/README.md

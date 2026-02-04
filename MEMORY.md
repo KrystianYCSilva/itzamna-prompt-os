@@ -1,9 +1,10 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
 **Ultima Atualizacao:** 2026-02-04
-**Versao:** 2.2.0
-**Sessoes Totais:** 28
-**Spec Atual:** v2.2.0 ✅ COMPLETE (SPEC-003 Web Research + SPEC-004 Knowledge Base/RAG) | Proximo: v2.3.0 (Ecosystem + Baselines)
+**Versao:** 2.3.0-dev
+**Sessoes Totais:** 29
+**Spec Atual:** v2.2.0 ✅ COMPLETE (SPEC-006 Command Router + SPEC-007 Workflow Orchestrator) | Em andamento: v2.3.0 SPEC-011 (Slash Command Aliases)
+**Feature Branch:** 011-slash-command-aliases (Active)
 
 ---
 
@@ -19,9 +20,10 @@
 | Personas Geradas | 0 (8 conceituais definidas, criar conforme necessidade) |
 | Taxa de Aprovacao | 100% |
 | Categorias | 1 (linguagens) |
-| Core Protocols | 9 + 4 JIT web-research + 4 JIT knowledge-base = 17 total |
-| Ultima Geracao | 2026-02-03 (SPEC-004 completion summary + agent docs sync) |
-| SPECs em andamento | v2.2.0 ✅ COMPLETE (SPEC-003 + SPEC-004) | Proximo: v2.3.0 |
+| Core Protocols | 11 + 4 JIT web-research + 4 JIT knowledge-base = 19 total |
+| SPECs Completas | 8 (001, 002, 003, 004, 005, 006, 007, 010) |
+| SPECs em Especificacao | 011-slash-command-aliases (Spec phase complete) |
+| Ultima Geracao | 2026-02-04 (SPEC-011 Specification) |
 
 ---
 
@@ -29,6 +31,11 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-04 | spec     | SPEC-011 Slash Command Aliases - Specification created              | ✅ complete              |
+| 2026-02-04 | docs     | Updated COMPLETION-STATUS.md, ROADMAP.md, MEMORY.md with SPEC-011   | ✅ complete              |
+| 2026-02-04 | docs     | Link para blueprint index em docs/README.md                          | ✅ complete              |
+| 2026-02-04 | docs     | Registro de blueprints (INDEX.md)                                    | ✅ complete              |
+| 2026-02-04 | docs     | Blueprint da ferramenta itzana (repos externos)                      | ✅ complete              |
 | 2026-02-04 | docs     | Ajustes de paths em .context e tooling (skills/personas)             | ✅ complete              |
 | 2026-02-04 | docs     | Correcao de referencias (paths + monitoring + roadmap + glossario)   | ✅ complete              |
 | 2026-02-04 | docs     | Documentacao consolidada + arquivos arquivados                        | ✅ complete              |
@@ -73,6 +80,29 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 29 (2026-02-04) - SPEC-006 Phase 3 Command Router Parsing 🚦
+
+**Feature: Command Router Parsing Logic (Phase 3) — ✅ COMPLETE**
+
+- **Tasks Executed (T008-T011a)**:
+  - **T008 Argument Parsing**: Updated `COMMAND-ROUTER.md` with explicit rules for quoted strings (double/single) and unquoted args.
+  - **T009 Flag Parsing**: Defined "Last Flag Wins" strategy and value parsing rules.
+  - **T010 Interactive Fallback**: Defined behavior for missing agents (List options -> Prompt selection).
+  - **T011 Input Classifier**: Updated `INPUT-CLASSIFIER.md` to actively delegate `#` prefixed messages to Router protocol immediately.
+  - **T011a Validation**: Performed self-validation of parsing logic (documented in `tests/router_validation_t011a.md`) covering 5 scenarios.
+
+- **Files Modified**: 
+  - `.prompt-os/core/COMMAND-ROUTER.md` (Parsing instructions added)
+  - `.prompt-os/core/INPUT-CLASSIFIER.md` (Delegation logic sharpened)
+  - `specs/006-command-router/tasks.md` (Tasks marked complete)
+
+- **Files Created**:
+  - `tests/router_validation_t011a.md` (Validation log)
+
+**Status**: Phase 3 Complete. Ready for Phase 4 (Lifecycle Commands).
+
+---
 
 ### Sessao 28 (2026-02-04) - Docs Consolidation + Archive Cleanup
 

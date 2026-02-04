@@ -177,12 +177,28 @@ ANY AI AGENT (Claude, Gemini, Cursor, etc.)
 
 ---
 
-## v2.3.0 - Advanced Features & Ecosystem (NEXT)
+## v2.3.0 - Command Interface & Ecosystem (IN PROGRESS)
 
-**Status:** Planning  
+**Status:** In Progress  
 **Estimate:** 5-7 days
 
-### Objectives
+### Current Focus: SPEC-011 Slash Command Aliases
+
+**Status**: 📝 Specification Complete  
+**Branch**: `011-slash-command-aliases`  
+**Next**: Planning phase (`/speckit.plan`)
+
+**Feature**: Implement `/itzamna.*` slash commands as CLI-friendly aliases for existing `#` commands
+
+**Key Deliverables**:
+- Slash command routing protocol
+- Special commands for system introspection (status, skill, memory, help)
+- Agent configuration updates
+- Full backward compatibility
+
+**Quality**: 16/16 specification validation checks passed
+
+### Additional v2.3.0 Objectives
 1. Create ecosystem sub-files for existing baseline skills
 2. Add more baseline skills (Rust, TypeScript, Ruby)
 3. Version-specific advanced skills (e.g., Go 1.18+ generics)
@@ -247,9 +263,12 @@ All original specs have been implemented as **prompt protocols**:
 | SPEC-001 (Self-Critique) | `.prompt-os/core/SELF-CRITIQUE.md` | ✅ Implemented |
 | SPEC-002 (Auto-Increment) | `.prompt-os/core/AUTO-INCREMENT.md` | ✅ Implemented |
 | SPEC-003 (Web Research) | `.prompt-os/core/WEB-RESEARCH.md` + 4 JIT sub-files | ✅ Implemented (Complete Session 24) |
-| SPEC-004 (Vector DB/RAG) | `.prompt-os/core/KNOWLEDGE-BASE.md` | ✅ Implemented |
+| SPEC-004 (Vector DB/RAG) | `.prompt-os/core/KNOWLEDGE-BASE.md` + 4 JIT sub-files | ✅ Implemented |
 | SPEC-005 (Persona CLI) | `.prompt-os/core/PERSONA-GENERATOR.md` | ✅ Implemented |
+| SPEC-006 (Command Router) | `.prompt-os/core/COMMAND-ROUTER.md` | ✅ Implemented (Session 29) |
+| SPEC-007 (Workflow Orchestrator) | `.prompt-os/core/WORKFLOW-ORCHESTRATOR.md` | ✅ Implemented (Session 29) |
 | SPEC-010 (Language Baselines) | 6 baseline skills | ✅ Implemented (Complete, 6/6 skills) |
+| SPEC-011 (Slash Commands) | TBD | 📝 Specification (Session 29) |
 
 See `specs/COMPLETION-STATUS.md` for detailed mapping.
 

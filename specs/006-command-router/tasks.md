@@ -9,57 +9,58 @@
 **Goal**: Prepare environment and documentation for the router feature.
 **Tests**: N/A for documentation setup.
 
-- [ ] T001 Create documentation structure in `docs/add-core/master-router.md`
-- [ ] T002 [P] Create initial `COMMAND-ROUTER.md` protocol file in `.prompt-os/core/` with headers
-- [ ] T003 Update `INPUT-CLASSIFIER.md` to include reference to new Router protocol (placeholder)
+- [x] T001 Create documentation structure in `docs/add-core/master-router.md`
+- [x] T002 [P] Create initial `COMMAND-ROUTER.md` protocol file in `.prompt-os/core/` with headers
+- [x] T003 Update `INPUT-CLASSIFIER.md` to include reference to new Router protocol (placeholder)
 
 ## Phase 2: Foundational (Router Protocol)
 
 **Goal**: Define the core grammar and routing logic in the protocol file.
 **Tests**: Manual validation of grammar parsing logic.
 
-- [ ] T004 [US1] Define core grammar rules (EBNF-based) in `.prompt-os/core/COMMAND-ROUTER.md`
-- [ ] T005 [US1] Define standard flag definitions (`--here`, `--ia`, `--help`) in Router protocol
-- [ ] T006 [US1] Define Router Map (Command → Workflow mapping) in `.prompt-os/core/COMMAND-ROUTER.md`
-- [ ] T007 [US1] Implement "Strict Start-of-Line" rule documentation in `INPUT-CLASSIFIER.md`
+- [x] T004 [US1] Define core grammar rules (EBNF-based) in `.prompt-os/core/COMMAND-ROUTER.md`
+- [x] T005 [US1] Define standard flag definitions (`--here`, `--ia`, `--help`, `--dry-run`) in Router protocol
+- [x] T006 [US1] Define Router Map (Command → Workflow mapping) in `.prompt-os/core/COMMAND-ROUTER.md`
+- [x] T007 [US1] Implement "Strict Start-of-Line" rule documentation in `INPUT-CLASSIFIER.md`
 
 ## Phase 3: User Story 1 - Command Routing & Parsing (P1)
 
 **Goal**: Enable reliable parsing of commands and flags from user input.
 **Independent Test**: Verify inputs like `#init --here` are correctly parsed into command components.
 
-- [ ] T008 [US1] Implement argument parsing logic (quoted strings support) in Router protocol instructions
-- [ ] T009 [US1] Implement flag parsing logic (Last Flag Wins strategy) in Router protocol instructions
-- [ ] T010 [US1] Implement interactive fallback instructions for missing agents in Router protocol
-- [ ] T011 [US1] Update `INPUT-CLASSIFIER.md` to actively delegate `#` prefixed messages to Router
+- [x] T008 [US1] Implement argument parsing logic (quoted strings support) in Router protocol instructions
+- [x] T009 [US1] Implement flag parsing logic (Last Flag Wins strategy) and `dry-run` logic in Router protocol instructions
+- [x] T010 [US1] Implement interactive fallback instructions for missing agents in Router protocol
+- [x] T011 [US1] Update `INPUT-CLASSIFIER.md` to actively delegate `#` prefixed messages to Router
+- [x] T011a [US1] Quick cross-model validation check (Claude/Copilot) for basic parsing logic
 
 ## Phase 4: User Story 2 - Standard Lifecycle Commands (P2)
 
 **Goal**: Connect parsed commands to their respective workflows.
 **Independent Test**: Verify `#init` triggers Bootstrap, `#sync` triggers Sync, etc.
 
-- [ ] T012 [P] [US2] Map `#init` command to `BOOTSTRAP.md` workflow in Router Map
-- [ ] T013 [P] [US2] Map `#add` command to `BOOTSTRAP-AGENT.md` workflow in Router Map
-- [ ] T014 [P] [US2] Map `#sync` command to `SYNC-CONTEXT.md` workflow in Router Map
-- [ ] T015 [P] [US2] Map `#update` and `#impl` commands to their respective flows
+- [x] T012 [P] [US2] Map `#init` command to `BOOTSTRAP.md` workflow in Router Map
+- [x] T013 [P] [US2] Map `#add` command to `BOOTSTRAP-AGENT.md` workflow in Router Map
+- [x] T014 [P] [US2] Map `#sync` command to `SYNC-CONTEXT.md` workflow in Router Map
+- [x] T015 [P] [US2] Map `#update` and `#impl` commands to their respective flows
 
 ## Phase 5: User Story 3 - Help & Usage Assistance (P3)
 
 **Goal**: Provide helpful feedback for errors and help requests.
 **Independent Test**: Verify `#add --help` displays usage info.
 
-- [ ] T016 [US3] Create standard "Usage Help" template in `COMMAND-ROUTER.md`
-- [ ] T017 [US3] Create standard "Error Response" template for unknown commands
-- [ ] T018 [US3] Define logic to trigger Help template when `--help` flag is present
-- [ ] T019 [US3] Define logic to trigger Error template when command parsing fails
+- [x] T016 [US3] Create standard "Usage Help" template in `COMMAND-ROUTER.md`
+- [x] T017 [US3] Create standard "Error Response" template for unknown commands
+- [x] T018 [US3] Define logic to trigger Help template when `--help` flag is present
+- [x] T019 [US3] Define logic to trigger Error template when command parsing fails
 
 ## Phase 6: Polish & Cross-Cutting
 
 **Goal**: Finalize documentation and verify cross-model compatibility.
 
-- [ ] T020 Review and finalize `docs/add-core/master-router.md` with examples
-- [ ] T021 Validate `INPUT-CLASSIFIER.md` integration flow (read-through)
-- [ ] T022 Cross-model validation checklist (verify consistency instructions)
+- [x] T020 Review and finalize `docs/add-core/master-router.md` with examples
+- [x] T021 Validate `INPUT-CLASSIFIER.md` integration flow (read-through)
+- [x] T022 Cross-model validation checklist (verify consistency instructions)
 
 ## Dependencies
 

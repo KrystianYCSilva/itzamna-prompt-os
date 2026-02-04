@@ -15,6 +15,7 @@
 | **[Templates](templates/)** | RFCs & Guides | Structural and migration references |
 | **[Test Reports](relatorios-testes/)** | Historical | Session/test reports kept for reference |
 | **[Blueprints](blueprints/)** | Future Proposals | Experimental ideas (DSPy, MCP, etc.) |
+| **[Blueprints Index](blueprints/INDEX.md)** | Registry | All blueprint entries |
 | **[Archive](_archive/)** | Legacy Content | v1.x and historical references |
 
 ---

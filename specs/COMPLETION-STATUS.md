@@ -10,8 +10,8 @@
 
 Itzamna PromptOS v2.2.0 completes all 6 foundational specifications required for a prompt-based AI agent development framework. Each SPEC delivers specific capabilities, protocols, and artifacts that work together to create a cohesive, constitution-compliant system.
 
-**Total Development**: ~200+ hours across Sessions 10-27  
-**Total Commits**: 48+ related to SPEC development  
+**Total Development**: ~220+ hours across Sessions 10-29  
+**Total Commits**: 52+ related to SPEC development  
 **Production Ready**: ✅ Yes — Agents can use all protocols and 13 baseline skills immediately
 
 ---
@@ -26,6 +26,9 @@ Itzamna PromptOS v2.2.0 completes all 6 foundational specifications required for
 | **SPEC-004** | **Knowledge Base / RAG** | ✅ COMPLETE | v2.2.0 | 24-27 | 5 artifacts (KNOWLEDGE-BASE.md + 4 JIT sub-files) | ✅ Yes |
 | **SPEC-005** | **Persona Generator** | ✅ COMPLETE | v2.0+ | 15 | 1 protocol (PERSONA-GENERATOR.md) | ✅ Yes |
 | **SPEC-010** | **Language Baselines 6x** | ✅ COMPLETE | v2.1+ | 16-18 | 6 baseline skills (Java, Kotlin, C/C++, JavaScript, Python, Go) + 1 workflow doc | ✅ Yes |
+| **SPEC-006** | **Command Router & Chat Grammar** | ✅ COMPLETE | v2.2.0 | 29 | 2 protocols (COMMAND-ROUTER.md, updates to INPUT-CLASSIFIER.md) + docs | ✅ Yes |
+| **SPEC-007** | **Workflow & Persona Orchestrator** | ✅ COMPLETE | v2.2.0 | 29 | 1 protocol (WORKFLOW-ORCHESTRATOR.md) + routing updates | ✅ Yes |
+| **SPEC-011** | **Slash Command Aliases** | 📝 IN PROGRESS | v2.3.0 | 29 | Specification phase complete | 🟡 Planning |
 
 ---
 
@@ -281,6 +284,32 @@ SPEC-005 (Persona Generator)
 ## What's Next — v2.3.0 Planning
 
 **Target**: Q1 2026 (phased delivery)
+
+### SPEC-011: Slash Command Aliases (IN PROGRESS)
+
+**Status**: 📝 Specification Phase Complete  
+**Branch**: `011-slash-command-aliases`  
+**Next Phase**: `/speckit.plan` (ready to execute)
+
+**Feature Summary**:
+- Implement `/itzamna.*` slash command aliases for existing `#` commands
+- CLI-friendly syntax inspired by SpecKit's `/speckit.*` pattern
+- Special commands: `/itzamna.status`, `/itzamna.skill`, `/itzamna.memory`, `/itzamna.help`
+- Full backward compatibility with existing hash commands
+
+**Specification Quality**: 16/16 validation checks passed (zero ambiguities)
+
+**Key Deliverables (Planned)**:
+1. `.prompt-os/core/SLASH-COMMAND-ALIASES.md` (new protocol)
+2. Updates to INPUT-CLASSIFIER.md, COMMAND-ROUTER.md for slash detection
+3. Agent configuration updates (AGENTS.md, CLAUDE.md, GEMINI.md, QWEN.md, .cursorrules)
+4. Documentation and examples
+
+**Estimated Effort**: ~10 hours (2 days)
+
+---
+
+## Previous v2.3.0 Plans (Now Adjusted for SPEC-011)
 
 ### Phase 1: Ecosystem Extensions
 - **Go Ecosystem Skills** (3 skills): Concurrency patterns, web frameworks, cloud-native

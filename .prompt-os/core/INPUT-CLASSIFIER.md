@@ -23,6 +23,13 @@ Quando o usuario fizer um pedido:
 INPUT: [mensagem do usuario]
     ↓
 ┌─────────────────────────────────────┐
+│ 0. E UM COMANDO ROUTER?             │ → DELEGATE TO COMMAND-ROUTER.md
+│    CRITERIO ESTRITO:                │   STOP CLASSIFICATION HERE.
+│    Deve ser o PRIMEIRO token (Regex: ^#)
+│    Ex: "#init", "#add agent"        │   Execute instructions in protocol.
+└─────────────────────────────────────┘
+    ↓ (nao)
+┌─────────────────────────────────────┐
 │ 1. E um ERRO ou BUG?                │ → bug_fixing
 │    "erro", "bug", "nao funciona"    │   Persona: Debugger
 └─────────────────────────────────────┘
@@ -55,6 +62,11 @@ INPUT: [mensagem do usuario]
 ```
 
 ---
+
+## PROTOCOLOS AUXILIARES
+
+- **COMMAND-ROUTER.md**: Use para comandos de sistema (#init, #add, #sync). **IMPORTANTE:** O comando deve estar no INICIO ABSOLUTO da mensagem (primeiros caracteres). Se estiver no meio do texto, ignore.
+- **WORKFLOW-ORCHESTRATOR.md**: Apos o Router identificar o workflow, delegue ao Orchestrator para resolucao de Persona e Skills.
 
 ## SHORTCUTS DISPONIVEIS
 

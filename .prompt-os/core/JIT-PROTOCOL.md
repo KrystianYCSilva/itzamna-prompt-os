@@ -95,22 +95,253 @@ COM JIT: 10-16KB carregado → Rapido, eficiente, focado
 
 ### Passo 3: Carregar Skills (NIVEL 3 - JIT)
 
-**Carregue APENAS o necessario:**
+**IMPORTANTE (T011 - Orchestrator Integration):** Skill loading is now triggered by the Orchestrator's Active Context output, not ad-hoc selection.
+
+**Novo fluxo:**
 
 ```
-7. Consultar: .prompt-os/skills/INDEX.md (tabela de lookup)
+7. Receber Active Context do WORKFLOW-ORCHESTRATOR.md:
+   - workflow: {workflow_id}
+   - persona: {persona_name}
+   - skills: [{skill1}, {skill2}, {skill3}, ...]
+   - stack_skill: {resolved_stack_skill} (if applicable)
+   - warnings: [{warning1}, {warning2}, ...]
 
-8. Selecionar 2-5 skills baseado em:
-   - Workflow detectado
-   - Tech stack do projeto
-   - Dominio do pedido
+8. Consultar: .prompt-os/skills/INDEX.md (tabela de lookup)
 
-9. Carregar APENAS essas skills:
+9. Carregar EXATAMENTE as skills listadas no Active Context:
    - skills/{category}/{skill}/SKILL.md
    - Cada skill deve ter ~2KB
+   - NÃO selecionar skills adicionais
+   - NÃO substituir skills do Active Context
+
+10. Validação:
+    - skills.length >= 2 && skills.length <= 5
+    - Se fora do range: HALT e emitir erro
 ```
 
 **Token count apos Passo 3:** ~10-16KB ✓
+
+---
+
+## ACTIVE CONTEXT CONTRACT (T018)
+
+**Integration Contract:** JIT Protocol receives an Active Context object from Workflow Orchestrator and loads exactly those skills.
+
+### Active Context Structure
+
+```yaml
+# Mandatory Fields
+workflow: string          # One of: new, impl, bug, review, docs, test, arch
+persona: string           # Full persona name (e.g., "Software Engineer")
+skills: string[]          # List of skill IDs, length 2-5
+
+# Optional Fields
+stack_skill: string       # Resolved stack skill ID (e.g., "typescript"), only if {stack-skill} was present
+warnings: string[]        # List of warning messages emitted during resolution
+
+# Metadata
+resolved_at: timestamp    # When resolution completed (for debugging)
+```
+
+### Mandatory Fields Specification
+
+| Field | Type | Constraints | Description |
+|-------|------|-------------|-------------|
+| `workflow` | string | MUST be one of: `new`, `impl`, `bug`, `review`, `docs`, `test`, `arch` | Workflow identifier |
+| `persona` | string | MUST be one of 7 valid personas (see WORKFLOW-ORCHESTRATOR.md Section 4) | Full persona name (e.g., "Software Engineer") |
+| `skills` | string[] | MUST contain 2-5 skill IDs; each skill ID MUST exist in `.prompt-os/skills/INDEX.md` | Ordered list of skills to load |
+
+### Optional Fields Specification
+
+| Field | Type | When Present | Description |
+|-------|------|--------------|-------------|
+| `stack_skill` | string | When `{stack-skill}` was resolved in Resolution Flow Step 2 | Resolved tech-stack skill ID (e.g., `typescript`, `python`) |
+| `warnings` | string[] | When warnings were emitted during resolution (e.g., missing stack, invalid persona, skill eviction) | Human-readable warning messages for display |
+
+### JIT Responsibilities
+
+1. **Receive Active Context:**
+   - JIT Protocol is invoked with a complete Active Context object
+   - Object is guaranteed to be valid (passed Orchestrator's Step 5 validation gate)
+   - JIT MUST NOT modify or validate the object (validation already done)
+
+2. **Load Skills:**
+   - Read `.prompt-os/skills/INDEX.md` to map skill IDs to file paths
+   - Load EXACTLY `skills.length` skill files (no more, no less)
+   - Load order: iterate `skills[]` in array order (priority already determined by Orchestrator)
+   - Each skill file path format: `.prompt-os/skills/{category}/{skill-id}/SKILL.md`
+
+3. **Surface Warnings:**
+   - If `warnings[]` is non-empty: display warnings to user BEFORE executing workflow
+   - Warnings are informational; they do NOT halt execution
+   - Example display format:
+     ```
+     ⚠️ Active Context Warnings:
+     - Tech Stack Profile missing or outdated
+     - Fallback: Omitted language-specific skill from active set
+     ```
+
+4. **Execute Workflow:**
+   - Activate the specified persona
+   - Use loaded skills as context for workflow execution
+   - Follow persona-specific guidelines from `.prompt-os/personas/{persona}/PERSONA.md`
+
+### Skill Loading Rules (FR-005 Enforcement)
+
+| Rule | Enforcement Point | Action |
+|------|-------------------|--------|
+| **Minimum 2 skills** | Orchestrator Step 5 | Enforced BEFORE passing to JIT |
+| **Maximum 5 skills** | Orchestrator Step 5 | Enforced BEFORE passing to JIT |
+| **Exact skill loading** | JIT Step 3 | Load `len(skills)` files, no more |
+| **No ad-hoc selection** | JIT Step 3 | Do NOT add skills beyond Active Context |
+| **No substitution** | JIT Step 3 | Do NOT replace skills in Active Context |
+
+### Example Active Context Objects
+
+**Example 1: Standard Workflow (No Overrides)**
+
+```yaml
+workflow: impl
+persona: Software Engineer
+skills:
+  - typescript
+  - clean-code
+  - software-testing
+stack_skill: typescript
+warnings: []
+resolved_at: 2026-02-04T10:30:00Z
+```
+
+**JIT Action:**
+- Load 3 skill files: `.prompt-os/skills/languages/typescript/SKILL.md`, `.prompt-os/skills/engineering/clean-code/SKILL.md`, `.prompt-os/skills/testing/software-testing/SKILL.md`
+- Activate persona: Software Engineer
+- No warnings to display
+
+---
+
+**Example 2: With Persona Override**
+
+```yaml
+workflow: impl
+persona: Solutions Architect
+skills:
+  - typescript
+  - clean-code
+  - software-testing
+stack_skill: typescript
+warnings: []
+resolved_at: 2026-02-04T10:35:00Z
+```
+
+**JIT Action:**
+- Load same 3 skill files (skills unchanged by persona override)
+- Activate persona: Solutions Architect (overridden from default)
+- No warnings to display
+
+---
+
+**Example 3: With Skills Merge & Eviction**
+
+```yaml
+workflow: review
+persona: Code Reviewer
+skills:
+  - tdd
+  - security-basics
+  - system-design
+  - code-quality
+stack_skill: null
+warnings:
+  - "⚠️ Skill cap exceeded (5-skill limit)\n   - Evicted skills: (none - under cap)\n   - Active skills: tdd, security-basics, system-design, code-quality"
+resolved_at: 2026-02-04T10:40:00Z
+```
+
+**JIT Action:**
+- Load 4 skill files (explicit skills merged with defaults)
+- Activate persona: Code Reviewer
+- Display warning about skill merge (informational, not blocking)
+
+---
+
+**Example 4: With Stack Resolution Fallback**
+
+```yaml
+workflow: impl
+persona: Software Engineer
+skills:
+  - clean-code
+  - software-testing
+stack_skill: null
+warnings:
+  - "⚠️ Tech Stack Profile missing or outdated\n   - File: .context/_meta/tech-stack.md\n   - Impact: Language-specific skill omitted from active skill set\n   - Action: Update .context/_meta/tech-stack.md with primary_language to resolve"
+resolved_at: 2026-02-04T10:45:00Z
+```
+
+**JIT Action:**
+- Load 2 skill files (stack-skill omitted due to fallback)
+- Activate persona: Software Engineer
+- Display warning about missing stack (user should fix `.context/_meta/tech-stack.md`)
+
+---
+
+### Anti-Patterns (DO NOT DO)
+
+**❌ Adding Skills Beyond Active Context:**
+
+```yaml
+# Active Context from Orchestrator
+skills: [typescript, clean-code]
+
+# JIT decides to add more skills
+# ❌ WRONG - loads [typescript, clean-code, tdd, security-basics]
+# ✓ CORRECT - loads [typescript, clean-code] only
+```
+
+**❌ Substituting Skills:**
+
+```yaml
+# Active Context from Orchestrator
+skills: [python, clean-code]
+
+# JIT decides Python projects need pytest
+# ❌ WRONG - loads [python, pytest] (replaced clean-code)
+# ✓ CORRECT - loads [python, clean-code] exactly
+```
+
+**❌ Re-Validating Skill Count:**
+
+```yaml
+# Active Context from Orchestrator (already validated)
+skills: [a, b, c]
+
+# JIT re-validates
+# ❌ WRONG - if len(skills) < 2: halt
+# ✓ CORRECT - trust Orchestrator validation, load directly
+```
+
+---
+
+### Integration Summary
+
+| Responsibility | Owner | Notes |
+|----------------|-------|-------|
+| Skill selection logic | Workflow Orchestrator | Map lookup, stack resolution, overrides, eviction |
+| Skill count validation | Workflow Orchestrator | Step 5 validation gate (2-5 skills) |
+| Skill loading | JIT Protocol | Read INDEX.md, load skill files |
+| Persona activation | JIT Protocol | Load persona file, apply guidelines |
+| Workflow execution | JIT Protocol | Execute with loaded persona + skills |
+
+**Key Principle:** Orchestrator decides WHAT to load; JIT executes HOW to load it.
+
+---
+
+**Contrato de Integração (Summary):**
+- JIT Protocol recebe um objeto Active Context do Workflow Orchestrator
+- JIT carrega EXATAMENTE as skills especificadas (não adiciona, não remove)
+- JIT não precisa mais "adivinhar" quais skills são relevantes
+- Workflow Orchestrator é responsável por toda lógica de seleção de skills
+- Active Context é validado ANTES de chegar ao JIT (2-5 skills garantido)
 
 ---
 

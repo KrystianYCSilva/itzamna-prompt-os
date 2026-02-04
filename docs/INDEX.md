@@ -15,6 +15,7 @@
 | [templates/](templates/) | RFCs and migration guides | ✅ Active |
 | [relatorios-testes/](relatorios-testes/) | Historical test/session reports | ✅ Active |
 | [blueprints/](blueprints/) | Future architectural proposals | 🚧 Experimental |
+| [blueprints/INDEX.md](blueprints/INDEX.md) | Blueprints registry | 🚧 Experimental |
 | [_archive/](_archive/) | Legacy documentation (v1.x) | 📦 Archived |
 
 ---
