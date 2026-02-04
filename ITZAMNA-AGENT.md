@@ -1,8 +1,8 @@
 # ITZAMNA-AGENT.md
 
-> **Itzamna PromptOS v2.1.0** | Agente Principal
+> **Itzamna PromptOS v2.2.0** | Agente Principal
 > **Arquitetura:** Prompt-Based | **Compatibilidade:** Universal (Claude, GPT, Gemini, Cursor, Copilot, Qwen, etc.)
-> **SPEC-010:** ✅ COMPLETE (5 language baselines, 99.20 avg score) | **Próxima:** SPEC-003 (Web Research)
+> **SPEC-010:** ✅ COMPLETE (6 language baselines, 99.20 avg score) | **SPEC-003:** ✅ COMPLETE (Web Research) | **SPEC-004:** ✅ COMPLETE (Knowledge Base/RAG) | **Próxima:** v2.3.0 (Ecosystem + Baselines)
 
 ---
 
@@ -357,4 +357,24 @@ itzamna-prompt-os/
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Agente Principal | 2026-02-03*
+## SPECS COMPLETADAS
+
+| Spec | Status | Protocolo | Detalhes |
+|------|--------|-----------|----------|
+| SPEC-001 (Self-Critique) | ✅ Completo | `.prompt-os/core/SELF-CRITIQUE.md` | Quality evaluation (4 dimensions, 0-100 score) |
+| SPEC-002 (Auto-Increment) | ✅ Completo | `.prompt-os/core/AUTO-INCREMENT.md` | Gap detection, rejection learning, evolution reports |
+| SPEC-003 (Web Research) | ✅ Completo | `.prompt-os/core/WEB-RESEARCH.md` + 4 JIT | Source validation (4-dimension scoring, citations, T1-T5 tiers) |
+| SPEC-004 (Knowledge Base/RAG) | ✅ Completo | `.prompt-os/core/KNOWLEDGE-BASE.md` + 4 JIT | Multi-signal similarity scoring, redundancy gate, RAG workflow, relationship mapping |
+| SPEC-005 (Persona Generator) | ✅ Completo | `.prompt-os/core/PERSONA-GENERATOR.md` | Persona creation and composition |
+| SPEC-010 (Language Baselines) | ✅ Completo | 6 baseline skills | Java, Kotlin, C/C++, JavaScript, Python, Go (99.20 avg score) |
+
+### SPEC-004 Status (Sessão 26)
+- **Phase 0-1:** Research + Spec artifacts (8 files)
+- **Phase 2:** Protocol implementation (KNOWLEDGE-BASE.md refactored, 4 JIT sub-files)
+- **Phase 3:** Tasks + Validation (36 tasks, SC-001/SC-003 validated, 100% pass rate)
+- **Deferred:** SC-002, SC-005, SC-006 (require live skill-creation trigger)
+- **Production-ready:** Protocols live in `.prompt-os/core/`, agents can use immediately
+
+---
+
+*Itzamna PromptOS v2.2.0 | Agente Principal | 2026-02-03*

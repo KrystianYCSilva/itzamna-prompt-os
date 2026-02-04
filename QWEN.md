@@ -47,13 +47,14 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 
 - PromptOS e **prompt-based**: core = Markdown (sem execucao obrigatoria de codigo).
 - Entry point: `.prompt-os/PROMPTOS.md`; regras em `.prompt-os/CONSTITUTION.md`.
-- Protocolos core (13): 9 main (SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL, MEMORY-MANAGEMENT) + 4 JIT web-research sub-files.
+- Protocolos core (17): 9 main (SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL, MEMORY-MANAGEMENT) + 4 JIT web-research + 4 JIT knowledge-base sub-files.
 - Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
 - Skills/Personas: **13 skills** (6 baselines + 7 advanced); 1 persona (ver `MEMORY.md`).
 - Language baselines: **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**).
+- **SPEC-004 ✅ COMPLETE** (Session 26): Knowledge Base/RAG - Phases 0-3 complete, SC-001/SC-003 validated, 100% pass rate, deferred SCs triggered on next skill creation.
 - **SPEC-003 ✅ COMPLETE** (Session 24): 4-dimension scoring, citation templates, tier system, gap detection. Go skill = first SPEC-003 application (100/100).
 - **SPEC-010 ✅ COMPLETE**: 6 language baselines delivered (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
-- Roadmap v2.2.0 completo: SPEC-003 validada (23/23 tasks), Go baseline, protocols enhanced.
+- Roadmap v2.2.0 COMPLETO: SPEC-003 + SPEC-004 validadas e live em `.prompt-os/core/`.
 - **Próximo (v2.3.0)**: Advanced features & ecosystem - ecosystem sub-files, more baselines (Rust, TypeScript).
 
 ---
@@ -163,4 +164,4 @@ Para informacoes detalhadas, consulte:
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Qwen Bootstrap | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Qwen Bootstrap | 2026-02-03*

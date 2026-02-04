@@ -1,7 +1,8 @@
-# AGENTS.md - Itzamna PromptOS v2.1.0
+# AGENTS.md - Itzamna PromptOS v2.2.0
 
 > **Bootstrap minimo para agentes.**
 > **Agente principal:** `ITZAMNA-AGENT.md` (workflows + referencias).
+> **Status:** v2.2.0 ✅ COMPLETE (SPEC-003 Web Research + SPEC-004 Knowledge Base/RAG)
 
 ---
 
@@ -115,4 +116,4 @@
 
 ---
 
-**EOF** | Version: 2.1.0
+**EOF** | Version: 2.2.0

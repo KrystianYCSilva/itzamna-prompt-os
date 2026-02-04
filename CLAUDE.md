@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-> **Bootstrap para Claude Code** | Itzamna PromptOS v2.1.0
+> **Bootstrap para Claude Code** | Itzamna PromptOS v2.2.0
 > Resumo do contexto total do projeto para orientar sessões de trabalho.
 
 ---
@@ -305,8 +305,8 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 | Language Baselines | **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**) |
 | Personas geradas | 1 (senior-fullstack-developer) |
 | Personas disponíveis | 8 (no registry) |
-| Core protocols | **13** (9 main + 4 JIT web-research) |
-| SPECs formais | 5 |
+| Core protocols | **17** (9 main + 4 JIT web-research + 4 JIT knowledge-base) |
+| SPECs formais | 6 (SPEC-001, 002, 003, 004, 005, 010) |
 | Agentes sincronizados | 5 (Claude, Qwen, Gemini, Cursor, OpenCode) |
 | Taxa de aprovação histórica | 100% |
 
@@ -318,7 +318,7 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 | SPEC-002 Auto-Increment | `AUTO-INCREMENT.md` | ✅ Implementado (90/90 tasks) |
 | **SPEC-003 Web Research** | `WEB-RESEARCH.md` + 4 JIT sub-files | **✅ COMPLETE** (23/23 tasks, Session 24) |
 | SPEC-010 Language Skills Baseline | 6 language baselines | ✅ COMPLETE (99.20 avg score, 0% rejections) |
-| SPEC-004 Vector DB/RAG | `KNOWLEDGE-BASE.md` | ⚠️ Parcial (prompt-based + tooling opcional) |
+| **SPEC-004 Knowledge Base/RAG** | `KNOWLEDGE-BASE.md` + 4 JIT sub-files | **✅ COMPLETE** (Phases 0-3, SC-001/003 validated) |
 | SPEC-005 Persona CLI | `PERSONA-GENERATOR.md` | ✅ Implementado |
 
 ---
@@ -330,11 +330,11 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 | v1.0.0 | ✅ Completo | Piloto code-centric |
 | v2.0.0 | ✅ Completo | Arquitetura prompt-based |
 | v2.1.0 | ✅ Completo | Enhanced protocols — SPEC-002 validado (90/90 tasks), SPEC-010 completo (5 language baselines, 99.20 avg score), integração cross-protocol, memoria distribuída |
-| **v2.2.0** | **✅ Completo** | Web Research Enhancement (SPEC-003) — 4-dimension scoring, citation templates, tier system, gap detection, Go baseline skill |
+| **v2.2.0** | **✅ Completo** | Web Research Enhancement (SPEC-003) + Knowledge Base (SPEC-004) — 4-dimension scoring, citation templates, tier system, gap detection, Go baseline skill, 17 core protocols |
 | **v2.3.0** | **📋 Próximo** | Advanced Features & Ecosystem — ecosystem sub-files, more baselines (Rust, TypeScript), version-specific skills |
 | v3.0.0 | 📋 Planejado | Advanced RAG — embeddings, semantic search, knowledge graph |
 
-### v2.2.0 — Completado (SPEC-003 + Go Skill)
+### v2.2.0 — Completado (SPEC-003 Web Research + SPEC-004 Knowledge Base)
 - [x] Enhanced WEB-RESEARCH.md (refactored: 401→190 lines, 1,393 tokens)
 - [x] 4-dimension source validation (Authority 40%, Recency 30%, Completeness 20%, Relevance 10%)
 - [x] 3 citation formats (minimal/standard/detailed) with selection guidelines
@@ -342,6 +342,9 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 - [x] Gap detection with AUTO-INCREMENT integration
 - [x] Go baseline skill (first to apply SPEC-003 protocols, score 100/100)
 - [x] 100% citation compliance verification (5/5 SPEC-010 skills)
+- [x] KNOWLEDGE-BASE.md refactored: 447 lines → ~100 lines (thin JIT router)
+- [x] 4 JIT sub-files for KNOWLEDGE-BASE (similarity-scoring, redundancy-gate, rag-workflow, relationship-map)
+- [x] Phase 0-3 complete: Research → Spec artifacts → Protocol implementation → Tasks + Validation
 
 ### v2.1.0 — Learnings (SPEC-010)
 1. **JIT sub-files pattern** proven (scores: 94→99 for C/C++, 95→99 for JavaScript)
@@ -475,4 +478,4 @@ TARGET: 10-16KB por tarefa
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Claude Code Bootstrap | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Claude Code Bootstrap | 2026-02-03*

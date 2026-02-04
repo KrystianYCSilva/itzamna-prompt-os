@@ -11,12 +11,12 @@ v1.0.0 (Piloto)    v2.0.0 (ANTERIOR)   v2.1.0             v2.2.0 (ATUAL)      v2
      |                   |                 |                   |                   |                   |
      v                   v                 v                   v                   v                   v
 +----------+      +--------------+   +-------------+     +-------------+     +-------------+     +------------+
-| Code-    |  ->  | Prompt-Based |-> | Enhanced    |  -> | Protocol    |  -> | Advanced    |  -> | Advanced   |
-| Centric  |      | Architecture |   | Protocols   |     | Enhancement |     | Features    |     | RAG        |
-+----------+      +--------------+   +-------------+     +-------------+     +-------------+     +------------+
-     |                   |                 |                   |                   |                   |
-  5 phases           COMPLETE           COMPLETE           COMPLETE           5-7 days            7-10 days
-  complete                              2026-02-03         2026-02-03
+| Code-    |  ->  | Prompt-Based |-> | Enhanced    |  -> | Knowledge   |  -> | Advanced    |  -> | Advanced   |
+| Centric  |      | Architecture |   | Protocols   |     | Base + Web  |     | Features    |     | RAG        |
++----------+      +--------------+   +-------------+     | Research    |     | & Ecosystem |     |            |
+|          |                   |                 |        +-------------+     +-------------+     +------------+
+|   5 phases       COMPLETE        COMPLETE       COMPLETE    COMPLETE        5-7 days            7-10 days
+|   complete                        2026-02-03    2026-02-03  (Session 26)
 ```
 
 ---
@@ -143,48 +143,37 @@ ANY AI AGENT (Claude, Gemini, Cursor, etc.)
 2. ✅ Add structured source validation system
 3. ✅ Create citation templates and tier system
 4. ✅ Integrate gap detection with AUTO-INCREMENT
+5. ✅ Implement KNOWLEDGE-BASE.md protocol (SPEC-004 Phase 0-3)
+6. ✅ Add similarity scoring, redundancy gate, RAG workflow, relationship mapping
 
 ### Deliverables Completed
-- [x] Enhanced WEB-RESEARCH.md (refactored: 401→190 lines, 1,393 tokens):
-  - 4-phase workflow (Planejar → Buscar → Validar → Sintetizar)
-  - JIT loading of 4 sub-files for advanced features
-  - Token-optimized main protocol (<1,400 tokens, T0-SIZE-01 compliant)
-- [x] 4 JIT sub-files created:
-  - `source-validation-rules.md` (4-dimension scoring: Authority 40%, Recency 30%, Completeness 20%, Relevance 10%)
-  - `citation-templates.md` (3 formats: minimal/standard/detailed with selection guidelines)
-  - `tier-system.md` (T1-T5 classification with domain patterns and conflict resolution)
-  - `gap-detection.md` (AUTO-INCREMENT integration with 4 gap scenarios)
-- [x] token-report.md (367 lines) - SC-004 compliance verification
-- [x] validation-report.md (582 lines) - 100% SPEC-010 citation compliance
-- [x] Go baseline skill (424 lines, ~1,696 tokens) - **first to apply SPEC-003 protocols**
-  - Self-Critique: 100/100 (perfect score)
-  - Source quality: 3 T1 sources (go.dev, golang.org), avg 100/100
-  - Citation format: minimal YAML array (consistent with SPEC-010)
-- [x] INDEX.md updated (5→6 baseline skills)
+- [x] Enhanced WEB-RESEARCH.md (refactored: 401→190 lines, 1,393 tokens)
+- [x] 4 JIT sub-files for WEB-RESEARCH (source-validation-rules, citation-templates, tier-system, gap-detection)
+- [x] Go baseline skill (first to apply SPEC-003, score 100/100)
+- [x] **KNOWLEDGE-BASE.md refactored** (447→~100 lines, thin JIT router)
+- [x] **4 JIT sub-files for KNOWLEDGE-BASE** (similarity-scoring, redundancy-gate, rag-workflow, relationship-map)
+- [x] SPEC-004 Research (6 design decisions documented)
+- [x] SPEC-004 Spec artifacts (8 files: plan, spec, data-model, quickstart, 4 contracts)
+- [x] SPEC-004 Tasks (36 tasks, 7 phases, dependency mapping)
+- [x] SPEC-004 Validation (SC-001: 20/20 queries pass; SC-003: 0 false negatives)
 - [x] Documentation updated (MEMORY.md, agent files, ROADMAP.md)
-
-### SPEC-003 All Phases Complete
-- **Phase 1 (Preparation):** ✅ COMPLETE (execution checklist, data collection guide)
-- **Phase 2 (Gap Analysis):** ✅ COMPLETE (5 gaps identified with priorities)
-- **Phase 3 (Enhancement):** ✅ COMPLETE (WEB-RESEARCH refactored + 4 JIT sub-files)
-- **Phase 4 (Integration):** ✅ COMPLETE (gap detection ↔ AUTO-INCREMENT)
-- **Phase 5 (Documentation):** ✅ COMPLETE (token report, validation report)
-- **Phase 6 (Final Report):** ✅ COMPLETE (tasks.md all 23 tasks marked complete)
 
 ### Metrics Achieved
 | Metric | Target | Achieved |
 |--------|--------|----------|
 | WEB-RESEARCH quality score | ≥ 95 | 100 ✅ |
-| Gap coverage | 100% (5/5 gaps) | 100% (5/5) ✅ |
-| Main protocol tokens | <1,400 | 1,393 ✅ |
-| SPEC-010 citation compliance | 100% | 100% (5/5 skills) ✅ |
-| Go skill Self-Critique | ≥ 95 | 100 ✅ |
+| KNOWLEDGE-BASE quality score | ≥ 95 | 98+ ✅ |
+| Main protocol tokens (KB) | <1,400 | ~1,400 ✅ |
+| JIT sub-files tokens (each) | <1,400 | ~840 avg ✅ |
+| SPEC-004 validation pass rate | 100% | 100% ✅ |
+| Cross-protocol integration | Complete | Complete ✅ |
 
 ### Key Innovations
-1. **4-Dimension Source Validation:** Authority (40%) + Recency (30%) + Completeness (20%) + Relevance (10%)
-2. **3-Format Citation System:** Minimal (YAML array), Standard (inline with metadata), Detailed (full APA-like)
-3. **T1-T5 Tier System:** Official docs → Community trusted → General resources → Forums → Legacy
-4. **Gap Detection Integration:** AUTO-INCREMENT protocol now handles web research gaps
+1. **JIT sub-files pattern** for both WEB-RESEARCH and KNOWLEDGE-BASE
+2. **4-Dimension Source Validation** (Authority/Recency/Completeness/Relevance)
+3. **Multi-signal Similarity Scoring** (Name/Tags/Domain/Description weights)
+4. **Two-tier Redundancy Gate** (advisory 80-89 / hard-block ≥90)
+5. **Relationship graph management** persisted in INDEX.md YAML
 
 ---
 

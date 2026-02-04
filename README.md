@@ -1,12 +1,14 @@
-# Itzamna PromptOS v2.1.0
+# Itzamna PromptOS v2.2.0
 
 > **Prompt-Based Cognitive Operating System for Human-Agent Programming**
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue)]()
+[![Version](https://img.shields.io/badge/version-2.2.0-blue)]()
 [![Architecture](https://img.shields.io/badge/architecture-Prompt--Based-green)]()
-[![Skills](https://img.shields.io/badge/skills-12-purple)]()
+[![Skills](https://img.shields.io/badge/skills-13-purple)]()
 [![Personas](https://img.shields.io/badge/personas-0-orange)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
+[![SPEC-003](https://img.shields.io/badge/SPEC--003-Complete-success)]()
+[![SPEC-004](https://img.shields.io/badge/SPEC--004-Complete-success)]()
 [![SPEC-010](https://img.shields.io/badge/SPEC--010-Complete-success)]()
 [![Tooling](https://img.shields.io/badge/validation-automated-brightgreen)]()
 
@@ -183,13 +185,13 @@ itzamna-prompt-os/
 
 The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 
-| Protocol | Purpose | Implements |
+| Protocolo | Purpose | Implements |
 |----------|---------|------------|
 | `SELF-CRITIQUE.md` | Evaluate quality before Human Gate | SPEC-001 |
 | `HUMAN-GATE.md` | Approval workflow with structured presentation | SPEC-001 |
 | `AUTO-INCREMENT.md` | Detect gaps, learn from rejections, proactive suggestions, evolution reports | SPEC-002 |
-| `WEB-RESEARCH.md` | Research methodology, source validation | SPEC-003 |
-| `KNOWLEDGE-BASE.md` | Knowledge management, skill relationships | SPEC-004 |
+| `WEB-RESEARCH.md` | Research methodology, source validation, citations, gap detection | SPEC-003 |
+| `KNOWLEDGE-BASE.md` | Knowledge management, similarity scoring, RAG workflow, relationships | SPEC-004 |
 | `PERSONA-GENERATOR.md` | Create and compose personas | SPEC-005 |
 | `INPUT-CLASSIFIER.md` | Classify input type and route | Foundation |
 | `JIT-PROTOCOL.md` | Just-in-time context loading | Foundation |
@@ -298,84 +300,65 @@ All write operations require human approval:
 
 ## Roadmap
 
-### v2.1.0 - Enhanced Protocols (✅ COMPLETE)
+### v2.2.0 - Web Research + Knowledge Base Enhancement (✅ COMPLETE)
 
 **Status:** Complete  
 **Release:** 2026-02-03
 
 #### Objectives Achieved
-1. ✅ Validate protocols work consistently through different AI models
-2. ✅ Add structured tests for protocols
-3. ✅ Improve documentation for protocol creation
-4. ✅ Enhance JIT loading efficiency
+1. ✅ Enhance WEB-RESEARCH.md with source validation (SPEC-003)
+2. ✅ Implement KNOWLEDGE-BASE.md with similarity scoring and RAG (SPEC-004)
+3. ✅ Add 4-dimension scoring and citation management
+4. ✅ Create relationship graph management system
+5. ✅ Validate protocols with 100% pass rate
 
 #### Deliverables
-- [x] SPEC-001 Self-Critique: Enhanced protocol with 4 evaluation dimensions (35/35 tasks)
-- [x] SPEC-002 Auto-Increment: Gap detection, rejection learning, proactive suggestions (90/90 tasks)
-- [x] SPEC-010 Language Skills Baseline: 5 baselines (Java, Kotlin, C/C++, JavaScript, Python)
-- [x] **MEMORY-MANAGEMENT Protocol:** 3-layer memory architecture (Session 19)
-- [x] **Skill Governance Document:** Decision trees, lifecycles, version matrix (Solution 7)
-- [x] **INDEX Validation Automation:** validate-indices.py + pre-commit hook (Solution 8)
-- [x] Distributed memory architecture: `memory/{agent}-memory.md` for each agent
-- [x] Cross-agent aggregation: Evolution reports aggregate data from ALL agents
-- [x] Cross-model testing documentation
-- [x] Protocol validation checklist
-- [x] Enhanced Protocol Integration (ADR-011): All protocols reference each other
+- [x] Enhanced WEB-RESEARCH.md (refactored: 401→190 lines, 1,393 tokens)
+- [x] 4 JIT sub-files for WEB-RESEARCH (source validation, citations, tier system, gap detection)
+- [x] KNOWLEDGE-BASE.md refactored (447→~100 lines, thin JIT router)
+- [x] 4 JIT sub-files for KNOWLEDGE-BASE (similarity scoring, redundancy gate, RAG workflow, relationships)
+- [x] SPEC-004 complete: Research (6 decisions) → Spec artifacts (8 files) → Protocol implementation → Tasks (36) + Validation (SC-001/SC-003)
+- [x] Go baseline skill (first to apply SPEC-003, score 100/100)
+- [x] 17 core protocols total (9 main + 4 JIT web-research + 4 JIT knowledge-base)
+- [x] Cross-protocol integration and reference updates
 
 #### Metrics Achieved
 | Metric | Target | Achievement |
 |--------|--------|-------------|
-| Cross-model consistency | > 90% | 100% |
-| Protocol load time | < 100ms | 85ms avg |
-| Documentation coverage | 100% | 100% |
-| SPEC-010 Self-Critique score | ≥75 | 99.20 (+32%) |
-| SPEC-010 Rejection rate | <20% | 0% (perfect) |
-| SPEC-010 Constitution violations | 0 | 0 (perfect) |
-| INDEX validation score | ≥95 | 97.5 |
+| WEB-RESEARCH score | ≥95 | 100 ✅ |
+| KNOWLEDGE-BASE score | ≥95 | 98+ ✅ |
+| SC-001 validation | 100% | 20/20 pass ✅ |
+| SC-003 validation | 100% | 0 false negatives ✅ |
+| Protocol tokens | <1,400 each | ~1,400 avg ✅ |
+| JIT sub-files tokens | <1,400 each | ~840 avg ✅ |
 
 **Key Innovations:**
-- JIT sub-files pattern: Solved T0-SIZE-01 token limits while preserving completeness
-- 3-layer memory architecture: MEMORY.md + agent-memory + workflow docs
-- Automated INDEX validation: Prevents corruption, cross-platform support
+- Multi-signal similarity scoring (Name 30%, Tags 30%, Domain 20%, Desc 20%)
+- Two-tier redundancy gate (advisory 80-89 / hard-block ≥90)
+- 4-dimension source validation (Authority/Recency/Completeness/Relevance)
+- Relationship graph persistence in INDEX.md YAML
 
 ---
 
-### v2.2.0 - Web Research Enhancement (🟢 READY TO START)
+### v2.3.0 - Advanced Features & Ecosystem (Planned)
 
-**Status:** Planned  
-**SPEC:** 003 (Web Research Protocol Enhancement)  
-**Start Date:** Awaiting human approval  
-**Duration:** 3-5 days
+**Status:** Planning  
+**SPEC:** 004 Deferred SCs (SC-002, SC-005, SC-006) trigger validation on next skill creation  
+**Duration:** 5-7 days
 
 #### Objectives
-1. Enhance WEB-RESEARCH.md protocol with real source validation
-2. Implement citation management and quality metrics
-3. Create source validation rules (official docs, recency, authority)
-4. Integrate with Auto-Increment for source gap detection
+1. Create ecosystem sub-files for existing baseline skills
+2. Add more baseline skills (Rust, TypeScript, Ruby)
+3. Version-specific advanced skills
+4. Validate deferred SPEC-004 SCs
 
 #### Planned Deliverables
-- [ ] Enhanced `.prompt-os/core/WEB-RESEARCH.md` with source validation rules
-- [ ] Source citation templates for skills
-- [ ] Research quality checklist (5-tier source hierarchy)
-- [ ] Source validation examples and patterns
-- [ ] Integration tests with existing protocols (Self-Critique, Auto-Increment)
-- [ ] Documentation updates (README, ai-assistant-guide, ITZAMNA-AGENT)
-
-#### Success Criteria
-- [ ] All skills generated use validated sources (>= Tier 2)
-- [ ] Source citations follow consistent format
-- [ ] Research quality score incorporated into Self-Critique
-- [ ] Auto-Increment suggests source improvements when quality < threshold
-
-**Preparation based on SPEC-010 learnings:**
-- Apply JIT sub-files pattern if WEB-RESEARCH.md > 1,400 tokens
-- Target Self-Critique score ≥95 for protocol enhancements
-- Zero Constitution violations (especially T0-SOURCE-01)
-
-**Phase Status:**
-- Phase 1 (Preparation): ✅ COMPLETE - Execution checklist + data collection guide created
-- Phase 2 (Research & Gap Analysis): ✅ COMPLETE - 5 gaps identified, JIT architecture designed
-- Phase 3-6 (Enhancement/Integration/Docs/Reports): 🟡 AWAITING APPROVAL
+- [ ] Ecosystem sub-files for Go, Python, JavaScript
+- [ ] New baseline skills: Rust, TypeScript, Ruby
+- [ ] Version-specific advanced skills (Go 1.18+, Python 3.10+, JS ES2023+)
+- [ ] SC-002 A/B comparison (RAG)
+- [ ] SC-005 T0 compliance trace
+- [ ] SC-006 relationship graph coverage
 
 ---
 
@@ -443,7 +426,9 @@ PromptOS works with **any AI agent** that can read Markdown:
 |---------|--------|-------|
 | v1.0.0 | Complete | Pilot (code-centric) |
 | v2.0.0 | Complete | Prompt-based architecture |
-| **v2.1.0** | **Complete** | **Enhanced protocols + validation** |
+| v2.1.0 | Complete | Enhanced protocols + validation |
+| **v2.2.0** | **Complete** | **Web Research (SPEC-003) + Knowledge Base (SPEC-004)** |
+| v2.3.0 | Planning | Advanced features & ecosystem |
 | v3.0.0 | Future | Advanced RAG integration |
 
 See [ROADMAP.md](./ROADMAP.md) for detailed evolution plan.
@@ -485,4 +470,4 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 ---
 
-**Itzamna PromptOS v2.1.0** | Prompt-Based Architecture | 2026
+**Itzamna PromptOS v2.2.0** | Prompt-Based Architecture | 2026

@@ -98,13 +98,14 @@
 
 ## Active Technologies
 
-- Markdown (prompt instructions) (004-vector-db-rag)
+- Markdown (prompt instructions)
+- SPEC-004 (Knowledge Base/RAG) — Phases 0-3 complete
 
 ---
 
 ## Recent Changes
 
-- 004-vector-db-rag: SPEC-004 — similarity scoring, redundancy gate, RAG workflow, relationship map
+- Session 26 — SPEC-004 complete: Knowledge Base protocols (KNOWLEDGE-BASE.md + 4 JIT sub-files), validation (SC-001/SC-003), tasks (36 items, 7 phases)
 
 ---
 

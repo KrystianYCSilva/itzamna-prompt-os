@@ -1,8 +1,8 @@
-# AI Assistant Guide - Itzamna PromptOS v2.1.0
+# AI Assistant Guide - Itzamna PromptOS v2.2.0
 
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 > **Última Atualização:** 2026-02-03
-> **SPEC-010:** ✅ COMPLETE | **Próxima SPEC:** 003 (Web Research Enhancement)
+> **SPEC-010:** ✅ COMPLETE | **SPEC-003:** ✅ COMPLETE | **SPEC-004:** ✅ COMPLETE | **Próxima:** v2.3.0 (Ecosystem + Baselines)
 
 ---
 

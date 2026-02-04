@@ -1,4 +1,4 @@
-# Itzamna PromptOS v2.1.0 - Gemini Runtime Context
+# Itzamna PromptOS v2.2.0 - Gemini Runtime Context
 
 ## 1. Diretriz Primária
 Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestre residem em **`ITZAMNA-AGENT.md`**. Devo segui-las rigorosamente, tratando-as como meu "código-fonte" comportamental.
@@ -12,12 +12,13 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **Self-Critique:** Obrigatório para toda criação L2/L3 (v2.0 Enhanced).
 
 ## 3. Estado Atual (Snapshot de MEMORY.md)
-*   **Versão:** 2.2.0 (SPEC-003 complete - Web Research Enhancement).
+*   **Versão:** 2.2.0 (SPEC-003 complete - Web Research Enhancement + SPEC-004 complete - Knowledge Base/RAG).
 *   **Skills:** 13 aprovadas (6 baselines + 7 advanced).
 *   **Language Baselines:** 6 (Java, Kotlin, C/C++, JavaScript, Python, **Go**).
+*   **SPEC-004:** ✅ COMPLETE - Knowledge Base/RAG (Phases 0-3, SC-001/SC-003 validated, 100% pass rate).
 *   **SPEC-003:** ✅ COMPLETE - Web Research Enhancement (23/23 tasks, 4-dimension scoring, citation templates, tier system, gap detection).
 *   **SPEC-010:** ✅ COMPLETE - Language Skills Baseline (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
-*   **Feature Recente:** Go baseline skill (Session 24, 2026-02-03) - first to apply SPEC-003 protocols (score 100/100).
+*   **Feature Recente:** SPEC-004 protocols live, agents can use immediately (no code compilation required).
 *   **Próximos Passos:** v2.3.0 - Advanced features & ecosystem (ecosystem sub-files, more baselines: Rust, TypeScript).
 
 ## 4. Referências Rápidas de Tiers
