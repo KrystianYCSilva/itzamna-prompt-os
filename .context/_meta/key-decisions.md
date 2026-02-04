@@ -1,7 +1,7 @@
 # Key Decisions - Itzamna PromptOS
 
-> **Versão:** 2.1.0 | Architectural Decision Records (ADRs)
-> **Última Atualização:** 2026-02-03
+> **Versão:** 2.2.0 | Architectural Decision Records (ADRs)
+> **Última Atualização:** 2026-02-04
 
 ---
 
@@ -322,4 +322,4 @@ Integrar mais profundamente os protocolos core, especialmente o Human Gate, com 
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Key Decisions | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Key Decisions | 2026-02-04*

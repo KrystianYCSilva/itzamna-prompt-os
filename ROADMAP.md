@@ -71,7 +71,7 @@ v1.0.0 was code-centric, requiring Node.js/Python runtime. This was identified a
   - [x] `INPUT-CLASSIFIER.md` (Foundation)
   - [x] `JIT-PROTOCOL.md` (Foundation)
 - [x] Specs updated with implementation references
-- [x] `specs/IMPLEMENTATION-STATUS.md` mapping document
+- [x] `specs/COMPLETION-STATUS.md` mapping document
 - [x] Root files updated (ITZAMNA-AGENT.md, AGENTS.md, README.md, MEMORY.md, ROADMAP.md)
 - [x] Cross-model compatibility (Claude, GPT, Gemini, Cursor, Copilot, Qwen)
 
@@ -251,7 +251,7 @@ All original specs have been implemented as **prompt protocols**:
 | SPEC-005 (Persona CLI) | `.prompt-os/core/PERSONA-GENERATOR.md` | ✅ Implemented |
 | SPEC-010 (Language Baselines) | 6 baseline skills | ✅ Implemented (Complete, 6/6 skills) |
 
-See `specs/IMPLEMENTATION-STATUS.md` for detailed mapping.
+See `specs/COMPLETION-STATUS.md` for detailed mapping.
 
 ---
 

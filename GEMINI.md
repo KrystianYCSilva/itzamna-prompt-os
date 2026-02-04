@@ -7,7 +7,7 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **Entry Point:** `.prompt-os/PROMPTOS.md` (Carregado).
 *   **Regras T0:** Invioláveis (Segurança, Human-in-the-Loop, Memória).
 *   **Workflow:** Sempre classificar o input (#new, #impl, etc.) antes de agir.
-*   **JIT Context:** Carregar apenas 2-5 skills de `skills/` e o necessário de `.context/`.
+*   **JIT Context:** Carregar apenas 2-5 skills de `.prompt-os/skills/` e o necessário de `.context/`.
 *   **Human Gate:** NUNCA gravar em disco ou commitar sem aprovação explícita e preview.
 *   **Self-Critique:** Obrigatório para toda criação L2/L3 (v2.0 Enhanced).
 
@@ -25,7 +25,7 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **T0 (Absoluto):** `standards/architectural-rules.md`.
 *   **T1 (Padrões):** `standards/code-quality.md`, `patterns/`.
 *   **T2 (Contexto):** `_meta/`, `troubleshooting/`.
-*   **T3 (Exemplos):** `examples/`, `skills/`.
+*   **T3 (Exemplos):** `examples/`, `.prompt-os/skills/`.
 
 ## 5. MANDATORY PROTOCOL SEQUENCE ⚠️ CRITICAL
 

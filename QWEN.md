@@ -49,7 +49,7 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 - Entry point: `.prompt-os/PROMPTOS.md`; regras em `.prompt-os/CONSTITUTION.md`.
 - Protocolos core (17): 9 main (SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL, MEMORY-MANAGEMENT) + 4 JIT web-research + 4 JIT knowledge-base sub-files.
 - Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
-- Skills/Personas: **13 skills** (6 baselines + 7 advanced); 1 persona (ver `MEMORY.md`).
+- Skills/Personas: **13 skills** (6 baselines + 7 advanced); 0 personas criadas (on-demand).
 - Language baselines: **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**).
 - **SPEC-004 ✅ COMPLETE** (Session 26): Knowledge Base/RAG - Phases 0-3 complete, SC-001/SC-003 validated, 100% pass rate, deferred SCs triggered on next skill creation.
 - **SPEC-003 ✅ COMPLETE** (Session 24): 4-dimension scoring, citation templates, tier system, gap detection. Go skill = first SPEC-003 application (100/100).

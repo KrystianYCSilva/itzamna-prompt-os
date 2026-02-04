@@ -72,8 +72,8 @@ Algumas skills usam **sub-files** para manter o tamanho dentro do limite T0-SIZE
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 6 baselines + 7 advanced + 1 hub = 14 |
-| Aprovadas | 14 |
+| Total de Skills | 13 (6 baselines + 7 advanced) |
+| Aprovadas | 13 |
 | Rascunho | 0 |
 | Categorias | 1 (linguagens) |
 
@@ -148,7 +148,7 @@ node .prompt-os/tools/brain.js generate skill "descricao da skill" --category {c
 
 ## SPEC-010 LEARNINGS
 
-As 5 language baselines foram criadas via **SPEC-010: Language Skills Baseline**:
+As 6 language baselines foram criadas via **SPEC-010: Language Skills Baseline**:
 
 **Key Metrics:**
 - Avg Self-Critique score: 99.20/100
@@ -178,4 +178,4 @@ As 5 language baselines foram criadas via **SPEC-010: Language Skills Baseline**
 
 ---
 
-*PromptOS v2.2.0 | Atualizado: 2026-02-03 | v2.3.0 planning started*
+*PromptOS v2.2.0 | Atualizado: 2026-02-04 | v2.3.0 planning started*

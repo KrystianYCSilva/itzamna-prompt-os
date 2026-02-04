@@ -29,8 +29,8 @@ Agente AI
   ├── Lê .prompt-os/PROMPTOS.md          (entry point)
   ├── Segue .prompt-os/CONSTITUTION.md   (regras T0/T1/T2)
   ├── Carrega .prompt-os/core/*.md       (8 protocolos comportamentais)
-  ├── Carrega skills/*.md                (17 skills, JIT)
-  └── Carrega personas/*.md              (personas especializadas, JIT)
+  ├── Carrega .prompt-os/skills/*.md     (13 skills, JIT)
+  └── Carrega .prompt-os/personas/*.md   (personas on-demand, JIT)
 ```
 
 Scripts opcionais (`brain.js`, `sync-constitution.ps1`) existem como helpers para uso humano — **não são necessários para o sistema funcionar**.
@@ -225,7 +225,7 @@ Definidas em `.prompt-os/personas/INDEX.md`:
 | Solutions Architect | Decisões de arquitetura (`#arch`) | design patterns, system design |
 | DevOps Engineer | Deploy, CI/CD (`#deploy`) | docker, kubernetes |
 
-**Persona gerada (conteúdo):** `personas/senior-fullstack-developer/` — composta por typescript, api-rest, docker, git, graphql.
+**Personas:** Nenhuma persona criada ainda (8 conceituais definidas, on-demand).
 
 ---
 
@@ -250,27 +250,18 @@ Classificação detalhada: `.prompt-os/core/INPUT-CLASSIFIER.md`
 
 ---
 
-## 10. SKILLS LIBRARY (23 Skills, 8 Categorias)
+## 10. SKILLS LIBRARY (13 Skills, 1 Categoria)
 
-Índice completo: `skills/INDEX.md` | Registry interno: `.prompt-os/skills/INDEX.md`
+Índice completo: `.prompt-os/skills/INDEX.md`
 
-| Categoria | Skills |
-|-----------|--------|
-| **frontend/** | html (L1), css-basico (L2), css-grid-layout-avancado (L2) |
-| **backend/** | api-rest (L2), graphql (L2), python-async-programming (L2), typescript (L2) |
-| **config/** | json (L1), java-properties (L1), yaml-configuration-best-practices (L2) |
-| **markup/** | markdown (L1), xml (L1), xslt (L2) |
-| **devops/** | docker (L2), git (L1) |
-| **docs/** | technical-writing (L2) |
-| **linguagens-programacao/** | java-8-orientacao-objetos (L2), **java (L2)**, **kotlin (L2)**, **c-cpp (L2)**, **javascript (L2)**, **python (L2)**, **go (L2)** |
-| **testing/** | hello-world-test (L0) |
+**Categoria única: `linguagens/`**
 
-**Language Baselines (6):** Java, Kotlin, C/C++, JavaScript, Python, **Go** - delivered via SPEC-010 (avg score 99.20/100, 0% rejections).  
-**Latest:** Go baseline skill (Session 24, 2026-02-03) - first to apply SPEC-003 protocols (score 100/100).
+**Baselines (6):** Java, Kotlin, C/C++, JavaScript, Python, Go  
+**Advanced (7):** java-8, java-11, java-17, java-21, java-23, kotlin-1xx, kotlin-2xx
 
 Todas aprovadas (taxa 100%). Template canônico: `.prompt-os/templates/SKILL.template.md`
 
-**JIT Sub-Files Pattern:** For skills >1,400 tokens, use `skills/{category}/{skill}/SKILL.md` + topic-specific sub-files (e.g., `c-cpp/memory-management.md`). See `.context/ai-assistant-guide.md` for details.
+**JIT Sub-Files Pattern:** For skills >1,400 tokens, use `.prompt-os/skills/{category}/{skill}/SKILL.md` + topic-specific sub-files. See `.context/ai-assistant-guide.md`.
 
 ---
 
@@ -303,8 +294,8 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 |---------|-------|
 | Skills totais | **13** (6 baselines + 7 advanced, todas aprovadas) |
 | Language Baselines | **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**) |
-| Personas geradas | 1 (senior-fullstack-developer) |
-| Personas disponíveis | 8 (no registry) |
+| Personas geradas | 0 (on-demand) |
+| Personas disponíveis | 8 (conceituais) |
 | Core protocols | **17** (9 main + 4 JIT web-research + 4 JIT knowledge-base) |
 | SPECs formais | 6 (SPEC-001, 002, 003, 004, 005, 010) |
 | Agentes sincronizados | 5 (Claude, Qwen, Gemini, Cursor, OpenCode) |
@@ -371,8 +362,8 @@ Detalhes completos: `.context/standards/code-quality.md` e `.context/standards/t
 | Funções/Métodos | camelCase | `getUserById()` |
 | Constantes | UPPER_SNAKE_CASE | `MAX_RETRY_COUNT` |
 | Tabelas/Colunas BD | snake_case | `user_profiles` / `created_at` |
-| Skills | SKILL.md (maiúsculo) | `skills/backend/api-rest/SKILL.md` |
-| Personas | PERSONA.md (maiúsculo) | `personas/senior-fullstack-developer/PERSONA.md` |
+| Skills | SKILL.md (maiúsculo) | `.prompt-os/skills/linguagens/java/SKILL.md` |
+| Personas | PERSONA.md (maiúsculo) | `.prompt-os/personas/{persona}/PERSONA.md` |
 
 ### Commits (Conventional Commits)
 
@@ -429,7 +420,7 @@ Completo em `.context/_meta/key-decisions.md`
 Problemas comuns (17 issues documentados em `.context/troubleshooting/common-issues.md`):
 
 - **Bootstrap** → Re-leia PROMPTOS.md e CONSTITUTION.md
-- **JIT loading** → Verifique se skills/INDEX.md está atualizado
+- **JIT loading** → Verifique se `.prompt-os/skills/INDEX.md` está atualizado
 - **Human Gate travado** → Responda com: approve | view | edit | reject | cancel
 - **Score baixo** → Leia SELF-CRITIQUE.md para entender as 4 dimensões
 - **Conflito de tiers** → T0 sempre vence; cite o ID da regra

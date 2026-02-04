@@ -24,3 +24,6 @@
 - Updated MEMORY.md with session summary
 - Updated docs and archive indices/README for current layout
 - Updated docs/ and docs/_archive indices after moving items out of archive
+- Validated .context and root references; updated dates and spec status links
+- Updated agent and root docs to reflect current skills/personas structure
+- Validated .prompt-os indices and updated specs/COMPLETION-STATUS.md

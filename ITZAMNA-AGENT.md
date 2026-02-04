@@ -264,7 +264,7 @@ Para cada artefato gerado:
    - Evita content desatualizado
 
 3. **Self-Critique ≥99 = aprovação** - Correlação perfeita
-   - Todos os 5 skills com score ≥99 foram aprovados (100% first-pass approval)
+   - Todos os 6 skills com score ≥99 foram aprovados (100% first-pass approval)
 
 4. **Estrutura consistente** - Template-driven creation
    - Velocidade: 51min avg (15% abaixo do target)
@@ -302,9 +302,9 @@ itzamna-prompt-os/
 │   ├── CONSTITUTION.md      # Regras T0/T1/T2
 │   ├── core/                # 8 protocolos (incl. HUMAN-GATE)
 │   ├── skills/              # Registry de skills (lookup by protocols)
-│   │   └── INDEX.md         # Espelho de skills/INDEX.md
+│   │   └── INDEX.md         # Espelho de .prompt-os/skills/INDEX.md
 │   └── personas/            # Registry de personas (lookup by protocols)
-│       └── INDEX.md         # Espelho de personas/INDEX.md
+│       └── INDEX.md         # Espelho de .prompt-os/personas/INDEX.md
 │
 ├── .context/                # Contexto para AIs (JIT)
 │   ├── standards/           # Regras T0-T1
@@ -314,8 +314,8 @@ itzamna-prompt-os/
 │   ├── examples/            # Exemplos T3
 │   └── troubleshooting/     # Problemas T2
 │
-├── skills/                  # 17 skills em 7 categorias (conteudo)
-├── personas/                # Personas especializadas (conteudo)
+├── .prompt-os/skills/       # 13 skills em 1 categoria (conteudo)
+├── .prompt-os/personas/     # Personas on-demand (0 criadas)
 └── specs/                   # Especificacoes formais
 ```
 

@@ -1,7 +1,7 @@
 # Project Overview - Itzamna PromptOS v2.2.0
 
 > **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
-> **Última Atualização:** 2026-02-03
+> **Última Atualização:** 2026-02-04
 > **SPEC-003 Status:** ✅ COMPLETE (Web Research Enhancement, 23/23 tasks)
 > **SPEC-010 Status:** ✅ COMPLETE (6 language baselines delivered)
 > **Próxima SPEC:** v2.3.0 (Advanced Features & Ecosystem)
@@ -83,11 +83,11 @@
 version: 2.2.0
 architecture: prompt-based
 entry_point: .prompt-os/PROMPTOS.md
-core_protocols: 13  # 9 main + 4 JIT web-research
+core_protocols: 17  # 9 main + 4 JIT web-research + 4 JIT knowledge-base
 skills_total: 13  # 6 baselines + 7 advanced
 skills_categories: 8
 skills_language_baselines: 6  # Java, Kotlin, C/C++, JavaScript, Python, Go
-personas_total: 1
+personas_total: 0
 agents_synced: 5
 specs_implemented: 6  # SPEC-001, 002, 003, 004, 005, 010
 ```

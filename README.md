@@ -153,24 +153,15 @@ itzamna-prompt-os/
 │   └── docs/                    # System documentation
 │       └── SKILL-GOVERNANCE.md  # Skill lifecycle policies
 │
-├── .prompt-os/skills/           # Skills library (12 baseline + advanced)
+├── .prompt-os/skills/           # Skills library (13 total)
 │   ├── INDEX.md                 # Skills index
-│   └── linguagens/              # 5 baselines + 7 advanced (Java, Kotlin, C/C++, JS, Python)
-│   ├── frontend/                # 3 skills
-│   ├── backend/                 # 4 skills
-│   ├── config/                  # 3 skills
-│   ├── markup/                  # 3 skills
-│   ├── devops/                  # 2 skills
-│   ├── docs/                    # 1 skill
-│   ├── linguagens-programacao/  # 1 skill
-│   └── testing/                 # 1 skill
+│   └── linguagens/              # 6 baselines + 7 advanced
 │
-├── personas/                    # Personas library
-│   ├── INDEX.md
-│   └── senior-fullstack-developer/
+├── .prompt-os/personas/         # Personas library (on-demand)
+│   └── INDEX.md
 │
 ├── specs/                       # Formal specifications
-│   ├── IMPLEMENTATION-STATUS.md # Spec → Prompt mapping
+│   ├── COMPLETION-STATUS.md     # Spec completion status
 │   └── 00X-*/spec.md            # Detailed specs
 │
 ├── docs/                        # Documentation
@@ -227,11 +218,11 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 
 ---
 
-## Skills Library (12 Total)
+## Skills Library (13 Total)
 
-### Linguagens de Programação (12 skills) 🆕
+### Linguagens de Programação (13 skills)
 
-**Baselines (5 skills):**
+**Baselines (6 skills):**
 
 | Skill | Level | Description |
 |-------|-------|-------------|
@@ -240,6 +231,7 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 | [c-cpp](`.prompt-os/skills/linguagens/c-cpp/SKILL.md`) | L1 | C/C++ baseline: pointers, RAII, manual memory (+ 3 JIT sub-files) |
 | [javascript](`.prompt-os/skills/linguagens/javascript/SKILL.md`) | L1 | JavaScript baseline: event loop, async/await, npm (+ JIT sub-file) |
 | [python](`.prompt-os/skills/linguagens/python/SKILL.md`) | L1 | Python baseline: duck typing, GIL, asyncio (+ JIT sub-file) |
+| [go](`.prompt-os/skills/linguagens/go/SKILL.md`) | L1 | Go baseline: goroutines, channels, interfaces, defer |
 
 **Advanced (7 skills):**
 
@@ -385,20 +377,20 @@ PromptOS works with **any AI agent** that can read Markdown:
 1. Follow the `PERSONA-GENERATOR.md` protocol (or use `brain.js` CLI)
 2. Fill in the generated template
 3. Go through Human Gate approval
-4. Skill is added to `skills/INDEX.md`
+4. Skill is added to `.prompt-os/skills/INDEX.md`
 
 ### Add a New Persona
 
 1. Follow the `PERSONA-GENERATOR.md` protocol
 2. Compose from existing skills
 3. Go through Human Gate approval
-4. Persona is added to `personas/INDEX.md`
+4. Persona is added to `.prompt-os/personas/INDEX.md`
 
 ### Add a New Protocol
 
 1. Create a SPEC in `specs/` following existing format
 2. Create prompt file in `.prompt-os/core/`
-3. Update `specs/IMPLEMENTATION-STATUS.md`
+3. Update `specs/COMPLETION-STATUS.md`
 4. Reference in `PROMPTOS.md` bootstrap
 
 ---
@@ -442,9 +434,9 @@ See [ROADMAP.md](./ROADMAP.md) for detailed evolution plan.
 | [AGENTS.md](./AGENTS.md) | System kernel and agent instructions |
 | [ITZAMNA-AGENT.md](./ITZAMNA-AGENT.md) | Main agent abstraction |
 | [MEMORY.md](./MEMORY.md) | Persistent state |
-| [skills/INDEX.md](./skills/INDEX.md) | Complete skills index |
-| [personas/INDEX.md](./personas/INDEX.md) | Personas index |
-| [specs/IMPLEMENTATION-STATUS.md](./specs/IMPLEMENTATION-STATUS.md) | Spec to prompt mapping |
+| [.prompt-os/skills/INDEX.md](./.prompt-os/skills/INDEX.md) | Complete skills index |
+| [.prompt-os/personas/INDEX.md](./.prompt-os/personas/INDEX.md) | Personas index |
+| [specs/COMPLETION-STATUS.md](./specs/COMPLETION-STATUS.md) | Spec completion status |
 | [CONSTITUTION.md](./.prompt-os/CONSTITUTION.md) | Inviolable rules |
 
 ---

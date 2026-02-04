@@ -8,7 +8,7 @@
 ## Navigation
 
 - [Core Protocols](#core-protocols) - 9 files
-- [Skills](#skills) - 13+ skills
+- [Skills](#skills) - 13 skills
 - [Personas](#personas)
 - [Templates](#templates) - 15 templates
 - [Tools](#tools) - 8 scripts
@@ -47,30 +47,30 @@ The fundamental decision-making and validation algorithms for the system.
 
 ## Skills
 
-Language fundamentals and advanced features. Located in `skills/linguagens/`.
+Language fundamentals and advanced features. Located in `.prompt-os/skills/linguagens/`.
 
 ### Baselines (L1 - Foundational)
 
 | Name | Language | File | Tags | Status |
 |------|----------|------|------|--------|
-| `c-cpp` | C/C++ | `skills/linguagens/c-cpp/SKILL.md` | pointers, memory, compilation | approved |
-| `go` | Go | `skills/linguagens/go/SKILL.md` | goroutines, channels, concurrency | approved |
-| `java` | Java | `skills/linguagens/java/SKILL.md` | oop, jvm, threading | approved |
-| `javascript` | JavaScript | `skills/linguagens/javascript/SKILL.md` | event-loop, async, npm | approved |
-| `kotlin` | Kotlin | `skills/linguagens/kotlin/SKILL.md` | jvm, nullsafety, coroutines | approved |
-| `python` | Python | `skills/linguagens/python/SKILL.md` | duck-typing, asyncio, pip | approved |
+| `c-cpp` | C/C++ | `.prompt-os/skills/linguagens/c-cpp/SKILL.md` | pointers, memory, compilation | approved |
+| `go` | Go | `.prompt-os/skills/linguagens/go/SKILL.md` | goroutines, channels, concurrency | approved |
+| `java` | Java | `.prompt-os/skills/linguagens/java/SKILL.md` | oop, jvm, threading | approved |
+| `javascript` | JavaScript | `.prompt-os/skills/linguagens/javascript/SKILL.md` | event-loop, async, npm | approved |
+| `kotlin` | Kotlin | `.prompt-os/skills/linguagens/kotlin/SKILL.md` | jvm, nullsafety, coroutines | approved |
+| `python` | Python | `.prompt-os/skills/linguagens/python/SKILL.md` | duck-typing, asyncio, pip | approved |
 
 ### Advanced (L2 - Features & Versions)
 
 | Name | Based On | File | Tags | Status |
 |------|----------|------|------|--------|
-| `java-8` | Java | `skills/linguagens/java/java-8/SKILL.md` | lambdas, streams, optional | approved |
-| `java-11` | Java | `skills/linguagens/java/java-11/SKILL.md` | var, httpclient, lts | approved |
-| `java-17` | Java | `skills/linguagens/java/java-17/SKILL.md` | sealed-classes, records, lts | approved |
-| `java-21` | Java | `skills/linguagens/java/java-21/SKILL.md` | virtual-threads, lts, patterns | approved |
-| `java-23` | Java | `skills/linguagens/java/java-23/SKILL.md` | primitive-patterns, records | approved |
-| `kotlin-1xx` | Kotlin | `skills/linguagens/kotlin/kotlin-1xx/SKILL.md` | extension-functions, dsl | approved |
-| `kotlin-2xx` | Kotlin | `skills/linguagens/kotlin/kotlin-2xx/SKILL.md` | k2-compiler, context-receivers | approved |
+| `java-8` | Java | `.prompt-os/skills/linguagens/java/java-8/SKILL.md` | lambdas, streams, optional | approved |
+| `java-11` | Java | `.prompt-os/skills/linguagens/java/java-11/SKILL.md` | var, httpclient, lts | approved |
+| `java-17` | Java | `.prompt-os/skills/linguagens/java/java-17/SKILL.md` | sealed-classes, records, lts | approved |
+| `java-21` | Java | `.prompt-os/skills/linguagens/java/java-21/SKILL.md` | virtual-threads, lts, patterns | approved |
+| `java-23` | Java | `.prompt-os/skills/linguagens/java/java-23/SKILL.md` | primitive-patterns, records | approved |
+| `kotlin-1xx` | Kotlin | `.prompt-os/skills/linguagens/kotlin/kotlin-1xx/SKILL.md` | extension-functions, dsl | approved |
+| `kotlin-2xx` | Kotlin | `.prompt-os/skills/linguagens/kotlin/kotlin-2xx/SKILL.md` | k2-compiler, context-receivers | approved |
 
 ### Statistics
 
@@ -82,18 +82,18 @@ Language fundamentals and advanced features. Located in `skills/linguagens/`.
 | Categories | 1 (linguagens) |
 | Approval Rate | 100% |
 
-**Reference:** See `skills/INDEX.md` for detailed skill registry with JIT sub-files info.
+**Reference:** See `.prompt-os/skills/INDEX.md` for detailed skill registry with JIT sub-files info.
 
 ---
 
 ## Personas
 
-Role definitions for different AI agent behaviors. Located in `personas/`.
+Role definitions for different AI agent behaviors. Located in `.prompt-os/personas/`.
 
 | Name | File | Purpose | Tags |
 |------|------|---------|------|
-| INDEX | `personas/INDEX.md` | Personas registry and documentation | index, registry |
-| *[See personas/INDEX.md for detailed list]* | - | Dynamic personas for workflows | - |
+| INDEX | `.prompt-os/personas/INDEX.md` | Personas registry and documentation | index, registry |
+| *[See .prompt-os/personas/INDEX.md for detailed list]* | - | Dynamic personas for workflows | - |
 
 ---
 
@@ -228,8 +228,8 @@ Search for keywords in the **Purpose** and **Tags** columns.
 
 For detailed file listings within subdirectories:
 
-- **Skills:** See `skills/INDEX.md` - Complete skill registry with redundancy detection
-- **Personas:** See `personas/INDEX.md` - Available personas and triggers
+- **Skills:** See `.prompt-os/skills/INDEX.md` - Complete skill registry with redundancy detection
+- **Personas:** See `.prompt-os/personas/INDEX.md` - Available personas and triggers
 - **Core:** See `core/INDEX.md` - Master core registry
 
 ---
@@ -237,11 +237,11 @@ For detailed file listings within subdirectories:
 ## Version & Maintenance
 
 - **Version**: 2.2.0
-- **Last Updated**: 2026-02-03
+- **Last Updated**: 2026-02-04
 - **Maintenance**: Update whenever files are added/removed
 
 For maintenance procedures, see `core/governance/INDEX-MAINTENANCE.md`.
 
 ---
 
-*Index last generated: 2026-02-03 | Next update: When new files are added*
+*Index last generated: 2026-02-04 | Next update: When new files are added*

@@ -89,6 +89,9 @@
 - memory/codex-memory.md criado
 - docs/README.md, docs/INDEX.md e docs/_archive indices atualizados
 - docs/README.md e docs/INDEX.md ajustados apos mover itens para fora do archive
+- .context e arquivos do root alinhados com status atual (datas + links)
+- CLAUDE/GEMINI/QWEN/ITZAMNA-AGENT/README alinhados com estrutura atual de skills/personas
+- .prompt-os indices validados e COMPLETION-STATUS.md atualizado
 
 ### Sessao 27 (2026-02-03) - Agent & Docs Sync + SPEC-004 Completion Summary 📋
 

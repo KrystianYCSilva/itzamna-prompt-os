@@ -1,7 +1,7 @@
-# Tech Stack - Itzamna PromptOS v2.1.0
+# Tech Stack - Itzamna PromptOS v2.2.0
 
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
-> **Última Atualização:** 2026-02-03
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
+> **Última Atualização:** 2026-02-04
 
 ---
 
@@ -204,10 +204,10 @@ node .prompt-os/tools/brain.js generate skill "Docker" --category devops
 ```yaml
 # Core
 entry_point: .prompt-os/PROMPTOS.md
-protocols: 7
-skills: 17
-personas: 1
-categories: 7
+protocols: 17
+skills: 13
+personas: 0
+categories: 1
 
 # Compatibility
 agents_synced: 5
