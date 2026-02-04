@@ -19,8 +19,9 @@
 | Personas Geradas | 0 (8 conceituais definidas, criar conforme necessidade) |
 | Taxa de Aprovacao | 100% |
 | Categorias | 1 (linguagens) |
-| Core Protocols | 9 + 4 JIT web-research = 13 total |
+| Core Protocols | 9 + 4 JIT web-research + 4 JIT knowledge-base = 17 total |
 | Ultima Geracao | 2026-02-03 (Go baseline skill) |
+| SPECs em andamento | SPEC-004 (Vector DB/RAG) — Phase 0+1+2 complete |
 
 ---
 
@@ -28,6 +29,10 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-03 | protocol | KNOWLEDGE-BASE.md refactored (447→~100 lines, JIT router)            | ✅ complete              |
+| 2026-02-03 | protocol | knowledge-base/ 4 JIT sub-files (scoring, redundancy, rag, relations) | ✅ created              |
+| 2026-02-03 | spec     | SPEC-004 Phase 0+1 — plan, research, data-model, contracts, quickstart | ✅ complete            |
+| 2026-02-03 | docs     | .cursorrules Active Technologies + Recent Changes updated             | ✅ complete              |
 | 2026-02-03 | docs     | Session 25 — T031 agent bootstrap + docs update (v2.2.0 sync)        | ✅ complete              |
 | 2026-02-03 | plan     | v2.3.0 planning doc created (specs/v2.3.0-plan.md)                   | ✅ created               |
 | 2026-02-03 | skill    | Go baseline (first to apply SPEC-003 protocols)                      | ✅ approved (100/100)    |
@@ -61,6 +66,37 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 26 (2026-02-03) - SPEC-004 Knowledge Retrieval & RAG 🔍
+
+**Feature: SPEC-004 — Enhanced Knowledge Retrieval & RAG — Phase 0+1+2 COMPLETE**
+
+- **Phase 0 (Research):** 6 design decisions (D1-D6) documented in `specs/004-vector-db-rag/research.md`
+  - D1: prompt-based multi-signal scoring (not embeddings — that's v3.0.0)
+  - D2: reuse INDEX.md weights (30/30/20/20)
+  - D3: two-tier redundancy (80-89 high / ≥90 hard block)
+  - D4: 4 JIT sub-files + thin router (mirrors WEB-RESEARCH pattern)
+  - D5: relationships persist in INDEX.md YAML
+  - D6: gap records in MEMORY.md episodic table
+
+- **Phase 1 (Spec Artifacts):** 8 files in `specs/004-vector-db-rag/`
+  - plan.md, research.md, data-model.md (4 entities), quickstart.md
+  - contracts/: similarity-scoring, redundancy-gate, rag-workflow, relationship-map
+
+- **Phase 2 (Protocol Implementation):** 5 files in `.prompt-os/core/`
+  - KNOWLEDGE-BASE.md refactored: 447 lines → ~100 lines (thin JIT router)
+  - 4 JIT sub-files in `knowledge-base/`: all ≤ ~840 tokens (well under 1,400 limit)
+  - Pattern: identical to WEB-RESEARCH.md + web-research/ structure
+
+- **Agent context:** .cursorrules updated with Active Technologies + Recent Changes
+
+- **Commits:** 2
+  - `feat(spec): SPEC-004 phase 0+1 — data model, contracts, quickstart & .cursorrules update`
+  - `feat(spec): SPEC-004 phase 2 — refactor KNOWLEDGE-BASE into JIT router + 4 sub-files`
+
+**Status:** ✅ Phase 0+1+2 COMPLETE — protocol files live, ready for Phase 3 (tasks.md / integration testing)
+
+---
 
 ### Sessao 25 (2026-02-03) - Documentation Sync + v2.3.0 Planning 📋
 
