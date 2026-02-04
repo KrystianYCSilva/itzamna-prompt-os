@@ -322,4 +322,5 @@ Integrar mais profundamente os protocolos core, especialmente o Human Gate, com 
 
 ---
 
-*Itzamna PromptOS v2.2.0 | Key Decisions | 2026-02-04*
+*Itzamna PromptOS v2.3.0-dev | Key Decisions | 2026-02-04*
+

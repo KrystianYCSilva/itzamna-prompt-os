@@ -1,6 +1,6 @@
 # PromptOS Structure Examples - T3 (Illustrative)
 
-> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.2.0.
+> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.3.0-dev.
 > **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 
 ## Estrutura do Sistema PromptOS
@@ -284,4 +284,5 @@ refactor(personas): simplify fullstack developer
 
 ---
 
-*Itzamna PromptOS v2.2.0 | Examples | T3 Illustrative | 2026-02-03*
+*Itzamna PromptOS v2.3.0-dev | Examples | T3 Illustrative | 2026-02-03*
+

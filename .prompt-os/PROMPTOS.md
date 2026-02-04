@@ -58,6 +58,18 @@ O PromptOS e um **sistema de instrucoes** que voce (agente de IA) deve seguir ao
 4. AGUARDE o pedido do usuario
 ```
 
+### Inicializacao de novos projetos
+
+Para inicializar um novo projeto com PromptOS:
+
+```bash
+node scripts/setup-promptos.js init --target <pasta> --context min-context
+node scripts/setup-promptos.js init --target <pasta> --context complete-context
+```
+
+Depois da estrutura criada, use o comando de chat:
+- `/itzamna.init` (ou `#ini`) para preencher o contexto do projeto.
+
 ### Ao receber um pedido:
 
 ```

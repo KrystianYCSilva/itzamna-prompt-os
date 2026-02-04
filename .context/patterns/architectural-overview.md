@@ -5,7 +5,7 @@
 
 ## Visão Geral da Arquitetura
 
-### Insight Chave (v2.2.0)
+### Insight Chave (v2.3.0-dev)
 
 ```
 PromptOS = PROMPTS (Markdown) que AI agents LEEM e SEGUEM
@@ -57,7 +57,7 @@ Knowledge: .prompt-os/skills/*.md (13 skills)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Itzamna PromptOS v2.2.0                  │
+│                    Itzamna PromptOS v2.3.0-dev                  │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
 │  │   .prompt-os/   │  │ .prompt-os/skills/ │  │ .prompt-os/personas/ │ │
@@ -82,7 +82,7 @@ Knowledge: .prompt-os/skills/*.md (13 skills)
 ### 1. Prompt-Based Architecture (CORE)
 **Objetivo**: Sistema funciona via instruções Markdown, não código executável.
 
-**Princípio v2.2.0**:
+**Princípio v2.3.0-dev**:
 ```
 O sistema são PROMPTS que AI agents LEEM e SEGUEM.
 Não há código que precisa executar para funcionar.
@@ -366,3 +366,4 @@ SEMPRE citar regra específica (ID) na resposta
 ---
 
 *Itzamna PromptOS v2.1.0 | Architectural Overview | T1 Blueprints | 2026-02-03*
+

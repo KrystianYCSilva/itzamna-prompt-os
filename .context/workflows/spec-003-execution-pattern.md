@@ -296,7 +296,7 @@ SPEC-003 successfully enhanced the `WEB-RESEARCH.md` protocol by adding:
 - Test with real data (actual skills, actual sources, actual queries)
 - Measure against explicit success criteria (not subjective assessment)
 - Document all test results for audit trail
-- If any test fails, track as deferred SC (not critical for v2.2.0)
+- If any test fails, track as deferred SC (not critical for v2.3.0-dev)
 
 **Handoff**: Ready for Phase 7 memory update
 
@@ -324,12 +324,12 @@ SPEC-003 successfully enhanced the `WEB-RESEARCH.md` protocol by adding:
    - Production readiness checklist ✅
 
 4. **Close SPEC-003**:
-   - Mark status: ✅ COMPLETE (v2.1 → v2.2.0)
+   - Mark status: ✅ COMPLETE (v2.1 → v2.3.0-dev)
    - Update ROADMAP.md: SPEC-003 done, v2.3.0 planned
    - Archive SPEC-003 feature branch (or merge to master)
 
 **Deliverables**:
-- Updated MEMORY.md (v2.2.0 status)
+- Updated MEMORY.md (v2.3.0-dev status)
 - Session notes in memory/opencode-memory.md (gaps + rejections + learnings)
 - COMPLETION-SUMMARY.md (1,200+ lines comprehensive documentation)
 - Closed SPEC-003 (ready for SPEC-004/v2.3.0)
@@ -417,7 +417,7 @@ Three SCs deferred with trigger points:
 - **SC-005 (T0 compliance trace)**: Triggers on first new skill creation (verify T0-SOURCE-01 compliance via citations)
 - **SC-006 (relationship graph coverage)**: Triggers when relationships doc populated (measure source coverage across all skills)
 
-**Why deferred**: These require either new skills or relationship documentation to fully validate. Not blocking for v2.2.0.
+**Why deferred**: These require either new skills or relationship documentation to fully validate. Not blocking for v2.3.0-dev.
 
 **Trigger point**: Tasks T037-T038 in SPEC-004 tasks.md document when to run these deferred validations.
 
@@ -458,3 +458,4 @@ Three SCs deferred with trigger points:
 ---
 
 **Pattern Complete**: Use this 7-phase workflow for future protocol enhancements (SPEC-005, SPEC-006, etc.). Adjust timeline based on scope, but maintain phase sequence.
+

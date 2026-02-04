@@ -80,16 +80,17 @@
 ### Métricas
 
 ```yaml
-version: 2.2.0
+version: 2.3.0-dev
 architecture: prompt-based
 entry_point: .prompt-os/PROMPTOS.md
-core_protocols: 17  # 9 main + 4 JIT web-research + 4 JIT knowledge-base
+core_protocols: 20  # 12 main + 4 JIT web-research + 4 JIT knowledge-base
 skills_total: 13  # 6 baselines + 7 advanced
 skills_categories: 8
 skills_language_baselines: 6  # Java, Kotlin, C/C++, JavaScript, Python, Go
 personas_total: 0
 agents_synced: 5
-specs_implemented: 6  # SPEC-001, 002, 003, 004, 005, 010
+specs_implemented: 8  # SPEC-001, 002, 003, 004, 005, 006, 007, 010
+specs_in_progress: 1  # SPEC-011 (Slash Command Aliases)
 ```
 
 ### SPEC-003: Web Research Enhancement (COMPLETE ✅)
@@ -149,17 +150,20 @@ specs_implemented: 6  # SPEC-001, 002, 003, 004, 005, 010
 
 | Protocolo | Arquivo | Propósito |
 |-----------|---------|-----------|
-| Self-Critique | `SELF-CRITIQUE.md` | Avaliação de qualidade (SPEC-001) |
 | Auto-Increment | `AUTO-INCREMENT.md` | Detecção de gaps e rejection learning (SPEC-002) |
-| Web Research | `WEB-RESEARCH.md` + 4 JIT sub-files | Metodologia de pesquisa (SPEC-003) |
-| Knowledge Base | `KNOWLEDGE-BASE.md` | Gestão de conhecimento |
-| Persona Generator | `PERSONA-GENERATOR.md` | Criação de personas |
+| Bootstrap | `BOOTSTRAP.md` | Inicialização de projeto via chat |
+| Command Router | `COMMAND-ROUTER.md` | Parsing e roteamento de comandos CLI (SPEC-006) |
+| Human Gate | `HUMAN-GATE.md` | Aprovação humana antes de persistir |
 | Input Classifier | `INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `JIT-PROTOCOL.md` | Carregamento otimizado |
-| Human Gate | `HUMAN-GATE.md` | Aprovação humana antes de persistir |
+| Knowledge Base | `KNOWLEDGE-BASE.md` + 4 JIT sub-files | Gestão de conhecimento (SPEC-004) |
 | Memory Management | `MEMORY-MANAGEMENT.md` | Gestão de memoria (3 layers) |
+| Persona Generator | `PERSONA-GENERATOR.md` | Criação de personas (SPEC-005) |
+| Self-Critique | `SELF-CRITIQUE.md` | Avaliação de qualidade (SPEC-001) |
+| Web Research | `WEB-RESEARCH.md` + 4 JIT sub-files | Metodologia de pesquisa (SPEC-003) |
+| Workflow Orchestrator | `WORKFLOW-ORCHESTRATOR.md` | Mapeamento workflow → persona → skills (SPEC-007) |
 
-**Total:** 13 protocols (9 main + 4 JIT web-research sub-files)
+**Total:** 20 protocols (12 main + 4 JIT web-research + 4 JIT knowledge-base sub-files)
 
 ### Agentes Sincronizados
 
@@ -265,4 +269,5 @@ O sistema funciona com qualquer AI que consiga:
 
 ---
 
-*Itzamna PromptOS v2.2.0 | Project Overview | 2026-02-03*
+*Itzamna PromptOS v2.3.0-dev | Project Overview | 2026-02-03*
+

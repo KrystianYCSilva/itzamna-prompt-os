@@ -248,7 +248,7 @@ This specification is **READY FOR PLANNING** phase. All mandatory sections compl
 **Version**: 1.0  
 **Self-Critique Ready**: Yes (score after planning phase)  
 **Estimated Implementation**: 3-5 days (per execution-checklist.md)  
-**Target Release**: v2.2.0 (per ROADMAP.md)
+**Target Release**: v2.3.0-dev (per ROADMAP.md)
 
 ---
 
@@ -265,3 +265,4 @@ This specification is **READY FOR PLANNING** phase. All mandatory sections compl
 - **Q4: Human Override Mechanism** - When agent flags a source for manual review (unknown domain, borderline score, conflict), how does human provide verdict? → **A:** Inline conversational approval in agent session (e.g., "approve tier 2", "use tier 3 instead", "reject source"). Maintains conversational flow, no file modifications during active session. Agent documents decision in memory if persistent record needed.
 
 - **Q5: Observability Signals** - How will protocol usage, validation outcomes, and failures be monitored for quality tracking (SC-001/007/008 measurement)? → **A:** Structured logs with validation counts, average scores per dimension, gap trigger frequencies, and validation time measurements. Format: `[timestamp] WEB-RESEARCH-VALIDATION | sources=N | avg_score=X | gaps=[types] | time=Ns | conflicts=N`. Enables quantitative SC measurement and pattern detection for system evolution.
+

@@ -13,7 +13,7 @@ Upgrade `.prompt-os/core/KNOWLEDGE-BASE.md` from a keyword-search + basic-RAG-ch
 **Primary Dependencies**: None. Consumes `.prompt-os/skills/INDEX.md` (read-only at search time) and `.prompt-os/core/AUTO-INCREMENT.md` (gap forwarding interface).  
 **Storage**: File-based. Relationship map persists as a YAML block inside INDEX.md (existing pattern: tags, triggers). Main protocol + 4 JIT sub-files under `.prompt-os/core/knowledge-base/`.  
 **Testing**: Manual agent-run. Test harness is a defined 20-query set (SC-001) and 6 near-duplicate drafts (SC-003). No automated test runner; validation is the agent executing the protocol and a human reviewing results.  
-**Policy source**: `.prompt-os/docs/SKILL-GOVERNANCE.md` (informational reference for redundancy policy; not a protocol runtime dependency).  
+**Policy source**: `.prompt-os/core/governance/SKILL-GOVERNANCE.md` (informational reference for redundancy policy; not a protocol runtime dependency).  
 **Target Platform**: Any AI agent that reads Markdown. Cross-model (Claude, Qwen, Gemini, Cursor, OpenCode).  
 **Project Type**: Protocol authoring (Markdown files only).  
 **Performance Goals**: Scoring completes within a single agent turn (FR-008). No hard ms target.  
@@ -74,3 +74,4 @@ specs/004-vector-db-rag/
 ## Complexity Tracking
 
 No constitution violations. This section is intentionally empty.
+

@@ -61,14 +61,14 @@ From [spec-010-execution-pattern.md](spec-010-execution-pattern.md):
 
 ## 🔗 QUICK NAVIGATION
 
-- [Parent: Context](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: Context](../README.md)
+- [PromptOS Root](../../README.md)
 
 ---
 
 ## 📌 MAINTENANCE
 
-**Last updated**: 2026-02-03  
+**Last updated**: 2026-02-04  
 **Total files**: 3  
 **Tier**: T2 (best practices, workflows)
 

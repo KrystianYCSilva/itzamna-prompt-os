@@ -1,4 +1,12 @@
 <!--
+  Constitution synced from .specify/memory/constitution.md
+  Agent: Claude
+  Synced: 2026-02-04 13:10:16
+  DO NOT EDIT - Changes will be overwritten on next sync
+  To modify, edit .specify/memory/constitution.md and run sync-constitution.ps1 -Direction push
+-->
+
+<!--
 SYNC IMPACT REPORT
 ==================
 Version change: 2.1.0 → 2.2.0
@@ -477,4 +485,5 @@ a TODO for the tests?"
 ---
 
 *Itzamna PromptOS Constitution v2.3.0-dev | Last synced: 2026-02-04*
+
 

@@ -9,8 +9,8 @@
 | File | Type | Purpose | Status |
 |------|------|---------|--------|
 | [BROWNFIELD-MIGRATION-GUIDE.md](BROWNFIELD-MIGRATION-GUIDE.md) | Guide | Strategies for migrating legacy systems to PromptOS | Reference |
-| [RFC-UNIFIED-CONTEXT-STRUCTURE.md](RFC-UNIFIED-CONTEXT-STRUCTURE.md) | RFC | Proposal for unified context structure | Implemented v2.2.0 |
-| [RFC-UNIFIED-DOCS-STRUCTURE.md](RFC-UNIFIED-DOCS-STRUCTURE.md) | RFC | Proposal for unified documentation structure | Implemented v2.2.0 |
+| [RFC-UNIFIED-CONTEXT-STRUCTURE.md](RFC-UNIFIED-CONTEXT-STRUCTURE.md) | RFC | Proposal for unified context structure | Implemented v2.3.0-dev |
+| [RFC-UNIFIED-DOCS-STRUCTURE.md](RFC-UNIFIED-DOCS-STRUCTURE.md) | RFC | Proposal for unified documentation structure | Implemented v2.3.0-dev |
 
 ---
 
@@ -33,7 +33,7 @@
 
 ## 📋 RFC HISTORY
 
-These RFCs represent past architectural discussions and decisions that have been **implemented in v2.2.0**:
+These RFCs represent past architectural discussions and decisions that have been **implemented in v2.3.0-dev**:
 
 - **RFC-UNIFIED-CONTEXT-STRUCTURE.md** → Implemented as `.context/` directory
 - **RFC-UNIFIED-DOCS-STRUCTURE.md** → Implemented as current `docs/` and `.prompt-os/` structure
@@ -51,5 +51,6 @@ These RFCs represent past architectural discussions and decisions that have been
 
 **Last updated**: 2026-02-03  
 **Total files**: 3  
-**RFCs status**: Implemented in v2.2.0
+**RFCs status**: Implemented in v2.3.0-dev
+
 

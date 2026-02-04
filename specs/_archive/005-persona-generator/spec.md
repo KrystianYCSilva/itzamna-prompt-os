@@ -214,7 +214,7 @@ An AI agent needs to query the persona library to list, inspect, and activate pe
 
 | Decision | Rationale | Impact |
 |----------|-----------|--------|
-| **Keyword-based skill matching** | No external APIs or vector DB required in v2.2.0 architecture | Matching accuracy depends on INDEX.md metadata quality; can upgrade to SPEC-004 semantic search in v3.0 |
+| **Keyword-based skill matching** | No external APIs or vector DB required in v2.3.0-dev architecture | Matching accuracy depends on INDEX.md metadata quality; can upgrade to SPEC-004 semantic search in v3.0 |
 | **4-8 triggers per persona** | Balances specificity (too few triggers = poor discovery) with precision (too many = false positives) | Triggers must be manually reviewed during Human Gate to avoid overlap |
 | **Template-based behavioral inference** | Consistent, deterministic trait generation without ML | All level-based personas have similar traits; future: learn from skill metadata |
 | **Self-critique ≥80 threshold** | Persona generation is simpler than protocol enhancement (SPEC-003 used ≥95); balance quality vs generation speed | Personas with 78-79 score can be manually edited and re-approved |
@@ -231,7 +231,7 @@ An AI agent needs to query the persona library to list, inspect, and activate pe
 - **Persona composition**: "Combining two personas" deferred to v2.3.0
 - **Vector embeddings**: Semantic skill matching via SPEC-004 is optional enhancement for v3.0
 - **Machine learning**: No training on persona usage patterns
-- **Multi-language personas**: English only for v2.2.0 (could add i18n later)
+- **Multi-language personas**: English only for v2.3.0-dev (could add i18n later)
 - **Persona activation commands**: Just the protocol for generation (usage/activation is agent-specific)
 
 ---
@@ -256,4 +256,5 @@ When a persona description requests skills that don't exist:
 
 **Specification Status**: Ready for clarification phase  
 **Estimated effort**: 4-6 sessions (research, planning, implementation, validation)  
-**Target version**: v2.2.0 formalization (protocol already exists; this spec formalizes the process)
+**Target version**: v2.3.0-dev formalization (protocol already exists; this spec formalizes the process)
+

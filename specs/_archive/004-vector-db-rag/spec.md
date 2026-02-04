@@ -162,4 +162,5 @@ The knowledge base maintains an explicit relationship graph between skills. When
 
 ---
 
-*PromptOS v2.2.0 | SPEC-004 Specification | 2026-02-03*
+*PromptOS v2.3.0-dev | SPEC-004 Specification | 2026-02-03*
+

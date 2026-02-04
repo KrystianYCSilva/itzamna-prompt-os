@@ -1,14 +1,14 @@
-# SPEC Completion Status — Itzamna PromptOS v2.2.0
+# SPEC Completion Status — Itzamna PromptOS v2.3.0-dev
 
 **Last Updated**: 2026-02-04  
 **Status**: All 6 SPECs COMPLETE ✅  
-**Repository**: itzamna-prompt-os (Itzamna PromptOS v2.2.0)
+**Repository**: itzamna-prompt-os (Itzamna PromptOS v2.3.0-dev)
 
 ---
 
 ## Overview
 
-Itzamna PromptOS v2.2.0 completes all 6 foundational specifications required for a prompt-based AI agent development framework. Each SPEC delivers specific capabilities, protocols, and artifacts that work together to create a cohesive, constitution-compliant system.
+Itzamna PromptOS v2.3.0-dev completes all 6 foundational specifications required for a prompt-based AI agent development framework. Each SPEC delivers specific capabilities, protocols, and artifacts that work together to create a cohesive, constitution-compliant system.
 
 **Total Development**: ~220+ hours across Sessions 10-29  
 **Total Commits**: 52+ related to SPEC development  
@@ -22,12 +22,12 @@ Itzamna PromptOS v2.2.0 completes all 6 foundational specifications required for
 |------|-------|--------|---------|----------|----------------|------------------|
 | **SPEC-001** | **Self-Critique + Human Gate** | ✅ COMPLETE | v2.0+ | 10-13 | 2 protocols (SELF-CRITIQUE.md, HUMAN-GATE.md) | ✅ Yes |
 | **SPEC-002** | **Auto-Increment (Gap Detection)** | ✅ COMPLETE | v2.1+ | 14 | 1 protocol (AUTO-INCREMENT.md) with learnings | ✅ Yes |
-| **SPEC-003** | **Web Research Enhancement** | ✅ COMPLETE | v2.1→v2.2.0 | 19, 26 | 5 artifacts (WEB-RESEARCH.md + 4 JIT sub-files) | ✅ Yes |
-| **SPEC-004** | **Knowledge Base / RAG** | ✅ COMPLETE | v2.2.0 | 24-27 | 5 artifacts (KNOWLEDGE-BASE.md + 4 JIT sub-files) | ✅ Yes |
+| **SPEC-003** | **Web Research Enhancement** | ✅ COMPLETE | v2.1→v2.3.0-dev | 19, 26 | 5 artifacts (WEB-RESEARCH.md + 4 JIT sub-files) | ✅ Yes |
+| **SPEC-004** | **Knowledge Base / RAG** | ✅ COMPLETE | v2.3.0-dev | 24-27 | 5 artifacts (KNOWLEDGE-BASE.md + 4 JIT sub-files) | ✅ Yes |
 | **SPEC-005** | **Persona Generator** | ✅ COMPLETE | v2.0+ | 15 | 1 protocol (PERSONA-GENERATOR.md) | ✅ Yes |
 | **SPEC-010** | **Language Baselines 6x** | ✅ COMPLETE | v2.1+ | 16-18 | 6 baseline skills (Java, Kotlin, C/C++, JavaScript, Python, Go) + 1 workflow doc | ✅ Yes |
-| **SPEC-006** | **Command Router & Chat Grammar** | ✅ COMPLETE | v2.2.0 | 29 | 2 protocols (COMMAND-ROUTER.md, updates to INPUT-CLASSIFIER.md) + docs | ✅ Yes |
-| **SPEC-007** | **Workflow & Persona Orchestrator** | ✅ COMPLETE | v2.2.0 | 29 | 1 protocol (WORKFLOW-ORCHESTRATOR.md) + routing updates | ✅ Yes |
+| **SPEC-006** | **Command Router & Chat Grammar** | ✅ COMPLETE | v2.3.0-dev | 29 | 2 protocols (COMMAND-ROUTER.md, updates to INPUT-CLASSIFIER.md) + docs | ✅ Yes |
+| **SPEC-007** | **Workflow & Persona Orchestrator** | ✅ COMPLETE | v2.3.0-dev | 29 | 1 protocol (WORKFLOW-ORCHESTRATOR.md) + routing updates | ✅ Yes |
 | **SPEC-011** | **Slash Command Aliases** | 📝 IN PROGRESS | v2.3.0 | 29 | Specification phase complete | 🟡 Planning |
 
 ---
@@ -262,12 +262,12 @@ SPEC-005 (Persona Generator)
 
 ---
 
-## Metrics Summary — v2.2.0
+## Metrics Summary — v2.3.0-dev
 
 | Category | Metric | Value |
 |----------|--------|-------|
 | **SPECs** | Total complete | 6/6 ✅ |
-| **Protocols** | Core protocols | 17 (9 main + 4 SPEC-003 JIT + 4 SPEC-004 JIT) |
+| **Protocols** | Core protocols | 20 (12 main + 4 SPEC-003 JIT + 4 SPEC-004 JIT) |
 | **Skills** | Total baseline | 6 (Java, Kotlin, C/C++, JavaScript, Python, Go) |
 | **Skills** | Average score | 99.20/100 |
 | **Skills** | Total tokens | ~12,000 (all 6 baselines) |
@@ -340,7 +340,7 @@ SPEC-005 (Persona Generator)
 
 ## Deferred Work & Known Limitations
 
-### Deferred in v2.2.0 (Not Blocking)
+### Deferred in v2.3.0-dev (Not Blocking)
 
 1. **SC-002 (RAG A/B Citation Quality)**
    - Requires: New skill creation to measure citation format impact
@@ -361,7 +361,7 @@ SPEC-005 (Persona Generator)
    - Vector embeddings (requires external API: Tavily, Perplexity, or self-hosted)
    - Semantic search beyond keyword matching
    - Dynamic skill relationship learning
-   - **Status**: Out of scope for v2.2.0 (prompt-based architecture sufficient)
+   - **Status**: Out of scope for v2.3.0-dev (prompt-based architecture sufficient)
 
 ### Known Limitations
 
@@ -382,12 +382,12 @@ SPEC-005 (Persona Generator)
 
 ---
 
-## Migration Guide: v2.1.0 → v2.2.0
+## Migration Guide: v2.1.0 → v2.3.0-dev
 
 ### What Changed
 1. **SPEC-003 JIT Sub-Files**: WEB-RESEARCH.md reduced size, new sub-files added
 2. **SPEC-004 Introduction**: New KNOWLEDGE-BASE.md + 4 JIT sub-files
-3. **Agent Documentation**: 8 bootstrap files updated to v2.2.0
+3. **Agent Documentation**: 8 bootstrap files updated to v2.3.0-dev
 4. **Memory Architecture**: 3-layer memory system (MEMORY.md + agent-specific + workflows)
 5. **Go Baseline Added**: First skill using SPEC-003 protocols (score: 100/100)
 
@@ -395,7 +395,7 @@ SPEC-005 (Persona Generator)
 1. Pull latest from `004-vector-db-rag` branch (or master if merged)
 2. Update `.prompt-os/core/` directory (WEB-RESEARCH.md + sub-files, KNOWLEDGE-BASE.md + sub-files)
 3. Update agent bootstrap files (ITZAMNA-AGENT.md, AGENTS.md, etc.)
-4. Update MEMORY.md with v2.2.0 status
+4. Update MEMORY.md with v2.3.0-dev status
 5. Review COMPLETION-STATUS.md (this file) for integration points
 
 **Breaking Changes**: None — all changes are additive. v2.1.0 protocols still work.
@@ -406,7 +406,7 @@ SPEC-005 (Persona Generator)
 
 ## How to Use This Document
 
-**For v2.2.0 Overview**: Read sections "Detailed SPEC Summaries" and "Metrics Summary"
+**For v2.3.0-dev Overview**: Read sections "Detailed SPEC Summaries" and "Metrics Summary"
 
 **For Integration Questions**: See "Cross-SPEC Integration" section
 
@@ -420,7 +420,7 @@ SPEC-005 (Persona Generator)
 
 ## Closing Notes
 
-### Why v2.2.0 is Production Ready
+### Why v2.3.0-dev is Production Ready
 
 1. ✅ All 6 SPECs complete with formal success criteria
 2. ✅ All protocols tested and validated (100% pass rate)
@@ -431,7 +431,7 @@ SPEC-005 (Persona Generator)
 
 ### Why Deferred Work Isn't Blocking
 
-1. **SC-002/005/006** require new skill data (not blocking v2.2.0 release)
+1. **SC-002/005/006** require new skill data (not blocking v2.3.0-dev release)
 2. **Advanced RAG** (vector embeddings) is out of scope for prompt-based architecture
 3. **Ecosystem extensions** are planned for v2.3.0 (phased delivery)
 
@@ -445,7 +445,7 @@ SPEC-005 (Persona Generator)
 
 ---
 
-**Status**: v2.2.0 COMPLETE ✅  
+**Status**: v2.3.0-dev COMPLETE ✅  
 **Next Version**: v2.3.0 (in planning)  
 **Branch**: `004-vector-db-rag` (ready to merge)  
 **Last Updated**: 2026-02-04
@@ -514,3 +514,4 @@ itzamna-prompt-os/
 ---
 
 EOF — Version 2.2.0 | Status: All SPECs COMPLETE
+

@@ -228,7 +228,7 @@
 2. Reforçar: "Regras ARCH-XXX são T0 ABSOLUTO"
 ```
 
-## Problemas de Integração de Protocolos (v2.2.0)
+## Problemas de Integração de Protocolos (v2.3.0-dev)
 
 ### 18. Protocolos Não Integrados
 **Sintoma**: Protocolos não se referenciam mutuamente como esperado.
@@ -267,7 +267,7 @@
 □ Human Gate está funcionando?
 □ Self-Critique está sendo executado?
 □ MEMORY.md está sendo atualizado?
-□ Protocolos estão integrados (v2.2.0)?
+□ Protocolos estão integrados (v2.3.0-dev)?
 ```
 
 ### Comandos de Reset
@@ -293,7 +293,7 @@ Para "resetar" o AI para estado correto:
 1. Sempre mostrar preview antes de persistir
 2. Executar Self-Critique antes do Human Gate
 3. Atualizar MEMORY.md após cada ação significativa
-4. Verificar integração entre protocolos (v2.2.0)
+4. Verificar integração entre protocolos (v2.3.0-dev)
 
 ### Ao Encontrar Problemas
 1. Identificar qual protocolo/regra foi violado
@@ -303,4 +303,5 @@ Para "resetar" o AI para estado correto:
 
 ---
 
-*Itzamna PromptOS v2.2.0 | Troubleshooting | T2 Context | 2026-02-03*
+*Itzamna PromptOS v2.3.0-dev | Troubleshooting | T2 Context | 2026-02-03*
+

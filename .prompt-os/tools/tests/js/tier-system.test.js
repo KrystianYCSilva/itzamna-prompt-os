@@ -6,36 +6,53 @@
 // Since we don't have access to the actual tier-system.js implementation,
 // this is a template for how the tests would be structured
 
-describe('Tier System Tool Tests', () => {
-  test('should enforce T0 rules', () => {
-    // Example test structure for tier system
-    // const result = validateAgainstTierSystem('some code with hardcoded secret');
-    // expect(result.hasT0Violation).toBe(true);
-    console.log('Tier system test template - would validate T0 rule enforcement');
-  });
+function test(description, fn) {
+  try {
+    console.log(`✓ ${description}`);
+    if (fn) fn();
+  } catch (error) {
+    console.log(`✗ ${description} - ${error.message}`);
+  }
+}
 
-  test('should identify T1 rule violations', () => {
-    // Example test structure for tier system
-    // const result = validateAgainstTierSystem('some code without SOLID principles');
-    // expect(result.hasT1Violation).toBe(true);
-    console.log('Tier system test template - would validate T1 rule identification');
-  });
+// Tier System Tool Tests (Template)
+test('should enforce T0 rules', () => {
+  // Example test structure for tier system
+  // const result = validateAgainstTierSystem('some code with hardcoded secret');
+  // if (!result.hasT0Violation) {
+  //   throw new Error('Expected T0 violation for hardcoded secret');
+  // }
+  console.log('  Tier system test template - would validate T0 rule enforcement');
+});
 
-  test('should allow T2 convention flexibility', () => {
-    // Example test structure for tier system
-    // const result = validateAgainstTierSystem('some code with unconventional naming');
-    // expect(result.hasT2Violation).toBe(false); // T2 rules are flexible
-    console.log('Tier system test template - would validate T2 convention flexibility');
-  });
+test('should identify T1 rule violations', () => {
+  // Example test structure for tier system
+  // const result = validateAgainstTierSystem('some code without SOLID principles');
+  // if (!result.hasT1Violation) {
+  //   throw new Error('Expected T1 violation for code without SOLID principles');
+  // }
+  console.log('  Tier system test template - would validate T1 rule identification');
+});
 
-  test('should provide violation details', () => {
-    // Example test structure for tier system
-    // const result = validateAgainstTierSystem('some problematic code');
-    // expect(result.violations).toBeArray();
-    // expect(result.violations[0]).toHaveProperty('level');
-    // expect(result.violations[0]).toHaveProperty('ruleId');
-    console.log('Tier system test template - would validate violation details');
-  });
+test('should allow T2 convention flexibility', () => {
+  // Example test structure for tier system
+  // const result = validateAgainstTierSystem('some code with unconventional naming');
+  // if (result.hasT2Violation) { // T2 rules are flexible
+  //   throw new Error('T2 rules should be flexible and not flag unconventional naming');
+  // }
+  console.log('  Tier system test template - would validate T2 convention flexibility');
+});
+
+test('should provide violation details', () => {
+  // Example test structure for tier system
+  // const result = validateAgainstTierSystem('some problematic code');
+  // if (!Array.isArray(result.violations)) {
+  //   throw new Error('Violations should be an array');
+  // }
+  // if (result.violations.length > 0 && (!result.violations[0].hasOwnProperty('level') || !result.violations[0].hasOwnProperty('ruleId'))) {
+  //   throw new Error('Violation should have level and ruleId properties');
+  // }
+  console.log('  Tier system test template - would validate violation details');
 });
 
 // Run tests

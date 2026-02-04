@@ -1,4 +1,4 @@
-# Cursor IDE Rules — Itzamna PromptOS v2.2.0 (T3)
+# Cursor IDE Rules — Itzamna PromptOS v2.3.0-dev (T3)
 
 > **Leia primeiro:** `.context/ai-assistant-guide.md` (T0) → `ITZAMNA-AGENT.md` (T1)
 
@@ -11,6 +11,9 @@
 - **Human Gate:** obrigatório antes de qualquer persistência de arquivo.
 - **Self-Critique:** obrigatório para operações L2/L3 (score < 70 bloqueia).
 - **Shortcuts:** `#new`, `#impl`, `#bug`, `#test`, `#review`, `#refactor`, `#docs`, `#deploy`, `#db`, `#security`, `#arch` — ver classificação detalhada em `ITZAMNA-AGENT.md`.
+- **Slash Commands:** `/itzamna.*` aliases para `#` commands:
+  `/itzamna.init`, `/itzamna.impl`, `/itzamna.new`, `/itzamna.test`, `/itzamna.review`, `/itzamna.docs`
+- **Comandos especiais:** `/itzamna.status`, `/itzamna.skill`, `/itzamna.memory`, `/itzamna.help`
 
 ---
 
@@ -52,4 +55,4 @@ Carregue apenas o necessário de `.context/`:
 
 ---
 
-*Cursor IDE Rules — T3 | Cursor | v2.2.0 | 2026-02-04*
+*Cursor IDE Rules — T3 | Cursor | v2.3.0-dev | 2026-02-04*

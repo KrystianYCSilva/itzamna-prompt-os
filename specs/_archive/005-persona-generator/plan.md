@@ -9,7 +9,7 @@
 
 ## Overview
 
-PERSONA-GENERATOR.md protocol exists in v2.2.0 but lacks:
+PERSONA-GENERATOR.md protocol exists in v2.3.0-dev but lacks:
 1. Formal specification (→ created: spec.md)
 2. Implementation planning (→ this document)
 3. Task breakdown with dependencies
@@ -337,7 +337,7 @@ PERSONA-GENERATOR.md protocol exists in v2.2.0 but lacks:
    - Document learnings from persona generation protocol (what worked, what didn't)
 
 5. **Close SPEC-005**:
-   - Mark status: ✅ COMPLETE (v2.2.0 formalization)
+   - Mark status: ✅ COMPLETE (v2.3.0-dev formalization)
    - Update ROADMAP.md
    - Archive or merge feature branch
 
@@ -432,4 +432,5 @@ PERSONA-GENERATOR.md protocol exists in v2.2.0 but lacks:
 
 **Plan Status**: READY FOR PHASE 2  
 **Next Command**: Proceed to Phase 2 (Protocol Analysis & Enhancement) or create `tasks.md` in Phase 3  
-**Target Version**: v2.2.0 (formalization of existing protocol)
+**Target Version**: v2.3.0-dev (formalization of existing protocol)
+

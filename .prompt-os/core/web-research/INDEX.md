@@ -292,6 +292,6 @@ User: "Research async/await in JavaScript - is it production-ready?"
 
 ---
 
-*Last Updated: 2026-02-03 23:15:53*  
+*Last Updated: 2026-02-04*  
 *Status: Production Ready*  
-*For maintenance, see [../docs/INDEX-MAINTENANCE.md](../docs/INDEX-MAINTENANCE.md)*
+*For maintenance, see [../governance/INDEX-MAINTENANCE.md](../governance/INDEX-MAINTENANCE.md)*

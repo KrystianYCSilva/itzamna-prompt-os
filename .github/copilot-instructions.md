@@ -1,4 +1,4 @@
-# Copilot Instructions — Itzamna PromptOS v2.2.0 (T3)
+# Copilot Instructions — Itzamna PromptOS v2.3.0-dev (T3)
 
 > **Read first:** `.context/ai-assistant-guide.md` (T0) → `ITZAMNA-AGENT.md` (T1)
 
@@ -24,7 +24,7 @@ follow `.prompt-os/CONSTITUTION.md` (rules), and load skills/protocols JIT from 
 
 ## Current State
 
-- **v2.2.0** complete: SPEC-003 (Web Research) + SPEC-004 (Knowledge Base) fully validated.
+- **v2.3.0-dev** complete: SPEC-003 (Web Research) + SPEC-004 (Knowledge Base) fully validated.
 - **Skills:** 13 total (6 baselines: Java, Kotlin, C/C++, JavaScript, Python, Go + 7 advanced).
 - **SPEC-006** Command Router — Phase 3 complete, in progress.
 - **Next:** v2.3.0 — ecosystem sub-files, Rust & TypeScript baselines.
@@ -55,4 +55,5 @@ This repo is prompt/documentation-first — no required build step. Optional too
 
 ---
 
-*Copilot Instructions — T3 | GitHub Copilot | v2.2.0 | 2026-02-04*
+*Copilot Instructions — T3 | GitHub Copilot | v2.3.0-dev | 2026-02-04*
+

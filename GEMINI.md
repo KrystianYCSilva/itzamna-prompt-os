@@ -1,7 +1,7 @@
 # GEMINI.md — Gemini CLI Bootstrap (T3)
 
 > **Leia primeiro:** `.context/ai-assistant-guide.md` (T0) → `ITZAMNA-AGENT.md` (T1)
-> Itzamna PromptOS v2.2.0 | 2026-02-04
+> Itzamna PromptOS v2.3.0-dev | 2026-02-04
 
 ---
 
@@ -14,6 +14,9 @@
 - **Self-Critique:** Obrigatório para toda criação L2/L3
 - **Memória viva:** `MEMORY.md` — consulte sempre para estado atual do projeto
 - **Shortcuts `#`:** classificam o input antes de agir (`#new`, `#impl`, `#bug`, etc.)
+- **Slash Commands `/itzamna.*`:** aliases CLI-friendly para `#` commands:
+  `/itzamna.init`, `/itzamna.impl`, `/itzamna.new`, `/itzamna.test`, `/itzamna.docs`
+- **Comandos especiais:** `/itzamna.status`, `/itzamna.skill`, `/itzamna.memory`, `/itzamna.help`
 
 ## Referências Rápidas
 
@@ -28,4 +31,4 @@
 
 ---
 
-*GEMINI.md — T3 | Gemini CLI | v2.2.0 | 2026-02-04*
+*GEMINI.md — T3 | Gemini CLI | v2.3.0-dev | 2026-02-04*

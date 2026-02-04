@@ -1,4 +1,4 @@
-# Itzamna PromptOS v2.2.0
+# Itzamna PromptOS v2.3.0-dev
 
 > **Prompt-Based Cognitive Operating System for Human-Agent Programming**
 
@@ -109,6 +109,21 @@ cd itzamna-prompt-os
 # Point any AI agent to .prompt-os/PROMPTOS.md
 ```
 
+### Initialize in Another Project (Recommended)
+
+Use the CLI initializer to copy core files and generate `.context/` from templates:
+
+```bash
+node scripts/setup-promptos.js init --target <project-path> --context min-context
+node scripts/setup-promptos.js init --target <project-path> --context complete-context
+```
+
+After the structure is created, fill project-specific context via chat:
+- `/itzamna.init` (or `#ini`)
+
+Optional flags:
+- `--context-only` (or `--no-core-copy`) to generate only `.context/` and `MEMORY.md`
+
 ### Optional: Use CLI Tools
 
 ```bash
@@ -194,7 +209,7 @@ The system's intelligence comes from **prompt protocols** in `.prompt-os/core/`:
 
 ### Skill Governance (Solution 7)
 
-**File:** `.prompt-os/docs/SKILL-GOVERNANCE.md` (~450 lines)
+**File:** `.prompt-os/core/governance/SKILL-GOVERNANCE.md` (~450 lines)
 
 **Provides:**
 - Decision tree for version-specific vs specialized skills
@@ -292,7 +307,7 @@ All write operations require human approval:
 
 ## Roadmap
 
-### v2.2.0 - Web Research + Knowledge Base Enhancement (✅ COMPLETE)
+### v2.3.0-dev - Web Research + Knowledge Base Enhancement (✅ COMPLETE)
 
 **Status:** Complete  
 **Release:** 2026-02-03
@@ -419,7 +434,7 @@ PromptOS works with **any AI agent** that can read Markdown:
 | v1.0.0 | Complete | Pilot (code-centric) |
 | v2.0.0 | Complete | Prompt-based architecture |
 | v2.1.0 | Complete | Enhanced protocols + validation |
-| **v2.2.0** | **Complete** | **Web Research (SPEC-003) + Knowledge Base (SPEC-004)** |
+| **v2.3.0-dev** | **Complete** | **Web Research (SPEC-003) + Knowledge Base (SPEC-004)** |
 | v2.3.0 | Planning | Advanced features & ecosystem |
 | v3.0.0 | Future | Advanced RAG integration |
 
@@ -462,4 +477,5 @@ MIT License - see [LICENSE](./LICENSE) for details.
 
 ---
 
-**Itzamna PromptOS v2.2.0** | Prompt-Based Architecture | 2026
+**Itzamna PromptOS v2.3.0-dev** | Prompt-Based Architecture | 2026
+

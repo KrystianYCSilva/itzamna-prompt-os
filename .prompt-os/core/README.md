@@ -181,7 +181,7 @@ See [persona-generator/INDEX.md](./persona-generator/INDEX.md) for complete deta
 - **System overview** → [.prompt-os/README.md](../README.md)
 - **Constitution (rules)** → [CONSTITUTION.md](../CONSTITUTION.md)
 - **Artifact generation checklist** → [.prompt-os/checklists/PROTOCOL-APPLICATION.md](../checklists/PROTOCOL-APPLICATION.md)
-- **Governance** → [.prompt-os/docs/SKILL-GOVERNANCE.md](../docs/SKILL-GOVERNANCE.md)
+- **Governance** → [.prompt-os/core/governance/SKILL-GOVERNANCE.md](../docs/SKILL-GOVERNANCE.md)
 
 ---
 
@@ -298,3 +298,4 @@ For detailed information about any protocol:
 *Last Updated: 2026-02-03 23:15:53*  
 *Maintained by PromptOS Team*  
 *For contribution guidelines, see [.prompt-os/docs/INDEX-MAINTENANCE.md](../docs/INDEX-MAINTENANCE.md)*
+

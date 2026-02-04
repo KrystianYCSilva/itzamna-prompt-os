@@ -1,4 +1,4 @@
-# Tech Stack - Itzamna PromptOS v2.2.0
+# Tech Stack - Itzamna PromptOS v2.3.0-dev
 
 > **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 > **Última Atualização:** 2026-02-04
@@ -221,3 +221,4 @@ optional_tools: 2 (brain.js, sync-constitution.ps1)
 ---
 
 *Itzamna PromptOS v2.0.0 | Tech Stack | 2026-02-02*
+

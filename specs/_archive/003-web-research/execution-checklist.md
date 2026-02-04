@@ -296,7 +296,7 @@
 ### Task 9: Documentation Updates 📝
 
 - [ ] **Update README.md** - Add SPEC-003 to completed specs
-  - [ ] v2.2.0 roadmap section - Mark SPEC-003 as ✅ COMPLETE
+  - [ ] v2.3.0-dev roadmap section - Mark SPEC-003 as ✅ COMPLETE
   - [ ] Protocol count - Update from 8 to 9 protocols (if new files created)
   
 - [ ] **.context/_meta/project-overview.md** - Add SPEC-003 summary
@@ -490,3 +490,4 @@ echo "| $(date +%Y-%m-%d) | {artifact} | protocol | {overall} | {comp} | {clar} 
 **Version:** 1.0  
 **Status:** Phase 1 COMPLETE | Phase 2 NEXT  
 **Estimated completion:** 2026-02-06 (3-5 days from start)
+

@@ -56,7 +56,7 @@ Uma skill define **COMO FAZER** algo especifico:
 Algumas skills usam **sub-files** para manter o tamanho dentro do limite T0-SIZE-01 (1,400 tokens):
 
 **Exemplo: C/C++**
-- Main: `.prompt-os/skills/linguagens/c-cpp/SKILL.md`
+- Main: .prompt-os/skills/linguagens/c-cpp/SKILL.md
 - Sub-files:
   - `compilation.md` - Processo de compilação e linking
   - `build-tools.md` - CMake, Make, etc.
@@ -178,4 +178,4 @@ As 6 language baselines foram criadas via **SPEC-010: Language Skills Baseline**
 
 ---
 
-*PromptOS v2.2.0 | Atualizado: 2026-02-04 | v2.3.0 planning started*
+*PromptOS v2.3.0-dev | Atualizado: 2026-02-04 | SPEC-011 in specification*

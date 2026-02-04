@@ -21,13 +21,22 @@ Formal definition of the supported command structure (EBNF).
 ```ebnf
 command_message = command_prefix , command_name , [ space , subcommand ] , { space , argument } , { space , flag } ;
 command_prefix = "#" | "/" ;
-command_name = "init" | "ini" | "itzamna.init" | "add" | "sync" | "update" | "impl" | "docs" ;
+command_name = hash_command | slash_command ;
+hash_command = "init" | "ini" | "add" | "sync" | "update" | "impl" | "docs" | "new" | "bug" | "review" | "test" | "arch" | "refactor" | "deploy" | "db" | "security" ;
+slash_command = "itzamna." , hash_command ;
 subcommand = string ;
 argument = quoted_string | unquoted_string ;
 flag = "--" , flag_name , [ space , flag_value ] ;
-flag_name = "here" | "ia" | "help" | "dry-run" ;
+flag_name = "here" | "ia" | "help" | "dry-run" | "context-only" | "no-core-copy" | "persona" | "skills" ;
 space = " " ;
 ```
+
+### Alias Translation
+When a slash command is detected (`/itzamna.{cmd}`), translate to equivalent hash command (`#{cmd}`) before routing:
+- `/itzamna.init my-project` → `#init my-project`
+- `/itzamna.impl --persona architect` → `#impl --persona architect`
+
+Arguments, flags, and quoted strings are preserved during translation.
 
 ### Parsing Rules
 1. **Strict Start:** Commands MUST appear at the very beginning of the message (regex: `^(#|/)`).
@@ -70,6 +79,8 @@ If a command requires a target (like `--ia {agent}`) that is missing or invalid:
 | `--ia` | `{agent}` | Route the command to a specific agent (e.g., `--ia architect`). |
 | `--help` | None | Display usage information for the specific command. |
 | `--dry-run` | None | Simulate the command execution without making changes. |
+| `--context-only` | None | Generate only `.context/` and `MEMORY.md` (skip core copy). |
+| `--no-core-copy` | None | Alias of `--context-only`. |
 | `--persona` | `{persona}` | Override the default persona for the workflow (e.g., `--persona architect`). |
 | `--skills` | `{skill1,skill2}` | Add specific skills to the active skill set (e.g., `--skills tdd,security-basics`). |
 
@@ -77,18 +88,42 @@ If a command requires a target (like `--ia {agent}`) that is missing or invalid:
 
 ## 4. ROUTER MAP
 
-Mapping of commands to their respective workflows.
+Mapping of commands to their respective workflows. Slash commands (`/itzamna.*`) are aliases for hash commands (`#*`).
 
-| Command | Subcommand | Workflow Target | Description |
-|---------|------------|-----------------|-------------|
-| `#init` | * | `BOOTSTRAP.md` | Initialize a new project or agent structure. |
-| `#ini` | * | `BOOTSTRAP.md` | Alias for init (short form). |
-| `/itzamna.init` | * | `BOOTSTRAP.md` | Bootstrap via chat. |
-| `#add` | `agent` | `BOOTSTRAP-AGENT.md` | Add a new agent to the system configuration. |
-| `#sync` | * | `SYNC-CONTEXT.md` | Synchronize context files and indices. |
-| `#update` | * | `UPDATE.md` | Update system components or dependencies. |
-| `#impl` | * | `IMPLEMENTATION.md` | Trigger standard implementation flow. |
-| `#docs` | * | `DOCUMENTATION.md` | Trigger documentation workflow. |
+### Bootstrap & Configuration
+| Command | Alias | Subcommand | Workflow Target | Description |
+|---------|-------|------------|-----------------|-------------|
+| `#init` | `/itzamna.init` | * | `BOOTSTRAP.md` | Initialize a new project or agent structure |
+| `#ini` | - | * | `BOOTSTRAP.md` | Alias for init (short form) |
+| `#add` | `/itzamna.add` | `agent`, `core`, `skill` | `BOOTSTRAP-AGENT.md` | Add components to the system |
+| `#sync` | `/itzamna.sync` | * | `SYNC-CONTEXT.md` | Synchronize context files and indices |
+| `#update` | `/itzamna.update` | * | `UPDATE.md` | Update system components or dependencies |
+
+### Development Workflows
+| Command | Alias | Subcommand | Workflow Target | Description |
+|---------|-------|------------|-----------------|-------------|
+| `#new` | `/itzamna.new` | * | `CARD-GENERATION.md` | Create new CARD for feature |
+| `#impl` | `/itzamna.impl` | `CARD-XXX` | `IMPLEMENTATION.md` | Implement CARD or feature |
+| `#bug` | `/itzamna.bug` | * | `BUG-FIXING.md` | Fix bug or error |
+| `#review` | `/itzamna.review` | * | `CODE-REVIEW.md` | Code review workflow |
+| `#test` | `/itzamna.test` | * | `TEST-GENERATION.md` | Generate tests |
+| `#docs` | `/itzamna.docs` | * | `DOCUMENTATION.md` | Generate documentation |
+| `#arch` | `/itzamna.arch` | * | `ARCHITECTURE.md` | Architecture decisions |
+| `#refactor` | `/itzamna.refactor` | * | `REFACTORING.md` | Refactor code |
+| `#deploy` | `/itzamna.deploy` | * | `DEVOPS.md` | Deploy, CI/CD |
+| `#db` | `/itzamna.db` | * | `DATABASE.md` | Database operations |
+| `#security` | `/itzamna.security` | * | `SECURITY-AUDIT.md` | Security audit |
+
+### Special Commands (Slash-Only, No Workflow)
+These commands are handled by INPUT-CLASSIFIER directly and do NOT trigger workflows.
+
+| Command | Description |
+|---------|-------------|
+| `/itzamna.status` | Show current system state |
+| `/itzamna.skill` | List or view skills |
+| `/itzamna.memory` | View session memory |
+| `/itzamna.help` | Show available commands |
+| `/itzamna` | Same as `/itzamna.help` |
 
 ---
 

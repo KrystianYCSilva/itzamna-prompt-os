@@ -41,7 +41,7 @@ Em conflito entre tiers, o mais alto **sempre** vence. Cite o ID da regra.
 | Troubleshooting | `.context/troubleshooting/common-issues.md` | T2 |
 | Skills (índice completo) | `.prompt-os/skills/INDEX.md` | T1 |
 | Personas (índice) | `.prompt-os/personas/INDEX.md` | T1 |
-| Governança de skills | `.prompt-os/docs/SKILL-GOVERNANCE.md` | T1 |
+| Governança de skills | `.prompt-os/core/governance/SKILL-GOVERNANCE.md` | T1 |
 | Validação de INDEX | `.prompt-os/scripts/validate-indices.py` | T1 |
 | Constitution do SpecKit | `.specify/memory/constitution.md` | T1 |
 | Docs consolidados | `docs/ARCHITECTURE.md` | T2 |
@@ -298,6 +298,14 @@ Referência no SKILL.md: `[Ver detalhes](./{topic}.md)`
 
 Ver protocolo: `.prompt-os/core/WEB-RESEARCH.md`
 
+---
+
+## Protocolos Core Recentes
+
+- `COMMAND-ROUTER.md` (SPEC-006) — comandos `#init`, `#ini`, `/itzamna.init`
+- `BOOTSTRAP.md` — bootstrap e preenchimento de contexto via chat
+- `WORKFLOW-ORCHESTRATOR.md` (SPEC-007) — mapeamento workflow → persona
+
 | Tier | Tipo | Uso |
 |------|------|-----|
 | 1 | Oficiais (docs.docker.com, developer.mozilla.org) | SEMPRE primeiro |
@@ -345,4 +353,4 @@ Ver protocolo: `.prompt-os/core/WEB-RESEARCH.md`
 
 ---
 
-*`.context/ai-assistant-guide.md` — T0 Authority | Itzamna PromptOS v2.2.0 | 2026-02-04*
+*`.context/ai-assistant-guide.md` — T0 Authority | Itzamna PromptOS v2.3.0-dev | 2026-02-04*

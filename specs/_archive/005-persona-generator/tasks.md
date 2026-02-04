@@ -659,7 +659,7 @@
   - Rejections: 0 (all approval on first Human Gate)
 
 - [ ] Update `ROADMAP.md`:
-  - SPEC-005a: ✅ COMPLETE (v2.2.0 formalization)
+  - SPEC-005a: ✅ COMPLETE (v2.3.0-dev formalization)
   - SPEC-005b: Starting Phase 0 (next phase, v2.3.0 target)
 
 - [ ] Update `.context/workflows/` (if creating reusable pattern):
@@ -667,7 +667,7 @@
 
 - [ ] Mark SPEC-005a complete:
   - Status in ROADMAP: ✅ COMPLETE
-  - Version: v2.2.0
+  - Version: v2.3.0-dev
   - Commit hash: (from T029)
 
 **Estimated effort**: 1 hour
@@ -724,3 +724,4 @@ Each task has clear completion criteria:
 
 **Tasks Ready**: All 30 tasks defined, dependencies mapped, effort estimated.  
 **Next**: Execute Phase 4 (T001-T010) starting next session.
+

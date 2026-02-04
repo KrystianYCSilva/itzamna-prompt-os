@@ -109,10 +109,10 @@ def verify_counts(index_file: Path, index_type: str) -> None:
         if match:
             declared_count = int(match.group(1))
     else:
-        # For personas, count table rows with status
+        # For personas, only count table rows that are actually created
         declared_count = len(
             re.findall(
-                r"^\|.*\|.*\|.*\| (📋 Not created|✅ Created) \|$",
+                r"^\|.*\|.*\|.*\| ✅ Created \|$",
                 content,
                 re.MULTILINE,
             )

@@ -10,7 +10,49 @@
 
 ## Session 29 Summary (2026-02-04)
 
-### SPEC-011 Slash Command Aliases - Specification Phase Complete
+### Part 3: Systematic .prompt-os/ Audit & Corrections
+
+**Duration**: 30 minutes  
+**Files Audited**: 55+  
+**Files Fixed**: 15+  
+**Quality**: Zero broken links remaining, all versions synchronized
+
+**Issues Found & Fixed:**
+1. **Version Mismatches (9 files)**: Updated from v2.3.0-dev → v2.3.0-dev
+   - `.prompt-os/PROMPTOS.md`
+   - `.prompt-os/INDEX.md`
+   - `.prompt-os/README.md`
+   - `.prompt-os/core/INDEX.md`
+   - `.prompt-os/system.yaml`
+   - `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `QWEN.md`
+
+2. **Missing Protocol Entries (3 protocols)**: Added to core/INDEX.md
+   - BOOTSTRAP.md (new)
+   - COMMAND-ROUTER.md (SPEC-006)
+   - WORKFLOW-ORCHESTRATOR.md (SPEC-007)
+
+3. **Stale Protocol Counts (4 files)**: 9 → 12 core protocols
+   - `.prompt-os/core/INDEX.md`
+   - `.prompt-os/INDEX.md`
+   - `QWEN.md` (17 → 20)
+   - `ITZAMNA-AGENT.md` (19 → 20)
+
+4. **Broken Links (4 files)**: Fixed `../docs/` → `../governance/`
+   - `core/knowledge-base/INDEX.md`
+   - `core/web-research/INDEX.md`
+   - `core/persona-generator/INDEX.md`
+   - `scripts/INDEX.md`
+
+**Verification Status:**
+- ✅ All versions synchronized to v2.3.0-dev
+- ✅ All 12 core protocols documented in INDEX files
+- ✅ All broken links fixed
+- ✅ Protocol counts accurate across all files
+- ✅ Agent bootstrap files updated
+
+---
+
+### Part 1 & 2: SPEC-011 Slash Command Aliases - Specification Phase Complete
 
 **Duration**: 1 session  
 **Tasks Completed**: Specification creation + documentation updates  
@@ -69,7 +111,7 @@
 **Key Deliverables:**
 1. ✅ SPEC-004 COMPLETION-SUMMARY.md (1,200+ lines) - comprehensive final documentation
 2. ✅ Agent bootstrap files synced (8 files: ITZAMNA-AGENT.md, AGENTS.md, CLAUDE.md, GEMINI.md, QWEN.md, .cursorrules, .context/ai-assistant-guide.md)
-3. ✅ Roadmap.md updated (v2.2.0 complete, v2.3.0 section defined)
+3. ✅ Roadmap.md updated (v2.3.0-dev complete, v2.3.0 section defined)
 4. ✅ README.md updated (badges, metrics, roadmap)
 5. ✅ MEMORY.md updated (session count 26→27, status marked COMPLETE)
 
@@ -84,14 +126,14 @@
 **Agent Documentation Updates:**
 | File | Status | Change |
 |------|--------|--------|
-| ITZAMNA-AGENT.md | ✅ | v2.2.0, SPECS-COMPLETADAS table added |
-| AGENTS.md | ✅ | v2.2.0, status synced |
-| CLAUDE.md | ✅ | v2.2.0, SPEC-004 row updated |
-| GEMINI.md | ✅ | v2.2.0, SPEC-004 feature note |
-| QWEN.md | ✅ | v2.2.0, 17 protocols, SPEC-004 added |
+| ITZAMNA-AGENT.md | ✅ | v2.3.0-dev, SPECS-COMPLETADAS table added |
+| AGENTS.md | ✅ | v2.3.0-dev, status synced |
+| CLAUDE.md | ✅ | v2.3.0-dev, SPEC-004 row updated |
+| GEMINI.md | ✅ | v2.3.0-dev, SPEC-004 feature note |
+| QWEN.md | ✅ | v2.3.0-dev, 17 protocols, SPEC-004 added |
 | .cursorrules | ✅ | SPEC-004 noted as "complete" |
-| .context/ai-assistant-guide.md | ✅ | v2.2.0 header |
-| ROADMAP.md | ✅ | v2.2.0 complete, v2.3.0 planned |
+| .context/ai-assistant-guide.md | ✅ | v2.3.0-dev header |
+| ROADMAP.md | ✅ | v2.3.0-dev complete, v2.3.0 planned |
 | README.md | ✅ | SPEC-003/004 badges, metrics |
 | MEMORY.md | ✅ | Session 27 entry, version bump |
 
@@ -208,7 +250,7 @@
 ## Notas de Sessao
 
 ### Session 25 (2026-02-03) - Documentation Sync + v2.3.0 Planning ✅
-- **T031**: Updated 8 agent/doc files to v2.2.0 (CLAUDE, QWEN, GEMINI, cursorrules, copilot, ROADMAP, project-overview, IMPL-STATUS)
+- **T031**: Updated 8 agent/doc files to v2.3.0-dev (CLAUDE, QWEN, GEMINI, cursorrules, copilot, ROADMAP, project-overview, IMPL-STATUS)
 - **T032-T035**: Fixed 4 stale footers (cursorrules EOF, INDEX footer, project-overview version history + Roadmap/SPECs table, IMPL-STATUS footer)
 - **v2.3.0 plan**: Created `specs/v2.3.0-plan.md` — 3 ecosystems, 3 baselines, 3 advanced skill sets; phased delivery
 - **Commit**: `docs: session 25 memory + stale-version cleanup + v2.3.0 plan`
@@ -284,3 +326,4 @@
 - Pattern detected: "exemplos" category at 45% (above 30% threshold)
 - **2026-02-03**: User Story 3 validation - Added duplicate gaps demonstrating proactive suggestions
 - Gap patterns identified: kafka-basics (3x), argocd-deploy (2x) - both trigger proactive suggestions
+

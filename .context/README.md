@@ -1,6 +1,6 @@
 # .context/ - AI Context Hub
 
-> **Itzamna PromptOS v2.2.0** | Prompt-Based Architecture
+> **Itzamna PromptOS v2.3.0-dev** | Prompt-Based Architecture
 > **Atualizado:** 2026-02-04
 
 ---
@@ -95,8 +95,16 @@ ALWAYS cite a regra específica (ID) na resposta
 |-----------|---------|-----------|
 | Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Avaliação de qualidade |
 | Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Detecção de gaps |
+| Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Aprovação humana |
+| Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Classificação de input |
+| JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Carregamento sob demanda |
 | Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Metodologia de pesquisa |
 | Knowledge Base | `.prompt-os/core/KNOWLEDGE-BASE.md` | Gestão de conhecimento |
+| Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criação de personas |
+| Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Gestão de memória |
+| Command Router | `.prompt-os/core/COMMAND-ROUTER.md` | Comandos de sistema |
+| Bootstrap | `.prompt-os/core/BOOTSTRAP.md` | Inicialização por chat |
+| Workflow Orchestrator | `.prompt-os/core/WORKFLOW-ORCHESTRATOR.md` | Workflow → Persona mapping |
 | Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criação de personas |
 | Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Classificação de input |
 | JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Carregamento sob demanda |
@@ -176,4 +184,4 @@ Qualquer agente pode ler .prompt-os/PROMPTOS.md e seguir as instruções
 
 ---
 
-*Itzamna PromptOS v2.2.0 | Prompt-Based Architecture | 2026-02-04*
+*Itzamna PromptOS v2.3.0-dev | Prompt-Based Architecture | 2026-02-04*

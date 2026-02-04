@@ -1,6 +1,6 @@
 # Tasks: Enhanced Knowledge Retrieval & RAG (SPEC-004)
 
-⚠️ **IMPORTANT**: **SPEC-004 IS COMPLETE** (Session 26, v2.2.0)
+⚠️ **IMPORTANT**: **SPEC-004 IS COMPLETE** (Session 26, v2.3.0-dev)
 
 This document contains validation tasks that were executed during SPEC-004 development. **Do NOT execute these tasks** — they are historical and describe work that is already done.
 
@@ -209,3 +209,4 @@ Then sequentially:
 - Validation output files go in `specs/004-vector-db-rag/validation/` (new directory, created as needed).
 - [P] tasks within a phase can run in the same agent turn if context allows; otherwise batch by phase.
 - SC-001 and SC-003 are the two hard gate criteria per the user's request: **zero false negatives on SC-003, ≥ 80% hit-rate on SC-001**.
+

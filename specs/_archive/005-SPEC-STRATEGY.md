@@ -160,7 +160,7 @@ Uses: `.specify/` system, generates contracts/API specs
 | **Audience** | AI agents reading protocol | Developers using CLI |
 | **Validation** | Self-critique + Human Gate | Unit tests + Integration tests |
 | **Dependencies** | SPEC-001, SPEC-002, SPEC-004 | SPEC-005a (protocol) + npm packages |
-| **Version Target** | v2.2.0 | v2.3.0 (after protocol stable) |
+| **Version Target** | v2.3.0-dev | v2.3.0 (after protocol stable) |
 | **Scope** | What agents should do | How to implement technically |
 
 ---
@@ -197,3 +197,4 @@ Uses: `.specify/` system, generates contracts/API specs
 ---
 
 **Strategy Complete** — Ready to execute Phase 4 (SPEC-005a tasks)
+

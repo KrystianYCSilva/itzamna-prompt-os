@@ -434,7 +434,7 @@ docs(memory): add Java 17 skill session notes and update statistics
 
 3. **Criar documento de Skill Governance**
    ```
-   Criar: .prompt-os/docs/SKILL-GOVERNANCE.md
+   Criar: .prompt-os/core/governance/SKILL-GOVERNANCE.md
    Incluir:
    - Decisão: Quando criar versioned skills vs. specialized skills
    - Exemplo: java (baseline) vs java-11 vs java-17 vs java-spring-boot
@@ -562,4 +562,5 @@ A criação da **Skill Java 17** foi executada com **100% de conformidade** com 
 **Relatório compilado**: 2026-02-03
 **Gerado por**: Claude Haiku 4.5
 **Sessão**: 17 — Java 17 Skill Creation with full L2 protocol
+
 

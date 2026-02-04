@@ -1,6 +1,6 @@
 # SPEC-004 Knowledge Retrieval & RAG - Completion Summary
 
-**Project:** Itzamna PromptOS v2.2.0  
+**Project:** Itzamna PromptOS v2.3.0-dev  
 **Spec:** SPEC-004 (Vector Database and Retrieval-Augmented Generation)  
 **Session:** 26 (2026-02-03)  
 **Status:** ✅ **COMPLETE** — All phases 0-3 delivered, protocols live in production, deferred validations documented
@@ -127,9 +127,9 @@ SPEC-004 is **complete** and **production-ready**. The system provides prompt-ba
 
 | Decision | Rationale | Deferred? |
 |----------|-----------|-----------|
-| **Multi-signal scoring** | Better than single metric, more reliable than embeddings | No — v2.2.0 |
-| **Two-tier redundancy** | Balance safety (block obvious dupes) vs flexibility (allow gray area) | No — v2.2.0 |
-| **Relationships in INDEX.md** | Avoid separate DB, keep all metadata in one place | No — v2.2.0 |
+| **Multi-signal scoring** | Better than single metric, more reliable than embeddings | No — v2.3.0-dev |
+| **Two-tier redundancy** | Balance safety (block obvious dupes) vs flexibility (allow gray area) | No — v2.3.0-dev |
+| **Relationships in INDEX.md** | Avoid separate DB, keep all metadata in one place | No — v2.3.0-dev |
 | **Embeddings/semantic search** | Valuable but requires external service, not prompt-based | Yes → v3.0.0 |
 | **Advanced RAG (chunking, filtering)** | Scope creep, addressed in foundational phase | Yes → v2.3.0+ |
 
@@ -274,9 +274,9 @@ Agent receives: "Create a Rust baseline skill"
 - `.cursorrules` (Active Technologies updated)
 - `ITZAMNA-AGENT.md` (SPEC-004 status added)
 - `AGENTS.md` (version 2.2.0)
-- `CLAUDE.md`, `GEMINI.md`, `QWEN.md` (all updated with v2.2.0)
-- `.context/ai-assistant-guide.md` (v2.2.0 header)
-- `ROADMAP.md` (v2.2.0 COMPLETE marked)
+- `CLAUDE.md`, `GEMINI.md`, `QWEN.md` (all updated with v2.3.0-dev)
+- `.context/ai-assistant-guide.md` (v2.3.0-dev header)
+- `ROADMAP.md` (v2.3.0-dev COMPLETE marked)
 - `README.md` (SPEC-004 badges, metrics)
 - `MEMORY.md` (episodic entry for Session 26)
 
@@ -339,4 +339,5 @@ The 3 deferred validations (SC-002/005/006) are low-risk because they trigger au
 ---
 
 *SPEC-004 Knowledge Retrieval & RAG — Completion Summary*  
-*Session 26 | 2026-02-03 | v2.2.0*
+*Session 26 | 2026-02-03 | v2.3.0-dev*
+

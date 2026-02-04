@@ -71,7 +71,7 @@ As a user, I want to discover available commands and their usage by typing `/itz
 
 ### Functional Requirements
 
-- **FR-001**: System MUST recognize `/itzamna.{command}` pattern at start of line or after whitespace as a valid command invocation
+- **FR-001**: System MUST recognize `/itzamna.{command}` pattern at the absolute start of the message (first character) as a valid command invocation (regex: `^/itzamna\.`)
 - **FR-002**: System MUST map each slash command to its equivalent hash command (e.g., `/itzamna.init` → `#init`, `/itzamna.add` → `#add`)
 - **FR-003**: System MUST preserve all arguments, flags, and quoted strings when translating from slash to hash syntax
 - **FR-004**: System MUST support all existing hash commands as slash equivalents: `init`, `add`, `sync`, `update`, `impl`, `docs`, `new`, `bug`, `review`, `test`, `arch`
@@ -94,10 +94,10 @@ As a user, I want to discover available commands and their usage by typing `/itz
 
 ### Measurable Outcomes
 
-- **SC-001**: Users can invoke any existing hash command using slash syntax and receive identical output within 1 second
+- **SC-001**: Users can invoke any existing hash command using slash syntax and receive identical workflow routing (measured by: same workflow target file invoked, same arguments/flags passed)
 - **SC-002**: 100% of hash commands have equivalent slash command aliases documented in help system
 - **SC-003**: Special commands (`/itzamna.status`, `/itzamna.skill`, `/itzamna.memory`, `/itzamna.help`) return results without triggering workflow execution
-- **SC-004**: Error messages for invalid slash commands include at least one suggestion for a valid alternative command
+- **SC-004**: Error messages for invalid slash commands include at least one suggestion for a valid alternative command (suggestion must share ≥3 characters with the invalid input using Levenshtein distance)
 - **SC-005**: All agent configuration files (AGENTS.md, CLAUDE.md, GEMINI.md, QWEN.md, .cursorrules) successfully recognize and process slash command syntax
 - **SC-006**: Cross-model validation confirms slash commands work identically across Claude, Gemini, and Copilot agents
 

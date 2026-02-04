@@ -1,7 +1,7 @@
 # CLAUDE.md — Claude Code Bootstrap (T3)
 
 > **Leia primeiro:** `.context/ai-assistant-guide.md` (T0) → `ITZAMNA-AGENT.md` (T1)
-> Itzamna PromptOS v2.2.0 | 2026-02-04
+> Itzamna PromptOS v2.3.0-dev | 2026-02-04
 
 ---
 
@@ -14,6 +14,11 @@
 - **Shortcuts `#`** funcionam diretamente no chat:
   `#new`, `#impl`, `#impl-direct`, `#test`, `#review`, `#bug`,
   `#refactor`, `#docs`, `#deploy`, `#db`, `#security`, `#arch`
+- **Slash Commands `/itzamna.*`** são aliases CLI-friendly:
+  `/itzamna.init`, `/itzamna.impl`, `/itzamna.new`, `/itzamna.test`,
+  `/itzamna.review`, `/itzamna.docs`, `/itzamna.bug`, `/itzamna.arch`
+- **Comandos especiais (sem workflow):**
+  `/itzamna.status`, `/itzamna.skill`, `/itzamna.memory`, `/itzamna.help`
 - **CLAUDE.md** é carregado automaticamente como contexto do projeto
 - **Hooks**: verifique `~/.claude/` para hooks e keybindings configurados
 - **Commits**: use `git commit` via Bash — nunca auto-commite (T0-HUMAN-02)
@@ -43,4 +48,4 @@
 
 ---
 
-*CLAUDE.md — T3 | Claude Code | v2.2.0 | 2026-02-04*
+*CLAUDE.md — T3 | Claude Code | v2.3.0-dev | 2026-02-04*

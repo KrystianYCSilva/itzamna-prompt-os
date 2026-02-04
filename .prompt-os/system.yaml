@@ -1,9 +1,9 @@
-# Itzamna PromptOS v2.2.0 - Configuracao do Sistema
+# Itzamna PromptOS v2.3.0-dev - Configuracao do Sistema
 # Sistema Auto-Evolutivo para Programacao Paralela Humano-Agente
 
 system:
   name: "Itzamna PromptOS"
-  version: "2.2.0"
+  version: "2.3.0-dev"
   description: "Sistema prompt-based para programacao paralela humano-agente"
 
 # Configuracao do Workflow

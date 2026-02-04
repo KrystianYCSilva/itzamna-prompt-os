@@ -24,7 +24,7 @@
 | Skills | 13 (6 baselines + 7 advanced, todas aprovadas) |
 | Baselines | Java, Kotlin, C/C++, JavaScript, Python, Go |
 | Personas | 0 criadas (8 conceituais, on-demand) |
-| Core Protocols | 19 (11 main + 4 JIT web-research + 4 JIT knowledge-base) |
+| Core Protocols | 20 (12 main + 4 JIT web-research + 4 JIT knowledge-base) |
 | SPECs Completas | 8 (001, 002, 003, 004, 005, 006, 007, 010) |
 | Em Especificação | SPEC-011 (Slash Command Aliases) |
 | Próximo | Implementar SPEC-011, depois Ecosystem + Baselines |
@@ -141,18 +141,18 @@ Classificação detalhada: `.prompt-os/core/INPUT-CLASSIFIER.md`
 
 | Protocolo | Arquivo | Quando Carregar |
 |-----------|---------|-----------------|
-| Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Antes de L2/L3 |
-| Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Fase 4 do pipeline |
 | Auto-Increment | `.prompt-os/core/AUTO-INCREMENT.md` | Após rejeições, gaps |
-| Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Ao receber pedido |
+| Bootstrap | `.prompt-os/core/BOOTSTRAP.md` | Inicialização de projeto (`#init`) |
 | Command Router | `.prompt-os/core/COMMAND-ROUTER.md` | Comandos `#` ou `/itzamna.*` |
-| Workflow Orchestrator | `.prompt-os/core/WORKFLOW-ORCHESTRATOR.md` | Workflow → Persona mapping |
+| Human Gate | `.prompt-os/core/HUMAN-GATE.md` | Fase 4 do pipeline |
+| Input Classifier | `.prompt-os/core/INPUT-CLASSIFIER.md` | Ao receber pedido |
 | JIT Protocol | `.prompt-os/core/JIT-PROTOCOL.md` | Economia de tokens |
-| Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Pesquisa externa |
 | Knowledge Base | `.prompt-os/core/KNOWLEDGE-BASE.md` | Buscar skills relacionadas |
-| Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criar persona |
-| Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Atualizar memória após ações |
 | Memory Management | `.prompt-os/core/MEMORY-MANAGEMENT.md` | Após ações significativas |
+| Persona Generator | `.prompt-os/core/PERSONA-GENERATOR.md` | Criar persona |
+| Self-Critique | `.prompt-os/core/SELF-CRITIQUE.md` | Antes de L2/L3 |
+| Web Research | `.prompt-os/core/WEB-RESEARCH.md` | Pesquisa externa |
+| Workflow Orchestrator | `.prompt-os/core/WORKFLOW-ORCHESTRATOR.md` | Workflow → Persona mapping |
 
 ---
 
@@ -191,11 +191,11 @@ itzamna-prompt-os/
 ├── .prompt-os/                      ← Sistema core
 │   ├── PROMPTOS.md                  ← Entry point
 │   ├── CONSTITUTION.md             ← Fonte de verdade das regras
-│   ├── core/                        ← 9 protocolos + JIT sub-files
+│   ├── core/                        ← 12 protocolos + JIT sub-files
 │   ├── skills/                      ← 13 skills (INDEX.md)
 │   ├── personas/                    ← Personas on-demand
 │   ├── templates/                   ← Templates canônicos
-│   ├── docs/                        ← Governance docs
+│   ├── core/governance/             ← Governance docs (SKILL-GOVERNANCE.md)
 │   └── scripts/                     ← Validação + hooks
 │
 ├── .context/                        ← Contexto JIT para AIs
@@ -223,7 +223,8 @@ itzamna-prompt-os/
 | SPEC-003 Web Research | ✅ | WEB-RESEARCH.md + 4 JIT sub-files (23/23) |
 | SPEC-004 Knowledge Base | ✅ | KNOWLEDGE-BASE.md + 4 JIT sub-files (Phases 0-3) |
 | SPEC-005 Persona CLI | ✅ | PERSONA-GENERATOR.md |
-| SPEC-006 Command Router | 🔄 | COMMAND-ROUTER.md (Phase 3 complete) |
+| SPEC-006 Command Router | ✅ | COMMAND-ROUTER.md |
+| SPEC-007 Workflow Orchestrator | ✅ | WORKFLOW-ORCHESTRATOR.md |
 | SPEC-010 Language Baselines | ✅ | 6 baselines (99.20 avg score) |
 
 ---
@@ -239,4 +240,4 @@ TARGET: 10-16KB por tarefa
 
 ---
 
-*ITZAMNA-AGENT.md — T1 Workflows & Memory | v2.2.0 | 2026-02-04*
+*ITZAMNA-AGENT.md — T1 Workflows & Memory | v2.3.0-dev | 2026-02-04*

@@ -860,7 +860,7 @@ template_recommendation:
 1. Detects which AI agent is in use (OpenCode in this case)
 2. Reads agent-specific context file (e.g., `.context/opencode-context.md`)
 3. Adds new technology/protocols from this plan:
-   - WEB-RESEARCH Protocol Enhancement (v2.2.0)
+   - WEB-RESEARCH Protocol Enhancement (v2.3.0-dev)
    - Source Validation Rules (4-dimension scoring)
    - Citation Templates (3 formats)
    - Tier System (T1-T5 with visual indicators)
@@ -1016,3 +1016,4 @@ Begin Phase 0 research for SPEC-003. Execute Tasks 0.1-0.5 to resolve unknowns, 
 ---
 
 *Implementation Plan v1.0 | SPEC-003 WEB-RESEARCH Protocol Enhancement*
+

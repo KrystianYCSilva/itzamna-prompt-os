@@ -310,10 +310,11 @@ mv .git/hooks/pre-commit.sample .git/hooks/pre-commit
 - `.prompt-os/personas/INDEX.md` - Personas registry (validated by script)
 - `.prompt-os/docs/INDEX-MAINTENANCE.md` - Manual for safe INDEX editing
 - `.prompt-os/scripts/pre-commit-hook.template` - Pre-commit hook template
-- `.prompt-os/docs/SKILL-GOVERNANCE.md` - When to create/update skills
+- `.prompt-os/core/governance/SKILL-GOVERNANCE.md` - When to create/update skills
 
 ---
 
 **Version:** 1.0.0  
 **Created:** 2026-02-03  
 **Part of:** PromptOS v2.1.0
+

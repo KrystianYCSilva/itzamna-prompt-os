@@ -35,4 +35,5 @@
 ## MAINTENANCE
 
 **Last updated**: 2026-02-04  
-**Status**: Consolidated v2.2.0
+**Status**: Consolidated v2.3.0-dev
+

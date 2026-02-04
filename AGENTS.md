@@ -1,4 +1,4 @@
-# AGENTS.md — Itzamna PromptOS v2.2.0 (T3)
+# AGENTS.md — Itzamna PromptOS v2.3.0-dev (T3)
 
 > **Bootstrap mínimo para agentes.**
 > **Leia primeiro:** `.context/ai-assistant-guide.md` (T0) → `ITZAMNA-AGENT.md` (T1)
@@ -23,6 +23,33 @@
 - **Human Gate obrigatório** para L2/L3 — nunca persista sem aprovação.
 - **JIT:** carregue apenas 2-5 skills relevantes. Target 10-16KB por tarefa.
 - Tools (`brain.js`, `cli.py`, `sync-constitution.ps1`) são **opcionais** para uso humano.
+
+---
+
+## Comandos
+
+### Hash Commands (`#`)
+`#new`, `#impl`, `#test`, `#review`, `#bug`, `#docs`, `#arch`, `#init`, `#add`, `#sync`
+
+### Slash Commands (`/itzamna.*`)
+Aliases CLI-friendly para os comandos `#`:
+
+| Slash | Hash | Descrição |
+|-------|------|-----------|
+| `/itzamna.init` | `#init` | Inicializar projeto |
+| `/itzamna.impl` | `#impl` | Implementar feature |
+| `/itzamna.new` | `#new` | Criar CARD |
+| `/itzamna.test` | `#test` | Gerar testes |
+| `/itzamna.review` | `#review` | Code review |
+| `/itzamna.docs` | `#docs` | Gerar docs |
+
+### Comandos Especiais (sem workflow)
+| Comando | Descrição |
+|---------|-----------|
+| `/itzamna.status` | Estado do sistema |
+| `/itzamna.skill` | Listar/ver skills |
+| `/itzamna.memory` | Ver memória da sessão |
+| `/itzamna.help` | Ajuda completa |
 
 ---
 
@@ -52,4 +79,4 @@
 
 ---
 
-*AGENTS.md — T3 | Generic Agent Bootstrap | v2.2.0 | 2026-02-04*
+*AGENTS.md — T3 | Generic Agent Bootstrap | v2.3.0-dev | 2026-02-04*

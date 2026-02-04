@@ -1,4 +1,4 @@
-# Itzamna PromptOS v2.2.0 - Arquitetura Consolidada
+# Itzamna PromptOS v2.3.0-dev - Arquitetura Consolidada
 
 > Sistema operacional cognitivo para programacao paralela humano-agente
 > Arquitetura: Prompt-Based | Atualizado: 2026-02-04
@@ -119,7 +119,7 @@ Blueprint futuro: `docs/blueprints/dspy-mcp-blueprint.md`
 
 ## 10. Status Atual e Proximos Passos
 
-**Status**: v2.2.0 completa (SPEC-001/002/003/004/005/010)
+**Status**: v2.3.0-dev completa (SPEC-001/002/003/004/005/010)
 **Proximo**: v2.3.0 (ver `specs/v2.3.0-plan.md`)
 
 ---
@@ -136,3 +136,4 @@ Blueprint futuro: `docs/blueprints/dspy-mcp-blueprint.md`
 ---
 
 EOF
+

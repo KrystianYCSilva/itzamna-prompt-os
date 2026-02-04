@@ -500,7 +500,7 @@ sources:
 - Existing citations already consistent and appropriate
 - Retroactive validation (Task T023) will confirm compliance without requiring changes
 
-**Future Skills (v2.2.0+)**:
+**Future Skills (v2.3.0-dev+)**:
 - **New baseline skills**: Continue using Minimal format
 - **New integration skills**: Use Standard format with `accessed` dates
 - **New research-heavy skills**: Use Detailed format with tier/score/notes
@@ -569,4 +569,5 @@ sources:
 **Version**: 2.2.0  
 **Last Updated**: 2026-02-03  
 **Related**: `.prompt-os/core/WEB-RESEARCH.md`, `source-validation-rules.md`, `tier-system.md`
+
 

@@ -97,8 +97,8 @@ chmod +x .git/hooks/pre-commit
 
 ## 🔗 QUICK NAVIGATION
 
-- [Parent: Core](..\README.md)
-- [PromptOS Root](.../README.md)
+- [Parent: PromptOS](../README.md)
+- [PromptOS Root](../README.md)
 
 ---
 

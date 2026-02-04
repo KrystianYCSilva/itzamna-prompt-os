@@ -23,10 +23,20 @@ Quando o usuario fizer um pedido:
 INPUT: [mensagem do usuario]
     ↓
 ┌─────────────────────────────────────┐
-│ 0. E UM COMANDO ROUTER?             │ → DELEGATE TO COMMAND-ROUTER.md
-│    CRITERIO ESTRITO:                │   STOP CLASSIFICATION HERE.
-│    Deve ser o PRIMEIRO token (Regex: ^(#|/))
-│    Ex: "#init", "#ini", "/itzamna.init" │ Execute instructions in protocol.
+│ 0a. E SLASH COMMAND ESPECIAL?       │ → Execute directly (no workflow)
+│     Regex: ^/itzamna\.(status|skill|memory|help)
+│     /itzamna.status → Return system state
+│     /itzamna.skill  → Return skill info
+│     /itzamna.memory → Return memory summary
+│     /itzamna.help   → Return command list
+│     /itzamna (sem subcomando) → Same as help
+└─────────────────────────────────────┘
+    ↓ (nao)
+┌─────────────────────────────────────┐
+│ 0b. E UM COMANDO ROUTER?            │ → DELEGATE TO COMMAND-ROUTER.md
+│     CRITERIO ESTRITO:               │   STOP CLASSIFICATION HERE.
+│     Regex: ^(#|/itzamna\.)          │
+│     Ex: "#init", "/itzamna.init"    │   Execute instructions in protocol.
 └─────────────────────────────────────┘
     ↓ (nao)
 ┌─────────────────────────────────────┐
@@ -65,8 +75,119 @@ INPUT: [mensagem do usuario]
 
 ## PROTOCOLOS AUXILIARES
 
-- **COMMAND-ROUTER.md**: Use para comandos de sistema (#init, #ini, /itzamna.init, #add, #sync). **IMPORTANTE:** O comando deve estar no INICIO ABSOLUTO da mensagem (primeiros caracteres). Se estiver no meio do texto, ignore.
+- **COMMAND-ROUTER.md**: Use para comandos de sistema (#init, /itzamna.init, #add, /itzamna.add, #sync, /itzamna.sync). **IMPORTANTE:** O comando deve estar no INICIO ABSOLUTO da mensagem (primeiros caracteres). Se estiver no meio do texto, ignore.
 - **WORKFLOW-ORCHESTRATOR.md**: Apos o Router identificar o workflow, delegue ao Orchestrator para resolucao de Persona e Skills.
+
+---
+
+## SLASH COMMANDS ESPECIAIS
+
+Estes comandos NAO disparam workflows. Retornam informacao diretamente.
+
+### `/itzamna.status`
+Mostra estado atual do sistema sem executar workflow.
+
+**Resposta:**
+```markdown
+## Active Context
+- **Workflow:** {current_workflow or "none"}
+- **Persona:** {active_persona or "none"}
+- **Skills Loaded:** {skill_list or "none"}
+
+## Project State
+- **Initialized:** {yes/no based on .prompt-os/ existence}
+- **Tech Stack:** {from .context/_meta/tech-stack.md or "not configured"}
+
+## Memory Highlights
+- **Last Action:** {from MEMORY.md}
+- **Active Card:** {current CARD-XXX or "none"}
+```
+
+### `/itzamna.skill [skill-name]`
+Lista skills disponiveis ou mostra conteudo de uma skill especifica.
+
+**Sem argumento (`/itzamna.skill` ou `/itzamna.skill --list`):**
+```markdown
+## Available Skills
+
+| Skill | Category | Description |
+|-------|----------|-------------|
+| clean-code | engineering | Code quality guidelines |
+| ... | ... | ... |
+
+Use `/itzamna.skill {name}` to view details.
+```
+
+**Com argumento (`/itzamna.skill clean-code`):**
+```markdown
+## Skill: clean-code
+
+**Category:** engineering
+**Source:** .prompt-os/skills/clean-code.md
+
+### Content
+{full skill content}
+```
+
+**Data Sources:** `.prompt-os/skills/INDEX.md`, `.prompt-os/skills/{skill-name}.md`
+
+### `/itzamna.memory`
+Mostra historico da sessao e decisoes-chave.
+
+**Resposta:**
+```markdown
+## Session Memory
+
+### Recent Actions
+{last 5-10 entries from MEMORY.md ## Log section}
+
+### Key Decisions
+{from MEMORY.md ## Decisions section}
+
+### Active Context
+{from MEMORY.md ## Current State section}
+```
+
+**Data Source:** `MEMORY.md`
+
+### `/itzamna.help`
+Lista todos os comandos disponiveis com exemplos.
+
+**Resposta:**
+```markdown
+## PromptOS Commands
+
+### Workflow Commands (alias: #{command})
+| Command | Description | Example |
+|---------|-------------|---------|
+| `/itzamna.init` | Initialize project | `/itzamna.init my-project` |
+| `/itzamna.impl` | Implement feature | `/itzamna.impl CARD-001` |
+| `/itzamna.new` | Create new card | `/itzamna.new feature` |
+| `/itzamna.bug` | Fix bug | `/itzamna.bug ERROR-001` |
+| `/itzamna.review` | Code review | `/itzamna.review` |
+| `/itzamna.test` | Generate tests | `/itzamna.test` |
+| `/itzamna.docs` | Generate docs | `/itzamna.docs` |
+| `/itzamna.arch` | Architecture | `/itzamna.arch` |
+| `/itzamna.add` | Add component | `/itzamna.add core protocol` |
+| `/itzamna.sync` | Sync context | `/itzamna.sync` |
+| `/itzamna.update` | Update system | `/itzamna.update` |
+
+### Special Commands (no workflow)
+| Command | Description |
+|---------|-------------|
+| `/itzamna.status` | Show system state |
+| `/itzamna.skill` | View skills |
+| `/itzamna.memory` | View session memory |
+| `/itzamna.help` | This help |
+
+### Flags
+- `--help`: Show command help
+- `--persona {name}`: Override persona
+- `--skills {s1,s2}`: Add skills
+- `--dry-run`: Simulate only
+
+Type `/itzamna.{command} --help` for detailed usage.
+```
 
 ## SHORTCUTS DISPONIVEIS
 
@@ -314,6 +435,33 @@ Criar endpoint GET /api/users que retorna lista paginada de usuarios.
 
 Posso criar este CARD? Ou deseja ajustar algo?
 ```
+
+---
+
+## SLASH COMMAND ERROR HANDLING
+
+### Unknown Command
+**Trigger:** `/itzamna.unknown-command`
+
+**Resposta:**
+```markdown
+### ⚠️ Error: Unknown Command
+
+> `/itzamna.unknown-command` is not a valid command.
+
+**Did you mean:**
+- `/itzamna.update` (similar spelling)
+
+**Available commands:**
+init, impl, new, bug, review, test, docs, arch, add, sync, update, status, skill, memory, help
+
+Type `/itzamna.help` for full command list.
+```
+
+### Suggestion Algorithm
+1. Calculate Levenshtein distance between input and valid commands
+2. Suggest commands with distance <= 3
+3. If no close matches, show top 3 most common commands
 
 ---
 

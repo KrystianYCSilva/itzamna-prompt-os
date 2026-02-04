@@ -69,4 +69,4 @@
   - Language baselines: Java, Kotlin, C/C++, JavaScript, Python
   - JIT sub-files pattern proven (scores: 94→99 C/C++, 95→99 JavaScript)
   - Updated project documentation: 6 agent files + transition document
-  - Roadmap: v2.2.0 SPEC-003 Web Research Enhancement
+  - Roadmap: v2.3.0-dev SPEC-003 Web Research Enhancement

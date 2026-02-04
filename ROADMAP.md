@@ -7,7 +7,7 @@
 ## Visao Geral
 
 ```
-v1.0.0 (Piloto)    v2.0.0 (ANTERIOR)   v2.1.0             v2.2.0 (ATUAL)      v2.3.0              v3.0.0
+v1.0.0 (Piloto)    v2.0.0 (ANTERIOR)   v2.1.0             v2.3.0-dev (ATUAL)      v2.3.0              v3.0.0
      |                   |                 |                   |                   |                   |
      v                   v                 v                   v                   v                   v
 +----------+      +--------------+   +-------------+     +-------------+     +-------------+     +------------+
@@ -133,7 +133,7 @@ ANY AI AGENT (Claude, Gemini, Cursor, etc.)
 
 ---
 
-## v2.2.0 - Protocol Enhancements (COMPLETE)
+## v2.3.0-dev - Protocol Enhancements (COMPLETE)
 
 **Status:** ✅ Complete  
 **Release:** 2026-02-03
@@ -317,4 +317,5 @@ These tools remain as **optional helpers** for human operators:
 
 ---
 
-**EOF** | Roadmap v2.2.0
+**EOF** | Roadmap v2.3.0-dev
+

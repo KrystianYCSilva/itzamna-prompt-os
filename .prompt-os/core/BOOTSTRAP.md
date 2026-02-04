@@ -60,3 +60,4 @@ Guiar a inicializacao do contexto de um projeto apos o `init` do CLI.
 
 - Nunca escrever arquivos sem aprovacao humana
 - Se o contexto for `min-context`, nao crie arquivos de `complete-context`
+- Se o bootstrap foi feito com `--context-only` ou `--no-core-copy`, confirme onde o core PromptOS esta referenciado
