@@ -16,7 +16,7 @@ Uma skill define **COMO FAZER** algo especifico:
 
 ---
 
-## SKILLS DISPONIVEIS (6 baselines, 1 categoria)
+## SKILLS DISPONIVEIS (6 baselines, 7 advanced, 1 categoria hub)
 
 ### Linguagens de Programação (6 language baselines)
 
@@ -43,6 +43,12 @@ Uma skill define **COMO FAZER** algo especifico:
 | kotlin-1xx | Especificidades do Kotlin 1.x.x (antes do K2): extension functions, DSLs | L2 | `.prompt-os/skills/linguagens/kotlin/kotlin-1xx/SKILL.md` |
 | kotlin-2xx | Features do Kotlin 2.x (K2): context receivers, compiler performance | L2 | `.prompt-os/skills/linguagens/kotlin/kotlin-2xx/SKILL.md` |
 
+**Hub/Navigation** - Categoria aggregador:
+
+| Nome | Descricao | Level | Arquivo |
+|------|-----------|-------|---------|
+| linguagens | Hub para todas as linguagens: 6 baselines, 7 versioned | Hub | `.prompt-os/skills/linguagens/INDEX.md` |
+
 ---
 
 ## JIT SUB-FILES PATTERN
@@ -66,8 +72,8 @@ Algumas skills usam **sub-files** para manter o tamanho dentro do limite T0-SIZE
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 6 baselines + 7 advanced = 13 |
-| Aprovadas | 13 |
+| Total de Skills | 6 baselines + 7 advanced + 1 hub = 14 |
+| Aprovadas | 14 |
 | Rascunho | 0 |
 | Categorias | 1 (linguagens) |
 
