@@ -7,394 +7,184 @@
 
 ## QUANDO USAR PESQUISA WEB
 
-Use pesquisa web quando:
+Use quando:
+1. Criar skill com informacao atualizada
+2. Validar informacao potencialmente desatualizada
+3. Buscar documentacao oficial de tecnologias
+4. Usuario solicita explicitamente
 
-1. **Criar nova skill** que requer informacao atualizada
-2. **Validar informacao** que pode estar desatualizada
-3. **Buscar documentacao oficial** de tecnologias
-4. **Encontrar best practices** para determinado topico
-5. **Usuario solicita** explicitamente pesquisa
-
-**NAO use** para:
-- Informacao que voce ja conhece com confianca
-- Topicos cobertos por skills existentes (consulte primeiro)
-- Questoes de opiniao/preferencia
+**NAO use** para: Informacao que voce ja conhece, topicos cobertos por skills existentes, opiniao/preferencia
 
 ---
 
-## FONTES CONFIAVEIS
+## JIT REFERENCE: Source Validation Rules
 
-### Hierarquia de Confiabilidade
+**For detailed validation scoring and tier assignment**, load:
+→ `.prompt-os/core/web-research/source-validation-rules.md`
 
-| Tier | Tipo de Fonte | Exemplos | Confiabilidade |
-|------|---------------|----------|----------------|
-| **1** | Documentacao Oficial | kubernetes.io, reactjs.org, nodejs.org | Muito Alta |
-| **2** | Organizacoes Oficiais | CNCF, W3C, OWASP, IEEE | Muito Alta |
-| **3** | Repositorios GitHub Oficiais | github.com/facebook/react | Alta |
-| **4** | Repos GitHub Populares | >1000 stars, ativo recentemente | Media-Alta |
-| **5** | Stack Overflow | Respostas aceitas, alto score | Media |
-| **6** | Blogs Tech Reconhecidos | Martin Fowler, Kent C. Dodds | Media |
-| **7** | Tutoriais Gerais | Medium, Dev.to | Baixa-Media |
+**Quick Summary:**
+- **4-dimension scoring**: Authority (40%), Recency (30%), Completeness (20%), Relevance (10%)
+- **Score range**: 0-100 points with tier assignment (T1-T5)
+- **Validation workflow**: Score → Classify → Conflict resolution → Document
+- Use this when you need formal source reliability assessment
 
-### Dominios Oficiais por Tecnologia
+---
 
-```yaml
-# Frontend
-react: reactjs.org, react.dev
-vue: vuejs.org
-angular: angular.io
-next: nextjs.org
+## JIT REFERENCE: Citation Templates
 
-# Backend
-node: nodejs.org
-python: python.org, docs.python.org
-go: golang.org, go.dev
-rust: rust-lang.org
+**For detailed citation formats and selection guidelines**, load:
+→ `.prompt-os/core/web-research/citation-templates.md`
 
-# DevOps/Cloud
-kubernetes: kubernetes.io
-docker: docker.com, docs.docker.com
-aws: docs.aws.amazon.com
-azure: docs.microsoft.com/azure
-gcp: cloud.google.com/docs
+**Quick Summary:**
+- **3 formats**: Minimal (URL array), Standard (url+type+accessed), Detailed (full metadata)
+- **Selection guideline**: Minimal for baseline skills, Detailed for research-heavy content
+- **Type taxonomy**: official_docs, github_community, stackoverflow, blog_company, etc.
+- Use this when citing sources in skills or protocols
 
-# Databases
-postgres: postgresql.org
-mongodb: mongodb.com/docs
-redis: redis.io
+---
 
-# Security
-owasp: owasp.org
-```
+## JIT REFERENCE: Tier System
+
+**For detailed tier definitions and domain registry**, load:
+→ `.prompt-os/core/web-research/tier-system.md`
+
+**Quick Summary:**
+- **5 tiers**: T1 (🟢 95-100) → T5 (🔴 0-40)
+- **Domain patterns**: React, Kubernetes, AWS, Python, etc. with official URLs
+- **Conflict resolution**: Score-based precedence over domain patterns
+- Use this to quickly classify source reliability
+
+**Quick Tier Reference:**
+- **T1 (🟢)**: Official docs (kubernetes.io, reactjs.org, nodejs.org)
+- **T2 (🔵)**: Official orgs (CNCF, W3C, OWASP), official GitHub repos
+- **T3 (🟡)**: Popular GitHub (>1000 stars), accepted Stack Overflow answers
+- **T4 (🟠)**: Recognized tech blogs, recent tutorials
+- **T5 (🔴)**: Outdated content, unreliable sources
+
+---
+
+## JIT REFERENCE: Gap Detection
+
+**For detailed gap scenarios and AUTO-INCREMENT integration**, load:
+→ `.prompt-os/core/web-research/gap-detection.md`
+
+**Quick Summary:**
+- **4 gap types**: missing_official_docs, outdated_sources, insufficient_coverage, low_reliability
+- **Memory registration**: Integrated with AUTO-INCREMENT protocol
+- **Human decision prompts**: Defined conversation flows for defer vs research now
+- Use this when research reveals quality/coverage issues
 
 ---
 
 ## PROTOCOLO DE PESQUISA
 
-### Fase 1: Planejar Pesquisa
-
-Antes de pesquisar, defina:
-
-```
-1. O que preciso saber? (objetivo claro)
-2. Quais fontes oficiais existem? (docs oficiais)
-3. O que ja sei sobre o topico? (conhecimento base)
-4. Qual nivel de profundidade? (overview vs detalhado)
-```
+### Fase 1: Planejar
+1. Objetivo claro
+2. Fontes oficiais conhecidas (use tier-system.md)
+3. Nivel de profundidade necessario
 
 ### Fase 2: Executar Busca
 
-Se voce tem acesso a web search:
-
 ```
-ESTRATEGIA DE BUSCA:
-
-1. PRIMEIRA busca: "{tecnologia} official documentation"
-   -> Objetivo: Encontrar docs oficiais
-
-2. SEGUNDA busca: "{tecnologia} best practices {ano}"
-   -> Objetivo: Encontrar praticas atualizadas
-
-3. TERCEIRA busca: "{tecnologia} {caso_especifico} example"
-   -> Objetivo: Encontrar exemplos praticos
-
-4. SE NECESSARIO: "site:github.com {tecnologia} {caso}"
-   -> Objetivo: Encontrar implementacoes reais
+ESTRATEGIA:
+1. "{tecnologia} official documentation"
+2. "{tecnologia} best practices {ano}"
+3. "site:github.com {tecnologia} {caso}" (se necessario)
 ```
 
-### Fase 3: Validar Resultados
+### Fase 3: Validar
 
-Para cada resultado encontrado, verifique:
-
-```
-[ ] Data: Publicado nos ultimos 2 anos?
-[ ] Fonte: E fonte oficial ou reconhecida?
-[ ] Autor: Tem credibilidade na area?
-[ ] Atualizacao: Conteudo parece atualizado?
-[ ] Consenso: Outras fontes confirmam?
-```
+**Quick checklist** (detailed scoring in `source-validation-rules.md`):
+- [ ] Data: Ultimos 2 anos? (30 pts)
+- [ ] Fonte: Oficial/reconhecida? (40 pts)
+- [ ] Conteudo: Completo/relevante? (30 pts)
 
 ### Fase 4: Sintetizar
 
-Ao consolidar informacao:
-
-```
-1. Priorize fontes oficiais
-2. Cross-reference entre multiplas fontes
-3. Identifique conflitos e mencione-os
-4. Cite as fontes usadas
-5. Indique nivel de confianca
-```
+1. Priorize T1-T2 sources
+2. Cross-reference multiplas fontes
+3. Cite usando `citation-templates.md`
+4. Indique tier + confidence level
 
 ---
 
 ## SE VOCE NAO TEM ACESSO A WEB
 
-Se voce NAO pode fazer web search diretamente:
+### Opcoes Alternativas
 
-### Opcao 1: Usar Conhecimento Base
+1. **Usar Conhecimento Base**: Informar que usou conhecimento interno + recomendar validacao em docs oficiais
+2. **Pedir ao Usuario**: Sugerir URLs oficiais e aguardar informacao
+3. **Marcar para Revisao**: Adicionar `status: needs_review` no frontmatter da skill
 
-```
-"Baseado no meu conhecimento (ate minha data de corte):
-
-{informacao}
-
-NOTA: Recomendo verificar a documentacao oficial em {url}
-para garantir que a informacao esta atualizada."
-```
-
-### Opcao 2: Pedir ao Usuario
-
-```
-"Para garantir informacao atualizada sobre {topico}, 
-recomendo consultar:
-
-1. {url_oficial} - Documentacao oficial
-2. {url_github} - Repositorio oficial
-
-Gostaria que eu:
-1. Continue com meu conhecimento base
-2. Aguarde voce verificar e me passar informacao
-3. Crie a skill marcando para revisao posterior"
-```
-
-### Opcao 3: Marcar para Revisao
-
-```
----
-# Skill gerada SEM pesquisa web
-# REQUER REVISAO antes de uso em producao
-status: needs_review
-sources: knowledge_base_only
----
-```
+**Para gaps de pesquisa**: Use `gap-detection.md` para registrar na memoria
 
 ---
 
-## FORMATANDO RESULTADOS DE PESQUISA
+## FORMATANDO RESULTADOS
 
-### Estrutura Padrao
-
+**Quick format**:
 ```markdown
-## Resultado da Pesquisa: {topico}
-
-### Fontes Consultadas
-| Fonte | Tipo | Data | Confiabilidade |
-|-------|------|------|----------------|
-| {url1} | Docs Oficial | {data} | Alta |
-| {url2} | GitHub | {data} | Media-Alta |
-
-### Descobertas Principais
-
-#### 1. {Conceito 1}
-{Explicacao}
-**Fonte:** {url}
-
-#### 2. {Conceito 2}
-{Explicacao}
-**Fonte:** {url}
-
-### Best Practices Identificadas
-1. {pratica1} - Fonte: {url}
-2. {pratica2} - Fonte: {url}
-
-### Padroes a Evitar
-1. {antipadrao1} - Por que: {razao}
-2. {antipadrao2} - Por que: {razao}
-
-### Exemplos de Codigo
-\`\`\`{linguagem}
-// Fonte: {url}
-{codigo}
-\`\`\`
-
-### Confianca
-{nivel}: {justificativa}
+## Pesquisa: {topico}
+Fontes: {url1} (T1, 95/100), {url2} (T2, 88/100)
+Descobertas: {lista-concisa}
+Confianca: Alta (T1-T2 sources)
 ```
+
+**Para formato detalhado**: Use `citation-templates.md` (Detailed format com metadata completo)
 
 ---
 
 ## NIVEIS DE CONFIANCA
 
-### Como Classificar
-
-| Nivel | Quando Usar | Indicador Visual |
-|-------|-------------|------------------|
-| **Alta** | Docs oficiais + exemplos testados | ✓✓✓ |
-| **Media-Alta** | Multiplas fontes confiaveis | ✓✓ |
-| **Media** | Fontes secundarias, consenso | ✓ |
-| **Baixa** | Fonte unica ou desatualizada | ⚠ |
-| **Incerta** | Informacao conflitante | ❓ |
-
-### Como Comunicar
-
-```
-# Alta Confianca
-"De acordo com a documentacao oficial de {tecnologia}..."
-
-# Media-Alta Confianca
-"Baseado em multiplas fontes confiaveis, incluindo {fonte1} e {fonte2}..."
-
-# Media Confianca
-"Fontes secundarias indicam que..."
-
-# Baixa Confianca
-"NOTA: Esta informacao e baseada em {fonte} de {data}. 
-Recomendo verificar se ainda e valido."
-
-# Incerta
-"Ha informacoes conflitantes sobre este topico:
-- {fonte1} diz: {X}
-- {fonte2} diz: {Y}
-Recomendo testar ou consultar fonte mais recente."
-```
+**Quick Ref** (detalhes em `tier-system.md`):
+- **Alta (✓✓✓)**: T1-T2 (official docs)
+- **Media (✓✓/✓)**: T3-T4 (community/blogs)
+- **Baixa (⚠)**: T5 (outdated/unreliable)
 
 ---
 
 ## CACHE DE PESQUISA
 
-### Quando Reutilizar
-
-Se voce fez pesquisa recente sobre o topico:
-
-```
-"Encontrei informacao sobre {topico} na pesquisa de {data}:
-{resumo}
-
-Gostaria que eu:
-1. Use esta informacao
-2. Faca nova pesquisa para atualizar"
-```
-
-### Validade do Cache
-
-| Tipo de Informacao | Validade |
-|--------------------|----------|
-| Conceitos fundamentais | 2 anos |
-| Best practices | 1 ano |
-| Versoes/APIs | 6 meses |
-| Tutoriais/Exemplos | 1 ano |
-| Security/Vulnerabilidades | 1 mes |
+**Validade**: Conceitos (2a), Best practices (1a), APIs (6m), Security (1m)
 
 ---
 
 ## PARA GERACAO DE SKILLS
 
-### Estrutura de Pesquisa para Skills
+**Foco**: Docs oficiais (T1-T2) → Best practices → Exemplos → Troubleshooting
 
-Ao pesquisar para criar skill:
-
-```
-1. DOCUMENTACAO OFICIAL
-   - URL principal
-   - Guia de inicio rapido
-   - Referencia de API
-
-2. BEST PRACTICES
-   - Padroes recomendados
-   - Antipadroes a evitar
-   - Configuracoes de producao
-
-3. EXEMPLOS PRATICOS
-   - Hello World
-   - Caso de uso comum
-   - Caso avancado
-
-4. TROUBLESHOOTING
-   - Erros comuns
-   - Solucoes conhecidas
-   - FAQs
-```
-
-### Citando Fontes na Skill
-
-```yaml
-# No frontmatter da skill
-sources:
-  - url: "https://kubernetes.io/docs/"
-    type: "official_docs"
-    accessed: "2026-02-02"
-  - url: "https://github.com/kubernetes/examples"
-    type: "github"
-    accessed: "2026-02-02"
-```
+**Citacao**: Use `citation-templates.md` (minimal para baseline skills, standard/detailed para complexos)
 
 ---
 
-## EXEMPLO COMPLETO
-
-### Cenario: Pesquisar para Skill de Redis
+## EXEMPLO
 
 ```
-Usuario: "Crie uma skill para Redis caching"
-
-Agente (voce):
-
-1. PLANEJAR:
-   - Objetivo: Criar skill de caching com Redis
-   - Fonte oficial: redis.io
-   - Conhecimento base: Tenho fundamentos
-   - Profundidade: Intermediario
-
-2. PESQUISAR (se tiver acesso):
-   - Busca 1: "redis caching official documentation"
-   - Busca 2: "redis caching best practices 2026"
-   - Busca 3: "redis cache patterns examples"
-
-3. VALIDAR:
-   - redis.io/docs - Oficial, atualizado ✓
-   - github.com/redis/redis - Oficial ✓
-   - stackoverflow redis caching - Verificar data ⚠
-
-4. SINTETIZAR:
-   "Pesquisa concluida para Redis caching:
-   
-   Fontes principais:
-   - redis.io/docs/latest/develop/use/client-side-caching/
-   - redis.io/docs/latest/commands/
-   
-   Padroes identificados:
-   - Cache-aside pattern (mais comum)
-   - TTL obrigatorio para evitar stale data
-   - Evitar keys muito grandes
-   
-   Confianca: Alta (documentacao oficial)"
-
-5. GERAR SKILL com informacoes pesquisadas
+"Crie skill Redis caching"
+→ PLANEJAR: redis.io (oficial)
+→ PESQUISAR: "redis caching docs" + "redis best practices"
+→ VALIDAR: redis.io/docs (T1, score 95) ✓
+→ SINTETIZAR: T1 source, cache-aside pattern, TTL obrigatorio
+→ GERAR SKILL com citacoes
 ```
 
 ---
 
 ## LIMITACOES
 
-### Reconheca Quando Nao Sabe
+### Quando Informacao Nao Esta Disponivel
 
 ```
-"Nao consegui encontrar informacao confiavel sobre {topico}.
+"Nao encontrei fonte confiavel (T1-T3) sobre {topico}.
 
-Possiveis razoes:
-- Tecnologia muito nova
-- Termo especifico do seu projeto
-- Documentacao limitada
-
-Sugestoes:
-1. Verifique a documentacao oficial diretamente
-2. Consulte a comunidade (Discord, Slack, Forum)
-3. Me passe informacao e eu ajudo a estruturar"
+Opcoes:
+1. Use meu conhecimento base (marcar para revisao)
+2. Me passe informacao oficial
+3. Registre gap para pesquisa futura (use gap-detection.md)"
 ```
 
-### Informacao Desatualizada
-
-```
-"Encontrei informacao sobre {topico}, porem:
-
-⚠ ATENCAO: A fonte mais recente e de {data}.
-Para {tecnologia} que evolui rapidamente, recomendo
-verificar se ainda e valido na versao atual.
-
-Documentacao oficial: {url}"
-```
+**Para gaps de pesquisa**: Use `gap-detection.md` para registrar em memoria via AUTO-INCREMENT
 
 ---
 
-*Fim do Web-Research Protocol. Use para pesquisar informacao externa de forma estruturada.*
+*Fim do Web-Research Protocol v2.1 (JIT-enabled). Para validacao detalhada, citacoes, tiers e gaps, carregue os sub-files JIT.*
