@@ -233,6 +233,7 @@ O sistema funciona com qualquer AI que consiga:
 
 | Versão | Data | Mudança Principal |
 |--------|------|-------------------|
+| 2.2.0 | 2026-02-03 | SPEC-003 complete: WEB-RESEARCH enhanced (4 JIT sub-files), Go baseline (100/100), v2.3.0 planned |
 | 2.1.0 | 2026-02-03 | SPEC-010 complete: 5 language baselines, JIT sub-files innovation |
 | 2.0.0 | 2026-02-02 | Arquitetura prompt-based |
 | 1.0.0 | 2026-02-02 | Piloto funcional (code-centric) |
@@ -245,18 +246,14 @@ O sistema funciona com qualquer AI que consiga:
 
 | SPEC | Nome | Status | Prioridade | Dependências |
 |------|------|--------|------------|--------------|
-| **003** | **Web Research Protocol Enhancement** | **NEXT** | **P1** | SPEC-002 (Auto-Increment) |
+| 003 | Web Research Protocol Enhancement | ✅ COMPLETE (Session 24) | — | — |
+| **v2.3.0** | **Ecosystem + New Baselines** | **NEXT** | **P1** | SPEC-003, SPEC-010 |
 | 004 | Vector DB RAG | Planejada | P2 | SPEC-003 |
-| 005 | Persona CLI | Planejada | P2 | SPEC-001, SPEC-002 |
 | 011 | Advanced Language Skills (Phase 2) | Planejada | P1 | SPEC-010 |
 
-**SPEC-003 Focus:** Enhance WEB-RESEARCH.md protocol with real source validation, citation management, and research quality metrics.
+**v2.3.0 Focus:** Ecosystem sub-files for Go/Python/JavaScript, 3 new baselines (Rust, TypeScript, Ruby), version-specific advanced skills.
 
-**Expected deliverables:**
-- Enhanced `.prompt-os/core/WEB-RESEARCH.md` with source validation rules
-- Source citation templates for skills
-- Research quality checklist (official docs, recency, authority)
-- Integration with Auto-Increment for source gap detection
+**Planning doc:** `specs/v2.3.0-plan.md`
 
 ---
 
@@ -268,4 +265,4 @@ O sistema funciona com qualquer AI que consiga:
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Project Overview | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Project Overview | 2026-02-03*

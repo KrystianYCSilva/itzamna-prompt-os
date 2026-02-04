@@ -183,4 +183,4 @@ These tools COMPLEMENT the prompt-based system but are NOT required.
 
 ---
 
-*PromptOS v2.0.0 | Specs Implementation Status | 2026-02-02*
+*PromptOS v2.2.0 | Specs Implementation Status | 2026-02-03*

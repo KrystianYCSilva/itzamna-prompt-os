@@ -1,9 +1,9 @@
 # MEMORY.md - Estado Persistente do Itzamna PromptOS
 
 **Ultima Atualizacao:** 2026-02-03
-**Versao:** 2.1.0
-**Sessoes Totais:** 24
-**Spec Atual:** SPEC-003 ✅ COMPLETE (Session 24) + Go baseline skill approved
+**Versao:** 2.2.0
+**Sessoes Totais:** 25
+**Spec Atual:** v2.2.0 ✅ COMPLETE | Proximo: v2.3.0 (Ecosystem + Baselines)
 
 ---
 
@@ -28,6 +28,8 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-03 | docs     | Session 25 — T031 agent bootstrap + docs update (v2.2.0 sync)        | ✅ complete              |
+| 2026-02-03 | plan     | v2.3.0 planning doc created (specs/v2.3.0-plan.md)                   | ✅ created               |
 | 2026-02-03 | skill    | Go baseline (first to apply SPEC-003 protocols)                      | ✅ approved (100/100)    |
 | 2026-02-03 | spec     | SPEC-003 Web Research Protocol Enhancement (23 tasks)                | ✅ complete              |
 | 2026-02-03 | protocol | WEB-RESEARCH.md refactored (401→190 lines, 1,393 tokens)             | ✅ complete              |
@@ -60,6 +62,26 @@
 
 ## Notas da Sessao
 
+### Sessao 25 (2026-02-03) - Documentation Sync + v2.3.0 Planning 📋
+
+**Task: T031-T035 — Sync all agent/docs to v2.2.0 + create v2.3.0 plan — ✅ COMPLETE**
+
+- **T031** Agent bootstrap files updated (8 files):
+  - CLAUDE.md, QWEN.md, GEMINI.md, .cursorrules, .github/copilot-instructions.md
+  - ROADMAP.md (v2.2.0 COMPLETE + v2.3.0 section added)
+  - .context/_meta/project-overview.md, docs/IMPLEMENTATION-STATUS.md
+- **T032-T035** Stale footers/version strings cleaned across:
+  - .cursorrules, INDEX.md, project-overview.md, IMPLEMENTATION-STATUS.md
+- **v2.3.0 Planning** — `specs/v2.3.0-plan.md` created:
+  - 3 ecosystem sub-files (Go, Python, JavaScript)
+  - 3 new baselines (Rust, TypeScript, Ruby)
+  - Version-specific advanced skills (Go 1.18+, Python 3.10+, JS ES2023+)
+  - Phased delivery: Phase 1 Ecosystem → Phase 2 Baselines → Phase 3 Advanced
+- **Commits**: 1 (docs: session 25 memory + stale-version cleanup + v2.3.0 plan)
+
+**Status**: ✅ COMPLETE — v2.2.0 fully synced, v2.3.0 ready to execute
+
+---
 ### Sessao 21 (2026-02-03) - Solution 7 & 8: Governance + Validation 🛡️
 
 **Feature: Skill Governance Document + INDEX Validation Script — ✅ COMPLETE**

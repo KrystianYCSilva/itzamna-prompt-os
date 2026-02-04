@@ -110,6 +110,12 @@
 
 ## Notas de Sessao
 
+### Session 25 (2026-02-03) - Documentation Sync + v2.3.0 Planning ✅
+- **T031**: Updated 8 agent/doc files to v2.2.0 (CLAUDE, QWEN, GEMINI, cursorrules, copilot, ROADMAP, project-overview, IMPL-STATUS)
+- **T032-T035**: Fixed 4 stale footers (cursorrules EOF, INDEX footer, project-overview version history + Roadmap/SPECs table, IMPL-STATUS footer)
+- **v2.3.0 plan**: Created `specs/v2.3.0-plan.md` — 3 ecosystems, 3 baselines, 3 advanced skill sets; phased delivery
+- **Commit**: `docs: session 25 memory + stale-version cleanup + v2.3.0 plan`
+
 ### Session 24 (2026-02-03) - SPEC-003 Analysis Phase Complete ✅
 - **Command**: `/speckit.analyze @specs\003-web-research/`
 - **Purpose**: Pre-implementation cross-document consistency check

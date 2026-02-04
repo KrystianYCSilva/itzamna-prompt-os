@@ -172,4 +172,4 @@ As 5 language baselines foram criadas via **SPEC-010: Language Skills Baseline**
 
 ---
 
-*PromptOS v2.1.0 | Atualizado: 2026-02-03 | SPEC-003 Complete + Go baseline added*
+*PromptOS v2.2.0 | Atualizado: 2026-02-03 | v2.3.0 planning started*
