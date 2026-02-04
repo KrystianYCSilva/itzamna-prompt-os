@@ -12,7 +12,8 @@ Upgrade `.prompt-os/core/KNOWLEDGE-BASE.md` from a keyword-search + basic-RAG-ch
 **Language/Version**: Markdown (prompt instructions). No executable code.  
 **Primary Dependencies**: None. Consumes `.prompt-os/skills/INDEX.md` (read-only at search time) and `.prompt-os/core/AUTO-INCREMENT.md` (gap forwarding interface).  
 **Storage**: File-based. Relationship map persists as a YAML block inside INDEX.md (existing pattern: tags, triggers). Main protocol + 4 JIT sub-files under `.prompt-os/core/knowledge-base/`.  
-**Testing**: Manual agent-run. Test harness is a defined 20-query set (SC-001) and 5 near-duplicate drafts (SC-003). No automated test runner; validation is the agent executing the protocol and a human reviewing results.  
+**Testing**: Manual agent-run. Test harness is a defined 20-query set (SC-001) and 6 near-duplicate drafts (SC-003). No automated test runner; validation is the agent executing the protocol and a human reviewing results.  
+**Policy source**: `.prompt-os/docs/SKILL-GOVERNANCE.md` (informational reference for redundancy policy; not a protocol runtime dependency).  
 **Target Platform**: Any AI agent that reads Markdown. Cross-model (Claude, Qwen, Gemini, Cursor, OpenCode).  
 **Project Type**: Protocol authoring (Markdown files only).  
 **Performance Goals**: Scoring completes within a single agent turn (FR-008). No hard ms target.  
@@ -52,7 +53,8 @@ specs/004-vector-db-rag/
 │   ├── redundancy-gate.md      # Two-tier detection + option flow
 │   ├── rag-workflow.md         # Retrieve → Augment → Generate sequence
 │   └── relationship-map.md    # Skill graph types + surfacing rules
-└── tasks.md             # Phase 2 output (/speckit.tasks — NOT created here)
+├── tasks.md             # Phase 3 output (/speckit.tasks)
+└── validation/          # Phase 3 output (SC-001, SC-003 walk-throughs)
 ```
 
 ### Source (protocol files written to repo)

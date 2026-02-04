@@ -39,11 +39,11 @@ The original SPEC-004 design assumed a code-based Vector DB layer (ChromaDB, emb
 
 ### User Story 1 — Find the Right Skill by Intent (Priority: P1)
 
-A developer asks the AI agent a question in natural language (e.g., "How do I deploy to Kubernetes?"). The agent uses the knowledge-retrieval protocol to surface the most relevant skill(s) from the library — even when the question words do not literally match the skill name or tags.
+A developer asks the AI agent a question in natural language (e.g., "How do I deploy to Kubernetes?"). The agent uses the similarity-scoring protocol to surface the most relevant skill(s) from the library — even when the question words do not literally match the skill name or tags.
 
 **Why this priority**: This is the single most common interaction with the knowledge layer. Every other feature (RAG, redundancy detection) is downstream of this working well.
 
-**Independent Test**: Ask the agent 10 questions whose answers live in the current 13 skills but whose wording shares no exact tokens with skill names. Measure how many of the correct skills surface in the top-3 results.
+**Independent Test**: Ask the agent 20 questions whose answers live in the current 13 skills but whose wording shares no exact tokens with skill names. Measure how many of the correct skills surface in the top-3 results. (Target: ≥ 80% per SC-001.)
 
 **Acceptance Scenarios**:
 
@@ -73,7 +73,7 @@ Before any new skill is committed, the agent runs a redundancy check against the
 
 **Why this priority**: Redundancy directly undermines the value of the knowledge base. SKILL-GOVERNANCE.md already defines the policy; this spec provides the *detection* mechanism the agent follows. The two-tier threshold prevents near-duplicates from entering the library while preserving developer choice for borderline cases.
 
-**Independent Test**: Submit two drafts — one near-paraphrase (expected ≥ 90) and one partial-overlap case (expected 80-89). Verify the ≥ 90 draft is hard-blocked to two options and the 80-89 draft receives all three options.
+**Independent Test**: Submit 5 drafts per SC-003 (at least 2 near-paraphrases at ≥ 90, at least 2 partial-overlap at 80-89, 1 at < 80). Verify every ≥ 90 draft is hard-blocked to two options, every 80-89 draft receives all three options, and the < 80 draft is allowed through. Zero false negatives.
 
 **Acceptance Scenarios**:
 
@@ -92,7 +92,7 @@ The knowledge base maintains an explicit relationship graph between skills. When
 
 **Acceptance Scenarios**:
 
-1. **Given** skills `javascript`, `typescript` (future), and `python` exist, **When** `javascript` is loaded, **Then** the agent suggests `typescript` as a "version extension" and `python` as a "paradigm comparison".
+1. **Given** skills `javascript` and `python` exist, **When** `javascript` is loaded, **Then** the agent suggests `python` as a "complementary" skill (same tier, different paradigm). If `typescript` is added in future, it would be surfaced as "complementary" (not version-extension — TypeScript is a distinct language, not a version of JavaScript).
 2. **Given** a new skill is added to the library, **When** the post-creation step runs, **Then** the agent proposes relationship links to existing skills and records them.
 
 ---
@@ -125,7 +125,7 @@ The knowledge base maintains an explicit relationship graph between skills. When
 
 - **Skill**: The primary knowledge unit. Attributes: name, category, level (L0-L3), tags, triggers, description, file path. Relationships: related-to, prerequisite-of, complements.
 - **Similarity Score**: A computed 0-100 value representing how well a skill matches a query or another skill. Composed of four weighted signals: Name 30%, Tags 30%, Domain 20%, Description 20% (FR-002). Reuses the weight split already defined in INDEX.md.
-- **Relationship Link**: A typed edge between two skills. Types: `prerequisite`, `complementary`, `domain-cluster`, `version-extension`.
+- **Relationship Link**: A typed edge between two skills. Types: `prerequisite` (directional), `complementary` (bidirectional), `domain-cluster` (bidirectional), `version-extension` (directional). See data-model.md for full type definitions and directionality rules.
 - **Gap Record**: A structured entry forwarded to AUTO-INCREMENT when no skill meets the relevance threshold for a query.
 
 ---

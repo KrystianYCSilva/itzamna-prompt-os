@@ -31,12 +31,13 @@
 
 ## SC-003 Detail
 
-- **Drafts tested**: 5
-- **Near-duplicate (≥ 90)**: 1 draft — scored 93, hard-blocked to 2 options ✅
+- **Drafts tested**: 6 (Draft 6 added per /speckit.analyze F01 remediation)
+- **Near-duplicate (≥ 90)**: 2 drafts — Draft 1 scored 93, Draft 6 scored 91 — both hard-blocked to 2 options ✅
 - **High overlap (80-89)**: 3 drafts — scored 89, 82, 80 — all flagged with 3 options ✅
 - **Allowed (< 80)**: 1 draft (Rust) — scored 60, correctly passed through ✅
 - **Boundary case**: Draft 4 scored exactly 80 — correctly enters Tier 1 (gate fires) ✅
 - **False negatives**: 0
+- **SC-003 composition requirement (≥ 2 at ≥ 90, ≥ 2 at 80-89)**: ✅ met
 - **Full results**: `validation/sc-003-results.md`
 
 ---

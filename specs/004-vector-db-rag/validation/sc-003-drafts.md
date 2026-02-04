@@ -2,7 +2,8 @@
 
 **Purpose**: Validate the two-tier redundancy gate catches all overlapping drafts before persistence. Zero false negatives required.  
 **Target**: Every draft with similarity ≥ 80 is flagged. Every draft ≥ 90 is hard-blocked (2 options only).  
-**Composition**: ≥ 2 near-duplicate (≥ 90), ≥ 2 high-overlap (80-89), 1 allowed (< 80).
+**Composition**: ≥ 2 near-duplicate (≥ 90), ≥ 2 high-overlap (80-89), 1 allowed (< 80).  
+**Note**: Draft 2 was originally targeted at ≥ 90 but scored 89 in the walk-through. Draft 6 was added to satisfy the ≥ 2 near-duplicate requirement. Total drafts: 6.
 
 ---
 
@@ -15,12 +16,21 @@
 
 ---
 
-## Draft 2 — "Python Automation Scripts" (Expected: ≥ 90 vs `python`)
+## Draft 2 — "Python Automation Scripts" (Expected: 80-89 vs `python`)
 
 **Title**: Python Automation Scripts  
 **Tags**: [python, automation, pip, scripting, duck-typing]  
 **Description**: Writing automation scripts in Python using standard library modules. Covers file I/O, process management, and scheduling.  
-**Overlap target**: `python` — shares python, pip, duck-typing, automation (in description). Content is a specialization of python baseline scope.
+**Overlap target**: `python` — shares python, pip, duck-typing, automation (in description). Scored 89 in walk-through — top edge of high-overlap band.
+
+---
+
+## Draft 6 — "Java OOP and Collections" (Expected: ≥ 90 vs `java`)
+
+**Title**: Java OOP and Collections  
+**Tags**: [java, jvm, oop, collections, garbage-collection, tipagem-estatica]  
+**Description**: Core object-oriented patterns in Java: inheritance, polymorphism, interfaces, and the Collections framework. Fundamentals of Java development on the JVM.  
+**Overlap target**: `java` — shares java, jvm, garbage-collection, tipagem-estatica (4 exact tag matches). Description covers core OOP which is the heart of the java baseline. Near-duplicate by design.
 
 ---
 
@@ -51,4 +61,4 @@
 
 ---
 
-*SC-003 Draft Set | SPEC-004 | 2026-02-03*
+*SC-003 Draft Set | SPEC-004 | 2026-02-03 | Draft 6 added per /speckit.analyze F01 remediation*

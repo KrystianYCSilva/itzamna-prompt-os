@@ -31,8 +31,10 @@
 - [ ] T007 Walk through the similarity-scoring formula end-to-end on ONE known skill: query = "How do I run tasks in parallel in Go?", expected winner = `go`. Record all 4 signal sub-scores and verify `finalScore = round(name×0.30 + tags×0.30 + domain×0.20 + desc×0.20)` per `knowledge-base/similarity-scoring.md`
 - [ ] T008 Walk through gap-forwarding: query = "How do I consume messages from Kafka?". Confirm zero skills score ≥ 40, `gapDetected = true`, and the GapRecord format matches `| {date} | knowledge-gap | "{query}" | open |` per `data-model.md` GapRecord entity
 - [ ] T009 Confirm self-match exclusion: when scoring a candidate skill against INDEX.md, the candidate's own entry (if present) is excluded from results — per edge case in spec.md
+- [ ] T009a [P] Walk through single-skill-library edge case: simulate INDEX.md containing only 1 skill (`go`). Run query "How do goroutines work?" — confirm `go` returns if score ≥ 40. Run query "How do I use Kafka?" — confirm empty result + gapDetected. Per spec.md edge cases.
+- [ ] T009b [P] Walk through missing-metadata-fallback edge case: simulate a skill entry with empty `tags` and `triggers` fields. Run a query against it. Confirm scoring falls back to Name + Description signals only (Tag signal = 0). Confirm the skill is flagged for metadata enrichment. Per spec.md edge cases.
 
-**Checkpoint**: Scoring engine + gap path validated. All 4 user stories may now proceed.
+**Checkpoint**: Scoring engine + gap path + all 4 edge cases validated. All 4 user stories may now proceed.
 
 ---
 
@@ -117,8 +119,11 @@
 
 - [ ] T033 SC-005 compliance walk-through: trace one full skill-creation end-to-end through the mandatory 6-phase protocol sequence (AUTO-INCREMENT → GENERATE → SELF-CRITIQUE → HUMAN-GATE → COMMIT → MEMORY-MANAGEMENT). Confirm zero T0 violations at each step. Record in `specs/004-vector-db-rag/validation/sc-005-compliance.md`
 - [ ] T034 [P] Update `specs/004-vector-db-rag/quickstart.md` if any protocol behaviour observed during validation differs from what quickstart documents
-- [ ] T035 [P] Update `.prompt-os/skills/INDEX.md` with a `relationships` section header (empty block) to indicate the field is ready for population per FR-007 — do NOT populate until human confirms the graph from T028
+- [ ] T035a [P] Preview the `relationships` section header change to `.prompt-os/skills/INDEX.md` — show the exact diff to the human and await explicit approval before writing. T0-HUMAN-01 compliance gate.
+- [ ] T035b [P] After T035a is approved: write the empty `relationships` block to `.prompt-os/skills/INDEX.md` to indicate the field is ready for population per FR-007 — do NOT populate until human confirms the graph from T028
 - [ ] T036 Consolidate all validation results into a single summary in `specs/004-vector-db-rag/validation/SUMMARY.md`: SC-001 hit-rate, SC-002 RAG walkthrough pass/fail, SC-003 false-negative count, SC-004 token counts (already verified), SC-005 compliance, SC-006 coverage
+- [ ] T037 [P] Record deferred SC-002 trigger in MEMORY.md episodic table: `| {next skill-creation date} | sc-trigger | "SC-002: run RAG A/B comparison on this skill creation" | open |` — ensures the obligation is tracked and not silently dropped
+- [ ] T038 [P] Record deferred SC-005 trigger in MEMORY.md episodic table: `| {next skill-creation date} | sc-trigger | "SC-005: trace T0 compliance through 6-phase pipeline on this skill creation" | open |` — same pattern as T037
 
 ---
 
