@@ -1,9 +1,21 @@
 # Tasks: Enhanced Knowledge Retrieval & RAG (SPEC-004)
 
+⚠️ **IMPORTANT**: **SPEC-004 IS COMPLETE** (Session 26, v2.2.0)
+
+This document contains validation tasks that were executed during SPEC-004 development. **Do NOT execute these tasks** — they are historical and describe work that is already done.
+
+**Reference**: See `COMPLETION-SUMMARY.md` in this directory for the final status and deliverables.
+
+**Deferred Validations** (Tasks T037-T038): Three success criteria (SC-002, SC-005, SC-006) are deferred until the next skill creation, at which point they will be automatically triggered for measurement. These are documented in this file for reference only.
+
+---
+
 **Input**: Design documents from `/specs/004-vector-db-rag/`  
 **Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/, quickstart.md  
 **Tests**: Not explicitly requested — validation is manual agent-run (SC-001 query walk-through, SC-003 draft walk-through). Validation tasks are in the final phase.  
 **Organization**: Tasks grouped by user story. Each story is independently testable.
+
+---
 
 ---
 
