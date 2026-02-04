@@ -4,17 +4,17 @@
 
 ---
 
-## 📚 DOCUMENTATION STRUCTURE
+## DOCUMENTATION STRUCTURE
 
 | Section | Purpose | Content |
 |---------|---------|---------|
 | **[Architecture](ARCHITECTURE.md)** | System Overview | High-level architecture, components, data flow |
 | **[Blueprints](blueprints/)** | Future Proposals | Experimental ideas (DSPy, MCP, etc.) |
-| **[Archive](_archive/)** | Legacy Content | v1.x documentation, historical records |
+| **[Archive](_archive/)** | Legacy Content | v1.x and historical references |
 
 ---
 
-## 🔍 WHERE TO FIND...
+## WHERE TO FIND...
 
 | I'm looking for... | Go to... |
 |--------------------|----------|
@@ -26,8 +26,7 @@
 
 ---
 
-## 📌 MAINTENANCE
+## MAINTENANCE
 
-**Last updated**: 2026-02-03  
+**Last updated**: 2026-02-04  
 **Status**: Consolidated v2.2.0
-

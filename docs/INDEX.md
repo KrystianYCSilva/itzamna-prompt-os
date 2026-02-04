@@ -4,7 +4,7 @@
 
 ---
 
-## 📋 CONTENTS
+## CONTENTS
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
@@ -14,11 +14,11 @@
 
 ---
 
-## 🔗 QUICK NAVIGATION
+## QUICK NAVIGATION
 
 - [PromptOS Root](../.prompt-os/README.md)
 - [System Entry Point](../.prompt-os/PROMPTOS.md)
 
 ---
 
-*Last Updated: 2026-02-03*
+*Last Updated: 2026-02-04*

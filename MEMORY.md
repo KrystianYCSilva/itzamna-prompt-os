@@ -87,6 +87,7 @@
 - monitoring templates movidos para .prompt-os/templates/monitoring
 - referencias atualizadas (.context + templates + ITZAMNA-AGENT)
 - memory/codex-memory.md criado
+- docs/README.md, docs/INDEX.md e docs/_archive indices atualizados
 
 ### Sessao 27 (2026-02-03) - Agent & Docs Sync + SPEC-004 Completion Summary 📋
 

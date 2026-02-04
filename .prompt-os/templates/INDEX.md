@@ -40,5 +40,14 @@
 
 ---
 
-Last updated: 2026-02-04
-Total templates: 15
+## 🔗 QUICK NAVIGATION
+
+- [Parent: PromptOS](../README.md)
+- [PromptOS Root](../README.md)
+
+---
+
+## 📌 MAINTENANCE
+
+**Last updated**: 2026-02-04
+**Total templates**: 15

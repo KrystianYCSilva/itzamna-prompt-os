@@ -108,7 +108,6 @@ node js/brain.js
 
 ## 🔗 QUICK NAVIGATION
 
-- [README.md](README.md) — Overview
 - [JavaScript Tools](js/)
 - [PowerShell Tools](ps1/)
 - [Parent: Core](..\README.md)

@@ -22,14 +22,11 @@ Everything is **prompt-based**: AI agents read markdown files and follow them. T
 
 ```
 .prompt-os/
-├── core/                    # Core protocols & algorithms
+├── core/                    # Core protocols & governance (The Brain)
 ├── skills/                  # Capabilities & how-to guides
 ├── personas/                # Role definitions & behaviors
 ├── templates/               # Reusable file templates
 ├── tools/                   # Helper scripts (optional)
-├── prompts/                 # AI generation prompts
-├── checklists/              # Protocol checklists
-├── docs/                    # Internal documentation
 ├── scripts/                 # Validation & utilities
 ├── PROMPTOS.md              # 📖 START HERE
 ├── CONSTITUTION.md          # ⚖️ Rules (T0/T1/T2)
@@ -40,105 +37,49 @@ Everything is **prompt-based**: AI agents read markdown files and follow them. T
 
 ## Major Directories
 
-### **core/** - Core Protocols (9 files)
+### **core/** - The Brain (Protocols & Rules)
 
-Defines the fundamental algorithms and decision-making processes:
+Contains the fundamental algorithms, decision-making processes, and governance rules.
 
-- `AUTO-INCREMENT.md` - Version tracking and gap detection
-- `HUMAN-GATE.md` - Approval workflow for artifacts
-- `INPUT-CLASSIFIER.md` - Classify user requests to workflows
-- `JIT-PROTOCOL.md` - Just-In-Time loading (token efficiency)
-- `KNOWLEDGE-BASE.md` - RAG and knowledge retrieval system
-- `MEMORY-MANAGEMENT.md` - Memory architecture (3 layers)
-- `PERSONA-GENERATOR.md` - Generate personas dynamically
-- `SELF-CRITIQUE.md` - Self-evaluation framework (0-100 scoring)
-- `WEB-RESEARCH.md` - Research & source validation protocol
+**Key Components:**
+- **Protocols:** `AUTO-INCREMENT`, `HUMAN-GATE`, `MEMORY-MANAGEMENT`, etc.
+- **Governance:** `core/governance/` (Maintenance rules & policies)
+- **Checklists:** `core/checklists/` (Execution guides)
+- **Prompts:** `core/prompts/` (Strategic AI prompts)
+- **Logic:** `knowledge-base/`, `persona-generator/`, `web-research/`
 
-See [core/README.md](./core/README.md) for detailed descriptions.
+See [core/INDEX.md](./core/INDEX.md) for the master registry.
 
-### **skills/** - Capabilities & Guidelines (13+ skills)
+### **skills/** - Capabilities (13+ skills)
 
-How-to guides for specific domains (currently: 6 programming language baselines + 7 advanced versions):
-
-- `linguagens/c-cpp/SKILL.md` - C/C++ fundamentals
-- `linguagens/go/SKILL.md` - Go fundamentals
-- `linguagens/java/SKILL.md` - Java fundamentals + advanced versions (Java 8, 11, 17, 21, 23)
-- `linguagens/javascript/SKILL.md` - JavaScript fundamentals
-- `linguagens/kotlin/SKILL.md` - Kotlin fundamentals + advanced (K2 compiler)
-- `linguagens/python/SKILL.md` - Python fundamentals
-
-**Note:** Skills use **JIT sub-files** pattern to stay under 1,400 token limit.
+How-to guides for specific domains (currently: 6 programming language baselines + 7 advanced versions). Uses **JIT sub-files** pattern for token efficiency.
 
 See [skills/INDEX.md](./skills/INDEX.md) for complete registry.
 
 ### **personas/** - Role Definitions
 
-Defines specific AI agent personas with behaviors, constraints, and communication styles:
-
-- Role-specific prompts and instructions
-- Decision-making frameworks
-- Tone and communication guidelines
-- Trigger conditions for activation
+Defines specific AI agent personas with behaviors, constraints, and trigger conditions.
 
 See [personas/INDEX.md](./personas/INDEX.md) for available personas.
 
-### **templates/** - Reusable File Templates (8 files)
+### **templates/** - Reusable File Templates
 
-Standard templates for generating new artifacts:
+Standard blueprints for generating new artifacts (`ADR`, `AGENTS`, `CARD`, `SKILL`, etc.) and monitoring reports.
 
-- `ADR.template.md` - Architecture Decision Records
-- `AGENTS.template.md` - Agent bootstrap files
-- `CARD.template.md` - Feature cards
-- `INDEX.template.md` - Directory indices
-- `MEMORY.template.md` - Memory files
-- `SKILL.template.md` - New skills
-- `TEST-PLAN.template.md` - Test planning
-- Standard section headers and metadata patterns
+See [templates/INDEX.md](./templates/INDEX.md) for details.
 
-### **tools/** - Helper Scripts (8 tools)
+### **tools/** - Helper Scripts
 
 Automation scripts for humans and agents (optional):
+- **JS Tools:** `brain.js`, `jit-loader.js` (Routing & Loading)
+- **Shell Tools:** `setup`, `sync`, `validate`
 
-- `brain.js` - Main CLI for artifact generation
-- `input-classifier.js` - Classify user requests
-- `jit-loader.js` - Load skills intelligently
-- `tier-system.js` - Manage skill tiers
-- `setup-promptos-brain.sh` / `.ps1` - Installation scripts
-- `sync-constitution.ps1` - Sync rules across project
-- `validate-skill.ps1` - Validate new skills
+See [tools/INDEX.md](./tools/INDEX.md) for details.
 
-See [tools/README.md](./tools/README.md) for details.
+### **scripts/** - Validation
 
-### **prompts/** - AI Generation Prompts (3 files)
-
-Prompts used to generate skills, personas, and research workflows:
-
-- `skill-generator-prompt.md` - Generate new skills
-- `persona-generator-prompt.md` - Generate personas
-- `research-pipeline-prompt.md` - Research workflow
-
-These are used by `.prompt-os/core/PERSONA-GENERATOR.md` and WEB-RESEARCH.md.
-
-### **checklists/** - Protocol Checklists (1 file)
-
-Execution checklists for complex protocols:
-
-- `PROTOCOL-APPLICATION.md` - Human-readable checklist for mandatory protocols
-
-### **docs/** - Internal Documentation (2 files)
-
-Governance and maintenance guides:
-
-- `INDEX-MAINTENANCE.md` - How to maintain INDEX.md files
-- `SKILL-GOVERNANCE.md` - Rules for creating/updating skills
-
-### **scripts/** - Validation & Utilities (3+ files)
-
-Developer tools for validation:
-
-- `validate-indices.py` / `.sh` - Verify INDEX.md consistency
-- `pre-commit-hook.template` - Git hook template
-- `README-validate-indices.md` - Documentation
+Developer tools for verifying system integrity:
+- `validate-indices.py` - Verify INDEX.md consistency
 
 ---
 
@@ -153,7 +94,7 @@ Developer tools for validation:
 
 ### For Humans
 
-- **System Architecture** → `docs/SKILL-GOVERNANCE.md`
+- **System Architecture** → `core/governance/SKILL-GOVERNANCE.md`
 - **Create new skill** → Use `tools/brain.js` or `templates/SKILL.template.md`
 - **Understand memory** → `core/MEMORY-MANAGEMENT.md`
 - **Validate files** → Run `scripts/validate-indices.py`
@@ -170,8 +111,7 @@ Developer tools for validation:
 
 ### Constitution (Rules)
 
-Three-tier rule hierarchy:
-
+Three-tier rule hierarchy defined in `CONSTITUTION.md`:
 - **T0** (Inviolable) - Never break (security, human approval)
 - **T1** (Strong) - Rarely break (SOLID principles, testing)
 - **T2** (Convention) - Flexible (naming, commit style)
@@ -179,7 +119,6 @@ Three-tier rule hierarchy:
 ### Protocols
 
 Six mandatory protocols for artifact generation:
-
 1. **AUTO-INCREMENT** - Check for duplicates
 2. **GENERATE** - Create artifact
 3. **SELF-CRITIQUE** - Score 0-100
@@ -187,13 +126,7 @@ Six mandatory protocols for artifact generation:
 5. **COMMIT** - Write files
 6. **MEMORY-MANAGEMENT** - Update state
 
-### JIT Loading
-
-Load only 2-5 relevant skills per task (not all 13+). Saves tokens and improves focus.
-
 ### Memory Architecture
-
-Three-layer system:
 
 - **MEMORY.md** - Aggregate stats + recent sessions (concise)
 - **memory/{agent}-memory.md** - Agent-specific details
@@ -201,39 +134,13 @@ Three-layer system:
 
 ---
 
-## File Metadata
-
-| File | Size | Purpose | Tags |
-|------|------|---------|------|
-| PROMPTOS.md | 7.2KB | System entry point | entry-point, rules |
-| CONSTITUTION.md | 15KB | Compliance rules | governance, rules |
-| MEMORY.md | 8KB | Project state | state, memory |
-| INDEX.md | 12KB | Master registry | index, navigation |
-
----
-
-## Statistics
-
-| Metric | Value |
-|--------|-------|
-| Total Files | 45+ |
-| Core Protocols | 9 |
-| Skills | 13 (6 baselines + 7 advanced) |
-| Templates | 8 |
-| Tools | 8 |
-| Prompts | 3 |
-| Checklists | 1 |
-
----
-
 ## Version & Maintenance
 
 - **Version**: 2.2.0
-- **Last Updated**: 2026-02-03
 - **Status**: Production ready
 - **Next Phase**: v2.3.0 (advanced personas, expanded skills)
 
-Maintained by the PromptOS team. See `docs/INDEX-MAINTENANCE.md` for contribution guidelines.
+Maintained by the PromptOS team. See `core/governance/INDEX-MAINTENANCE.md` for contribution guidelines.
 
 ---
 
