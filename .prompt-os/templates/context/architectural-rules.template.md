@@ -1,3 +1,8 @@
+---
+name: templates-context-architectural-rules-template
+description: "Regras de Arquitetura: {PROJECT_NAME}"
+---
+
 # Regras de Arquitetura: {PROJECT_NAME}
 
 ## T0 - Regras Invioláveis

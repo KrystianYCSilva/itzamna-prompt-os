@@ -1,3 +1,8 @@
+---
+name: core-governance-skill-governance
+description: "SKILL-GOVERNANCE.md - Governança de Skills"
+---
+
 # SKILL-GOVERNANCE.md - Governança de Skills
 
 **Versão:** 1.0  

@@ -1,3 +1,8 @@
+---
+name: core-self-critique
+description: "SELF-CRITIQUE - Auto-Avaliacao"
+---
+
 # SELF-CRITIQUE - Auto-Avaliacao
 
 > **Instrucoes para voce (agente de IA) avaliar seu proprio trabalho.**  

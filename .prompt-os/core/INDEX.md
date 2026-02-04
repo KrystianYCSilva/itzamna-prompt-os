@@ -1,3 +1,8 @@
+---
+name: core-index
+description: ".prompt-os/core/INDEX.md - Master Index"
+---
+
 # .prompt-os/core/INDEX.md - Master Index
 
 > **Master registry of all 12 core protocols + 6 subdirectories.**  

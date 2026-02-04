@@ -1,3 +1,8 @@
+---
+name: core-memory-management
+description: "MEMORY-MANAGEMENT - Gestão de Memória Distribuída"
+---
+
 # MEMORY-MANAGEMENT - Gestão de Memória Distribuída
 
 > **Protocolo para criar, atualizar e gerenciar a memória do sistema.**  

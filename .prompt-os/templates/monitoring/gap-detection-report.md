@@ -1,3 +1,8 @@
+---
+name: templates-monitoring-gap-detection-report
+description: "Gap Detection Report Template"
+---
+
 # Gap Detection Report Template
 
 **Period:** YYYY-MM-DD to YYYY-MM-DD  

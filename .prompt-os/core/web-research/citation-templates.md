@@ -1,3 +1,8 @@
+---
+name: core-web-research-citation-templates
+description: "Citation Templates"
+---
+
 # Citation Templates
 
 **Protocol**: WEB-RESEARCH Enhancement  

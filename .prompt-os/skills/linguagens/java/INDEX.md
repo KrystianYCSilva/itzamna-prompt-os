@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-java-index
+description: "INDEX: Java"
+---
+
 # INDEX: Java
 
 > Enterprise language built on the JVM, emphasizing platform independence, strong typing, and mature ecosystem. Covers Java 8 through Java 23 with version-specific features.

@@ -1,3 +1,8 @@
+---
+name: core-web-research-gap-detection
+description: "Gap Detection"
+---
+
 # Gap Detection
 
 **Protocol**: WEB-RESEARCH Enhancement  

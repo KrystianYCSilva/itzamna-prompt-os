@@ -1,3 +1,8 @@
+---
+name: templates-test-plan-template
+description: "Plano de Testes: {Feature}"
+---
+
 # Plano de Testes: {Feature}
 
 ---

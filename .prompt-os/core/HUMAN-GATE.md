@@ -1,3 +1,8 @@
+---
+name: core-human-gate
+description: "HUMAN GATE - Aprovacao Humana"
+---
+
 # HUMAN GATE - Aprovacao Humana
 
 > **Protocolo para apresentar artefatos gerados ao humano para aprovacao.**  

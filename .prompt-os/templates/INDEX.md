@@ -1,3 +1,8 @@
+---
+name: templates-index
+description: "INDEX: Templates"
+---
+
 # INDEX: Templates
 
 > Collection of reusable Markdown templates for PromptOS artifacts, skills, context documents, monitoring reports, and quality assurance plans.

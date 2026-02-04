@@ -1,3 +1,8 @@
+---
+name: templates-context-project-overview-template
+description: "Visão Geral do Projeto: {PROJECT_NAME}"
+---
+
 # Visão Geral do Projeto: {PROJECT_NAME}
 
 ## 1. Objetivo

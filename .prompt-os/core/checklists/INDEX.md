@@ -1,3 +1,8 @@
+---
+name: core-checklists-index
+description: "INDEX: Checklists"
+---
+
 # INDEX: Checklists
 
 > Operational checklists for PromptOS protocol application and artifact generation. Single comprehensive checklist for protocol compliance.

@@ -1,3 +1,8 @@
+---
+name: prompt-os-readme
+description: ".prompt-os/ - AI System Core"
+---
+
 # .prompt-os/ - AI System Core
 
 > **The heart of PromptOS**: Markdown-based configuration, protocols, and automation for AI agents.  

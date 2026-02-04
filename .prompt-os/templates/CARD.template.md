@@ -1,3 +1,8 @@
+---
+name: templates-card-template
+description: "CARD-{ID}: {Título}"
+---
+
 # CARD-{ID}: {Título}
 **Épico: {Nome do Épico}**
 

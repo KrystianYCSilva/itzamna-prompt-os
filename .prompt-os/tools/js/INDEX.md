@@ -1,3 +1,8 @@
+---
+name: tools-js-index
+description: "INDEX: JavaScript Tools"
+---
+
 # INDEX: JavaScript Tools
 
 > 4 Node.js-based utilities for intelligent task routing, input classification, JIT protocol loading, and tier system management.

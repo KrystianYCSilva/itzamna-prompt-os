@@ -1,3 +1,8 @@
+---
+name: templates-adr-template
+description: "ADR-{ID}: {Título da Decisão}"
+---
+
 # ADR-{ID}: {Título da Decisão}
 
 ---

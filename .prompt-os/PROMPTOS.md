@@ -1,3 +1,8 @@
+---
+name: prompt-os-promptos
+description: "ITZAMNA PROMPTOS v2.3.0-dev"
+---
+
 # ITZAMNA PROMPTOS v2.3.0-dev
 
 > **Sistema de Prompts para Programacao Assistida por IA**  

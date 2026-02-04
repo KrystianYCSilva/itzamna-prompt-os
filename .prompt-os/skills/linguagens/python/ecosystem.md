@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-python-ecosystem
+description: "Python Ecosystem — Detalhes (JIT)"
+---
+
 # Python Ecosystem — Detalhes (JIT)
 
 > **Load JIT quando:** Precisa entender pip, PyPI, virtual environments, ou frameworks populares  

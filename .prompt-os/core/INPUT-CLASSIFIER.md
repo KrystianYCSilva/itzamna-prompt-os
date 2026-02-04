@@ -1,3 +1,8 @@
+---
+name: core-input-classifier
+description: "INPUT CLASSIFIER - Classificacao de Pedidos"
+---
+
 # INPUT CLASSIFIER - Classificacao de Pedidos
 
 > **Use este arquivo para classificar o pedido do usuario.**  

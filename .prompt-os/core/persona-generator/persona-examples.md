@@ -1,3 +1,8 @@
+---
+name: core-persona-generator-persona-examples
+description: "JIT-004: Persona Examples"
+---
+
 # JIT-004: Persona Examples
 
 > **3 complete worked examples demonstrating persona generation.**  

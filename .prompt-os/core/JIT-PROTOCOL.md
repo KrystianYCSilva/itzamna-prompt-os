@@ -1,3 +1,8 @@
+---
+name: core-jit-protocol
+description: "JIT PROTOCOL - Just-In-Time Loading"
+---
+
 # JIT PROTOCOL - Just-In-Time Loading
 
 > **Instrucoes para carregar contexto de forma eficiente.**  

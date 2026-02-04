@@ -1,3 +1,8 @@
+---
+name: scripts-readme-validate-indices
+description: "INDEX Validation Script"
+---
+
 # INDEX Validation Script
 
 > **Automated validation for INDEX.md integrity.**  

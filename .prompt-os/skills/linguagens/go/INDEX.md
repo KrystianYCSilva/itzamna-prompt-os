@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-go-index
+description: "INDEX: Go"
+---
+
 # INDEX: Go
 
 > Systems language designed for concurrent, networked applications. Emphasizes simplicity, fast compilation, and efficient concurrency primitives (goroutines, channels).

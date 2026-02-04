@@ -1,3 +1,8 @@
+---
+name: core-prompts-research-pipeline-prompt
+description: "🔍 RESEARCH PIPELINE - Meta-Prompt v2.0"
+---
+
 # 🔍 RESEARCH PIPELINE - Meta-Prompt v2.0
 
 > **Purpose:** Pesquisar e compilar informações antes de gerar skills/personas

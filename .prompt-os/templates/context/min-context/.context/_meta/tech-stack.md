@@ -1,3 +1,8 @@
+---
+name: templates-context-min-context-context-meta-tech-stack
+description: "Tech Stack: {PROJECT_NAME}"
+---
+
 # Tech Stack: {PROJECT_NAME}
 
 ## Backend

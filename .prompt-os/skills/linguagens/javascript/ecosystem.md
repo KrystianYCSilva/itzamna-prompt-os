@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-javascript-ecosystem
+description: "JavaScript Ecosystem - Runtimes, Modules, npm"
+---
+
 # JavaScript Ecosystem - Runtimes, Modules, npm
 
 > **Load JIT quando:** Precisa entender execução JavaScript (browsers vs Node.js), módulos ou package management

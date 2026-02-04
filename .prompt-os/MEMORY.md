@@ -1,3 +1,8 @@
+---
+name: prompt-os-memory
+description: "PROJECT MEMORY"
+---
+
 # PROJECT MEMORY
 
 > **Estado atual do projeto.**  

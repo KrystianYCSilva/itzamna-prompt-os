@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-python-index
+description: "INDEX: Python"
+---
+
 # INDEX: Python
 
 > High-level, dynamic language for web development, data science, automation, and scripting. Emphasizes readability, rapid development, and rich ecosystem.

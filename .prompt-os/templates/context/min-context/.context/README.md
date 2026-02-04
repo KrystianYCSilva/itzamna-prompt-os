@@ -1,3 +1,8 @@
+---
+name: templates-context-min-context-context-readme
+description: ".context/ - AI Context Hub"
+---
+
 # .context/ - AI Context Hub
 
 > **Projeto:** {PROJECT_NAME}

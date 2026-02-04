@@ -1,3 +1,8 @@
+---
+name: core-prompts-index
+description: "INDEX: Prompts"
+---
+
 # INDEX: Prompts
 
 > Strategic AI prompts for agent initialization and complex workflows: persona generation, research pipeline, and skill definition.

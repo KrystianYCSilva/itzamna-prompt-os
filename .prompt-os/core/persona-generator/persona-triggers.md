@@ -1,3 +1,8 @@
+---
+name: core-persona-generator-persona-triggers
+description: "JIT-003: Persona Trigger Generation"
+---
+
 # JIT-003: Persona Trigger Generation
 
 > **Trigger generation algorithm and conflict detection rules.**  

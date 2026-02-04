@@ -1,3 +1,8 @@
+---
+name: core-auto-increment
+description: "AUTO-INCREMENT - Evolucao Autonoma do Sistema"
+---
+
 # AUTO-INCREMENT - Evolucao Autonoma do Sistema
 
 > **Instrucoes para voce (agente de IA) evoluir o PromptOS ao longo do tempo.**  

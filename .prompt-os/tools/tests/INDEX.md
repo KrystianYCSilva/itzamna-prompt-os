@@ -1,3 +1,8 @@
+---
+name: tools-tests-index
+description: "INDEX: Tests"
+---
+
 # INDEX: Tests
 
 > Comprehensive test suite for PromptOS tools: CLI tools, JavaScript utilities, and validation helpers.

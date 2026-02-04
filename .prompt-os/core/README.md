@@ -1,3 +1,8 @@
+---
+name: core-readme
+description: ".prompt-os/core/ - The Heart of PromptOS"
+---
+
 # .prompt-os/core/ - The Heart of PromptOS
 
 > **Phase 2: Core Hub Documentation**  

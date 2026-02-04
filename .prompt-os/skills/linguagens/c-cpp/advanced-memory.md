@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-c-cpp-advanced-memory
+description: "Advanced Memory Management - C/C++"
+---
+
 # Advanced Memory Management - C/C++
 
 > **Load JIT quando:** Precisa diagnosticar problemas de memória ou otimizar uso de memória

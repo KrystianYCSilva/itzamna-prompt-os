@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base-similarity-scoring
+description: "Similarity Scoring — Multi-Signal Rubric"
+---
+
 # Similarity Scoring — Multi-Signal Rubric
 
 > **JIT sub-file de KNOWLEDGE-BASE.md**  

@@ -1,3 +1,8 @@
+---
+name: core-governance-index
+description: "INDEX: Governance"
+---
+
 # INDEX: Governance
 
 > Internal governance standards for PromptOS: INDEX.md maintenance guidelines and SKILL governance policies.

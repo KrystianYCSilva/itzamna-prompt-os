@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-index
+description: "INDEX: Linguagens de Programação"
+---
+
 # INDEX: Linguagens de Programação
 
 > Curated skill collection for 6 programming languages used in PromptOS. Each language has a baseline SKILL.md and specialized advanced modules for version-specific features or deep dives.

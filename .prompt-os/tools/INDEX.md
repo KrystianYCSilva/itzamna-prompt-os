@@ -1,3 +1,8 @@
+---
+name: tools-index
+description: "INDEX: Tools"
+---
+
 # INDEX: Tools
 
 > Collection of automation scripts for PromptOS: CLI tools, protocol loaders, validation helpers, and setup utilities.

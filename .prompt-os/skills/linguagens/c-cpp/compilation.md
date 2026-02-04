@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-c-cpp-compilation
+description: "Compilação C/C++ - Processo Detalhado"
+---
+
 # Compilação C/C++ - Processo Detalhado
 
 > **Load JIT quando:** Precisa entender como C/C++ transforma código-fonte em executável

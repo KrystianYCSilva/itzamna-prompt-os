@@ -1,3 +1,8 @@
+---
+name: templates-context-complete-context-context-standards-testing-strategy
+description: "Estrategia de Testes: {PROJECT_NAME}"
+---
+
 # Estrategia de Testes: {PROJECT_NAME}
 
 ## 1. Objetivos

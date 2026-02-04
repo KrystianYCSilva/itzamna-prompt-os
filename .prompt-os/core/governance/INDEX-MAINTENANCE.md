@@ -1,3 +1,8 @@
+---
+name: core-governance-index-maintenance
+description: "INDEX Maintenance Guide"
+---
+
 # INDEX Maintenance Guide
 
 > **Guia para atualizar INDEX.md files de forma segura.**  

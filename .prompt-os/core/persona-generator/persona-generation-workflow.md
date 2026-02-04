@@ -1,3 +1,8 @@
+---
+name: core-persona-generator-persona-generation-workflow
+description: "JIT-001: Persona Generation Workflow"
+---
+
 # JIT-001: Persona Generation Workflow
 
 > **Detailed 6-phase workflow for generating personas.**  

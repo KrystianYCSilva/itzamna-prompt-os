@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-c-cpp-build-tools
+description: "Build Tools C/C++ - Make, CMake e Package Managers"
+---
+
 # Build Tools C/C++ - Make, CMake e Package Managers
 
 > **Load JIT quando:** Precisa configurar build systems ou gerenciar dependências C/C++

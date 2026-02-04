@@ -1,3 +1,8 @@
+---
+name: core-persona-generator-index
+description: ".prompt-os/core/persona-generator/INDEX.md - Persona Generation Guide"
+---
+
 # .prompt-os/core/persona-generator/INDEX.md - Persona Generation Guide
 
 > **Create specialized AI personas from skills: behavioral traits, triggers, and decision-making rules.**  

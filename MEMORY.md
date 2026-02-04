@@ -2,9 +2,9 @@
 
 **Ultima Atualizacao:** 2026-02-04
 **Versao:** 2.3.0-dev
-**Sessoes Totais:** 30
-**Spec Atual:** v2.3.0-dev | SPEC-011 (Slash Command Aliases) ✅ **PRODUCTION READY**
-**Feature Branch:** 011-slash-command-aliases (Complete - Ready to merge)
+**Sessoes Totais:** 31
+**Spec Atual:** v2.3.0-dev | SPEC-012 (Language Ecosystem & New Baselines) 📝 **Specification Phase**
+**Feature Branch:** 012-ecosystem-languages (Active)
 
 ---
 
@@ -22,8 +22,8 @@
 | Categorias | 1 (linguagens) |
 | Core Protocols | 12 + 4 JIT web-research + 4 JIT knowledge-base = 20 total |
 | SPECs Completas | 9 (001, 002, 003, 004, 005, 006, 007, 010, 011) |
-| SPECs em Especificacao | - |
-| Ultima Geracao | 2026-02-04 (SPEC-011 Implementation) |
+| SPECs em Especificacao | 012-ecosystem-languages (Spec phase complete) |
+| Ultima Geracao | 2026-02-04 (SPEC-012 Specification) |
 
 ---
 
@@ -31,6 +31,8 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-04 | docs | Metadados YAML adicionados e nomes corrigidos em .prompt-os; relatorio de sessao gerado | ✅ complete |
+| 2026-02-04 | spec     | SPEC-012 Language Ecosystem & New Baselines - Specification created  | ✅ complete              |
 | 2026-02-04 | impl     | SPEC-011 Slash Command Aliases - Full implementation                | ✅ complete              |
 | 2026-02-04 | fix      | Systematic .prompt-os/ audit — 12 files fixed (versions, links, counts) | ✅ complete              |
 | 2026-02-04 | sync     | Context and indices synchronization (#sync)          | ✅ complete              |
@@ -83,6 +85,34 @@
 ---
 
 ## Notas da Sessao
+
+### Sessao 30 (2026-02-04) - SPEC-012 Specification Created 📝
+
+**Feature: Language Ecosystem & New Baselines — ✅ SPECIFICATION COMPLETE**
+
+- **Phase**: Specification Phase
+- **Based on**: v2.3.0 Plan (Ecosystem sub-files + New baselines)
+- **Actions**:
+  - ✅ **Branch Created**: `012-ecosystem-languages` checked out from main
+  - ✅ **Spec Document**: Created comprehensive spec.md with 3 user stories
+  - ✅ **Checklist**: requirements.md with 16/16 items validated
+  - ✅ **User Stories**: P1 (Ecosystem), P2 (New Baselines), P3 (Version-specific)
+  - ✅ **Requirements**: 12 functional requirements defined
+  - ✅ **Success Criteria**: 10 measurable outcomes defined
+- **Deliverables**:
+  - **Ecosystem Files**: Go, Python, JavaScript framework guidance
+  - **New Baselines**: Rust, TypeScript, Ruby core skills
+  - **Advanced Skills**: Go 1.18+, Python 3.10+, ES2023+ features
+- **Targets**:
+  - Language baselines: 6 → 9 (50% expansion)
+  - Total skills: 13 → 22 (+9 new)
+  - Maintain ≥ 95 Self-Critique average
+  - Zero T0 violations
+- **Estimated Effort**: 5-7 days
+- **Dependencies**: SPEC-003 (research), SPEC-010 (baseline template)
+- **Status**: ✅ Ready for `/speckit.plan`
+
+---
 
 ### Sessao 30 (2026-02-04) - SPEC-011 Final Completion 🎯
 

@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-javascript-index
+description: "INDEX: JavaScript"
+---
+
 # INDEX: JavaScript
 
 > Multi-paradigm language for web, servers, and automation. Covers ES2020+ standards, async/await, modules, DOM APIs, and popular frameworks ecosystem.

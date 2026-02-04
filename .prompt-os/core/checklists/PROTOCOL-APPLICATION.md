@@ -1,3 +1,8 @@
+---
+name: core-checklists-protocol-application
+description: "Checklist de Aplicacao de Protocolos"
+---
+
 # Checklist de Aplicacao de Protocolos
 
 > **Guia passo-a-passo para agentes aplicarem protocolos corretamente.**  

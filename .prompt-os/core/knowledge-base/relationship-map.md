@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base-relationship-map
+description: "Relationship Map — Skill Graph"
+---
+
 # Relationship Map — Skill Graph
 
 > **JIT sub-file de KNOWLEDGE-BASE.md**  

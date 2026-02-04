@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-kotlin-index
+description: "INDEX: Kotlin"
+---
+
 # INDEX: Kotlin
 
 > JVM language designed for interoperability with Java, modern syntax, null safety, and functional programming. Covers Kotlin 1.x and 2.x with paradigm-specific modules.

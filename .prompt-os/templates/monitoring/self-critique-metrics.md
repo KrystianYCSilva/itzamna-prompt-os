@@ -1,3 +1,8 @@
+---
+name: templates-monitoring-self-critique-metrics
+description: "Self-Critique Metrics Report Template"
+---
+
 # Self-Critique Metrics Report Template
 
 **Period:** YYYY-MM-DD to YYYY-MM-DD  

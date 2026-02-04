@@ -1,3 +1,8 @@
+---
+name: core-web-research-tier-system
+description: "Tier System"
+---
+
 # Tier System
 
 **Protocol**: WEB-RESEARCH Enhancement  

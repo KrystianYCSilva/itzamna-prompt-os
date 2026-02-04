@@ -1,3 +1,8 @@
+---
+name: templates-context-tech-stack-template
+description: "Tech Stack: {PROJECT_NAME}"
+---
+
 # Tech Stack: {PROJECT_NAME}
 
 ## Backend

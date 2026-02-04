@@ -1,3 +1,8 @@
+---
+name: templates-agents-template
+description: "🧠 AGENTS.md - PromptOS Brain v2.2"
+---
+
 # 🧠 AGENTS.md - PromptOS Brain v2.2
 
 > **Kernel Version:** 2.2.0 | **Updated:** 2026-02-04

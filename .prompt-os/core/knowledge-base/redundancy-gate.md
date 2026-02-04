@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base-redundancy-gate
+description: "Redundancy Gate — Two-Tier Detection"
+---
+
 # Redundancy Gate — Two-Tier Detection
 
 > **JIT sub-file de KNOWLEDGE-BASE.md**  

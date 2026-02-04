@@ -1,3 +1,8 @@
+---
+name: core-web-research-source-validation-rules
+description: "Source Validation Rules"
+---
+
 # Source Validation Rules
 
 **Protocol**: WEB-RESEARCH Enhancement  

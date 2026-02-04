@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base-rag-workflow
+description: "RAG Workflow — Retrieve → Augment → Generate"
+---
+
 # RAG Workflow — Retrieve → Augment → Generate
 
 > **JIT sub-file de KNOWLEDGE-BASE.md**  

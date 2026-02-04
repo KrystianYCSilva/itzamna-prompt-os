@@ -1,3 +1,8 @@
+---
+name: skills-linguagens-c-cpp-index
+description: "INDEX: C/C++"
+---
+
 # INDEX: C/C++
 
 > Systems programming language with manual memory management, compiled to native code. Deep expertise in memory safety, build systems, and performance optimization.

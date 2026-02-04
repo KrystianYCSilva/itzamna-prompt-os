@@ -1,3 +1,8 @@
+---
+name: templates-context-complete-context-context-standards-architectural-rules
+description: "Regras de Arquitetura: {PROJECT_NAME}"
+---
+
 # Regras de Arquitetura: {PROJECT_NAME}
 
 > **Tier:** T0 (Enforcement)

@@ -1,3 +1,8 @@
+---
+name: templates-context-complete-context-context-meta-key-decisions
+description: "Decisoes Arquiteturais: {PROJECT_NAME}"
+---
+
 # Decisoes Arquiteturais: {PROJECT_NAME}
 
 > Consolidado de ADRs e decisoes chave.

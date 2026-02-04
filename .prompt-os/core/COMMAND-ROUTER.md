@@ -1,3 +1,8 @@
+---
+name: core-command-router
+description: "COMMAND ROUTER PROTOCOL"
+---
+
 # COMMAND ROUTER PROTOCOL
 
 > **Version:** 0.2.0 (Draft)

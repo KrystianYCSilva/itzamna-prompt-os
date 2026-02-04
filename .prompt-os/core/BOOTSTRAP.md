@@ -1,3 +1,8 @@
+---
+name: core-bootstrap
+description: "BOOTSTRAP - Init de Projeto (via Chat)"
+---
+
 # BOOTSTRAP - Init de Projeto (via Chat)
 
 > **Versao:** 1.0.0

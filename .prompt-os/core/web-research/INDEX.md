@@ -1,3 +1,8 @@
+---
+name: core-web-research-index
+description: ".prompt-os/core/web-research/INDEX.md - Web Research & Source Validation Guide"
+---
+
 # .prompt-os/core/web-research/INDEX.md - Web Research & Source Validation Guide
 
 > **Web research, source classification, and citation validation.**  

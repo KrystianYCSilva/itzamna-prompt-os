@@ -1,3 +1,8 @@
+---
+name: templates-context-complete-context-context-meta-project-overview
+description: "Visao Geral do Projeto: {PROJECT_NAME}"
+---
+
 # Visao Geral do Projeto: {PROJECT_NAME}
 
 ## 1. Objetivo

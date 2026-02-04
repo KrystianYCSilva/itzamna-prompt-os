@@ -1,3 +1,8 @@
+---
+name: prompt-os-constitution
+description: "CONSTITUTION - Regras do PromptOS"
+---
+
 # CONSTITUTION - Regras do PromptOS
 
 > **Voce (agente de IA) DEVE seguir estas regras ao auxiliar o desenvolvedor.**  

@@ -1,3 +1,8 @@
+---
+name: tools-ps1-index
+description: "INDEX: PowerShell Tools"
+---
+
 # INDEX: PowerShell Tools
 
 > 3 Windows automation scripts for PromptOS environment setup, CONSTITUTION synchronization, and SKILL validation.

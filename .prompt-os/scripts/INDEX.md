@@ -1,3 +1,8 @@
+---
+name: scripts-index
+description: "INDEX: Scripts"
+---
+
 # INDEX: Scripts
 
 > Validation and automation scripts for PromptOS INDEX.md integrity checks and repository maintenance.

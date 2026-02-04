@@ -1,3 +1,8 @@
+---
+name: tools-tests-readme
+description: "Test Suite for PromptOS Tools"
+---
+
 # Test Suite for PromptOS Tools
 
 This directory contains test suites for all the tools in the PromptOS system.

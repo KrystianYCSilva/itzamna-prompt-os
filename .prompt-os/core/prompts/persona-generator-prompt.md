@@ -1,3 +1,8 @@
+---
+name: core-prompts-persona-generator-prompt
+description: "👤 PERSONA GENERATOR - Meta-Prompt v2.0"
+---
+
 # 👤 PERSONA GENERATOR - Meta-Prompt v2.0
 
 > **Purpose:** Gerar personas composáveis para o PromptOS

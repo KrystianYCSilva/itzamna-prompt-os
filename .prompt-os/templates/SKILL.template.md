@@ -1,3 +1,8 @@
+---
+name: templates-skill-template
+description: "📄 SKILL.md Template"
+---
+
 # 📄 SKILL.md Template
 
 > **Location:** `/skills/{skill-name}/SKILL.md`

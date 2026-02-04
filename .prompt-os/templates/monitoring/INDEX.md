@@ -1,3 +1,8 @@
+---
+name: templates-monitoring-index
+description: "INDEX: monitoring"
+---
+
 # INDEX: monitoring
 
 > Monitoring and metrics templates for tracking PromptOS evolution, quality, and decision outcomes.

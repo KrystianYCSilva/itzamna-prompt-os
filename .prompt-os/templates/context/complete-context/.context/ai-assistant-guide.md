@@ -1,3 +1,8 @@
+---
+name: templates-context-complete-context-context-ai-assistant-guide
+description: "AI Assistant Guide — T0 Authority"
+---
+
 # AI Assistant Guide — T0 Authority
 
 > **Tier:** T0 (Enforcement) — Fonte de verdade para regras, links e protocolos.

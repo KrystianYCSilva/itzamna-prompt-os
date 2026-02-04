@@ -1,3 +1,8 @@
+---
+name: templates-memory-template
+description: "📝 MEMORY.md - PromptOS State v2.0"
+---
+
 # 📝 MEMORY.md - PromptOS State v2.0
 
 > **Version:** 2.0.0 | **Last Updated:** {TIMESTAMP}

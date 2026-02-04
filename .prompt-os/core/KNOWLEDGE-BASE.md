@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base
+description: "KNOWLEDGE-BASE - Gestao de Conhecimento"
+---
+
 # KNOWLEDGE-BASE - Gestao de Conhecimento
 
 > **Instrucoes para voce (agente de IA) gerenciar e acessar o conhecimento do PromptOS.**  

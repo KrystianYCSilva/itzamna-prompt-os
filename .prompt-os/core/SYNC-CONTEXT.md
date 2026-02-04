@@ -1,3 +1,8 @@
+---
+name: core-sync-context
+description: "SYNC-CONTEXT - Sincronizacao de Contexto e Indices"
+---
+
 # SYNC-CONTEXT - Sincronizacao de Contexto e Indices
 
 > **Versao:** 1.0.0

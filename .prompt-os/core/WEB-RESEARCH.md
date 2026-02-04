@@ -1,3 +1,8 @@
+---
+name: core-web-research
+description: "WEB-RESEARCH - Pesquisa na Web"
+---
+
 # WEB-RESEARCH - Pesquisa na Web
 
 > **Instrucoes para voce (agente de IA) fazer pesquisa na web.**  

@@ -1,3 +1,8 @@
+---
+name: core-workflow-orchestrator
+description: "WORKFLOW ORCHESTRATOR PROTOCOL"
+---
+
 # WORKFLOW ORCHESTRATOR PROTOCOL
 
 > **Version:** 0.1.0 (Draft)

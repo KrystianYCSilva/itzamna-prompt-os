@@ -1,3 +1,8 @@
+---
+name: core-knowledge-base-index
+description: ".prompt-os/core/knowledge-base/INDEX.md - RAG Implementation Guide"
+---
+
 # .prompt-os/core/knowledge-base/INDEX.md - RAG Implementation Guide
 
 > **Retrieval-Augmented Generation (RAG): Vector-based knowledge retrieval without hallucination.**  

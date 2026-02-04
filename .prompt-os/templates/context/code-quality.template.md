@@ -1,3 +1,8 @@
+---
+name: templates-context-code-quality-template
+description: "Padrões de Qualidade de Código: {PROJECT_NAME}"
+---
+
 # Padrões de Qualidade de Código: {PROJECT_NAME}
 
 ## 1. Estilo de Código

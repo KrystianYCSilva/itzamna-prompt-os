@@ -1,3 +1,8 @@
+---
+name: personas-index
+description: "PERSONAS INDEX"
+---
+
 # PERSONAS INDEX
 
 > **Registry de todas as personas disponiveis no PromptOS.**  

@@ -1,3 +1,8 @@
+---
+name: core-prompts-skill-generator-prompt
+description: "🔧 SKILL GENERATOR - Meta-Prompt v2.0"
+---
+
 # 🔧 SKILL GENERATOR - Meta-Prompt v2.0
 
 > **Purpose:** Gerar skills completas a partir de pesquisa

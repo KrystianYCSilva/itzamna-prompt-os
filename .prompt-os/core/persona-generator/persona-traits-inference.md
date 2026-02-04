@@ -1,3 +1,8 @@
+---
+name: core-persona-generator-persona-traits-inference
+description: "JIT-002: Persona Traits Inference"
+---
+
 # JIT-002: Persona Traits Inference
 
 > **Behavioral trait inference rules based on level and domain.**  

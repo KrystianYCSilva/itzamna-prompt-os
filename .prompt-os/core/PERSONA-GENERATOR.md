@@ -1,3 +1,8 @@
+---
+name: core-persona-generator
+description: "PERSONA-GENERATOR - Criacao de Personas"
+---
+
 # PERSONA-GENERATOR - Criacao de Personas
 
 > **Instrucoes para voce (agente de IA) criar novas personas.**  

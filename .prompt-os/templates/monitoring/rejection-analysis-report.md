@@ -1,3 +1,8 @@
+---
+name: templates-monitoring-rejection-analysis-report
+description: "Rejection Analysis Report Template"
+---
+
 # Rejection Analysis Report Template
 
 **Period:** YYYY-MM-DD to YYYY-MM-DD  

@@ -1,3 +1,8 @@
+---
+name: templates-index-template
+description: "📚 SKILLS INDEX"
+---
+
 # 📚 SKILLS INDEX
 
 > **Version:** 3.5.0 | **Last Updated:** {TIMESTAMP}

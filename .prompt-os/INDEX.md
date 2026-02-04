@@ -1,3 +1,8 @@
+---
+name: prompt-os-index
+description: ".prompt-os/ Master Index"
+---
+
 # .prompt-os/ Master Index
 
 > **Master registry of ALL files in .prompt-os/**  
