@@ -16,15 +16,16 @@ Uma skill define **COMO FAZER** algo especifico:
 
 ---
 
-## SKILLS DISPONIVEIS (5 baselines, 1 categoria)
+## SKILLS DISPONIVEIS (6 baselines, 1 categoria)
 
-### Linguagens de Programação (5 language baselines)
+### Linguagens de Programação (6 language baselines)
 
 **Baselines** - Fundamentos essenciais de cada linguagem:
 
 | Nome | Descricao | Level | Arquivo |
 |------|-----------|-------|---------|
 | c-cpp | Fundamentos de C/C++: ponteiros, memoria manual, RAII, compilacao nativa | L1 | `.prompt-os/skills/linguagens/c-cpp/SKILL.md` |
+| go | Fundamentos da linguagem Go: goroutines, channels, tipagem estatica, compilacao nativa | L1 | `.prompt-os/skills/linguagens/go/SKILL.md` |
 | java | Fundamentos da linguagem Java: tipagem estatica, GC, threads, ecossistema JVM | L1 | `.prompt-os/skills/linguagens/java/SKILL.md` |
 | javascript | Fundamentos de JavaScript: tipagem dinamica, event loop, async/await, npm | L1 | `.prompt-os/skills/linguagens/javascript/SKILL.md` |
 | kotlin | Fundamentos da linguagem Kotlin: null safety, coroutines, multiplatforma (JVM/JS/Native) | L1 | `.prompt-os/skills/linguagens/kotlin/SKILL.md` |
@@ -65,8 +66,8 @@ Algumas skills usam **sub-files** para manter o tamanho dentro do limite T0-SIZE
 
 | Metrica | Valor |
 |---------|-------|
-| Total de Skills | 5 baselines + 7 advanced = 12 |
-| Aprovadas | 12 |
+| Total de Skills | 6 baselines + 7 advanced = 13 |
+| Aprovadas | 13 |
 | Rascunho | 0 |
 | Categorias | 1 (linguagens) |
 
@@ -171,4 +172,4 @@ As 5 language baselines foram criadas via **SPEC-010: Language Skills Baseline**
 
 ---
 
-*PromptOS v2.1.0 | Atualizado: 2026-02-03 | Ready for SPEC-003*
+*PromptOS v2.1.0 | Atualizado: 2026-02-03 | SPEC-003 Complete + Go baseline added*

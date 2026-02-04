@@ -3,7 +3,7 @@
 **Ultima Atualizacao:** 2026-02-03
 **Versao:** 2.1.0
 **Sessoes Totais:** 24
-**Spec Atual:** SPEC-010 ✅ COMPLETE | SPEC-003 🟡 IN ANALYSIS (Session 24)
+**Spec Atual:** SPEC-003 ✅ COMPLETE (Session 24) + Go baseline skill approved
 
 ---
 
@@ -11,16 +11,16 @@
 
 | Metrica | Valor |
 |---------|-------|
-| Skills Totais | 11 (5 baselines + 6 advanced) |
-| Skills Approved | 11 |
+| Skills Totais | 13 (6 baselines + 7 advanced) |
+| Skills Approved | 13 |
 | Skills Draft | 0 |
-| Language Baselines | 5 (Java, Kotlin, C/C++, JavaScript, Python) |
-| Language Advanced | 6 (Java 8, Java 11, Java 17, Java 21, Java 23, Kotlin 2.x) |
+| Language Baselines | 6 (Java, Kotlin, C/C++, JavaScript, Python, **Go**) |
+| Language Advanced | 7 (Java 8/11/17/21/23, Kotlin 1.x/2.x) |
 | Personas Geradas | 0 (8 conceituais definidas, criar conforme necessidade) |
 | Taxa de Aprovacao | 100% |
 | Categorias | 1 (linguagens) |
-| Core Protocols | 9 (MEMORY-MANAGEMENT added) |
-| Ultima Geracao | 2026-02-03 (kotlin-2xx skill) |
+| Core Protocols | 9 + 4 JIT web-research = 13 total |
+| Ultima Geracao | 2026-02-03 (Go baseline skill) |
 
 ---
 
@@ -28,6 +28,15 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-03 | skill    | Go baseline (first to apply SPEC-003 protocols)                      | ✅ approved (100/100)    |
+| 2026-02-03 | spec     | SPEC-003 Web Research Protocol Enhancement (23 tasks)                | ✅ complete              |
+| 2026-02-03 | protocol | WEB-RESEARCH.md refactored (401→190 lines, 1,393 tokens)             | ✅ complete              |
+| 2026-02-03 | protocol | source-validation-rules.md (4-dimension scoring)                     | ✅ created (590 lines)   |
+| 2026-02-03 | protocol | citation-templates.md (3 formats)                                    | ✅ created (572 lines)   |
+| 2026-02-03 | protocol | tier-system.md (T1-T5 classification)                                | ✅ created (547 lines)   |
+| 2026-02-03 | protocol | gap-detection.md (AUTO-INCREMENT integration)                        | ✅ created (509 lines)   |
+| 2026-02-03 | report   | token-report.md (SC-004 verification)                                | ✅ created (367 lines)   |
+| 2026-02-03 | report   | validation-report.md (SPEC-010 retroactive testing)                  | ✅ complete (100% pass)  |
 | 2026-02-03 | analysis | SPEC-003 /speckit.analyze (cross-document consistency check)         | ✅ complete (3 fixes)    |
 | 2026-02-03 | tool     | Solution 8 - INDEX validation script (validate-indices.py)           | ✅ approved (97.5/100)   |
 | 2026-02-03 | doc      | Solution 7 - Skill Governance Document (SKILL-GOVERNANCE.md)         | ✅ created (450 lines)   |
