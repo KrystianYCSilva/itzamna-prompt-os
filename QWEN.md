@@ -43,16 +43,18 @@ Este arquivo configura o Qwen para trabalhar com Itzamna PromptOS.
 
 ---
 
-## RESUMO DO CONTEXTO (v2.1.0)
+## RESUMO DO CONTEXTO (v2.2.0)
 
 - PromptOS e **prompt-based**: core = Markdown (sem execucao obrigatoria de codigo).
 - Entry point: `.prompt-os/PROMPTOS.md`; regras em `.prompt-os/CONSTITUTION.md`.
-- Protocolos core (8): SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL.
+- Protocolos core (13): 9 main (SELF-CRITIQUE, HUMAN-GATE, AUTO-INCREMENT, WEB-RESEARCH, KNOWLEDGE-BASE, PERSONA-GENERATOR, INPUT-CLASSIFIER, JIT-PROTOCOL, MEMORY-MANAGEMENT) + 4 JIT web-research sub-files.
 - Estado persistente e historico: `MEMORY.md` (sempre manter estavel e atualizado).
-- Skills/Personas: **23 skills** em 8 categorias (18 legacy + **5 language baselines**: Java, Kotlin, C/C++, JavaScript, Python); 1 persona (ver `MEMORY.md`).
-- SPEC-010 **✅ COMPLETE**: 5 language baselines delivered (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
-- Roadmap v2.1.0 completo: SPEC-002 validada (90/90 tasks), SPEC-010 validada (5/5 skills), memoria distribuida, integracao cross-protocol.
-- **Próximo (v2.2.0)**: SPEC-003 Web Research Enhancement.
+- Skills/Personas: **13 skills** (6 baselines + 7 advanced); 1 persona (ver `MEMORY.md`).
+- Language baselines: **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**).
+- **SPEC-003 ✅ COMPLETE** (Session 24): 4-dimension scoring, citation templates, tier system, gap detection. Go skill = first SPEC-003 application (100/100).
+- **SPEC-010 ✅ COMPLETE**: 6 language baselines delivered (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
+- Roadmap v2.2.0 completo: SPEC-003 validada (23/23 tasks), Go baseline, protocols enhanced.
+- **Próximo (v2.3.0)**: Advanced features & ecosystem - ecosystem sub-files, more baselines (Rust, TypeScript).
 
 ---
 

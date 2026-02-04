@@ -12,11 +12,13 @@ Eu sou o agente de execução do **Itzamna PromptOS**. Minhas instruções mestr
 *   **Self-Critique:** Obrigatório para toda criação L2/L3 (v2.0 Enhanced).
 
 ## 3. Estado Atual (Snapshot de MEMORY.md)
-*   **Versão:** 2.1.0 (Enhanced protocols - SPEC-002 completa, SPEC-010 completa).
-*   **Skills:** 23 aprovadas (18 legacy + 5 language baselines: Java, Kotlin, C/C++, JavaScript, Python).
+*   **Versão:** 2.2.0 (SPEC-003 complete - Web Research Enhancement).
+*   **Skills:** 13 aprovadas (6 baselines + 7 advanced).
+*   **Language Baselines:** 6 (Java, Kotlin, C/C++, JavaScript, Python, **Go**).
+*   **SPEC-003:** ✅ COMPLETE - Web Research Enhancement (23/23 tasks, 4-dimension scoring, citation templates, tier system, gap detection).
 *   **SPEC-010:** ✅ COMPLETE - Language Skills Baseline (avg score 99.20/100, 0% rejections, JIT sub-files pattern proven).
-*   **Feature Recente:** `AUTO-INCREMENT.md` (Gap detection, rejection learning, proactive suggestions, evolution reports).
-*   **Próximos Passos:** SPEC-003 Web Research Enhancement (v2.2.0).
+*   **Feature Recente:** Go baseline skill (Session 24, 2026-02-03) - first to apply SPEC-003 protocols (score 100/100).
+*   **Próximos Passos:** v2.3.0 - Advanced features & ecosystem (ecosystem sub-files, more baselines: Rust, TypeScript).
 
 ## 4. Referências Rápidas de Tiers
 *   **T0 (Absoluto):** `standards/architectural-rules.md`.

@@ -262,10 +262,11 @@ Classificação detalhada: `.prompt-os/core/INPUT-CLASSIFIER.md`
 | **markup/** | markdown (L1), xml (L1), xslt (L2) |
 | **devops/** | docker (L2), git (L1) |
 | **docs/** | technical-writing (L2) |
-| **linguagens-programacao/** | java-8-orientacao-objetos (L2), **java (L2)**, **kotlin (L2)**, **c-cpp (L2)**, **javascript (L2)**, **python (L2)** |
+| **linguagens-programacao/** | java-8-orientacao-objetos (L2), **java (L2)**, **kotlin (L2)**, **c-cpp (L2)**, **javascript (L2)**, **python (L2)**, **go (L2)** |
 | **testing/** | hello-world-test (L0) |
 
-**Language Baselines (5):** Java, Kotlin, C/C++, JavaScript, Python - delivered via SPEC-010 (avg score 99.20/100, 0% rejections).
+**Language Baselines (6):** Java, Kotlin, C/C++, JavaScript, Python, **Go** - delivered via SPEC-010 (avg score 99.20/100, 0% rejections).  
+**Latest:** Go baseline skill (Session 24, 2026-02-03) - first to apply SPEC-003 protocols (score 100/100).
 
 Todas aprovadas (taxa 100%). Template canônico: `.prompt-os/templates/SKILL.template.md`
 
@@ -296,15 +297,15 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 
 ---
 
-## 12. ESTADO ATUAL DO PROJETO (v2.1.0 — Sessão 16)
+## 12. ESTADO ATUAL DO PROJETO (v2.2.0 — Sessão 24)
 
 | Métrica | Valor |
 |---------|-------|
-| Skills totais | **23** (todas aprovadas, 8 categorias) |
-| Language Baselines | **5** (Java, Kotlin, C/C++, JavaScript, Python) |
+| Skills totais | **13** (6 baselines + 7 advanced, todas aprovadas) |
+| Language Baselines | **6** (Java, Kotlin, C/C++, JavaScript, Python, **Go**) |
 | Personas geradas | 1 (senior-fullstack-developer) |
 | Personas disponíveis | 8 (no registry) |
-| Core protocols | 8 |
+| Core protocols | **13** (9 main + 4 JIT web-research) |
 | SPECs formais | 5 |
 | Agentes sincronizados | 5 (Claude, Qwen, Gemini, Cursor, OpenCode) |
 | Taxa de aprovação histórica | 100% |
@@ -313,10 +314,10 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 
 | Spec | Protocolo | Status |
 |------|-----------|--------|
-| SPEC-001 Self-Critique | `SELF-CRITIQUE.md` + `HUMAN-GATE.md` | ✅ Implementado (35/35 tasks completadas) |
-| SPEC-002 Auto-Increment | `AUTO-INCREMENT.md` | ✅ Implementado (90/90 tasks completadas, production ready) |
-| SPEC-010 Language Skills Baseline | 5 language baselines | **✅ COMPLETE** (99.20 avg score, 0% rejections, JIT sub-files pattern proven) |
-| SPEC-003 Web Research | `WEB-RESEARCH.md` | ✅ Implementado (NEXT: v2.2.0 enhancement) |
+| SPEC-001 Self-Critique | `SELF-CRITIQUE.md` + `HUMAN-GATE.md` | ✅ Implementado (35/35 tasks) |
+| SPEC-002 Auto-Increment | `AUTO-INCREMENT.md` | ✅ Implementado (90/90 tasks) |
+| **SPEC-003 Web Research** | `WEB-RESEARCH.md` + 4 JIT sub-files | **✅ COMPLETE** (23/23 tasks, Session 24) |
+| SPEC-010 Language Skills Baseline | 6 language baselines | ✅ COMPLETE (99.20 avg score, 0% rejections) |
 | SPEC-004 Vector DB/RAG | `KNOWLEDGE-BASE.md` | ⚠️ Parcial (prompt-based + tooling opcional) |
 | SPEC-005 Persona CLI | `PERSONA-GENERATOR.md` | ✅ Implementado |
 
@@ -328,16 +329,19 @@ Disponível como skills Claude Code. Ative quando esforço estimado > 5 dias:
 |--------|--------|------|
 | v1.0.0 | ✅ Completo | Piloto code-centric |
 | v2.0.0 | ✅ Completo | Arquitetura prompt-based |
-| **v2.1.0** | **✅ Completo** | Enhanced protocols — SPEC-002 validado (90/90 tasks), SPEC-010 completo (5 language baselines, 99.20 avg score), integração cross-protocol, memoria distribuída |
-| **v2.2.0** | **📋 Próximo** | Web Research Enhancement (SPEC-003) — query optimization, source ranking improvements, research workflows |
+| v2.1.0 | ✅ Completo | Enhanced protocols — SPEC-002 validado (90/90 tasks), SPEC-010 completo (5 language baselines, 99.20 avg score), integração cross-protocol, memoria distribuída |
+| **v2.2.0** | **✅ Completo** | Web Research Enhancement (SPEC-003) — 4-dimension scoring, citation templates, tier system, gap detection, Go baseline skill |
+| **v2.3.0** | **📋 Próximo** | Advanced Features & Ecosystem — ecosystem sub-files, more baselines (Rust, TypeScript), version-specific skills |
 | v3.0.0 | 📋 Planejado | Advanced RAG — embeddings, semantic search, knowledge graph |
 
-### v2.2.0 — Próximos Passos (SPEC-003)
-- [ ] Query optimization para busca web
-- [ ] Source ranking improvements
-- [ ] Research workflows enhancement
-- [ ] Performance monitoring
-- [ ] Documentation updates
+### v2.2.0 — Completado (SPEC-003 + Go Skill)
+- [x] Enhanced WEB-RESEARCH.md (refactored: 401→190 lines, 1,393 tokens)
+- [x] 4-dimension source validation (Authority 40%, Recency 30%, Completeness 20%, Relevance 10%)
+- [x] 3 citation formats (minimal/standard/detailed) with selection guidelines
+- [x] T1-T5 tier system with domain patterns and conflict resolution
+- [x] Gap detection with AUTO-INCREMENT integration
+- [x] Go baseline skill (first to apply SPEC-003 protocols, score 100/100)
+- [x] 100% citation compliance verification (5/5 SPEC-010 skills)
 
 ### v2.1.0 — Learnings (SPEC-010)
 1. **JIT sub-files pattern** proven (scores: 94→99 for C/C++, 95→99 for JavaScript)

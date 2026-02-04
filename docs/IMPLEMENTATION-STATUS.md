@@ -23,9 +23,10 @@
 |------|-----------------|----------------------|--------|
 | SPEC-001 | `self-critique.js` | `.prompt-os/core/SELF-CRITIQUE.md` | ✅ Implemented |
 | SPEC-002 | `gap-detector.js`, `rejection-learner.js`, `evolution-engine.js` | `.prompt-os/core/AUTO-INCREMENT.md` | ✅ Implemented (90/90 tasks, production ready) |
-| SPEC-003 | `search-adapter.js`, `source-parser.js`, `cache-manager.js` | `.prompt-os/core/WEB-RESEARCH.md` | ✅ Implemented |
+| SPEC-003 | `search-adapter.js`, `source-parser.js`, `cache-manager.js` | `.prompt-os/core/WEB-RESEARCH.md` + 4 JIT sub-files | ✅ Implemented (23/23 tasks, Session 24) |
 | SPEC-004 | `embedding-engine.js`, `vector-store.js`, `rag-engine.js` | `.prompt-os/core/KNOWLEDGE-BASE.md` | ✅ Implemented |
 | SPEC-005 | `skill-matcher.js`, `persona-generator.js` | `.prompt-os/core/PERSONA-GENERATOR.md` | ✅ Implemented |
+| SPEC-010 | N/A | 6 language baseline skills | ✅ Implemented (6/6 skills, 0% rejections) |
 
 ---
 
@@ -96,14 +97,29 @@ Output
 
 **Original:** API integrations with Tavily, Perplexity, caching system.
 
-**New:** Prompt instructions in `.prompt-os/core/WEB-RESEARCH.md`.
+**New:** Prompt instructions in `.prompt-os/core/WEB-RESEARCH.md` + 4 JIT sub-files.
+
+**Status:** ✅ COMPLETE (23/23 tasks, Session 24)
 
 **What Changed:**
 - ❌ No API integration scripts (many AI agents have web search built-in)
-- ✅ Instructions on HOW to research
-- ✅ Source reliability hierarchy
-- ✅ Validation checklist
-- ✅ Fallback for agents without web access
+- ✅ 4-phase workflow: Planejar → Buscar → Validar → Sintetizar
+- ✅ 4-dimension source validation (Authority 40%, Recency 30%, Completeness 20%, Relevance 10%)
+- ✅ 3 citation formats (minimal/standard/detailed) with selection guidelines
+- ✅ T1-T5 tier system (official docs → community trusted → general → forums → legacy)
+- ✅ Gap detection integration with AUTO-INCREMENT
+- ✅ Main protocol refactored (401→190 lines, 1,393 tokens, T0-SIZE-01 compliant)
+
+**JIT Sub-Files:**
+1. `source-validation-rules.md` (590 lines) - 4-dimension scoring rubric
+2. `citation-templates.md` (572 lines) - 3 citation formats
+3. `tier-system.md` (547 lines) - T1-T5 classification system
+4. `gap-detection.md` (509 lines) - AUTO-INCREMENT integration
+
+**Validation:**
+- 100% citation compliance (5/5 SPEC-010 skills retroactively tested)
+- Go baseline skill (first SPEC-003 application) scored 100/100
+- All success criteria met (SC-001 through SC-006)
 
 ---
 
