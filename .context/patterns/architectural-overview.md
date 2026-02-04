@@ -1,19 +1,19 @@
 # Architectural Overview - T1 (Blueprints)
 
 > **Tier**: T1 - Blueprints. Estes padrões arquiteturais devem ser seguidos em novas implementações.
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 
 ## Visão Geral da Arquitetura
 
-### Insight Chave (v2.1.0)
+### Insight Chave (v2.2.0)
 
 ```
 PromptOS = PROMPTS (Markdown) que AI agents LEEM e SEGUEM
          ≠ Código que executa
 
 Entry Point: .prompt-os/PROMPTOS.md
-Protocols: .prompt-os/core/*.md (8 protocolos)
-Knowledge: skills/*.md (17 skills)
+Protocols: .prompt-os/core/*.md (9 protocolos)
+Knowledge: .prompt-os/skills/*.md (13 skills)
 ```
 
 ### Diagrama de Alto Nível
@@ -34,9 +34,9 @@ Knowledge: skills/*.md (17 skills)
               ┌───────────────┼───────────────┐
               ▼               ▼               ▼
 ┌──────────────────┐ ┌──────────────┐ ┌──────────────────┐
-│ CONSTITUTION.md  │ │  core/*.md   │ │   skills/*.md    │
+│ CONSTITUTION.md  │ │  core/*.md   │ │ .prompt-os/skills/*.md │
 │   (T0 Rules)     │ │ (Protocols)  │ │  (Knowledge)     │
-│   7 princípios   │ │ 8 protocolos │ │  17 skills       │
+│   7 princípios   │ │ 9 protocolos │ │  13 skills       │
 └──────────────────┘ └──────────────┘ └──────────────────┘
                               │
                               ▼
@@ -57,10 +57,10 @@ Knowledge: skills/*.md (17 skills)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Itzamna PromptOS v2.1.0                  │
+│                    Itzamna PromptOS v2.2.0                  │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
-│  │   .prompt-os/   │  │    skills/      │  │  personas/  │ │
+│  │   .prompt-os/   │  │ .prompt-os/skills/ │  │ .prompt-os/personas/ │ │
 │  │                 │  │                 │  │             │ │
 │  │ • PROMPTOS.md   │  │ • INDEX.md      │  │ • INDEX.md  │ │
 │  │ • CONSTITUTION  │  │ • {categoria}/  │  │ • {nome}/   │ │
@@ -82,7 +82,7 @@ Knowledge: skills/*.md (17 skills)
 ### 1. Prompt-Based Architecture (CORE)
 **Objetivo**: Sistema funciona via instruções Markdown, não código executável.
 
-**Princípio v2.1.0**:
+**Princípio v2.2.0**:
 ```
 O sistema são PROMPTS que AI agents LEEM e SEGUEM.
 Não há código que precisa executar para funcionar.
@@ -168,28 +168,22 @@ Nível 3 - Skills (JIT): 2-5 skills
 **Implementação**:
 - Protocolo: `.prompt-os/core/JIT-PROTOCOL.md`
 - Classificador: `.prompt-os/core/INPUT-CLASSIFIER.md`
-- Índice: `skills/INDEX.md`
+- Índice: `.prompt-os/skills/INDEX.md`
 
 ### 5. Skills Composíveis
 **Objetivo**: Conhecimento modular reutilizável.
 
 **Características**:
-- Skills organizadas por categorias (7 categorias, 17 skills)
+- Skills organizadas por categorias (1 categoria, 13 skills)
 - Cada skill < 1400 tokens
 - YAML frontmatter para metadados
 - Exemplos obrigatórios (mínimo 2)
 
 **Estrutura**:
 ```
-skills/
+.prompt-os/skills/
 ├── INDEX.md
-├── frontend/    # HTML, CSS
-├── backend/     # API, TypeScript, GraphQL
-├── config/      # YAML, JSON, Properties
-├── markup/      # XML, XSLT, Markdown
-├── devops/      # Docker, Git
-├── docs/        # Technical Writing
-└── testing/     # Test skills
+└── linguagens/  # Java, Kotlin, C/C++, JavaScript, Python, Go
 ```
 
 ### 6. Personas Especializadas
@@ -201,8 +195,8 @@ skills/
 - Perfil de comportamento específico
 
 **Implementação**:
-- Estrutura: `personas/{nome}/PERSONA.md`
-- Índice: `personas/INDEX.md`
+- Estrutura: `.prompt-os/personas/{nome}/PERSONA.md`
+- Índice: `.prompt-os/personas/INDEX.md`
 - Referência a skills compostas
 - Gerador: `.prompt-os/core/PERSONA-GENERATOR.md`
 
@@ -333,8 +327,8 @@ Exemplo:
 |------|--------|-------------|
 | **Working** | Contexto da sessão (~16K tokens) | Context window |
 | **Episodic** | Histórico de interações | `MEMORY.md` |
-| **Semantic** | Base de conhecimento | `skills/`, `docs/` |
-| **Procedural** | Biblioteca de skills | `skills/INDEX.md` |
+| **Semantic** | Base de conhecimento | `.prompt-os/skills/`, `docs/` |
+| **Procedural** | Biblioteca de skills | `.prompt-os/skills/INDEX.md` |
 
 ### Gestão de Estado
 
@@ -357,7 +351,7 @@ MEMORY.md
 | **T0** | Enforcement | ABSOLUTA | `CONSTITUTION.md`, `architectural-rules.md` |
 | **T1** | Standards | NORMATIVA | `code-quality.md`, `patterns/` |
 | **T2** | Context | INFORMATIVA | `_meta/`, `workflows/` |
-| **T3** | Examples | ILUSTRATIVA | `examples/`, `skills/` |
+| **T3** | Examples | ILUSTRATIVA | `examples/`, `.prompt-os/skills/` |
 
 ### Resolução de Conflitos
 

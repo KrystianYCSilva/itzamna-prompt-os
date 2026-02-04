@@ -1,10 +1,10 @@
-# Itzamna PromptOS v1.0.0 - Configuracao do Sistema
+# Itzamna PromptOS v2.2.0 - Configuracao do Sistema
 # Sistema Auto-Evolutivo para Programacao Paralela Humano-Agente
 
 system:
   name: "Itzamna PromptOS"
-  version: "1.0.0"
-  description: "Sistema auto-evolutivo baseado em CoALA simplificado"
+  version: "2.2.0"
+  description: "Sistema prompt-based para programacao paralela humano-agente"
 
 # Configuracao do Workflow
 workflow:
@@ -75,18 +75,18 @@ approval:
 # Caminhos de Saida (conforme estrutura documentada)
 output:
   paths:
-    skills: "./skills"
-    personas: "./personas"
+    skills: "./.prompt-os/skills"
+    personas: "./.prompt-os/personas"
   
-  # Formato correto: skills/{name}/SKILL.md
+  # Formato correto: .prompt-os/skills/{name}/SKILL.md
   structure:
     skill: "{name}/SKILL.md"
     persona: "{name}/PERSONA.md"
   
   # Indices
   indices:
-    skills: "./skills/INDEX.md"
-    personas: "./personas/INDEX.md"
+    skills: "./.prompt-os/skills/INDEX.md"
+    personas: "./.prompt-os/personas/INDEX.md"
 
 # Memoria (conforme ARCHITECTURE.md Section 3)
 memory:
@@ -99,7 +99,7 @@ memory:
     retention_days: 90
   
   procedural:
-    path: "./skills/"
+    path: "./.prompt-os/skills/"
     index_type: "keyword"
 
 # Integracao com Spec-Kit

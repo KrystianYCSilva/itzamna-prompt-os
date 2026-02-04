@@ -9,7 +9,7 @@
  * 
  * Target: 10-16KB por tarefa (vs 50KB sem JIT = -68-76% reducao)
  * 
- * Baseado em: docs/add-core/loading-protocol.md
+ * Baseado em: .prompt-os/core/JIT-PROTOCOL.md
  */
 
 const fs = require('fs').promises;
@@ -29,16 +29,16 @@ const CONFIG = {
   ],
   
   // Level 2 - Core (por tarefa)
-  CORE_DIR: 'docs/add-core',
+  CORE_DIR: '.prompt-os/core',
   CORE_FILES: [
-    'input-classifier.md',
-    'master-router.md',
-    'tier-system.md'
+    'INPUT-CLASSIFIER.md',
+    'JIT-PROTOCOL.md',
+    'SELF-CRITIQUE.md'
   ],
   
   // Level 3 - Skills (JIT)
-  SKILLS_DIR: 'skills',
-  SKILLS_INDEX: 'skills/INDEX.md',
+  SKILLS_DIR: '.prompt-os/skills',
+  SKILLS_INDEX: '.prompt-os/skills/INDEX.md',
   MAX_SKILLS_PER_TASK: 5,
   MAX_SKILL_SIZE_KB: 2,
   

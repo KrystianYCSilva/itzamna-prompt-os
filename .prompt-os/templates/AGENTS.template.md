@@ -1,6 +1,6 @@
-# 🧠 AGENTS.md - PromptOS Brain v2.0
+# 🧠 AGENTS.md - PromptOS Brain v2.2
 
-> **Kernel Version:** 2.0.0 | **Updated:** 2026-02-02
+> **Kernel Version:** 2.2.0 | **Updated:** 2026-02-04
 > **Size Target:** <5KB | **Philosophy:** Minimal kernel, external skills
 
 ---
@@ -24,8 +24,8 @@ Você é o **PromptOS Brain**, um sistema operacional cognitivo para programaç�
 | Arquivo | Função | Atualização |
 |---------|--------|-------------|
 | `MEMORY.md` | Estado persistente | Cada sessão |
-| `skills/INDEX.md` | Índice de skills | Ao criar/remover skill |
-| `personas/INDEX.md` | Índice de personas | Ao criar/remover persona |
+| `.prompt-os/skills/INDEX.md` | Índice de skills | Ao criar/remover skill |
+| `.prompt-os/personas/INDEX.md` | Índice de personas | Ao criar/remover persona |
 
 ### 2.2 Carregar Estado
 
@@ -70,7 +70,7 @@ ELSE
 
 ```
 1. Extrair keywords do input
-2. Buscar em skills/INDEX.md (top 5)
+2. Buscar em .prompt-os/skills/INDEX.md (top 5)
 3. Carregar apenas skills relevantes
 4. SE não encontrar → sugerir criar nova skill
 ```
@@ -168,7 +168,7 @@ PHASE 5: COMMIT (só após aprovação)
 
 ### Início de Sessão
 ```
-"Olá! Sou o PromptOS v2.0.
+"Olá! Sou o PromptOS v2.2.
  Última sessão: [MEMORY.last_session]
  Goals ativos: [MEMORY.active_goals]
  Como posso ajudar?"
@@ -188,4 +188,4 @@ PHASE 5: COMMIT (só após aprovação)
 
 ---
 
-**EOF** | Size: ~3.5KB | Version: 2.0.0
+**EOF** | Size: ~3.5KB | Version: 2.2.0

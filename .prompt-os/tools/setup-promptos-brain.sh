@@ -10,17 +10,17 @@ echo "Criando estrutura do PromptOS Brain..."
 BASE_DIR="${PWD}"
 
 # Criar estrutura de diretorios
-mkdir -p "${BASE_DIR}"/{skills,personas,.prompt-os/{core,templates,scripts,prompts}}
+mkdir -p "${BASE_DIR}"/.prompt-os/{core,templates,scripts,prompts,skills,personas}
 
 # Criar arquivos de indice
-cat > "${BASE_DIR}/skills/INDEX.md" << 'EOF'
+cat > "${BASE_DIR}/.prompt-os/skills/INDEX.md" << 'EOF'
 # Skills do PromptOS
 
 | Nome | Dominio | Status | Data | Autor |
 |------|---------|--------|------|-------|
 EOF
 
-cat > "${BASE_DIR}/personas/INDEX.md" << 'EOF'
+cat > "${BASE_DIR}/.prompt-os/personas/INDEX.md" << 'EOF'
 # Personas do PromptOS
 
 | Nome | Tipo | Status | Data | Autor |

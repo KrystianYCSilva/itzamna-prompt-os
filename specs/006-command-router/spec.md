@@ -5,6 +5,14 @@
 **Status**: Draft  
 **Input**: User description: "Command Router & Chat Grammar"
 
+## Clarifications
+
+### Session 2026-02-04
+- Q: What happens when a command is embedded in a longer paragraph of text? → A: Strict: Commands must be the very first text in the message (e.g., `^#command`). Ignores embedded commands.
+- Q: How does the system handle conflicting flags? → A: Last flag wins strategy (e.g. `--dry-run --force` -> force applies if they conflict).
+- Q: What happens if `--ia {agent}` references a missing agent? → A: Interactive: List available agents and ask user to choose.
+- Q: How are special characters and spaces handled in arguments? → A: Standard Shell Style: Use quotes for arguments with spaces; preserve chars inside quotes.
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -62,23 +70,24 @@ As a user, I want to receive clear help messages and usage examples when I use f
 
 ### Edge Cases
 
-- What happens when a command is embedded in a longer paragraph of text? (System should likely ignore or require it to be at the start/standalone).
-- How does the system handle conflicting flags (e.g., `--dry-run` and `--force` if they existed)?
-- What happens if the referenced agent in `--ia {agent}` does not exist?
-- Handling of special characters in arguments.
+- **Resolved**: Commands embedded in text are IGNORED. Only commands at the very start of the message are executed.
+- **Resolved**: Conflicting flags use "Last flag wins" strategy.
+- **Resolved**: Missing agent target triggers interactive selection from available agents.
+- **Resolved**: Arguments with spaces must be quoted (Standard Shell Style).
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: System MUST parse commands starting with a defined prefix (e.g., `#`).
+- **FR-001**: System MUST parse commands starting with a defined prefix (e.g., `#`) ONLY when they appear at the very beginning of the user message.
 - **FR-002**: System MUST support a grammar of `command [subcommand] [args...] [--flags]`.
 - **FR-003**: System MUST support the following core commands: `#init`, `#add`, `#sync`, `#update`, `#impl`, `#docs`.
-- **FR-004**: System MUST support standard flags including `--here` (current context), `--ia` (target agent), and `--help`.
+- **FR-004**: System MUST support standard flags including `--here` (current context), `--ia` (target agent), and `--help`. In case of logical conflict, the last flag provided MUST take precedence.
 - **FR-005**: System MUST route parsed commands to specific defined workflows (e.g., `#init` -> Bootstrap Workflow).
 - **FR-006**: System MUST provide standardized error messages for unknown commands or invalid syntax.
 - **FR-007**: System MUST provide usage documentation when requested via `--help`.
 - **FR-008**: System MUST be capable of parsing commands consistently across different AI model contexts (Claude, Gemini, etc.).
+- **FR-010**: System MUST support standard shell quoting (single/double quotes) to handle arguments containing spaces or special characters.
 
 ### Key Entities *(include if feature involves data)*
 

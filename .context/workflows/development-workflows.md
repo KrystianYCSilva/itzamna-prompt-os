@@ -1,9 +1,9 @@
 # Development Workflows - T1 (Normative)
 
 > **Tier**: T1 - Normativo. Siga estes fluxos de trabalho para manter consistência no desenvolvimento.
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 
-## Fluxos PromptOS v2.1.0
+## Fluxos PromptOS v2.2.0
 
 ### 1. Workflow de Inicialização (Bootstrap)
 
@@ -109,8 +109,8 @@ PHASE 4: SELF-CRITIQUE (SELF-CRITIQUE.md)
     │
     ▼
 PHASE 6: COMMIT (se aprovado)
-    - Salvar: skills/{categoria}/{nome}/SKILL.md
-    - Atualizar: skills/INDEX.md
+    - Salvar: .prompt-os/skills/{categoria}/{nome}/SKILL.md
+    - Atualizar: .prompt-os/skills/INDEX.md
     - Registrar em MEMORY.md
 ```
 
@@ -131,7 +131,7 @@ Pedido: "Crie uma persona de [especialidade]"
     │
     ▼
 3. COMBINAR SKILLS
-   - Selecionar skills do INDEX.md
+   - Selecionar skills do .prompt-os/skills/INDEX.md
    - Definir prioridades
     │
     ▼
@@ -144,8 +144,8 @@ Pedido: "Crie uma persona de [especialidade]"
     │
     ▼
 6. COMMIT (se aprovado)
-   - Salvar: personas/{nome}/PERSONA.md
-   - Atualizar: personas/INDEX.md
+   - Salvar: .prompt-os/personas/{nome}/PERSONA.md
+   - Atualizar: .prompt-os/personas/INDEX.md
 ```
 
 ### 5. Protocol Development Workflow
@@ -380,4 +380,4 @@ SE esforço estimado > 5 dias OU funcionalidade crítica:
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Development Workflows | T1 Normative | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Development Workflows | T1 Normative | 2026-02-03*

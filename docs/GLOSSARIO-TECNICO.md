@@ -738,7 +738,7 @@ technology/
 ### 13.3 Formato de Skill (Correto)
 
 ```
-/skills/
+.prompt-os/skills/
 ├── {skill-name}/
 │   └── SKILL.md          # Arquivo principal da skill
 ├── docker/
@@ -750,8 +750,8 @@ technology/
 ```
 
 **Exemplo de path:**
-- ✅ Correto: `/skills/docker/SKILL.md`
-- ❌ Errado: `/skills/technology/cloud/docker.md`
+- ✅ Correto: `.prompt-os/skills/docker/SKILL.md`
+- ❌ Errado: `.prompt-os/skills/technology/cloud/docker.md`
 
 ---
 

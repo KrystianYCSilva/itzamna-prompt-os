@@ -171,7 +171,7 @@ Antes de commitar, verifique:
 
 **Files a atualizar:**
 1. `.prompt-os/skills/INDEX.md` - Adicionar entry na categoria `frameworks`
-2. `skills/INDEX.md` (se existir) - Mirror do primeiro
+2. `skills/INDEX.md` (legado, se existir) - Mirror do primeiro
 
 **Step 1:** Ler INDEX, encontrar seção `### Frameworks`
 
@@ -308,4 +308,4 @@ Antes de commitar mudanças em INDEX.md:
 
 ---
 
-**EOF** | Version: 2.1.0 | INDEX Maintenance Guide
+**EOF** | Version: 2.2.0 | INDEX Maintenance Guide

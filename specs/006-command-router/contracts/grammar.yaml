@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Command Router Grammar
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    Command:
+      type: object
+      properties:
+        command:
+          type: string
+          enum: [init, add, sync, update, impl, docs]
+        subcommand:
+          type: string
+        arguments:
+          type: array
+          items:
+            type: string
+        flags:
+          type: object
+          properties:
+            here:
+              type: boolean
+            ia:
+              type: string
+            help:
+              type: boolean
+            dry-run:
+              type: boolean

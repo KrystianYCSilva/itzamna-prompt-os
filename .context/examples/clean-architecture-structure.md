@@ -1,7 +1,7 @@
 # PromptOS Structure Examples - T3 (Illustrative)
 
-> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.1.0.
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Tier**: T3 - Ilustrativo. Exemplos de como estruturar componentes no PromptOS v2.2.0.
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 
 ## Estrutura do Sistema PromptOS
 
@@ -29,23 +29,15 @@ itzamna-prompt-os/
 │   │   ├── SKILL.template.md
 │   │   └── PERSONA.template.md
 │   │
+│   ├── skills/                      # Biblioteca de Skills (13 skills)
+│   │   ├── INDEX.md                 # Índice navegável
+│   │   └── linguagens/              # Java, Kotlin, C/C++, JavaScript, Python, Go
+│   │
+│   ├── personas/                    # Biblioteca de Personas (0 criadas)
+│   │   └── INDEX.md
+│   │
 │   └── tools/                       # CLIs opcionais (para humanos)
 │       └── brain.js                 # Helper interativo
-│
-├── skills/                          # Biblioteca de Skills (17 skills)
-│   ├── INDEX.md                     # Índice navegável
-│   ├── frontend/                    # HTML, CSS
-│   ├── backend/                     # API, TypeScript, GraphQL
-│   ├── config/                      # YAML, JSON, Properties
-│   ├── markup/                      # XML, XSLT, Markdown
-│   ├── devops/                      # Docker, Git
-│   ├── docs/                        # Technical Writing
-│   └── testing/                     # Test skills
-│
-├── personas/                        # Biblioteca de Personas
-│   ├── INDEX.md
-│   └── senior-fullstack-developer/
-│       └── PERSONA.md
 │
 ├── .context/                        # Contexto para AI Agents
 │   ├── README.md                    # Hub de navegação
@@ -68,7 +60,7 @@ itzamna-prompt-os/
 ### Estrutura de uma Skill
 
 ```
-skills/devops/docker/
+.prompt-os/skills/devops/docker/
 └── SKILL.md
 ```
 
@@ -148,7 +140,7 @@ CMD ["node", "dist/main.js"]
 ### Estrutura de uma Persona
 
 ```
-personas/senior-fullstack-developer/
+.prompt-os/personas/senior-fullstack-developer/
 └── PERSONA.md
 ```
 
@@ -270,17 +262,17 @@ Decision: [prosseguir/melhorar]
 ### Arquivos
 | Tipo | Padrão | Exemplo |
 |------|--------|---------|
-| Skills | `SKILL.md` | `skills/devops/docker/SKILL.md` |
-| Personas | `PERSONA.md` | `personas/qa-engineer/PERSONA.md` |
+| Skills | `SKILL.md` | `.prompt-os/skills/devops/docker/SKILL.md` |
+| Personas | `PERSONA.md` | `.prompt-os/personas/qa-engineer/PERSONA.md` |
 | Protocolos | `[NOME].md` | `.prompt-os/core/SELF-CRITIQUE.md` |
-| Índices | `INDEX.md` | `skills/INDEX.md` |
+| Índices | `INDEX.md` | `.prompt-os/skills/INDEX.md` |
 
 ### Diretórios
 | Tipo | Padrão | Exemplo |
 |------|--------|---------|
-| Skills | `kebab-case` | `skills/backend/api-design/` |
-| Personas | `kebab-case` | `personas/senior-fullstack-developer/` |
-| Categorias | lowercase | `skills/frontend/`, `skills/backend/` |
+| Skills | `kebab-case` | `.prompt-os/skills/backend/api-design/` |
+| Personas | `kebab-case` | `.prompt-os/personas/senior-fullstack-developer/` |
+| Categorias | lowercase | `.prompt-os/skills/frontend/`, `.prompt-os/skills/backend/` |
 
 ### Commits
 ```
@@ -292,4 +284,4 @@ refactor(personas): simplify fullstack developer
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Examples | T3 Illustrative | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Examples | T3 Illustrative | 2026-02-03*

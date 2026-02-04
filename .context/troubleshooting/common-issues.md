@@ -1,7 +1,7 @@
 # Common Issues & Troubleshooting - T2 (Context)
 
 > **Tier**: T2 - Informativo. Problemas comuns e soluções para o desenvolvimento com Itzamna PromptOS.
-> **Versão:** 2.1.0 | **Arquitetura:** Prompt-Based
+> **Versão:** 2.2.0 | **Arquitetura:** Prompt-Based
 
 ## Problemas de Bootstrap
 
@@ -62,8 +62,8 @@
 
 **Solução**:
 ```
-1. Verificar skills/INDEX.md
-2. Buscar por categoria em skills/{categoria}/
+1. Verificar .prompt-os/skills/INDEX.md
+2. Buscar por categoria em .prompt-os/skills/{categoria}/
 3. Se não existir, criar nova skill (workflow)
 ```
 
@@ -228,7 +228,7 @@
 2. Reforçar: "Regras ARCH-XXX são T0 ABSOLUTO"
 ```
 
-## Problemas de Integração de Protocolos (v2.1.0)
+## Problemas de Integração de Protocolos (v2.2.0)
 
 ### 18. Protocolos Não Integrados
 **Sintoma**: Protocolos não se referenciam mutuamente como esperado.
@@ -267,7 +267,7 @@
 □ Human Gate está funcionando?
 □ Self-Critique está sendo executado?
 □ MEMORY.md está sendo atualizado?
-□ Protocolos estão integrados (v2.1.0)?
+□ Protocolos estão integrados (v2.2.0)?
 ```
 
 ### Comandos de Reset
@@ -293,7 +293,7 @@ Para "resetar" o AI para estado correto:
 1. Sempre mostrar preview antes de persistir
 2. Executar Self-Critique antes do Human Gate
 3. Atualizar MEMORY.md após cada ação significativa
-4. Verificar integração entre protocolos (v2.1.0)
+4. Verificar integração entre protocolos (v2.2.0)
 
 ### Ao Encontrar Problemas
 1. Identificar qual protocolo/regra foi violado
@@ -303,4 +303,4 @@ Para "resetar" o AI para estado correto:
 
 ---
 
-*Itzamna PromptOS v2.1.0 | Troubleshooting | T2 Context | 2026-02-03*
+*Itzamna PromptOS v2.2.0 | Troubleshooting | T2 Context | 2026-02-03*

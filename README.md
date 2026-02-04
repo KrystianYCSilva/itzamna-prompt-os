@@ -44,10 +44,10 @@ ANY AI AGENT (Claude, Gemini, Cursor, Copilot, Qwen, etc.)
          |
          v
     Follows structured instructions:
-    ├── CONSTITUTION.md   (inviolable rules)
-    ├── core/*.md         (behavioral protocols)
-    ├── skills/*.md       (domain knowledge)
-    └── personas/*.md     (specialized behaviors)
+    ├── CONSTITUTION.md        (inviolable rules)
+    ├── core/*.md              (behavioral protocols)
+    ├── .prompt-os/skills/*.md (domain knowledge)
+    └── .prompt-os/personas/*.md (specialized behaviors)
          |
          v
     BEHAVES according to the instructions
@@ -69,7 +69,7 @@ ANY AI AGENT (Claude, Gemini, Cursor, Copilot, Qwen, etc.)
 |------------|---------------|----------|
 | Brain | CPU | LLM (any model) |
 | Working Memory | RAM | Context Window |
-| Long-term Memory | Disk/SSD | MEMORY.md + skills/ |
+| Long-term Memory | Disk/SSD | MEMORY.md + .prompt-os/skills/ |
 | Nervous System | I/O Bus | Prompt protocols |
 
 ---

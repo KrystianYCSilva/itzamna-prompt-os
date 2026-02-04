@@ -277,7 +277,7 @@ These tools remain as **optional helpers** for human operators:
 2. Create a SPEC in `specs/` if it's a major feature
 3. Create the protocol as a Markdown file
 4. Update `PROMPTOS.md` to reference the new protocol
-5. Update `IMPLEMENTATION-STATUS.md`
+5. Update `COMPLETION-STATUS.md`
 6. Test with multiple AI agents
 
 ### For Users

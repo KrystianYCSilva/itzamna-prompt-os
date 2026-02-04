@@ -27,3 +27,6 @@
 - Validated .context and root references; updated dates and spec status links
 - Updated agent and root docs to reflect current skills/personas structure
 - Validated .prompt-os indices and updated specs/COMPLETION-STATUS.md
+- Fixed remaining path references in README, docs/ARCHITECTURE.md, docs/MONITORING-GUIDE.md, docs/TIER-SYSTEM.md, docs/GLOSSARIO-TECNICO.md, and ROADMAP.md
+- Aligned .context paths and versions (architectural overview, workflows, troubleshooting, examples)
+- Updated tooling/templates paths for skills/personas (.prompt-os/system.yaml, jit-loader.js, setup-promptos-brain.sh, AGENTS.template)

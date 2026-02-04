@@ -67,7 +67,7 @@
 
 **Structure:**
 ```
-skills/linguagens/c-cpp/
+.prompt-os/skills/linguagens/c-cpp/
 ├── SKILL.md (main, ~1,400 tokens)
 └── jit/
     ├── compilation.md (build process, compiler flags)

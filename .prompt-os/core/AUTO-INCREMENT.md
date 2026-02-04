@@ -344,7 +344,7 @@ DEPOIS de interacao:
 Usuario: "Me ajuda a configurar Kafka?"
 
 Agente (voce):
-1. Busca em skills/INDEX.md: NAO ENCONTRADO
+1. Busca em .prompt-os/skills/INDEX.md: NAO ENCONTRADO
 2. Busca em MEMORY.md gaps: kafka apareceu 1x antes
 3. Detecta: Este e o 2o pedido sobre Kafka
 

@@ -191,12 +191,12 @@ Count artifacts in each band:
 ### Generating Self-Critique Report
 
 **Step 1:** Collect data using methods above  
-**Step 2:** Open template `docs/monitoring/self-critique-metrics.md`  
+**Step 2:** Open template `.prompt-os/templates/monitoring/self-critique-metrics.md`  
 **Step 3:** Fill in the template with your data  
 **Step 4:** Analyze trends and identify weak areas  
 **Step 5:** Create action plan based on findings
 
-**Template Location:** [`docs/monitoring/self-critique-metrics.md`](./monitoring/self-critique-metrics.md)
+**Template Location:** [`.prompt-os/templates/monitoring/self-critique-metrics.md`](../.prompt-os/templates/monitoring/self-critique-metrics.md)
 
 ---
 
@@ -260,7 +260,7 @@ Resolution Rate = (Gaps with status="created" / Total gaps) × 100
 
 **Generating Gap Detection Report:**
 
-1. Open template: `docs/monitoring/gap-detection-report.md`
+1. Open template: `.prompt-os/templates/monitoring/gap-detection-report.md`
 2. Fill in period dates
 3. Check all agent memory files analyzed
 4. Extract and aggregate gap data
@@ -269,7 +269,7 @@ Resolution Rate = (Gaps with status="created" / Total gaps) × 100
 7. Add cross-agent insights
 8. Create recommendations for high-frequency gaps
 
-**Template Location:** [`docs/monitoring/gap-detection-report.md`](./monitoring/gap-detection-report.md)
+**Template Location:** [`.prompt-os/templates/monitoring/gap-detection-report.md`](../.prompt-os/templates/monitoring/gap-detection-report.md)
 
 ### 4.2. Rejection Learning Metrics
 
@@ -332,7 +332,7 @@ echo "Exemplos: ${percentage}%"
 
 **Generating Rejection Analysis Report:**
 
-1. Open template: `docs/monitoring/rejection-analysis-report.md`
+1. Open template: `.prompt-os/templates/monitoring/rejection-analysis-report.md`
 2. Fill in period dates
 3. Extract and aggregate rejection data
 4. Calculate category percentages
@@ -340,7 +340,7 @@ echo "Exemplos: ${percentage}%"
 6. Fill in pattern analysis section
 7. Create recommendations for detected patterns
 
-**Template Location:** [`docs/monitoring/rejection-analysis-report.md`](./monitoring/rejection-analysis-report.md)
+**Template Location:** [`.prompt-os/templates/monitoring/rejection-analysis-report.md`](../.prompt-os/templates/monitoring/rejection-analysis-report.md)
 
 ### 4.3. Proactive Suggestions Metrics
 
@@ -420,7 +420,7 @@ Based on aggregated data, prioritize:
 
 **Generating Evolution Report:**
 
-1. Open template: `docs/monitoring/evolution-report-template.md`
+1. Open template: `.prompt-os/templates/monitoring/evolution-report-template.md`
 2. Fill in period dates (e.g., Q1 2026)
 3. Aggregate data from ALL `memory/*-memory.md` files
 4. Fill in all 6 sections:
@@ -433,7 +433,7 @@ Based on aggregated data, prioritize:
 5. Compare with previous period (if available)
 6. Create prioritized action plan
 
-**Template Location:** [`docs/monitoring/evolution-report-template.md`](./monitoring/evolution-report-template.md)
+**Template Location:** [`.prompt-os/templates/monitoring/evolution-report-template.md`](../.prompt-os/templates/monitoring/evolution-report-template.md)
 
 **Reference Example:** [`specs/002-auto-increment/validation-us4.md`](../specs/002-auto-increment/validation-us4.md) (complete validation report with real data)
 
@@ -445,7 +445,7 @@ Based on aggregated data, prioritize:
 
 **Weekly Gap Report (15 mins):**
 
-1. Open `docs/monitoring/gap-detection-report.md`
+1. Open `.prompt-os/templates/monitoring/gap-detection-report.md`
 2. Extract gaps from agent memories: `grep "^| [0-9]" memory/*-memory.md`
 3. Count occurrences: `awk -F'|' '{print $4}' | sort | uniq -c | sort -rn`
 4. Fill in Top 10 table
@@ -454,7 +454,7 @@ Based on aggregated data, prioritize:
 
 **Bi-Weekly Rejection Analysis (20 mins):**
 
-1. Open `docs/monitoring/rejection-analysis-report.md`
+1. Open `.prompt-os/templates/monitoring/rejection-analysis-report.md`
 2. Count total rejections: `grep -c "^| [0-9]" memory/*-memory.md`
 3. Count by category: `grep "| [category] |" memory/*-memory.md | wc -l`
 4. Calculate percentages (see commands in template)
@@ -464,7 +464,7 @@ Based on aggregated data, prioritize:
 
 **Monthly Self-Critique Metrics (30 mins):**
 
-1. Open `docs/monitoring/self-critique-metrics.md`
+1. Open `.prompt-os/templates/monitoring/self-critique-metrics.md`
 2. Gather scores from your tracking log or git history
 3. Calculate averages (overall and per dimension)
 4. Count artifacts per score band
@@ -474,7 +474,7 @@ Based on aggregated data, prioritize:
 
 **Quarterly Evolution Report (1-2 hours):**
 
-1. Open `docs/monitoring/evolution-report-template.md`
+1. Open `.prompt-os/templates/monitoring/evolution-report-template.md`
 2. Aggregate gap data from all agents
 3. Aggregate rejection data from all agents
 4. Review skills added this quarter (check `MEMORY.md`)
@@ -904,10 +904,10 @@ grep "| pending" memory/*-memory.md
 
 | Template | Use Case | Frequency | Estimated Time |
 |----------|----------|-----------|----------------|
-| [`gap-detection-report.md`](./monitoring/gap-detection-report.md) | Track missing skills | Weekly | 15 mins |
-| [`rejection-analysis-report.md`](./monitoring/rejection-analysis-report.md) | Identify quality patterns | Bi-weekly | 20 mins |
-| [`self-critique-metrics.md`](./monitoring/self-critique-metrics.md) | Measure artifact quality | Monthly | 30 mins |
-| [`evolution-report-template.md`](./monitoring/evolution-report-template.md) | Comprehensive system health | Quarterly | 1-2 hours |
+| [`gap-detection-report.md`](../.prompt-os/templates/monitoring/gap-detection-report.md) | Track missing skills | Weekly | 15 mins |
+| [`rejection-analysis-report.md`](../.prompt-os/templates/monitoring/rejection-analysis-report.md) | Identify quality patterns | Bi-weekly | 20 mins |
+| [`self-critique-metrics.md`](../.prompt-os/templates/monitoring/self-critique-metrics.md) | Measure artifact quality | Monthly | 30 mins |
+| [`evolution-report-template.md`](../.prompt-os/templates/monitoring/evolution-report-template.md) | Comprehensive system health | Quarterly | 1-2 hours |
 
 ---
 

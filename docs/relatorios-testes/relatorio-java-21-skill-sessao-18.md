@@ -28,7 +28,7 @@ Criacao da **Skill Java 21 (LTS)** em `.prompt-os/skills/linguagens/java/java-21
 
 - Skill principal: `java-21/SKILL.md`
 - Referencia cruzada: `java/SKILL.md`
-- Indices: `.prompt-os/skills/INDEX.md` e `skills/INDEX.md`
+- Indice: `.prompt-os/skills/INDEX.md`
 - Registro de sessao: `MEMORY.md`
 
 ---
@@ -90,7 +90,6 @@ FASE 6: COMMIT
 ### 4.2 Indices atualizados
 
 - `.prompt-os/skills/INDEX.md`
-- `skills/INDEX.md`
 
 **Nota operacional:**
 Durante a insercao, houve um escape incorreto de linha na secao de linguagens. A correcao foi feita reescrevendo a secao inteira com conteudo limpo.
@@ -108,7 +107,7 @@ Durante a insercao, houve um escape incorreto de linha na secao de linguagens. A
 ### Pontos de atencao
 
 1. **Risco de corrupcao de indices** ao usar substituicoes regex diretas
-2. **Fonte de verdade duplicada** (dois indices com contagens divergentes)
+2. **Fonte de verdade duplicada** (indices divergentes em estruturas antigas)
 
 ---
 

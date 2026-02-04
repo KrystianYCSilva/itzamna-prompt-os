@@ -29,6 +29,8 @@
 
 | Data       | Tipo     | Nome                                                                 | Status                   |
 |------------|----------|----------------------------------------------------------------------|--------------------------|
+| 2026-02-04 | docs     | Ajustes de paths em .context e tooling (skills/personas)             | ✅ complete              |
+| 2026-02-04 | docs     | Correcao de referencias (paths + monitoring + roadmap + glossario)   | ✅ complete              |
 | 2026-02-04 | docs     | Documentacao consolidada + arquivos arquivados                        | ✅ complete              |
 | 2026-02-03 | fix      | /speckit.analyze remediation — 11 findings, all resolved            | ✅ complete              |
 | 2026-02-03 | validation | SC-001 20-query walk-through (100% hit-rate, 2 gaps detected)      | ✅ PASS                  |
@@ -92,6 +94,9 @@
 - .context e arquivos do root alinhados com status atual (datas + links)
 - CLAUDE/GEMINI/QWEN/ITZAMNA-AGENT/README alinhados com estrutura atual de skills/personas
 - .prompt-os indices validados e COMPLETION-STATUS.md atualizado
+- correcao de referencias remanescentes (README, ARCHITECTURE, MONITORING-GUIDE, TIER-SYSTEM, ROADMAP, GLOSSARIO)
+- alinhamento de paths em .context (architectural overview, workflows, troubleshooting, examples)
+- ajuste de tooling/templates (.prompt-os/system.yaml, jit-loader.js, setup-promptos-brain.sh, AGENTS.template)
 
 ### Sessao 27 (2026-02-03) - Agent & Docs Sync + SPEC-004 Completion Summary 📋
 

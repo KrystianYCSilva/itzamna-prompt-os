@@ -1,7 +1,7 @@
 # Tier System - Documentacao
 
 > **Versao:** 1.0.0  
-> **Modulo:** `.prompt-os/scripts/tier-system.js`  
+> **Modulo:** `.prompt-os/tools/tier-system.js`  
 > **Integracao:** brain.js v1.5.0+
 
 ---
@@ -110,13 +110,13 @@ O Tier System implementa um sistema de validacao em 3 niveis para garantir quali
 ### Validar arquivo
 
 ```bash
-node .prompt-os/scripts/tier-system.js skills/backend/graphql-api/SKILL.md
+node .prompt-os/tools/tier-system.js .prompt-os/skills/backend/graphql-api/SKILL.md
 ```
 
 ### Validar via brain.js
 
 ```bash
-node .prompt-os/scripts/brain.js validate skills/backend/graphql-api/SKILL.md
+node .prompt-os/tools/brain.js validate .prompt-os/skills/backend/graphql-api/SKILL.md
 ```
 
 ### Output exemplo
@@ -149,7 +149,7 @@ RECOMENDACOES (T1 issues):
 ## Uso Programatico
 
 ```javascript
-const tierSystem = require('./.prompt-os/scripts/tier-system');
+const tierSystem = require('./.prompt-os/tools/tier-system');
 
 // Validar conteudo
 const content = fs.readFileSync('SKILL.md', 'utf8');
