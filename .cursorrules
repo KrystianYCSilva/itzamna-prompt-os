@@ -96,6 +96,18 @@
 
 ---
 
+## Active Technologies
+
+- Markdown (prompt instructions) (004-vector-db-rag)
+
+---
+
+## Recent Changes
+
+- 004-vector-db-rag: SPEC-004 — similarity scoring, redundancy gate, RAG workflow, relationship map
+
+---
+
 ## JIT Context
 
 Carregue apenas o necessario de `.context/`:
