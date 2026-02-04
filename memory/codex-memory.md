@@ -22,4 +22,5 @@
 - Relocated monitoring templates to .prompt-os/templates/monitoring
 - Updated references in .context and key docs
 - Updated MEMORY.md with session summary
- - Updated docs and archive indices/README for current layout
+- Updated docs and archive indices/README for current layout
+- Updated docs/ and docs/_archive indices after moving items out of archive

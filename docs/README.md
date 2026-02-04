@@ -9,6 +9,11 @@
 | Section | Purpose | Content |
 |---------|---------|---------|
 | **[Architecture](ARCHITECTURE.md)** | System Overview | High-level architecture, components, data flow |
+| **[Glossary](GLOSSARIO-TECNICO.md)** | Reference | Technical terminology |
+| **[Monitoring](MONITORING-GUIDE.md)** | Operations | Monitoring and reporting guidance |
+| **[Tier System](TIER-SYSTEM.md)** | Governance | Tier rules and enforcement |
+| **[Templates](templates/)** | RFCs & Guides | Structural and migration references |
+| **[Test Reports](relatorios-testes/)** | Historical | Session/test reports kept for reference |
 | **[Blueprints](blueprints/)** | Future Proposals | Experimental ideas (DSPy, MCP, etc.) |
 | **[Archive](_archive/)** | Legacy Content | v1.x and historical references |
 

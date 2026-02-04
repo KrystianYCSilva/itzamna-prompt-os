@@ -277,7 +277,7 @@ def handle_info(base_path: Path) -> int:
     doc_files = [
         "ARCHITECTURE.md",
         "IMPLEMENTATION-GUIDE.md",
-        "GLOSSARIO-TECNICO-PROMPTOS.md",
+        "GLOSSARIO-TECNICO.md",
     ]
     for file_name in doc_files:
         file_path = base_path / "docs" / file_name

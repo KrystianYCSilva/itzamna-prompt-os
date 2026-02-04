@@ -88,6 +88,7 @@
 - referencias atualizadas (.context + templates + ITZAMNA-AGENT)
 - memory/codex-memory.md criado
 - docs/README.md, docs/INDEX.md e docs/_archive indices atualizados
+- docs/README.md e docs/INDEX.md ajustados apos mover itens para fora do archive
 
 ### Sessao 27 (2026-02-03) - Agent & Docs Sync + SPEC-004 Completion Summary 📋
 
