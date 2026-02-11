@@ -102,6 +102,15 @@ Total: 14 core files, 1,354 lines (95% reduction from v2)
 - **Lines**: ~15,000 (v2) → 1,354 (v3) — 91% reduction
 - **Token budget to start**: ~12K+ (v2) → ~562 (v3) — 95% reduction
 
+## Contributing & Governance
+
+- See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to contribute
+- See [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) for community behavior expectations
+- See [CONSTITUTION.md](./CONSTITUTION.md) for T0 governance rules
+- Licensed under MIT - see [LICENSE](./LICENSE)
+
+---
+
 ## License
 
 MIT

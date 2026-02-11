@@ -10,11 +10,11 @@ description: |
 
 | Camada | Tecnologia | Versao |
 |--------|------------|--------|
-| Linguagem | *(ex: Java 21)* | |
-| Framework | *(ex: Spring Boot 3.x)* | |
-| Database | *(ex: PostgreSQL 16)* | |
-| Build | *(ex: Gradle 8.x)* | |
-| Testes | *(ex: JUnit 5 + Mockito)* | |
+| Linguagem | Python | >=3.11 |
+| Framework | None detected | - |
+| Database | Not detected | - |
+| Build | hatchling (PEP 517) | - |
+| Testes | pytest (not specified) | - |
 
 ## Arquitetura
 
