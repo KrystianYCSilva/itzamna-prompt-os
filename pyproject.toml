@@ -32,3 +32,16 @@ itzamna = "itzamna_cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/itzamna_cli"]
+
+[tool.hatch.build.targets.wheel.shared-data]
+"templates" = "share/itzamna_cli/templates"
+"core" = "share/itzamna_cli/core"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/templates",
+    "/core",
+    "/README.md",
+    "/pyproject.toml",
+]

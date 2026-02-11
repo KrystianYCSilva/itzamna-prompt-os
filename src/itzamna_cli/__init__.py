@@ -79,24 +79,64 @@ CORE_DIR = Path(__file__).parent.parent.parent / "core"
 
 def get_templates_dir() -> Path:
     """Resolve templates directory (works installed or from source)."""
-    # Try relative to source first
+    # Try relative to source first (development)
     src_templates = Path(__file__).parent.parent.parent / "templates"
     if src_templates.exists():
         return src_templates
-    # Fallback: installed package data
-    import importlib.resources as pkg_resources
 
-    return Path(str(pkg_resources.files("itzamna_cli"))) / "templates"
+    # Try installed location (wheel shared-data)
+    import sys
+
+    if sys.prefix:
+        # Standard wheel installation puts shared-data in share/
+        wheel_templates = Path(sys.prefix) / "share" / "itzamna_cli" / "templates"
+        if wheel_templates.exists():
+            return wheel_templates
+
+    # Fallback: try package resources
+    try:
+        import importlib.resources as pkg_resources
+
+        pkg_path = Path(str(pkg_resources.files("itzamna_cli")))
+        if (pkg_path / "templates").exists():
+            return pkg_path / "templates"
+    except Exception:
+        pass
+
+    # Last resort: raise error with helpful message
+    raise FileNotFoundError(
+        "Could not find templates directory. "
+        "Please ensure itzamna-cli is properly installed or run from source."
+    )
 
 
 def get_core_dir() -> Path:
     """Resolve core directory."""
+    # Try relative to source first (development)
     src_core = Path(__file__).parent.parent.parent / "core"
     if src_core.exists():
         return src_core
-    import importlib.resources as pkg_resources
 
-    return Path(str(pkg_resources.files("itzamna_cli"))) / "core"
+    # Try installed location (wheel shared-data)
+    import sys
+
+    if sys.prefix:
+        wheel_core = Path(sys.prefix) / "share" / "itzamna_cli" / "core"
+        if wheel_core.exists():
+            return wheel_core
+
+    # Fallback: try package resources
+    try:
+        import importlib.resources as pkg_resources
+
+        pkg_path = Path(str(pkg_resources.files("itzamna_cli")))
+        if (pkg_path / "core").exists():
+            return pkg_path / "core"
+    except Exception:
+        pass
+
+    # Core is optional, return a dummy path
+    return Path("/nonexistent/core")
 
 
 def detect_binary(name: str) -> str | None:
