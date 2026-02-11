@@ -26,12 +26,21 @@ console = Console()
 # ── Agent Configuration ──────────────────────────────────────────────────────
 
 AGENT_CONFIG: dict[str, dict] = {
+    "copilot": {
+        "name": "GitHub Copilot",
+        "folder": ".github",
+        "agent_file": "copilot-instructions.md",
+        "commands_dir": "agents",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
+    },
     "claude": {
         "name": "Claude Code",
         "folder": ".claude",
         "agent_file": "CLAUDE.md",
         "commands_dir": "commands",
         "format": "md",
+        "requires_cli": True,
     },
     "gemini": {
         "name": "Gemini CLI",
@@ -39,6 +48,31 @@ AGENT_CONFIG: dict[str, dict] = {
         "agent_file": "GEMINI.md",
         "commands_dir": "commands",
         "format": "md",
+        "requires_cli": True,
+    },
+    "cursor-agent": {
+        "name": "Cursor",
+        "folder": ".cursor",
+        "agent_file": ".cursorrules",
+        "commands_dir": "commands",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
+    },
+    "qwen": {
+        "name": "Qwen Code",
+        "folder": ".qwen",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "commands",
+        "format": "md",
+        "requires_cli": True,
+    },
+    "opencode": {
+        "name": "opencode",
+        "folder": ".opencode",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "command",
+        "format": "md",
+        "requires_cli": True,
     },
     "codex": {
         "name": "Codex CLI",
@@ -46,27 +80,87 @@ AGENT_CONFIG: dict[str, dict] = {
         "agent_file": "AGENTS.md",
         "commands_dir": "prompts",
         "format": "md",
+        "requires_cli": True,
     },
-    "cursor": {
-        "name": "Cursor",
-        "folder": ".cursor",
-        "agent_file": ".cursorrules",
+    "windsurf": {
+        "name": "Windsurf",
+        "folder": ".windsurf",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "workflows",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
+    },
+    "kilocode": {
+        "name": "Kilo Code",
+        "folder": ".kilocode",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "rules",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
+    },
+    "auggie": {
+        "name": "Auggie CLI",
+        "folder": ".augment",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "rules",
+        "format": "md",
+        "requires_cli": True,
+    },
+    "codebuddy": {
+        "name": "CodeBuddy",
+        "folder": ".codebuddy",
+        "agent_file": "AGENTS.md",
         "commands_dir": "commands",
         "format": "md",
+        "requires_cli": True,
     },
-    "opencode": {
-        "name": "OpenCode",
-        "folder": ".opencode",
-        "agent_file": "AGENTS.md",
-        "commands_dir": "command",
-        "format": "md",
-    },
-    "qwen": {
-        "name": "Qwen",
-        "folder": ".qwen",
+    "qoder": {
+        "name": "Qoder CLI",
+        "folder": ".qoder",
         "agent_file": "AGENTS.md",
         "commands_dir": "commands",
         "format": "md",
+        "requires_cli": True,
+    },
+    "roo": {
+        "name": "Roo Code",
+        "folder": ".roo",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "rules",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
+    },
+    "q": {
+        "name": "Amazon Q Developer CLI",
+        "folder": ".amazonq",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "prompts",
+        "format": "md",
+        "requires_cli": True,
+    },
+    "amp": {
+        "name": "Amp",
+        "folder": ".agents",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "commands",
+        "format": "md",
+        "requires_cli": True,
+    },
+    "shai": {
+        "name": "SHAI",
+        "folder": ".shai",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "commands",
+        "format": "md",
+        "requires_cli": True,
+    },
+    "bob": {
+        "name": "IBM Bob",
+        "folder": ".bob",
+        "agent_file": "AGENTS.md",
+        "commands_dir": "commands",
+        "format": "md",
+        "requires_cli": False,  # IDE-based
     },
 }
 
@@ -153,14 +247,31 @@ def detect_agents(target: Path) -> dict[str, dict]:
     """Detect installed AI CLIs by binary and directory presence."""
     results = {}
     for cli_id, config in AGENT_CONFIG.items():
-        has_binary = detect_binary(cli_id) is not None
+        # Special handling for Copilot - check for copilot-instructions.md or agents dir
+        if cli_id == "copilot":
+            copilot_instructions = target / ".github" / "copilot-instructions.md"
+            agents_dir = target / ".github" / "agents"
+            if copilot_instructions.exists() or agents_dir.exists():
+                results[cli_id] = {**config, "status": "IDE-based"}
+            continue
+
+        # For non-Copilot CLIs, check binary and directory
+        has_binary = (
+            detect_binary(cli_id) is not None
+            if config.get("requires_cli", True)
+            else False
+        )
         has_dir = detect_dir(target, config["folder"])
 
         if has_binary or has_dir:
             status = (
                 "PATH + dir"
                 if (has_binary and has_dir)
-                else ("PATH only" if has_binary else "dir only")
+                else (
+                    "PATH only"
+                    if has_binary
+                    else ("dir only" if has_dir else "IDE-based")
+                )
             )
             results[cli_id] = {**config, "status": status}
 

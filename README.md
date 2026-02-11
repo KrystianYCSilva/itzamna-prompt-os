@@ -14,7 +14,7 @@ Cognitive orchestrator for AI coding agents. Teaches CLIs to use context, memory
 - **Memory**: Forces agents to read/update MEMORY.md (CoALA 4-layer memory)
 - **Context**: `.context/` directory support (lean 3-file + enterprise 10+ file structures)
 - **Routing**: Delegates to Hefesto (skills) and spec-kit (specs) when detected
-- **Cross-CLI**: Works with Claude, Gemini, Codex, Cursor, OpenCode, Qwen
+- **Cross-CLI**: Supports 17 AI CLIs (GitHub Copilot, Claude Code, Gemini, Cursor, Qwen, opencode, Codex, Windsurf, Kilo Code, Auggie, CodeBuddy, Qoder, Roo Code, Amazon Q, Amp, SHAI, IBM Bob)
 
 ## Install
 
@@ -93,7 +93,7 @@ Total: 14 core files, 1,354 lines (95% reduction from v2)
 - **CoALA-inspired Memory**: 4-layer memory architecture (Working, Project Context, Episodic, Semantic)
 - **Context Engineering**: `.context/` directory with lean (3 files) or enterprise (10+ files) structures
 - **Semantic Routing**: YAML frontmatter in all .md files for JIT loading
-- **Cross-CLI Detection**: Auto-detects 6 AI CLIs + installs to all simultaneously
+- **Cross-CLI Detection**: Auto-detects 17 AI CLIs + installs to all simultaneously
 - **Token Economy**: Agent reads 1 file (~562 tokens) to start vs ~12K+ in v2
 
 ## Stats
